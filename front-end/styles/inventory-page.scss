@@ -1,0 +1,315 @@
+@use 'global';
+@use 'header';
+@use 'navigation';
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+$background-color: #FFFFFF;
+
+@mixin displayFlex($flexDirection: row) {
+    display: flex;
+    flex-direction: $flexDirection;
+}
+
+@mixin flexProperties($justifyContent: flex-start, $alignItems: flex-start) {
+    justify-content: $justifyContent;
+    align-items: $alignItems;
+}
+
+@mixin popUpPointerPosition($top, $left, $degrees) {
+    content: '';
+    position: absolute;
+    top: $top;
+    left: $left;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 0 10px 10px 10px;
+    border-color: transparent transparent #FFFFFF transparent;
+    transform: rotate($degrees);
+}
+
+@mixin popUpButton($backgroundColor, $textColor) {
+    @include displayFlex();
+    @include flexProperties(center, center);
+    width: 57px;
+    height: 22px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    background-color: $backgroundColor;
+    text-decoration: none;
+    font-size: 14px;
+    color: $textColor;
+}
+
+//// Body and main container styles ////
+
+body {
+    height: 100vh;
+    background-color: #F0F2F3;
+    font-family: 'Roboto', sans-serif;
+    overflow: hidden;
+}
+
+#main-container {
+    @include displayFlex();
+    height: calc(100vh - 110px);
+    gap: 30px;
+    padding: 30px 20px;
+}
+
+main {
+    background-color: $background-color;
+    width: 80%;
+    border-radius: 20px;
+    padding: 23px 18px 39px 18px;
+
+    .search-add-container {
+        @include displayFlex();
+        @include flexProperties(flex-end, flex-end);
+        gap: 15px;
+
+        .search {
+            @include displayFlex();
+            @include flexProperties(center, center);
+            gap: 10px;
+            border-bottom: 1px solid #000000;
+
+            #search-btn {
+                background: none;
+                cursor: pointer;
+
+                svg {
+                    height: 11px;
+                    width: 11px;
+                }
+            }
+        }
+
+        form {
+            display: flex;
+            height: 20px;
+
+            input {
+                font-size: 14px;
+                width: 60%;
+                outline: none;
+            }
+        }
+
+        #add-btn {
+            font-size: 14px;
+            line-height: 24px;
+            padding: 5px 24px;
+            background-color: #2E7D32;
+            border-radius: 4px;
+            box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
+            font-family: 'Roboto', sans-serif;
+            color: #FFFFFF;
+            cursor: pointer;
+            width: 150px;
+        }
+    }
+
+    #table-wrapper {
+        overflow-x: auto;
+        white-space: nowrap;
+        margin-top: 39px;
+        border: 1px solid #B3B3B3;
+        border-radius: 4px;
+    }
+
+    table {
+        width: 100%;
+        table-layout: fixed;
+
+        th {
+            font-size: 16px;
+            table-layout: fixed;
+        }
+
+        tr {
+            border-bottom: 1px solid #B3B3B3;
+        }
+
+        td {
+            width: 300px;
+            font-size: 14px;
+            table-layout: fixed;
+            width: 20px;
+            overflow: hidden;
+            word-wrap: break-word;
+        }
+
+        th,
+        td {
+            padding: 20px;
+            text-align: left;
+        }
+
+        .table-actions {
+            @include displayFlex();
+            gap: 20px;
+
+            button {
+                width: 12px;
+                height: 12px;
+                background: none;
+                cursor: pointer;
+            }
+        }
+    }
+
+    #pagination {
+        border-left: 1px solid #B3B3B3;
+        border-right: 1px solid #B3B3B3;
+        border-bottom: 1px solid #B3B3B3;
+        height: 57px;
+    }
+}
+
+//// Modal styles ////
+
+#description-modal {
+    position: relative;
+    width: 35%;
+    height: 80%;
+    background-color: $background-color;
+    border-radius: 20px;
+    overflow: hidden;
+
+    h1{
+        font-size: 24px;
+        font-weight: 700;
+    }
+
+    .modal-content{
+        padding: 55px 50px;
+    }
+
+    // Modal item image styles
+
+    img {
+        width: 100%;
+        height: 50%;
+    }
+
+    // Modal item description styles
+
+    .item-description {
+        @include displayFlex(column);
+        padding: 20px;
+        gap: 20px;
+
+        .top {
+            @include displayFlex();
+            @include flexProperties(space-between);
+        }
+
+        // Modal item title and category styles
+
+        .title-category {
+            @include displayFlex(column);
+            gap: 10px;
+            width: 70%;
+
+            .title {
+                font-size: 0.7rem;
+                font-weight: 700;
+            }
+
+            .category {
+                font-size: 0.5rem;
+                color: #9A9A9A;
+            }
+        }
+
+        // Modal item price and quantity styles
+
+        .price-quantity {
+            @include displayFlex(column);
+            gap: 10px;
+
+            .price {
+                font-size: 0.7rem;
+                font-weight: 700;
+            }
+
+            .quantity {
+                font-size: 0.5rem;
+                color: #9A9A9A;
+            }
+        }
+    }
+
+    // Modal close button styles
+
+    .close-btn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 26px;
+        background: none;
+    }
+
+    .close-btn:hover {
+        cursor: pointer;
+    }
+}
+
+//// Modal overlay styles ////
+
+.overlay {
+    @include flexProperties(center, center);
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0.5);
+}
+
+@media (max-width: 768px) {
+    header {
+        svg:last-of-type {
+            display: block;
+        }
+    }
+
+    nav {
+        border-radius: 0;
+    }
+
+    aside {
+        position: fixed;
+        left: -100%;
+        top: 50px;
+        min-width: 100%;
+        z-index: 1;
+        transition: 0.3s;
+    }
+
+    aside.active {
+        left: 0;
+    }
+
+    main {
+        width: 100%;
+    }
+
+    table {
+        overflow-x: scroll;
+    }
+
+    #table-wrapper {
+        overflow-x: scroll;
+    }
+}
+
+@media (max-width: 1366px) {
+    aside {
+        width: 30%;
+    }
+}

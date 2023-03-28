@@ -1,0 +1,101 @@
+$background-color: #FFFFFF;
+
+@mixin displayFlex($flexDirection: row) {
+    display: flex;
+    flex-direction: $flexDirection;
+}
+
+@mixin flexProperties($justifyContent: flex-start, $alignItems: flex-start) {
+    justify-content: $justifyContent;
+    align-items: $alignItems;
+}
+
+@mixin popUpPointerPosition($top, $left, $degrees) {
+    content: '';
+    position: absolute;
+    top: $top;
+    left: $left;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 0 10px 10px 10px;
+    border-color: transparent transparent #FFFFFF transparent;
+    transform: rotate($degrees);
+}
+
+@mixin popUpButton($backgroundColor, $textColor) {
+    @include displayFlex();
+    @include flexProperties(center, center);
+    width: 57px;
+    height: 22px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    background-color: $backgroundColor;
+    text-decoration: none;
+    font-size: 14px;
+    color: $textColor;
+}
+
+aside {
+    height: 100%;
+    width: 20%;
+    background-color: $background-color;
+    border-radius: 20px;
+}
+
+nav {
+    height: 100%;
+    padding: 39px 18px;
+    box-sizing: border-box;
+
+    ul {
+        @include displayFlex(column);
+        gap: 10px;
+        list-style-type: none;
+        height: 100%;
+    }
+
+    li {
+        border-radius: 10px;
+
+        a {
+            display: block;
+            text-decoration: none;
+            color: #000000;
+            padding: 15px 17px;
+            border-radius: 10px;
+            font-size: 0.5rem;
+        }
+
+        svg {
+            margin-right: 5px;
+        }
+
+        .active {
+            background-color: #ED1C25;
+            color: #FFFFFF;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+
+            svg path {
+                fill: #FFFFFF;
+            }
+        }
+    }
+
+    li:last-of-type {
+        margin-top: auto;
+    }
+
+    li:hover {
+        background-color: #ED1C25;
+        cursor: pointer;
+
+        a {
+            color: #FFFFFF;
+        }
+
+        svg path {
+            fill: #FFFFFF;
+        }
+    }
+}
