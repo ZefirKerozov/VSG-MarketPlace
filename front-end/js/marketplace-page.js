@@ -22,6 +22,15 @@ window.addEventListener('resize', () => {
     }
 });
 
+window.addEventListener('load', () => {
+    const userInfo = document.getElementById('user-info');
+    if (screen.width <= 768) {
+        asideNav.prepend(userInfo);
+    } else {
+        document.getElementsByTagName('header')[0].appendChild(userInfo);
+    }
+});
+
 function openHamburgerMenu(e) {
     if (asideNav.classList.contains('active')) {
         asideNav.classList.remove('active');

@@ -4,6 +4,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
 $background-color: #FFFFFF;
 
@@ -65,10 +66,14 @@ main {
     border-radius: 20px;
     padding: 23px 18px 39px 18px;
 
+    // Search and add item styles
+
     .search-add-container {
         @include displayFlex();
         @include flexProperties(flex-end, flex-end);
         gap: 15px;
+
+        // Search styles
 
         .search {
             @include displayFlex();
@@ -98,6 +103,8 @@ main {
             }
         }
 
+        // Add item button styles
+
         #add-btn {
             font-size: 14px;
             line-height: 24px;
@@ -111,6 +118,8 @@ main {
             width: 150px;
         }
     }
+
+    // Items table styles
 
     #table-wrapper {
         overflow-x: auto;
@@ -171,81 +180,191 @@ main {
 
 //// Modal styles ////
 
-#description-modal {
+#add-modal,
+#modify-modal {
     position: relative;
-    width: 35%;
-    height: 80%;
+    width: 550px;
+    height: 600px;
+    padding: 55px 20px 55px 50px;
     background-color: $background-color;
     border-radius: 20px;
     overflow: hidden;
+    font-family: 'Inter', sans-serif;
 
-    h1{
-        font-size: 24px;
+    h1 {
+        font-size: 0.8rem;
         font-weight: 700;
     }
 
-    .modal-content{
-        padding: 55px 50px;
-    }
+    // Modal form styles
 
-    // Modal item image styles
-
-    img {
-        width: 100%;
-        height: 50%;
-    }
-
-    // Modal item description styles
-
-    .item-description {
+    form {
         @include displayFlex(column);
-        padding: 20px;
-        gap: 20px;
+        gap: 50px;
+        padding-top: 50px;
 
-        .top {
+        .first-row {
             @include displayFlex();
-            @include flexProperties(space-between);
+            gap: 20px;
+
+            // Form first column styles
+
+            .first-column {
+                @include displayFlex(column);
+                gap: 35px;
+                width: 50%;
+
+                .input-div {
+                    position: relative;
+
+                    input:focus~.floating-label,
+                    input:not(:focus):valid~.floating-label {
+                        top: -5px;
+                        bottom: 10px;
+                        font-size: 0.5rem;
+                        opacity: 1;
+                    }
+
+                    span {
+                        font-size: 0.5rem;
+                    }
+
+                    input {
+                        font-size: 0.5rem;
+                        width: 100%;
+                        height: 30px;
+                    }
+
+                    .floating-label {
+                        position: absolute;
+                        pointer-events: none;
+                        left: 0px;
+                        top: 15px;
+                        transition: 0.2s ease all;
+                    }
+                }
+
+                input {
+                    width: 100%;
+                    height: 30px;
+                    font-size: 0.5rem;
+                    border-bottom: 1px solid #9A9A9A;
+                    outline: none;
+
+                    #initial-option:checked {
+                        color: #2E7D32;
+                    }
+                }
+
+                textarea {
+                    font-family: 'Inter', sans-serif;
+                    font-size: 0.5rem;
+                    border-bottom: 1px solid #9A9A9A;
+                    outline: none;
+                    resize: none;
+                }
+
+                select {
+                    width: 100%;
+                    height: 30px;
+                    font-size: 0.5rem;
+                    border-bottom: 1px solid #9A9A9A;
+                    outline: none;
+                    color: #757575;
+
+                    option {
+                        color: #000000;
+                    }
+                }
+
+                input[type=number]::-webkit-inner-spin-button,
+                input[type=number]::-webkit-outer-spin-button {
+                    opacity: 1;
+                    background: none
+                }
+            }
+
+            // Form second column styles
+
+            .second-column {
+                @include displayFlex(column);
+                @include flexProperties(center, center);
+                gap: 20px;
+                width: 50%;
+
+                // Modal image preview styles
+
+                img {
+                    width: 260px;
+                    height: 150px;
+                }
+
+                // Upload and remove button styles
+
+                .upload-remove-btn {
+                    @include displayFlex(column);
+                    gap: 20px;
+
+                    .hidden-upload-input {
+                        display: none;
+                    }
+
+                    label {
+                        width: 120px;
+                        text-align: center;
+                        font-size: 0.6rem;
+                        font-weight: 700;
+                        padding: 6px 0;
+                        color: #FFFFFF;
+                        background-color: #ED6C02;
+                        border-radius: 4px;
+                    }
+
+                    label:hover {
+                        cursor: pointer;
+                    }
+
+                    button {
+                        width: 120px;
+                        font-size: 0.6rem;
+                        font-weight: 700;
+                        padding: 6px 0;
+                        color: #FFFFFF;
+                        background-color: #ED1C25;
+                        border-radius: 4px;
+                    }
+
+                    button:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
         }
 
-        // Modal item title and category styles
+        // Form submit (add item) button styles
 
-        .title-category {
-            @include displayFlex(column);
-            gap: 10px;
-            width: 70%;
+        .second-row {
+            @include displayFlex();
+            @include flexProperties(center, center);
 
-            .title {
-                font-size: 0.7rem;
+            input {
+                font-size: 0.6rem;
                 font-weight: 700;
+                padding: 7px 57px;
+                color: #FFFFFF;
+                background-color: #2E7D32;
+                border-radius: 4px;
             }
 
-            .category {
-                font-size: 0.5rem;
-                color: #9A9A9A;
-            }
-        }
-
-        // Modal item price and quantity styles
-
-        .price-quantity {
-            @include displayFlex(column);
-            gap: 10px;
-
-            .price {
-                font-size: 0.7rem;
-                font-weight: 700;
-            }
-
-            .quantity {
-                font-size: 0.5rem;
-                color: #9A9A9A;
+            input:hover {
+                cursor: pointer;
             }
         }
     }
 
     // Modal close button styles
 
-    .close-btn {
+    .add-item-close-btn, .modify-item-close-btn {
         position: absolute;
         top: 0;
         right: 0;
@@ -253,17 +372,17 @@ main {
         background: none;
     }
 
-    .close-btn:hover {
+    .add-item-close-btn:hover, .modify-item-close-btn:hover {
         cursor: pointer;
     }
 }
 
 //// Modal overlay styles ////
 
-.overlay {
+.add-modal-overlay, .modify-modal-overlay {
     @include flexProperties(center, center);
     position: fixed;
-    display: flex;
+    display: none;
     top: 0;
     left: 0;
     width: 100%;
@@ -278,8 +397,21 @@ main {
         }
     }
 
+    #user-info {
+        @include displayFlex(row-reverse);
+        @include flexProperties(flex-start, center);
+        position: absolute;
+        gap: 10px;
+        font-size: 0.5rem;
+        top: 20px;
+        left: 70px;
+        transform: translate(-50%, 0);
+    }
+
     nav {
         border-radius: 0;
+        padding-top: 70px;
+        padding-bottom: 70px;
     }
 
     aside {
@@ -305,6 +437,32 @@ main {
 
     #table-wrapper {
         overflow-x: scroll;
+    }
+
+    #add-modal,
+    #modify-modal {
+        width: calc(100vw - 80px);
+        height: calc(100vh - 80px);
+        padding: 20px;
+
+        form {
+            padding-top: 20px;
+
+            .first-row {
+                @include displayFlex(column);
+                @include flexProperties(center, center);
+
+                .first-column {
+                    gap: 25px
+                }
+
+                .second-column {
+                    .upload-remove-btn {
+                        @include displayFlex(row);
+                    }
+                }
+            }
+        }
     }
 }
 

@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -210,80 +211,206 @@ main #pagination {
   height: 57px;
 }
 
-#description-modal {
+#add-modal,
+#modify-modal {
   position: relative;
-  width: 35%;
-  height: 80%;
+  width: 550px;
+  height: 600px;
+  padding: 55px 20px 55px 50px;
   background-color: #FFFFFF;
   border-radius: 20px;
   overflow: hidden;
+  font-family: "Inter", sans-serif;
 }
-#description-modal h1 {
-  font-size: 24px;
+#add-modal h1,
+#modify-modal h1 {
+  font-size: 0.8rem;
   font-weight: 700;
 }
-#description-modal .modal-content {
-  padding: 55px 50px;
-}
-#description-modal img {
-  width: 100%;
-  height: 50%;
-}
-#description-modal .item-description {
+#add-modal form,
+#modify-modal form {
   display: flex;
   flex-direction: column;
-  padding: 20px;
-  gap: 20px;
+  gap: 50px;
+  padding-top: 50px;
 }
-#description-modal .item-description .top {
+#add-modal form .first-row,
+#modify-modal form .first-row {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
+  gap: 20px;
 }
-#description-modal .item-description .title-category {
+#add-modal form .first-row .first-column,
+#modify-modal form .first-row .first-column {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  width: 70%;
+  gap: 35px;
+  width: 50%;
 }
-#description-modal .item-description .title-category .title {
-  font-size: 0.7rem;
-  font-weight: 700;
+#add-modal form .first-row .first-column .input-div,
+#modify-modal form .first-row .first-column .input-div {
+  position: relative;
 }
-#description-modal .item-description .title-category .category {
+#add-modal form .first-row .first-column .input-div input:focus ~ .floating-label,
+#add-modal form .first-row .first-column .input-div input:not(:focus):valid ~ .floating-label,
+#modify-modal form .first-row .first-column .input-div input:focus ~ .floating-label,
+#modify-modal form .first-row .first-column .input-div input:not(:focus):valid ~ .floating-label {
+  top: -5px;
+  bottom: 10px;
   font-size: 0.5rem;
-  color: #9A9A9A;
+  opacity: 1;
 }
-#description-modal .item-description .price-quantity {
+#add-modal form .first-row .first-column .input-div span,
+#modify-modal form .first-row .first-column .input-div span {
+  font-size: 0.5rem;
+}
+#add-modal form .first-row .first-column .input-div input,
+#modify-modal form .first-row .first-column .input-div input {
+  font-size: 0.5rem;
+  width: 100%;
+  height: 30px;
+}
+#add-modal form .first-row .first-column .input-div .floating-label,
+#modify-modal form .first-row .first-column .input-div .floating-label {
+  position: absolute;
+  pointer-events: none;
+  left: 0px;
+  top: 15px;
+  transition: 0.2s ease all;
+}
+#add-modal form .first-row .first-column input,
+#modify-modal form .first-row .first-column input {
+  width: 100%;
+  height: 30px;
+  font-size: 0.5rem;
+  border-bottom: 1px solid #9A9A9A;
+  outline: none;
+}
+#add-modal form .first-row .first-column input #initial-option:checked,
+#modify-modal form .first-row .first-column input #initial-option:checked {
+  color: #2E7D32;
+}
+#add-modal form .first-row .first-column textarea,
+#modify-modal form .first-row .first-column textarea {
+  font-family: "Inter", sans-serif;
+  font-size: 0.5rem;
+  border-bottom: 1px solid #9A9A9A;
+  outline: none;
+  resize: none;
+}
+#add-modal form .first-row .first-column select,
+#modify-modal form .first-row .first-column select {
+  width: 100%;
+  height: 30px;
+  font-size: 0.5rem;
+  border-bottom: 1px solid #9A9A9A;
+  outline: none;
+  color: #757575;
+}
+#add-modal form .first-row .first-column select option,
+#modify-modal form .first-row .first-column select option {
+  color: #000000;
+}
+#add-modal form .first-row .first-column input[type=number]::-webkit-inner-spin-button,
+#add-modal form .first-row .first-column input[type=number]::-webkit-outer-spin-button,
+#modify-modal form .first-row .first-column input[type=number]::-webkit-inner-spin-button,
+#modify-modal form .first-row .first-column input[type=number]::-webkit-outer-spin-button {
+  opacity: 1;
+  background: none;
+}
+#add-modal form .first-row .second-column,
+#modify-modal form .first-row .second-column {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 50%;
 }
-#description-modal .item-description .price-quantity .price {
-  font-size: 0.7rem;
+#add-modal form .first-row .second-column img,
+#modify-modal form .first-row .second-column img {
+  width: 260px;
+  height: 150px;
+}
+#add-modal form .first-row .second-column .upload-remove-btn,
+#modify-modal form .first-row .second-column .upload-remove-btn {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+#add-modal form .first-row .second-column .upload-remove-btn .hidden-upload-input,
+#modify-modal form .first-row .second-column .upload-remove-btn .hidden-upload-input {
+  display: none;
+}
+#add-modal form .first-row .second-column .upload-remove-btn label,
+#modify-modal form .first-row .second-column .upload-remove-btn label {
+  width: 120px;
+  text-align: center;
+  font-size: 0.6rem;
   font-weight: 700;
+  padding: 6px 0;
+  color: #FFFFFF;
+  background-color: #ED6C02;
+  border-radius: 4px;
 }
-#description-modal .item-description .price-quantity .quantity {
-  font-size: 0.5rem;
-  color: #9A9A9A;
+#add-modal form .first-row .second-column .upload-remove-btn label:hover,
+#modify-modal form .first-row .second-column .upload-remove-btn label:hover {
+  cursor: pointer;
 }
-#description-modal .close-btn {
+#add-modal form .first-row .second-column .upload-remove-btn button,
+#modify-modal form .first-row .second-column .upload-remove-btn button {
+  width: 120px;
+  font-size: 0.6rem;
+  font-weight: 700;
+  padding: 6px 0;
+  color: #FFFFFF;
+  background-color: #ED1C25;
+  border-radius: 4px;
+}
+#add-modal form .first-row .second-column .upload-remove-btn button:hover,
+#modify-modal form .first-row .second-column .upload-remove-btn button:hover {
+  cursor: pointer;
+}
+#add-modal form .second-row,
+#modify-modal form .second-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+#add-modal form .second-row input,
+#modify-modal form .second-row input {
+  font-size: 0.6rem;
+  font-weight: 700;
+  padding: 7px 57px;
+  color: #FFFFFF;
+  background-color: #2E7D32;
+  border-radius: 4px;
+}
+#add-modal form .second-row input:hover,
+#modify-modal form .second-row input:hover {
+  cursor: pointer;
+}
+#add-modal .add-item-close-btn, #add-modal .modify-item-close-btn,
+#modify-modal .add-item-close-btn,
+#modify-modal .modify-item-close-btn {
   position: absolute;
   top: 0;
   right: 0;
   margin: 26px;
   background: none;
 }
-#description-modal .close-btn:hover {
+#add-modal .add-item-close-btn:hover, #add-modal .modify-item-close-btn:hover,
+#modify-modal .add-item-close-btn:hover,
+#modify-modal .modify-item-close-btn:hover {
   cursor: pointer;
 }
 
-.overlay {
+.add-modal-overlay, .modify-modal-overlay {
   justify-content: center;
   align-items: center;
   position: fixed;
-  display: flex;
+  display: none;
   top: 0;
   left: 0;
   width: 100%;
@@ -295,8 +422,22 @@ main #pagination {
   header svg:last-of-type {
     display: block;
   }
+  #user-info {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    align-items: center;
+    position: absolute;
+    gap: 10px;
+    font-size: 0.5rem;
+    top: 20px;
+    left: 70px;
+    transform: translate(-50%, 0);
+  }
   nav {
     border-radius: 0;
+    padding-top: 70px;
+    padding-bottom: 70px;
   }
   aside {
     position: fixed;
@@ -317,6 +458,32 @@ main #pagination {
   }
   #table-wrapper {
     overflow-x: scroll;
+  }
+  #add-modal,
+  #modify-modal {
+    width: calc(100vw - 80px);
+    height: calc(100vh - 80px);
+    padding: 20px;
+  }
+  #add-modal form,
+  #modify-modal form {
+    padding-top: 20px;
+  }
+  #add-modal form .first-row,
+  #modify-modal form .first-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #add-modal form .first-row .first-column,
+  #modify-modal form .first-row .first-column {
+    gap: 25px;
+  }
+  #add-modal form .first-row .second-column .upload-remove-btn,
+  #modify-modal form .first-row .second-column .upload-remove-btn {
+    display: flex;
+    flex-direction: row;
   }
 }
 @media (max-width: 1366px) {
