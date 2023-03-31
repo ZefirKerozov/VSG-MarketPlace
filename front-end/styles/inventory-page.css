@@ -117,6 +117,7 @@ main {
   width: 80%;
   border-radius: 20px;
   padding: 23px 18px 39px 18px;
+  position: relative;
 }
 main .search-add-container {
   display: flex;
@@ -181,11 +182,11 @@ main table tr {
   border-bottom: 1px solid #B3B3B3;
 }
 main table td {
+  position: relative;
   width: 300px;
   font-size: 14px;
   table-layout: fixed;
   width: 20px;
-  overflow: hidden;
   word-wrap: break-word;
 }
 main table th,
@@ -199,10 +200,14 @@ main table .table-actions {
   gap: 20px;
 }
 main table .table-actions button {
+  position: relative;
   width: 12px;
   height: 12px;
   background: none;
   cursor: pointer;
+}
+main table .table-actions button > svg {
+  pointer-events: none;
 }
 main #pagination {
   border-left: 1px solid #B3B3B3;
@@ -213,6 +218,7 @@ main #pagination {
 
 #add-modal,
 #modify-modal {
+  display: none;
   position: relative;
   width: 550px;
   height: 600px;
@@ -391,22 +397,20 @@ main #pagination {
 #modify-modal form .second-row input:hover {
   cursor: pointer;
 }
-#add-modal .add-item-close-btn, #add-modal .modify-item-close-btn,
-#modify-modal .add-item-close-btn,
-#modify-modal .modify-item-close-btn {
+#add-modal .close-btn,
+#modify-modal .close-btn {
   position: absolute;
   top: 0;
   right: 0;
   margin: 26px;
   background: none;
 }
-#add-modal .add-item-close-btn:hover, #add-modal .modify-item-close-btn:hover,
-#modify-modal .add-item-close-btn:hover,
-#modify-modal .modify-item-close-btn:hover {
+#add-modal .close-btn:hover,
+#modify-modal .close-btn:hover {
   cursor: pointer;
 }
 
-.add-modal-overlay, .modify-modal-overlay {
+.overlay {
   justify-content: center;
   align-items: center;
   position: fixed;
@@ -416,6 +420,115 @@ main #pagination {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+#pop-up {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: absolute;
+  visibility: hidden;
+  z-index: 1;
+  width: 300px;
+  height: 80px;
+  background-color: #FFFFFF;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  padding: 16px;
+  font-size: 0.5rem;
+}
+#pop-up p {
+  display: inline;
+  text-align: center;
+  width: 100%;
+}
+#pop-up .pop-up-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 20px;
+}
+#pop-up .pop-up-buttons #confirm-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 57px;
+  height: 22px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  background-color: #ED1C25;
+  text-decoration: none;
+  font-size: 14px;
+  color: #FFFFFF;
+}
+#pop-up .pop-up-buttons #cancel-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 57px;
+  height: 22px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  text-decoration: none;
+  font-size: 14px;
+  color: #ED1C25;
+}
+
+.top-middle-pointer::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 155px;
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 0 10px 10px 10px;
+  border-color: transparent transparent #FFFFFF transparent;
+  transform: rotate(0deg);
+}
+
+.top-right-pointer::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 280px;
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 0 10px 10px 10px;
+  border-color: transparent transparent #FFFFFF transparent;
+  transform: rotate(0deg);
+}
+
+.bottom-middle-pointer::before {
+  content: "";
+  position: absolute;
+  top: 112px;
+  left: 155px;
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 0 10px 10px 10px;
+  border-color: transparent transparent #FFFFFF transparent;
+  transform: rotate(180deg);
+}
+
+.bottom-right-pointer::before {
+  content: "";
+  position: absolute;
+  top: 112px;
+  left: 280px;
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 0 10px 10px 10px;
+  border-color: transparent transparent #FFFFFF transparent;
+  transform: rotate(180deg);
 }
 
 @media (max-width: 768px) {

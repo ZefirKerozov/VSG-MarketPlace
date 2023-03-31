@@ -65,6 +65,7 @@ main {
     width: 80%;
     border-radius: 20px;
     padding: 23px 18px 39px 18px;
+    position: relative;
 
     // Search and add item styles
 
@@ -143,11 +144,11 @@ main {
         }
 
         td {
+            position: relative;
             width: 300px;
             font-size: 14px;
             table-layout: fixed;
             width: 20px;
-            overflow: hidden;
             word-wrap: break-word;
         }
 
@@ -162,10 +163,15 @@ main {
             gap: 20px;
 
             button {
+                position: relative;
                 width: 12px;
                 height: 12px;
                 background: none;
                 cursor: pointer;
+            }
+
+            button>svg {
+                pointer-events: none;
             }
         }
     }
@@ -182,6 +188,7 @@ main {
 
 #add-modal,
 #modify-modal {
+    display: none;
     position: relative;
     width: 550px;
     height: 600px;
@@ -364,7 +371,7 @@ main {
 
     // Modal close button styles
 
-    .add-item-close-btn, .modify-item-close-btn {
+    .close-btn {
         position: absolute;
         top: 0;
         right: 0;
@@ -372,14 +379,14 @@ main {
         background: none;
     }
 
-    .add-item-close-btn:hover, .modify-item-close-btn:hover {
+    .close-btn:hover {
         cursor: pointer;
     }
 }
 
 //// Modal overlay styles ////
 
-.add-modal-overlay, .modify-modal-overlay {
+.overlay {
     @include flexProperties(center, center);
     position: fixed;
     display: none;
@@ -388,6 +395,63 @@ main {
     width: 100%;
     height: 100%;
     background-color: rgb(0, 0, 0, 0.5);
+}
+
+//// Pop up styles ////
+
+#pop-up {
+    @include displayFlex(column);
+    @include flexProperties(space-between, flex-end);
+    position: absolute;
+    visibility: hidden;
+    z-index: 1;
+    width: 300px;
+    height: 80px;
+    background-color: $background-color;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    padding: 16px;
+    font-size: 0.5rem;
+
+    p {
+        display: inline;
+        text-align: center;
+        width: 100%
+    }
+
+    // Pop up buttons styles
+
+    .pop-up-buttons {
+        @include displayFlex();
+        @include flexProperties(flex-end);
+        gap: 20px;
+
+        #confirm-btn {
+            @include popUpButton(#ED1C25, #FFFFFF);
+        }
+
+        #cancel-btn {
+            @include popUpButton(#FFFFFF, #ED1C25);
+        }
+    }
+}
+
+//// Pop up pointer (arrow) styles ////
+
+.top-middle-pointer::before {
+    @include popUpPointerPosition(-10px, 155px, 0deg);
+}
+
+.top-right-pointer::before {
+    @include popUpPointerPosition(-10px, 280px, 0deg);
+}
+
+.bottom-middle-pointer::before {
+    @include popUpPointerPosition(112px, 155px, 180deg);
+}
+
+.bottom-right-pointer::before {
+    @include popUpPointerPosition(112px, 280px, 180deg);
 }
 
 @media (max-width: 768px) {

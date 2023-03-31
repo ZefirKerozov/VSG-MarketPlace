@@ -243,7 +243,8 @@ main .items::-webkit-scrollbar {
 }
 #pop-up p {
   display: inline;
-  text-align: left;
+  text-align: center;
+  width: 100%;
 }
 #pop-up .pop-up-buttons {
   display: flex;

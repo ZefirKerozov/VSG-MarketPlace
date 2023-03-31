@@ -69,7 +69,6 @@ function onItemImageClick(e) {
 function showPopup(e) {
     const prevPopUp = document.getElementById('pop-up');
     if (prevPopUp !== null) {
-        console.log(prevPopUp);
         prevPopUp.remove();
     }
 
@@ -85,8 +84,6 @@ function showPopup(e) {
     const position = e.target.getBoundingClientRect();
 
     const itemCard = e.target;
-
-    console.log(itemCard);
 
     itemCard.appendChild(divPopUp);
 

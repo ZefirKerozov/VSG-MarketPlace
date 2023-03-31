@@ -36,39 +36,57 @@ window.addEventListener('load', () => {
     }
 });
 
-////////// ADD MODAL //////////
+////////// ADD ITEM AND MODIFY ITEM MODALS //////////
 
-// Open add item modal when add item button is clicked
+const overlay = document.getElementsByClassName('overlay')[0];
+const addModal = document.getElementById('add-modal');
+const modifyModal = document.getElementById('modify-modal');
 
-const addItemBtn = document.getElementById('add-btn');
+// Close modal when the overlay is clicked
 
-addItemBtn.addEventListener('click', onAddItem);
+overlay.addEventListener('click', onOverlayClick);
 
-function onAddItem(e) {
-    addModalOverlay.style.display = 'flex';
-}
-
-// Add item modal close functionality
-
-const addModalOverlay = document.getElementsByClassName('add-modal-overlay')[0];
-addModalOverlay.addEventListener('click', onAddModalOverlayClick);
-
-const addModalCloseBtn = document.getElementsByClassName('add-item-close-btn')[0];
-console.log(addModalCloseBtn);
-addModalCloseBtn.addEventListener('click', onAddModalCloseBtnClick);
-
-function onAddModalOverlayClick(e) {
-    if (e.target.matches('.add-modal-overlay')) {
-        addModalOverlay.style.display = 'none';
+function onOverlayClick(e) {
+    if (e.target.matches('.overlay')) {
+        overlay.style.display = 'none';
     }
 }
 
-function onAddModalCloseBtnClick(e) {
-    console.log('ok');
-    addModalOverlay.style.display = 'none';
+// Open add item modal if add item button is clicked
+
+const addItemBtn = document.getElementById('add-btn');
+
+addItemBtn.addEventListener('click', onAddItemBtnClick);
+
+function onAddItemBtnClick(e) {
+    overlay.style.display = 'flex';
+    modifyModal.style.display = 'none';
+    addModal.style.display = 'block';
 }
 
-// Add item modal category select placeholder
+// Open modify modal if modify button is clicked
+
+const modifyBtns = Array.from(document.querySelectorAll('.modify-btn'));
+
+modifyBtns.forEach(x => x.addEventListener('click', onModifyBtnClick));
+
+function onModifyBtnClick(e) {
+    overlay.style.display = 'flex';
+    addModal.style.display = 'none';
+    modifyModal.style.display = 'block';
+}
+
+// Close modal if close button is clicked
+
+const modalCloseBtns = Array.from(document.querySelectorAll('.close-btn'));
+
+modalCloseBtns.forEach(x => x.addEventListener('click', onModalCloseBtnClick));
+
+function onModalCloseBtnClick(e) {
+    overlay.style.display = 'none';
+}
+
+// Add item modal category select placeholder color change
 
 const addItemCategorySelect = document.getElementById('add-item-select');
 
@@ -82,65 +100,120 @@ function onSelectChange(e) {
 
 // Upload and remove uploaded image in add item modal
 
-const imageInput = document.getElementById('add-item-files');
-console.log(imageInput);
+const addModalImageInput = document.getElementById('add-item-files');
 
-imageInput.addEventListener('change', onImageUpload);
+addModalImageInput.addEventListener('change', onAddModalImageUpload);
 
-function onImageUpload(e) {
+function onAddModalImageUpload(e) {
     const imageSrc = URL.createObjectURL(this.files[0]);
-    console.log(document.getElementById('add-item-image'));
     document.getElementById('add-item-image').src = imageSrc;
 }
 
-const removeBtn = document.getElementById('add-item-remove-upload-btn');
+const addItemRemoveImageBtn = document.getElementById('add-item-remove-upload-btn');
 
-removeBtn.addEventListener('click', onRemoveImage);
+addItemRemoveImageBtn.addEventListener('click', onAddItemRemoveImage);
 
-function onRemoveImage(e) {
-    imageInput.value = "";
+function onAddItemRemoveImage(e) {
+    addModalImageInput.value = "";
     document.getElementById('add-item-image').src = '/front-end/images/no_image-placeholder.png';
 }
 
-////////// MODIFY MODAL //////////
+// Upload and remove uploaded image in modify item modal
 
-// Open modify modal when modify button is clicked
+const modifyModalImageInput = document.getElementById('modify-item-files');
 
-const modifyBtns = document.querySelectorAll('.modify-btn');
+modifyModalImageInput.addEventListener('change', onModifyModalImageUpload);
 
-modifyBtns.forEach(x => x.addEventListener('click', onModifyBtnClick));
-
-function onModifyBtnClick(e) {
-    console.log('ok');
-    modifyModalOverlay.style.display = 'flex';
+function onModifyModalImageUpload(e) {
+    const imageSrc = URL.createObjectURL(this.files[0]);
+    document.getElementById('modify-item-image').src = imageSrc;
 }
 
-// Modify item modal close functionality
+const modifyItemRemoveImageBtn = document.getElementById('modify-item-remove-upload-btn');
 
-const modifyModalOverlay = document.getElementsByClassName('modify-modal-overlay')[0];
-modifyModalOverlay.addEventListener('click', onModifyOverlayClick);
+modifyItemRemoveImageBtn.addEventListener('click', onModifyItemRemoveImage);
 
-const modifyModalCloseBtn = document.getElementsByClassName('modify-item-close-btn')[0];
-modifyModalCloseBtn.addEventListener('click', onModifyModalCloseBtnClick);
+function onModifyItemRemoveImage(e) {
+    modifyModalImageInput.value = "";
+    document.getElementById('modify-item-image').src = '/front-end/images/no_image-placeholder.png';
+}
 
-function onModifyOverlayClick(e) {
-    if (e.target.matches('.modify-modal-overlay')) {
-        modifyModalOverlay.style.display = 'none';
+// Pop Up
+
+const deleteItemBtns = Array.from(document.getElementsByClassName('delete-btn'));
+
+deleteItemBtns.forEach(x => x.addEventListener('click', showPopup));
+
+function showPopup(e) {
+    const prevPopUp = document.getElementById('pop-up');
+    if (prevPopUp !== null) {
+        prevPopUp.remove();
     }
-}
 
-function onModifyModalCloseBtnClick(e) {
-    modifyModalOverlay.style.display = 'none';
-}
+    const divPopUp = document.createElement('div');
+    divPopUp.id = 'pop-up';
+    divPopUp.classList.add('inside-pop-up');
+    divPopUp.innerHTML = `<p class="inside-pop-up">Are you sure you want to remove this item?</p>
+<div class="pop-up-buttons inside-pop-up">
+    <a href="" id="confirm-btn">Yes</a>
+    <a href="" id="cancel-btn">No</a>
+</div>`;
 
-// Add item modal category select placeholder
+    const position = e.target.getBoundingClientRect();
 
-const modifyItemCategorySelect = document.getElementById('modify-item-select');
+    const body = document.getElementsByTagName('body')[0];
 
-modifyItemCategorySelect.addEventListener('change', onSelectChange);
+    body.appendChild(divPopUp);
 
-function onSelectChange(e) {
-    if (e.target.value !== "") {
-        modifyItemCategorySelect.style.color = '#000000';
+    const elementPopUp = document.getElementById('pop-up');
+
+    let positionLeft;
+    let positionTop;
+
+    if (position.x + elementPopUp.offsetWidth >= window.innerWidth) {
+        positionLeft = position.left - position.left - 265;
+        elementPopUp.classList.add('top-right-pointer');
+    } else if (position.x + elementPopUp.offsetWidth >= window.innerWidth && position.y + elementPopUp.offsetHeight + 20 >= window.innerHeight) {
+        positionLeft = position.left - position.left - 100;
+        elementPopUp.classList.add('bottom-right-pointer');
+    } else {
+        positionLeft = position.left - position.left - 140;
+        elementPopUp.classList.add('top-middle-pointer');
     }
-}
+
+    if (position.y + elementPopUp.offsetHeight + 50 >= window.innerHeight && !(position.x + elementPopUp.offsetWidth >= window.innerWidth)) {
+        positionTop = position.top - position.top - 115;
+        elementPopUp.classList.add('bottom-middle-pointer');
+    } else if (position.y + elementPopUp.offsetHeight + 50 >= window.innerHeight && position.x + elementPopUp.offsetWidth >= window.innerWidth) {
+        positionTop = position.top - position.top - 115;
+        elementPopUp.classList.add('bottom-right-pointer');
+    }
+    else {
+        positionTop = position.top - position.top + 50;
+    }
+
+    Object.assign(elementPopUp.style, {
+        left: `${position.x - 285}px`,
+        top: `${position.y + 25}px`,
+        visibility: 'visible',
+    });
+
+    const cancelBtn = document.getElementById('cancel-btn');
+    cancelBtn.addEventListener('click', closePopUp);
+
+    window.addEventListener('click', trackWindowEvent);
+
+    function closePopUp(e) {
+        e.preventDefault();
+        itemCard.removeChild(divPopUp);
+        window.removeEventListener('click', trackWindowEvent);
+    }
+
+    function trackWindowEvent(e) {
+        console.log(e.target);
+        if (!e.target.matches('.inside-pop-up') && !e.target.matches('.delete-btn')) {
+            body.removeChild(divPopUp);
+            window.removeEventListener('click', trackWindowEvent);
+        }
+    }
+};
