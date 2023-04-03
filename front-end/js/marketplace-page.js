@@ -15,7 +15,7 @@ hamburgerBtn.addEventListener('click', openHamburgerMenu);
 
 window.addEventListener('resize', () => {
     const userInfo = document.getElementById('user-info');
-    if (screen.width <= 768) {
+    if (window.innerWidth <= 768) {
         asideNav.prepend(userInfo);
     } else {
         document.getElementsByTagName('header')[0].appendChild(userInfo);
@@ -24,7 +24,7 @@ window.addEventListener('resize', () => {
 
 window.addEventListener('load', () => {
     const userInfo = document.getElementById('user-info');
-    if (screen.width <= 768) {
+    if (window.innerWidth <= 768) {
         asideNav.prepend(userInfo);
     } else {
         document.getElementsByTagName('header')[0].appendChild(userInfo);

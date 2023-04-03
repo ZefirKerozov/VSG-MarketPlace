@@ -443,6 +443,10 @@ main .items::-webkit-scrollbar {
   aside.active {
     left: 0;
   }
+  #main-container {
+    padding: 15px;
+    height: calc(100% - 80px);
+  }
   main {
     width: 100%;
   }

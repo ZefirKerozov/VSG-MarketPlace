@@ -2,47 +2,13 @@
 @use 'header';
 @use 'navigation';
 
+@import '../styles/mixins';
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
 $background-color: #FFFFFF;
-
-@mixin displayFlex($flexDirection: row) {
-    display: flex;
-    flex-direction: $flexDirection;
-}
-
-@mixin flexProperties($justifyContent: flex-start, $alignItems: flex-start) {
-    justify-content: $justifyContent;
-    align-items: $alignItems;
-}
-
-@mixin popUpPointerPosition($top, $left, $degrees) {
-    content: '';
-    position: absolute;
-    top: $top;
-    left: $left;
-    width: 0px;
-    height: 0px;
-    border-style: solid;
-    border-width: 0 10px 10px 10px;
-    border-color: transparent transparent #FFFFFF transparent;
-    transform: rotate($degrees);
-}
-
-@mixin popUpButton($backgroundColor, $textColor) {
-    @include displayFlex();
-    @include flexProperties(center, center);
-    width: 57px;
-    height: 22px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    border-radius: 4px;
-    background-color: $backgroundColor;
-    text-decoration: none;
-    font-size: 14px;
-    color: $textColor;
-}
 
 //// Body and main container styles ////
 
@@ -123,33 +89,38 @@ main {
     // Items table styles
 
     #table-wrapper {
-        overflow-x: auto;
-        white-space: nowrap;
+        @include displayFlex(column);
+        @include flexProperties(space-between);
         margin-top: 39px;
         border: 1px solid #B3B3B3;
-        border-radius: 4px;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        height: calc(100vh - 282px);
+        overflow: scroll;
     }
 
     table {
-        width: 100%;
-        table-layout: fixed;
+        min-width: 100%;
+        border-collapse: collapse;
+        overflow: scroll;
 
         th {
             font-size: 16px;
-            table-layout: fixed;
+            border-bottom: 1px solid #B3B3B3;
         }
 
         tr {
             border-bottom: 1px solid #B3B3B3;
+            height: 10%;
+        }
+
+        tr:last-of-type {
+            border-bottom: none;
         }
 
         td {
             position: relative;
-            width: 300px;
             font-size: 14px;
-            table-layout: fixed;
-            width: 20px;
-            word-wrap: break-word;
         }
 
         th,
@@ -177,9 +148,11 @@ main {
     }
 
     #pagination {
+        border-bottom: 1px solid #B3B3B3;
         border-left: 1px solid #B3B3B3;
         border-right: 1px solid #B3B3B3;
-        border-bottom: 1px solid #B3B3B3;
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
         height: 57px;
     }
 }
@@ -461,6 +434,18 @@ main {
         }
     }
 
+    #main-container {
+        padding: 15px;
+        height: calc(100% - 80px);
+    }
+
+    main{
+        #table-wrapper{
+            height: calc(100% - 120px);
+        }
+    }
+    
+
     #user-info {
         @include displayFlex(row-reverse);
         @include flexProperties(flex-start, center);
@@ -492,7 +477,7 @@ main {
     }
 
     main {
-        width: 100%;
+        width: calc(100% - 35px);
     }
 
     table {
@@ -517,7 +502,8 @@ main {
                 @include flexProperties(center, center);
 
                 .first-column {
-                    gap: 25px
+                    gap: 25px;
+                    width: 100%;
                 }
 
                 .second-column {

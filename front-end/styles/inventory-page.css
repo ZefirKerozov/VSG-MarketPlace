@@ -164,30 +164,36 @@ main .search-add-container #add-btn {
   width: 150px;
 }
 main #table-wrapper {
-  overflow-x: auto;
-  white-space: nowrap;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
   margin-top: 39px;
   border: 1px solid #B3B3B3;
-  border-radius: 4px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  height: calc(100vh - 282px);
+  overflow: scroll;
 }
 main table {
-  width: 100%;
-  table-layout: fixed;
+  min-width: 100%;
+  border-collapse: collapse;
+  overflow: scroll;
 }
 main table th {
   font-size: 16px;
-  table-layout: fixed;
+  border-bottom: 1px solid #B3B3B3;
 }
 main table tr {
   border-bottom: 1px solid #B3B3B3;
+  height: 10%;
+}
+main table tr:last-of-type {
+  border-bottom: none;
 }
 main table td {
   position: relative;
-  width: 300px;
   font-size: 14px;
-  table-layout: fixed;
-  width: 20px;
-  word-wrap: break-word;
 }
 main table th,
 main table td {
@@ -210,9 +216,11 @@ main table .table-actions button > svg {
   pointer-events: none;
 }
 main #pagination {
+  border-bottom: 1px solid #B3B3B3;
   border-left: 1px solid #B3B3B3;
   border-right: 1px solid #B3B3B3;
-  border-bottom: 1px solid #B3B3B3;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
   height: 57px;
 }
 
@@ -535,6 +543,13 @@ main #pagination {
   header svg:last-of-type {
     display: block;
   }
+  #main-container {
+    padding: 15px;
+    height: calc(100% - 80px);
+  }
+  main #table-wrapper {
+    height: calc(100% - 120px);
+  }
   #user-info {
     display: flex;
     flex-direction: row-reverse;
@@ -564,7 +579,7 @@ main #pagination {
     left: 0;
   }
   main {
-    width: 100%;
+    width: calc(100% - 35px);
   }
   table {
     overflow-x: scroll;
@@ -592,6 +607,7 @@ main #pagination {
   #add-modal form .first-row .first-column,
   #modify-modal form .first-row .first-column {
     gap: 25px;
+    width: 100%;
   }
   #add-modal form .first-row .second-column .upload-remove-btn,
   #modify-modal form .first-row .second-column .upload-remove-btn {

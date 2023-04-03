@@ -90,7 +90,118 @@
         </aside>
         <main>
             <div class="items">
-                <div id="top">
+                <ul class="responsive-table">
+                    <li class="table-header">
+                        <div class="col col-1">Code</div>
+                        <div class="col col-2">QTY</div>
+                        <div class="col col-3">Price</div>
+                        <div class="col col-4">Ordered By</div>
+                        <div class="col col-5">Order Date</div>
+                        <div class="col col-6">Action</div>
+                    </li>
+                    <li class="table-row">
+                        <div class="col col-1" data-label="Code">1</div>
+                        <div class="col col-2" data-label="QTY">20</div>
+                        <div class="col col-3" data-label="Price">350 BGN</div>
+                        <div class="col col-4" data-label="Ordered By">smechkov@vsgbg.com</div>
+                        <div class="col col-5" data-label="Order Date">2023-03-13 16:30</div>
+                        <div class="col col-6" data-label="Action"><span>
+                                <button class="complete-btn">Complete</button>
+                            </span></div>
+                    </li>
+                    <li class="table-row">
+                        <div class="col col-1" data-label="Code">1</div>
+                        <div class="col col-2" data-label="QTY">20</div>
+                        <div class="col col-3" data-label="Price">350 BGN</div>
+                        <div class="col col-4" data-label="Ordered By">smechkov@vsgbg.com</div>
+                        <div class="col col-5" data-label="Order Date">2023-03-13 16:30</div>
+                        <div class="col col-6" data-label="Action"><span>
+                                <button class="complete-btn">Complete</button>
+                            </span></div>
+                    </li>
+                </ul>
+
+                <!-- <div class="responsive-table">
+                    <div class="table-header">
+                        <div class="first-container">
+                            <div class="col col-1">Code</div>
+                            <div class="col col-2">QTY</div>
+                            <div class="col col-3">Price</div>
+                        </div>
+                        <div class="second-container">
+                            <div class="col col-4">Ordered By</div>
+                            <div class="col col-5">Order Date</div>
+                            <div class="col col-6">Action</div>
+                        </div>
+                    </div>
+                    <div class="table-row">
+                        <div class="first-container">
+                            <div class="col col-1" data-label="Code">1</div>
+                            <div class="col col-2" data-label="QTY">20</div>
+                            <div class="col col-3" data-label="Price">350 BGN</div>
+                        </div>
+                        <div class="second-container">
+                            <div class="col col-4" data-label="Ordered By">smechkov@vsgbg.com</div>
+                            <div class="col col-5" data-label="Order Date">2023-03-13 16:30</div>
+                            <div class="col col-6" data-label="Action">
+                                <span>
+                                    <button class="complete-btn">Complete</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-row">
+                        <div class="first-container">
+                            <div class="col col-1" data-label="Code">1</div>
+                            <div class="col col-2" data-label="QTY">20</div>
+                            <div class="col col-3" data-label="Price">350 BGN</div>
+                        </div>
+                        <div class="second-container">
+                            <div class="col col-4" data-label="Ordered By">smechkov@vsgbg.com</div>
+                            <div class="col col-5" data-label="Order Date">2023-03-13 16:30</div>
+                            <div class="col col-6" data-label="Action">
+                                <span>
+                                    <button class="complete-btn">Complete</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+
+                <!-- <table>
+                    <thead>
+                        <th>Code</th>
+                        <th>QTY</th>
+                        <th>Price</th>
+                        <th>Ordered By</th>
+                        <th>Order Date</th>
+                        <th>Action</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>20</td>
+                            <td>350 BGN</td>
+                            <td>smechkov@vsgbg.com</td>
+                            <td>2023-03-13 16:30</td>
+                            <td>
+                                <button class="complete-btn">Complete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>20</td>
+                            <td>350 BGN</td>
+                            <td>smechkov@vsgbg.com</td>
+                            <td>2023-03-13 16:30</td>
+                            <td>
+                                <button class="complete-btn">Complete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table> -->
+
+                <!-- <div id="top">
                     <span>Code</span>
                     <span>QTY</span>
                     <span>Price</span>
@@ -99,14 +210,31 @@
                     <span>Action</span>
                 </div>
                 <div class="row">
-                    <span>1</span>
-                    <span>20</span>
-                    <span>350 BGN</span>
-                    <span>smechkov@vsgbg.com</span>
-                    <span>2023-03-13 16:30</span>
-                    <span>
-                        <button class="complete-btn">Complete</button>
-                    </span>
+                    <div class="cell-container">
+                        <span class="hidden">Code</span>
+                        <span>1</span>
+                    </div>
+                    <div class="cell-container">
+                        <span class="hidden">QTY</span>
+                        <span>20</span>
+                    </div>
+                    <div class="cell-container">
+                        <span class="hidden">Price</span>
+                        <span>350 BGN</span>
+                    </div>
+                    <div class="cell-container">
+                        <span class="hidden">Ordered By</span>
+                        <span>smechkov@vsgbg.com</span>
+                    </div>
+                    <div class="cell-container">
+                        <span class="hidden">Order Date</span>
+                        <span>2023-03-13 16:30</span>
+                    </div>
+                    <div class="cell-container">
+                        <span>
+                            <button class="complete-btn">Complete</button>
+                        </span>
+                    </div>
                 </div>
                 <div class="row">
                     <span>1</span>
@@ -127,7 +255,7 @@
                     <span>
                         <button class="complete-btn">Complete</button>
                     </span>
-                </div>
+                </div> -->
             </div>
         </main>
     </div>
