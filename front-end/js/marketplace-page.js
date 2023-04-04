@@ -5,9 +5,9 @@ navLinks.filter(x => x.pathname === currentURL.pathname).map(x => x.classList.ad
 const buyBtn = Array.from(document.getElementsByClassName('buy-btn'));
 buyBtn.forEach(x => x.addEventListener('click', showPopup));
 
-const hamburger = document.querySelector(".hamburger");
-const navMenu = document.getElementsByTagName("aside")[0];
+// Show and hide hamburger mobile menu
 
+const hamburger = document.querySelector(".hamburger");
 const asideNav = document.getElementsByTagName('aside')[0];
 const hamburgerBtn = document.getElementsByTagName('svg')[0];
 

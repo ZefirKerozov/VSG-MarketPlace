@@ -56,41 +56,52 @@ main {
             .table-header,
             .table-row {
                 border-radius: 10px;
-                padding: 10px 10px;
+                padding: 14px 10px;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
                 margin-bottom: 20px;
                 font-size: 18px;
+
+                .col-1 {
+                    flex-basis: 50%;
+                }
+
+                .col-2 {
+                    flex-basis: 20%;
+                }
+
+                .col-3 {
+                    flex-basis: 20%;
+                }
+
+                .col-4 {
+                    flex-basis: 20%;
+                }
+
+                .col-5 {
+                    flex-basis: 10%;
+                    display: flex;
+                    align-items: center;
+                    gap: 30px;
+
+                    button{
+                        background: none;
+                    }
+
+                    button:hover{
+                        cursor: pointer;
+                    }
+                }
             }
 
             .table-header {
                 background-color: #DADCDD;
                 font-weight: 700;
+            }
 
-                .col-1 {
-                    flex-basis: 15%;
-                }
-            
-                .col-2 {
-                    flex-basis: 15%;
-                }
-            
-                .col-3 {
-                    flex-basis: 15%;
-                }
-            
-                .col-4 {
-                    flex-basis: 25%;
-                }
-            
-                .col-5{
-                    flex-basis: 20%;
-                }
-            
-                .col-6{
-                    flex-basis: 10%;
-                }
+            .table-row{
+                border: 2px solid #DADCDD;
             }
 
             @media (max-width: 768px) {
@@ -100,6 +111,63 @@ main {
             }
         }
     }
+}
+
+//// Pop up styles ////
+
+#pop-up {
+    @include displayFlex(column);
+    @include flexProperties(space-between, flex-end);
+    position: absolute;
+    visibility: hidden;
+    z-index: 1;
+    width: 300px;
+    height: 80px;
+    background-color: $background-color;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    padding: 16px;
+    font-size: 0.5rem;
+
+    p {
+        display: inline;
+        text-align: center;
+        width: 100%
+    }
+
+    // Pop up buttons styles
+
+    .pop-up-buttons {
+        @include displayFlex();
+        @include flexProperties(flex-end);
+        gap: 20px;
+
+        #confirm-btn {
+            @include popUpButton(#ED1C25, #FFFFFF);
+        }
+
+        #cancel-btn {
+            @include popUpButton(#FFFFFF, #ED1C25);
+        }
+    }
+}
+
+//// Pop up pointer (arrow) styles ////
+
+.top-middle-pointer::before {
+    @include popUpPointerPosition(-10px, 155px, 0deg);
+}
+
+.top-right-pointer::before {
+    @include popUpPointerPosition(-10px, 280px, 0deg);
+}
+
+.bottom-middle-pointer::before {
+    @include popUpPointerPosition(112px, 155px, 180deg);
+}
+
+.bottom-right-pointer::before {
+    @include popUpPointerPosition(112px, 280px, 180deg);
 }
 
 @media (max-width: 768px) {

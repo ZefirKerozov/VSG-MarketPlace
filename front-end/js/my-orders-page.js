@@ -36,111 +36,47 @@ function openHamburgerMenu(e) {
     }
 }
 
-////////// ADD ITEM AND MODIFY ITEM MODALS //////////
-
-const overlay = document.getElementsByClassName('overlay')[0];
-const addModal = document.getElementById('add-modal');
-const modifyModal = document.getElementById('modify-modal');
-
-// Close modal when the overlay is clicked
-
-overlay.addEventListener('click', onOverlayClick);
-
-function onOverlayClick(e) {
-    if (e.target.matches('.overlay')) {
-        overlay.style.display = 'none';
+DUMMY_DATA = [
+    {
+        name: 'MacBook Pro M2 16 inch',
+        qty: 1,
+        price: 5000,
+        orderDate: '10-10-2010'
+    },
+    {
+        name: 'MacBook Air M1 13 inch',
+        qty: 1,
+        price: 3000,
+        orderDate: '20-20-2020'
+    },
+    {
+        name: 'iPhone 14 Pro Max',
+        qty: 1,
+        price: 2000,
+        orderDate: '30-30-2030'
     }
-}
+]
 
-// Open add item modal if add item button is clicked
+// Load My Orders data inside table
 
-const addItemBtn = document.getElementById('add-btn');
+const myOrdersTable = document.querySelector('.responsive-table');
 
-addItemBtn.addEventListener('click', onAddItemBtnClick);
+DUMMY_DATA.forEach(x => {
+    const myOrderItem = document.createElement('my-orders-item');
 
-function onAddItemBtnClick(e) {
-    overlay.style.display = 'flex';
-    modifyModal.style.display = 'none';
-    addModal.style.display = 'block';
-}
+    myOrderItem.setAttribute('product-name', x.name);
+    myOrderItem.setAttribute('product-qty', x.qty);
+    myOrderItem.setAttribute('product-price', x.price);
+    myOrderItem.setAttribute('order-date', x.orderDate);
 
-// Open modify modal if modify button is clicked
-
-const modifyBtns = Array.from(document.querySelectorAll('.modify-btn'));
-
-modifyBtns.forEach(x => x.addEventListener('click', onModifyBtnClick));
-
-function onModifyBtnClick(e) {
-    overlay.style.display = 'flex';
-    addModal.style.display = 'none';
-    modifyModal.style.display = 'block';
-}
-
-// Close modal if close button is clicked
-
-const modalCloseBtns = Array.from(document.querySelectorAll('.close-btn'));
-
-modalCloseBtns.forEach(x => x.addEventListener('click', onModalCloseBtnClick));
-
-function onModalCloseBtnClick(e) {
-    overlay.style.display = 'none';
-}
-
-// Add item modal category select placeholder color change
-
-const addItemCategorySelect = document.getElementById('add-item-select');
-
-addItemCategorySelect.addEventListener('change', onSelectChange);
-
-function onSelectChange(e) {
-    if (e.target.value !== "") {
-        addItemCategorySelect.style.color = '#000000';
-    }
-}
-
-// Upload and remove uploaded image in add item modal
-
-const addModalImageInput = document.getElementById('add-item-files');
-
-addModalImageInput.addEventListener('change', onAddModalImageUpload);
-
-function onAddModalImageUpload(e) {
-    const imageSrc = URL.createObjectURL(this.files[0]);
-    document.getElementById('add-item-image').src = imageSrc;
-}
-
-const addItemRemoveImageBtn = document.getElementById('add-item-remove-upload-btn');
-
-addItemRemoveImageBtn.addEventListener('click', onAddItemRemoveImage);
-
-function onAddItemRemoveImage(e) {
-    addModalImageInput.value = "";
-    document.getElementById('add-item-image').src = '/front-end/images/no_image-placeholder.png';
-}
-
-// Upload and remove uploaded image in modify item modal
-
-const modifyModalImageInput = document.getElementById('modify-item-files');
-
-modifyModalImageInput.addEventListener('change', onModifyModalImageUpload);
-
-function onModifyModalImageUpload(e) {
-    const imageSrc = URL.createObjectURL(this.files[0]);
-    document.getElementById('modify-item-image').src = imageSrc;
-}
-
-const modifyItemRemoveImageBtn = document.getElementById('modify-item-remove-upload-btn');
-
-modifyItemRemoveImageBtn.addEventListener('click', onModifyItemRemoveImage);
-
-function onModifyItemRemoveImage(e) {
-    modifyModalImageInput.value = "";
-    document.getElementById('modify-item-image').src = '/front-end/images/no_image-placeholder.png';
-}
+    myOrdersTable.appendChild(myOrderItem);
+});
 
 // Pop Up
 
-const deleteItemBtns = Array.from(document.getElementsByClassName('delete-btn'));
+const deleteItemBtns = Array.from(document.getElementsByClassName('col-1'));
+
+console.log(deleteItemBtns);
 
 deleteItemBtns.forEach(x => x.addEventListener('click', showPopup));
 
@@ -153,7 +89,7 @@ function showPopup(e) {
     const divPopUp = document.createElement('div');
     divPopUp.id = 'pop-up';
     divPopUp.classList.add('inside-pop-up');
-    divPopUp.innerHTML = `<p class="inside-pop-up">Are you sure you want to remove this item?</p>
+    divPopUp.innerHTML = `<p class="inside-pop-up">Are you sure you want to reject this order?</p>
 <div class="pop-up-buttons inside-pop-up">
     <a href="" id="confirm-btn">Yes</a>
     <a href="" id="cancel-btn">No</a>

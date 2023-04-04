@@ -138,7 +138,8 @@ main .items::-webkit-scrollbar {
 main .items .responsive-table {
   display: table;
 }
-main .items .responsive-table li {
+main .items .responsive-table .table-header,
+main .items .responsive-table .table-row {
   border-radius: 10px;
   padding: 10px 10px;
   display: flex;
@@ -151,65 +152,28 @@ main .items .responsive-table .table-header {
   background-color: #DADCDD;
   font-weight: 700;
 }
-main .items .responsive-table .table-row {
-  background-color: #ffffff;
-  border: 2px solid #DADCDD;
-}
-main .items .responsive-table .col {
-  overflow: hidden;
-}
-main .items .responsive-table .col:nth-child(1) {
-  padding: 6px 0;
-}
-main .items .responsive-table .col-1 {
+main .items .responsive-table .table-header .col-1 {
   flex-basis: 15%;
 }
-main .items .responsive-table .col-2 {
+main .items .responsive-table .table-header .col-2 {
   flex-basis: 15%;
 }
-main .items .responsive-table .col-3 {
+main .items .responsive-table .table-header .col-3 {
   flex-basis: 15%;
 }
-main .items .responsive-table .col-4 {
+main .items .responsive-table .table-header .col-4 {
   flex-basis: 25%;
 }
-main .items .responsive-table .col-5 {
+main .items .responsive-table .table-header .col-5 {
   flex-basis: 20%;
 }
-main .items .responsive-table .col-6 {
+main .items .responsive-table .table-header .col-6 {
   flex-basis: 10%;
 }
-@media all and (max-width: 767px) {
+@media (max-width: 768px) {
   main .items .responsive-table .table-header {
     display: none;
   }
-  main .items .responsive-table li {
-    display: block;
-  }
-  main .items .responsive-table .col {
-    flex-basis: 100%;
-  }
-  main .items .responsive-table .col {
-    display: flex;
-    padding: 10px 0;
-  }
-  main .items .responsive-table .col:before {
-    color: #000000;
-    font-weight: 700;
-    padding-right: 10px;
-    content: attr(data-label);
-    flex-basis: 50%;
-    text-align: right;
-  }
-}
-main .items .complete-btn {
-  padding: 6px 8px;
-  font-size: 16px;
-  font-weight: 700;
-  color: #FFFFFF;
-  background-color: #ED1C25;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
-  border-radius: 4px;
 }
 
 @media (max-width: 768px) {
@@ -230,19 +194,24 @@ main .items .complete-btn {
   }
   nav {
     border-radius: 0;
-    padding-top: 70px;
-    padding-bottom: 70px;
+    padding-top: 60px;
   }
   aside {
     position: fixed;
     left: -100%;
     top: 50px;
-    min-width: 100%;
+    margin: 10px;
+    min-width: calc(100% - 20px);
+    height: calc(100% - 70px);
     z-index: 1;
     transition: 0.3s;
   }
   aside.active {
     left: 0;
+  }
+  #main-container {
+    padding: 15px;
+    height: calc(100% - 80px);
   }
   main {
     width: 100%;

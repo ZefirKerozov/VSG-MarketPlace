@@ -328,15 +328,16 @@ main {
 
     nav {
         border-radius: 0;
-        padding-top: 70px;
-        padding-bottom: 70px;
+        padding-top: 60px;
     }
 
     aside {
         position: fixed;
         left: -100%;
         top: 50px;
-        min-width: 100%;
+        margin: 10px;
+        min-width: calc(100% - 20px);
+        height: calc(100% - 70px);
         z-index: 1;
         transition: 0.3s;
     }
