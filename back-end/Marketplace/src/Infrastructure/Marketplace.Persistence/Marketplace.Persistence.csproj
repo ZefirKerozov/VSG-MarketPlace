@@ -6,4 +6,17 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="AutoMapper" Version="12.0.1" />
+      <PackageReference Include="Dapper" Version="2.0.123" />
+      <PackageReference Include="Dapper.SimpleCRUD" Version="2.3.0" />
+      <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0-preview.2.23128.3" />
+      <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Core\Markerplace.Domain\Markerplace.Domain.csproj" />
+      <ProjectReference Include="..\..\Core\Marketplace.Application\Marketplace.Application.csproj" />
+    </ItemGroup>
+
 </Project>

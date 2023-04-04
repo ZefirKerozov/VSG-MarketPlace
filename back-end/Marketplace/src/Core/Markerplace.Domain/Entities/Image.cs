@@ -3,4 +3,4 @@
 public class Images : BaseEntity
 {
     public int img { get; set; }
-}
+} 
