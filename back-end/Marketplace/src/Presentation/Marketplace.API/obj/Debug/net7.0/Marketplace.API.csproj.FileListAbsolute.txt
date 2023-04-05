@@ -39,3 +39,15 @@ C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\
 C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\obj\Debug\net7.0\Marketplace.API.pdb
 C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\obj\Debug\net7.0\Marketplace.API.genruntimeconfig.cache
 C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\obj\Debug\net7.0\ref\Marketplace.API.dll
+C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\Markerplace.Domain.dll
+C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\Marketplace.Application.dll
+C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\Marketplace.Application.pdb
+C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\Markerplace.Domain.pdb
+C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\AutoMapper.dll
+C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\Microsoft.Extensions.Configuration.dll
+C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\Microsoft.Extensions.Primitives.dll
+C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\Marketplace.Persistence.dll
+C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\Marketplace.Persistence.pdb
