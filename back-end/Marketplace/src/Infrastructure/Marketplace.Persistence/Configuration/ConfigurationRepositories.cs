@@ -1,4 +1,5 @@
 ﻿using Marketplace.Application.Models.GenericRepository;
+using Marketplace.Application.Models.InventoryModels.Interface;
 using Marketplace.Application.Models.ProductModels.Interface;
 using Marketplace.Persistence.Repositories;
 using Microsoft.Extensions.DependencyInjection;
@@ -10,6 +11,8 @@ public static class ConfigurationRepositories
     public static IServiceCollection AddConfigurationRepositories(this IServiceCollection services)
     {
         services.AddScoped<IProductRepository, ProductRepository>();
+        services.AddScoped<IInvertoryRepository, InvertoryRepository>();
+
         return services;
     }
 }

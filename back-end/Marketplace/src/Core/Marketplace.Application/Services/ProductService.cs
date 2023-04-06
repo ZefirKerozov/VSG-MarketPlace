@@ -16,4 +16,10 @@ public class ProductService :IProductService
         var result = productRepository.GetAllProduct();
         return result;
     }
+
+    public ProductDetailsDto GetById(int productId)
+    {
+        var result = productRepository.GetProductById(productId);
+        return result;
+    }
 }

@@ -9,16 +9,22 @@ namespace Marketplace.API.Controllers;
 [ApiController]
 public class ProductController : ControllerBase
 {
-   private readonly IProductService productService;
+   private readonly IProductService _productService;
 
    public ProductController(IProductService productService)
    {
-       this.productService = productService;
+       this._productService = productService;
    }
    
    [HttpGet]
    public List<GetProductsDto> GetAll()
    {
-      return productService.GetAll();
+      return _productService.GetAll();
+   }
+   
+   [HttpGet ("productId")]
+   public ProductDetailsDto ProductDetails(int productId)
+   {
+       return _productService.GetById(productId);
    }
 }

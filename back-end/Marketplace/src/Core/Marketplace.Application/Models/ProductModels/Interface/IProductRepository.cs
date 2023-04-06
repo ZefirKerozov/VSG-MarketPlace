@@ -7,5 +7,5 @@ namespace Marketplace.Application.Models.ProductModels.Interface;
 public interface IProductRepository
 {
     List<GetProductsDto> GetAllProduct();
-    void DeleteWithProductId(int Id);
+    ProductDetailsDto GetProductById(int productId);
 }
