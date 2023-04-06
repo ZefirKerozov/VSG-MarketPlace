@@ -60,18 +60,18 @@ const DUMMY_DATA = [
     }
 ]
 
-// Load Pending Items data inside table
+// // Load Pending Items data inside table
 
-const pendingOrdersTable = document.querySelector('.responsive-table');
+// const pendingOrdersTable = document.querySelector('.responsive-table');
 
-DUMMY_DATA.forEach(x => {
-    const pendingItem = document.createElement('pending-orders-item');
+// DUMMY_DATA.forEach(x => {
+//     const pendingItem = document.createElement('pending-orders-item');
 
-    pendingItem.setAttribute('product-code', x.code);
-    pendingItem.setAttribute('product-qty', x.qty);
-    pendingItem.setAttribute('product-price', x.price);
-    pendingItem.setAttribute('ordered-by', x.orderedBy);
-    pendingItem.setAttribute('order-date', x.orderDate);
+//     pendingItem.setAttribute('product-code', x.code);
+//     pendingItem.setAttribute('product-qty', x.qty);
+//     pendingItem.setAttribute('product-price', x.price);
+//     pendingItem.setAttribute('ordered-by', x.orderedBy);
+//     pendingItem.setAttribute('order-date', x.orderDate);
 
-    pendingOrdersTable.appendChild(pendingItem);
-});
+//     pendingOrdersTable.appendChild(pendingItem);
+// });

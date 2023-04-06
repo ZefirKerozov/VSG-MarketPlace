@@ -161,9 +161,9 @@ function showPopup(e) {
 
     const position = e.target.getBoundingClientRect();
 
-    const body = document.getElementsByTagName('body')[0];
+    const deleteBtnParent = e.target.parentElement;
 
-    body.appendChild(divPopUp);
+    deleteBtnParent.appendChild(divPopUp);
 
     const elementPopUp = document.getElementById('pop-up');
 
@@ -171,21 +171,21 @@ function showPopup(e) {
     let positionTop;
 
     if (position.x + elementPopUp.offsetWidth >= window.innerWidth) {
-        positionLeft = position.left - position.left - 265;
+        positionLeft = position.left - position.left - 230;
         elementPopUp.classList.add('top-right-pointer');
     } else if (position.x + elementPopUp.offsetWidth >= window.innerWidth && position.y + elementPopUp.offsetHeight + 20 >= window.innerHeight) {
-        positionLeft = position.left - position.left - 100;
+        positionLeft = position.left - position.left - 0;
         elementPopUp.classList.add('bottom-right-pointer');
     } else {
-        positionLeft = position.left - position.left - 140;
+        positionLeft = position.left - position.left - 0;
         elementPopUp.classList.add('top-middle-pointer');
     }
 
     if (position.y + elementPopUp.offsetHeight + 50 >= window.innerHeight && !(position.x + elementPopUp.offsetWidth >= window.innerWidth)) {
-        positionTop = position.top - position.top - 115;
+        positionTop = position.top - position.top - 0;
         elementPopUp.classList.add('bottom-middle-pointer');
     } else if (position.y + elementPopUp.offsetHeight + 50 >= window.innerHeight && position.x + elementPopUp.offsetWidth >= window.innerWidth) {
-        positionTop = position.top - position.top - 115;
+        positionTop = position.top - position.top - 0;
         elementPopUp.classList.add('bottom-right-pointer');
     }
     else {
@@ -193,8 +193,8 @@ function showPopup(e) {
     }
 
     Object.assign(elementPopUp.style, {
-        left: `${position.x - 285}px`,
-        top: `${position.y + 25}px`,
+        left: `${positionLeft}px`,
+        top: `${positionTop}px`,
         visibility: 'visible',
     });
 
@@ -205,14 +205,13 @@ function showPopup(e) {
 
     function closePopUp(e) {
         e.preventDefault();
-        itemCard.removeChild(divPopUp);
+        deleteBtnParent.removeChild(divPopUp);
         window.removeEventListener('click', trackWindowEvent);
     }
 
     function trackWindowEvent(e) {
-        console.log(e.target);
         if (!e.target.matches('.inside-pop-up') && !e.target.matches('.delete-btn')) {
-            body.removeChild(divPopUp);
+            deleteBtnParent.removeChild(divPopUp);
             window.removeEventListener('click', trackWindowEvent);
         }
     }

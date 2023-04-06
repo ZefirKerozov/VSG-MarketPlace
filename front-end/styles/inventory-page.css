@@ -23,6 +23,9 @@ header {
   font-family: "Montserrat", sans-serif;
   box-sizing: border-box;
 }
+header a {
+  height: 30px;
+}
 header #title {
   font-size: 1rem;
 }
@@ -206,7 +209,6 @@ main table .table-actions {
   gap: 20px;
 }
 main table .table-actions button {
-  position: relative;
   width: 12px;
   height: 12px;
   background: none;
@@ -251,7 +253,7 @@ main #pagination #pagination-controls button:hover {
   display: none;
   position: relative;
   width: 550px;
-  height: 600px;
+  height: 650px;
   padding: 55px 20px 55px 50px;
   background-color: #FFFFFF;
   border-radius: 20px;
@@ -631,6 +633,10 @@ main #pagination #pagination-controls button:hover {
   #modify-modal form .first-row .first-column {
     gap: 25px;
     width: 100%;
+  }
+  #add-modal form .first-row .second-column,
+  #modify-modal form .first-row .second-column {
+    margin-top: 25px;
   }
   #add-modal form .first-row .second-column .upload-remove-btn,
   #modify-modal form .first-row .second-column .upload-remove-btn {
