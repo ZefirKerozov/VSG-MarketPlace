@@ -35,7 +35,7 @@ Create table Products(
 Create table Orders (
  Id int IDENTITY(1,1) PRIMARY KEY,
  Quantity int NOT NULL,
- Status varchar(255) NOT NULL,
+ [Status] varchar(255) NOT NULL,
  OrderDate DATETIME NOT NULL,
  ProductId int NOT NULL,
  UserId int NOT NULL,

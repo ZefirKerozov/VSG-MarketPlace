@@ -1,5 +1,7 @@
-﻿using Marketplace.Application.Models.GenericRepository;
+﻿using Markerplace.Domain.Enums;
+using Marketplace.Application.Models.GenericRepository;
 using Marketplace.Application.Models.InventoryModels.Interface;
+using Marketplace.Application.Models.OrderModels.Interfaces;
 using Marketplace.Application.Models.ProductModels.Interface;
 using Marketplace.Application.Services;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,6 +14,7 @@ public static class ConfigurationApplicationLayer
     {
         services.AddScoped<IProductService, ProductService>();
         services.AddScoped<IInvertoryService, InvertoryService>();
+        services.AddScoped<IOrderService, OrdersService>();
 
         return services;
 
