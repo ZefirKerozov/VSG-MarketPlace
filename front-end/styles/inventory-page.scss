@@ -181,7 +181,6 @@ main {
 
 #add-modal,
 #modify-modal {
-    display: none;
     position: relative;
     width: 550px;
     height: 650px;
@@ -297,6 +296,7 @@ main {
                 img {
                     width: 260px;
                     height: 150px;
+                    object-fit: contain
                 }
 
                 // Upload and remove button styles
