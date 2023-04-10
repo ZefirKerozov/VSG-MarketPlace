@@ -53,27 +53,46 @@ main {
         .responsive-table {
             display: table;
 
+            .table-first-group{
+                @include displayFlex();
+                @include flexProperties(space-between, center);
+                width: 45%;
+
+                .col{
+                    width: 33.3333%;
+                }
+            }
+
+            .table-second-group{
+                @include displayFlex();
+                @include flexProperties(space-between, center);
+                width: 55%;
+
+                .col{
+                    width: 33.3333%;
+                }
+            }
+
             .table-header,
             .table-row {
+                @include displayFlex();
+                @include flexProperties(space-between, center);
                 border-radius: 10px;
                 padding: 0 10px;
                 height: 50px;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
                 margin-bottom: 20px;
                 font-size: 18px;
 
                 .col-1 {
-                    flex-basis: 15%;
+                    flex-basis: 33.333333%;
                 }
 
                 .col-2 {
-                    flex-basis: 15%;
+                    flex-basis: 33.333333%;
                 }
 
                 .col-3 {
-                    flex-basis: 15%;
+                    flex-basis: 33.333333%;
                 }
 
                 .col-4 {
@@ -117,6 +136,63 @@ main {
             @media (max-width: 768px) {
                 .table-header {
                     display: none;
+                }
+
+                .table-row{
+                    @include displayFlex(column);
+                    @include flexProperties(flex-start);
+                    height: 33.333333%;
+                    padding: 0;
+
+                    .table-first-group{
+                        width: calc(100% - 20px);
+                        justify-content: space-between;
+                        border-bottom: 2px solid #DADCDD;
+                        padding: 10px;
+
+                        .col{
+                            @include displayFlex(column);
+                            @include flexProperties(center, flex-start);
+                            margin-left: 10px;
+                        }
+
+                        .col::before{
+                            content: attr(data-before);
+                            font-weight: 700;
+                        }
+                    }
+
+                    .table-second-group{
+                        @include displayFlex(column);
+                        @include flexProperties(space-evenly, flex-start);
+                        box-sizing: border-box;
+                        width: 100%;
+
+                        .col{
+                            display: flex;
+                            align-items: center;
+                            width: calc(100% - 20px);
+                            gap: 10px;
+                            border-bottom: 2px solid #DADCDD;
+                            padding: 18px 10px;
+                        }
+
+                        .col:nth-child(3){
+                            @include displayFlex();
+                            @include flexProperties(center, center);
+                            border: none;
+                        }
+
+                        .col:nth-child(1)::before{
+                            content: attr(data-before);
+                            font-weight: 700;
+                        }
+
+                        .col:nth-child(2)::before{
+                            content: attr(data-before);
+                            font-weight: 700;
+                        }
+                    }
                 }
             }
         }

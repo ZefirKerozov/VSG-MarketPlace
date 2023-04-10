@@ -143,6 +143,20 @@ main .items::-webkit-scrollbar {
 main .items .responsive-table {
   display: table;
 }
+main .items .responsive-table .table-first-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 35%;
+}
+main .items .responsive-table .table-second-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 35%;
+}
 main .items .responsive-table .table-header,
 main .items .responsive-table .table-row {
   border-radius: 10px;
@@ -156,26 +170,31 @@ main .items .responsive-table .table-row {
 }
 main .items .responsive-table .table-header .col-1,
 main .items .responsive-table .table-row .col-1 {
-  flex-basis: 50%;
+  flex-basis: 40%;
 }
 main .items .responsive-table .table-header .col-2,
 main .items .responsive-table .table-row .col-2 {
-  flex-basis: 20%;
+  flex-basis: 25%;
 }
 main .items .responsive-table .table-header .col-3,
 main .items .responsive-table .table-row .col-3 {
-  flex-basis: 20%;
+  flex-basis: 25%;
 }
 main .items .responsive-table .table-header .col-4,
 main .items .responsive-table .table-row .col-4 {
-  flex-basis: 20%;
+  flex-basis: 50%;
 }
 main .items .responsive-table .table-header .col-5,
 main .items .responsive-table .table-row .col-5 {
-  flex-basis: 10%;
+  flex-basis: 30%;
+}
+main .items .responsive-table .table-header .col-5 .status,
+main .items .responsive-table .table-row .col-5 .status {
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  gap: 30px;
+  width: 100%;
 }
 main .items .responsive-table .table-header .col-5 .cancel-btn,
 main .items .responsive-table .table-row .col-5 .cancel-btn {
@@ -201,6 +220,65 @@ main .items .responsive-table .table-row {
 @media (max-width: 768px) {
   main .items .responsive-table .table-header {
     display: none;
+  }
+  main .items .responsive-table .table-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 33.333333%;
+    padding: 0;
+  }
+  main .items .responsive-table .table-row .col {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: calc(100% - 30px);
+    padding: 15px;
+    flex-basis: 0;
+  }
+  main .items .responsive-table .table-row .col::before {
+    content: attr(data-before);
+    font-weight: 700;
+    margin-right: 10px;
+  }
+  main .items .responsive-table .table-row .col-1 {
+    border-bottom: 2px solid #DADCDD;
+  }
+  main .items .responsive-table .table-row .table-first-group {
+    width: 100%;
+    justify-content: flex-start;
+    border-bottom: 2px solid #DADCDD;
+  }
+  main .items .responsive-table .table-row .table-first-group .col {
+    flex-basis: 40%;
+  }
+  main .items .responsive-table .table-row .table-first-group .col-3 {
+    flex-basis: 50%;
+    padding-left: 0;
+  }
+  main .items .responsive-table .table-row .table-second-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    box-sizing: border-box;
+    width: 100%;
+  }
+  main .items .responsive-table .table-row .table-second-group .col {
+    border-bottom: 2px solid #DADCDD;
+  }
+  main .items .responsive-table .table-row .table-second-group .col:nth-child(1)::before {
+    content: attr(data-before);
+    font-weight: 700;
+  }
+  main .items .responsive-table .table-row .table-second-group .col:nth-child(2)::before {
+    content: attr(data-before);
+    font-weight: 700;
+  }
+  main .items .responsive-table .table-row .table-second-group .col:nth-child(2) {
+    border: none;
   }
 }
 

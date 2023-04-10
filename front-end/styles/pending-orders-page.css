@@ -141,28 +141,49 @@ main .items::-webkit-scrollbar {
 main .items .responsive-table {
   display: table;
 }
+main .items .responsive-table .table-first-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 45%;
+}
+main .items .responsive-table .table-first-group .col {
+  width: 33.3333%;
+}
+main .items .responsive-table .table-second-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 55%;
+}
+main .items .responsive-table .table-second-group .col {
+  width: 33.3333%;
+}
 main .items .responsive-table .table-header,
 main .items .responsive-table .table-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   border-radius: 10px;
   padding: 0 10px;
   height: 50px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   margin-bottom: 20px;
   font-size: 18px;
 }
 main .items .responsive-table .table-header .col-1,
 main .items .responsive-table .table-row .col-1 {
-  flex-basis: 15%;
+  flex-basis: 33.333333%;
 }
 main .items .responsive-table .table-header .col-2,
 main .items .responsive-table .table-row .col-2 {
-  flex-basis: 15%;
+  flex-basis: 33.333333%;
 }
 main .items .responsive-table .table-header .col-3,
 main .items .responsive-table .table-row .col-3 {
-  flex-basis: 15%;
+  flex-basis: 33.333333%;
 }
 main .items .responsive-table .table-header .col-4,
 main .items .responsive-table .table-row .col-4 {
@@ -200,6 +221,62 @@ main .items .responsive-table .complete-btn:hover {
 @media (max-width: 768px) {
   main .items .responsive-table .table-header {
     display: none;
+  }
+  main .items .responsive-table .table-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 33.333333%;
+    padding: 0;
+  }
+  main .items .responsive-table .table-row .table-first-group {
+    width: calc(100% - 20px);
+    justify-content: space-between;
+    border-bottom: 2px solid #DADCDD;
+    padding: 10px;
+  }
+  main .items .responsive-table .table-row .table-first-group .col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 10px;
+  }
+  main .items .responsive-table .table-row .table-first-group .col::before {
+    content: attr(data-before);
+    font-weight: 700;
+  }
+  main .items .responsive-table .table-row .table-second-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    box-sizing: border-box;
+    width: 100%;
+  }
+  main .items .responsive-table .table-row .table-second-group .col {
+    display: flex;
+    align-items: center;
+    width: calc(100% - 20px);
+    gap: 10px;
+    border-bottom: 2px solid #DADCDD;
+    padding: 18px 10px;
+  }
+  main .items .responsive-table .table-row .table-second-group .col:nth-child(3) {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: none;
+  }
+  main .items .responsive-table .table-row .table-second-group .col:nth-child(1)::before {
+    content: attr(data-before);
+    font-weight: 700;
+  }
+  main .items .responsive-table .table-row .table-second-group .col:nth-child(2)::before {
+    content: attr(data-before);
+    font-weight: 700;
   }
 }
 

@@ -101,6 +101,7 @@ main {
 
     table {
         min-width: 100%;
+        height: 100%;
         border-collapse: collapse;
         overflow: scroll;
 
@@ -159,9 +160,9 @@ main {
 
         #pagination-controls{
             @include displayFlex();
-            @include flexProperties(space-between, center);
+            @include flexProperties(flex-end, center);
             gap: 10px;
-            width: 120px;
+            width: 100%;
             span{
                 font-size: 16px;
             }
@@ -202,36 +203,33 @@ main {
         gap: 50px;
         padding-top: 50px;
 
+        label{
+            font-size: 0.5rem;
+            color: #9A9A9A
+        }
+
+        .input-container{
+            @include displayFlex(column);
+            gap: 0px;
+        }
+
         .first-row {
             @include displayFlex();
-            gap: 20px;
 
             // Form first column styles
 
             .first-column {
                 @include displayFlex(column);
-                gap: 35px;
+                gap: 25px;
                 width: 50%;
 
                 .input-div {
                     position: relative;
 
-                    input:focus~.floating-label,
-                    input:not(:focus):valid~.floating-label {
-                        top: -5px;
-                        bottom: 10px;
-                        font-size: 0.5rem;
-                        opacity: 1;
-                    }
-
-                    span {
-                        font-size: 0.5rem;
-                    }
-
                     input {
                         font-size: 0.5rem;
                         width: 100%;
-                        height: 30px;
+                        height: 25px;
                     }
 
                     .floating-label {
@@ -245,7 +243,7 @@ main {
 
                 input {
                     width: 100%;
-                    height: 30px;
+                    height: 20px;
                     font-size: 0.5rem;
                     border-bottom: 1px solid #9A9A9A;
                     outline: none;
@@ -265,7 +263,7 @@ main {
 
                 select {
                     width: 100%;
-                    height: 30px;
+                    height: 20px;
                     font-size: 0.5rem;
                     border-bottom: 1px solid #9A9A9A;
                     outline: none;
@@ -517,13 +515,14 @@ main {
 
         form {
             padding-top: 20px;
+            gap: 30px;
 
             .first-row {
                 @include displayFlex(column);
                 @include flexProperties(center, center);
 
                 .first-column {
-                    gap: 25px;
+                    gap: 15px;
                     width: 100%;
                 }
 

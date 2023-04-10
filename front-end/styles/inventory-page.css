@@ -180,6 +180,7 @@ main #table-wrapper {
 }
 main table {
   min-width: 100%;
+  height: 100%;
   border-collapse: collapse;
   overflow: scroll;
 }
@@ -233,10 +234,10 @@ main #pagination {
 main #pagination #pagination-controls {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   gap: 10px;
-  width: 120px;
+  width: 100%;
 }
 main #pagination #pagination-controls span {
   font-size: 16px;
@@ -271,41 +272,38 @@ main #pagination #pagination-controls button:hover {
   gap: 50px;
   padding-top: 50px;
 }
+#add-modal form label,
+#modify-modal form label {
+  font-size: 0.5rem;
+  color: #9A9A9A;
+}
+#add-modal form .input-container,
+#modify-modal form .input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
 #add-modal form .first-row,
 #modify-modal form .first-row {
   display: flex;
   flex-direction: row;
-  gap: 20px;
 }
 #add-modal form .first-row .first-column,
 #modify-modal form .first-row .first-column {
   display: flex;
   flex-direction: column;
-  gap: 35px;
+  gap: 25px;
   width: 50%;
 }
 #add-modal form .first-row .first-column .input-div,
 #modify-modal form .first-row .first-column .input-div {
   position: relative;
 }
-#add-modal form .first-row .first-column .input-div input:focus ~ .floating-label,
-#add-modal form .first-row .first-column .input-div input:not(:focus):valid ~ .floating-label,
-#modify-modal form .first-row .first-column .input-div input:focus ~ .floating-label,
-#modify-modal form .first-row .first-column .input-div input:not(:focus):valid ~ .floating-label {
-  top: -5px;
-  bottom: 10px;
-  font-size: 0.5rem;
-  opacity: 1;
-}
-#add-modal form .first-row .first-column .input-div span,
-#modify-modal form .first-row .first-column .input-div span {
-  font-size: 0.5rem;
-}
 #add-modal form .first-row .first-column .input-div input,
 #modify-modal form .first-row .first-column .input-div input {
   font-size: 0.5rem;
   width: 100%;
-  height: 30px;
+  height: 25px;
 }
 #add-modal form .first-row .first-column .input-div .floating-label,
 #modify-modal form .first-row .first-column .input-div .floating-label {
@@ -318,7 +316,7 @@ main #pagination #pagination-controls button:hover {
 #add-modal form .first-row .first-column input,
 #modify-modal form .first-row .first-column input {
   width: 100%;
-  height: 30px;
+  height: 20px;
   font-size: 0.5rem;
   border-bottom: 1px solid #9A9A9A;
   outline: none;
@@ -338,7 +336,7 @@ main #pagination #pagination-controls button:hover {
 #add-modal form .first-row .first-column select,
 #modify-modal form .first-row .first-column select {
   width: 100%;
-  height: 30px;
+  height: 20px;
   font-size: 0.5rem;
   border-bottom: 1px solid #9A9A9A;
   outline: none;
@@ -622,6 +620,7 @@ main #pagination #pagination-controls button:hover {
   #add-modal form,
   #modify-modal form {
     padding-top: 20px;
+    gap: 30px;
   }
   #add-modal form .first-row,
   #modify-modal form .first-row {
@@ -632,7 +631,7 @@ main #pagination #pagination-controls button:hover {
   }
   #add-modal form .first-row .first-column,
   #modify-modal form .first-row .first-column {
-    gap: 25px;
+    gap: 15px;
     width: 100%;
   }
   #add-modal form .first-row .second-column,
