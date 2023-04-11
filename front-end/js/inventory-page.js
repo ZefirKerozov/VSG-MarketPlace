@@ -1,44 +1,6 @@
 import { makeRequest } from "../utils/makeRequest.js";
-
-const navLinks = Array.from(document.querySelectorAll('li a'));
-const currentURL = new URL(document.URL);
-navLinks.filter(x => x.pathname === currentURL.pathname).map(x => x.classList.add('active'));
-
-// Show and hide hamburger mobile menu
-
-const hamburger = document.querySelector(".hamburger");
-const asideNav = document.getElementsByTagName('aside')[0];
-const hamburgerBtn = document.getElementsByTagName('svg')[0];
-
-hamburgerBtn.addEventListener('click', openHamburgerMenu);
-
-window.addEventListener('resize', () => {
-    const userInfo = document.getElementById('user-info');
-    if (window.innerWidth <= 768) {
-        asideNav.prepend(userInfo);
-    } else {
-        document.getElementsByTagName('header')[0].appendChild(userInfo);
-    }
-});
-
-window.addEventListener('load', () => {
-    const userInfo = document.getElementById('user-info');
-    if (window.innerWidth <= 768) {
-        asideNav.prepend(userInfo);
-    } else {
-        document.getElementsByTagName('header')[0].appendChild(userInfo);
-    }
-});
-
-function openHamburgerMenu(e) {
-    if (asideNav.classList.contains('active')) {
-        asideNav.classList.remove('active');
-    } else {
-        asideNav.classList.add('active');
-    }
-}
-
-////////// ADD ITEM AND MODIFY ITEM MODALS //////////
+import "../utils/navLinks.js";
+import "../utils/hamburgerMenu.js";
 
 // Open add item modal if add item button is clicked
 
@@ -47,6 +9,8 @@ const overlay = document.querySelector('.overlay');
 const addItemBtn = document.getElementById('add-btn');
 
 addItemBtn.addEventListener('click', onAddItemBtnClick);
+
+// Open add item modal
 
 function onAddItemBtnClick(e) {
     const modal = document.createElement('div');
@@ -117,6 +81,8 @@ function onAddItemBtnClick(e) {
     overlay.appendChild(modal);
     overlay.style.display = 'flex';
 
+    // Close add item modal when modal close button is clicked
+
     const modalCloseBtn = modal.querySelector('.close-btn');
     modalCloseBtn.addEventListener('click', onModalCloseBtnClick);
 
@@ -124,6 +90,8 @@ function onAddItemBtnClick(e) {
         modal.remove();
         overlay.style.display = 'none';
     }
+
+    // Close add item modal when overlay is clicked
 
     overlay.addEventListener('click', onOverlayClick);
 
@@ -134,6 +102,8 @@ function onAddItemBtnClick(e) {
         }
     }
 
+    // Upload and display image in add item modal
+
     const addModalImageInput = modal.querySelector('#add-item-upload-image');
 
     addModalImageInput.addEventListener('change', onAddModalImageUpload);
@@ -143,6 +113,8 @@ function onAddItemBtnClick(e) {
         modal.querySelector('#add-item-image').src = imageSrc;
     }
 
+    // Remove uplaoded image from add item modal
+
     const addItemRemoveImageBtn = modal.querySelector('#add-item-remove-image-btn');
 
     addItemRemoveImageBtn.addEventListener('click', onAddItemRemoveImage);
@@ -151,6 +123,8 @@ function onAddItemBtnClick(e) {
         addModalImageInput.value = "";
         modal.querySelector('#add-item-image').src = '/front-end/images/no_image-placeholder.png';
     }
+
+    // Add item modal submit request
 
     const form = modal.querySelector('form');
     form.addEventListener('submit', onAddSubmit);
@@ -178,49 +152,14 @@ function onAddItemBtnClick(e) {
     }
 }
 
-// Add item modal category select placeholder color change
-
-// const addItemCategorySelect = document.getElementById('add-item-select');
-
-// addItemCategorySelect.addEventListener('change', onSelectChange);
-
-// function onSelectChange(e) {
-//     if (e.target.value !== "") {
-//         addItemCategorySelect.style.color = '#000000';
-//     }
-// }
-
-// Upload and remove uploaded image in add item modal
-
-// const addModalImageInput = document.getElementById('add-item-files');
-
-// addModalImageInput.addEventListener('change', onAddModalImageUpload);
-
-// function onAddModalImageUpload(e) {
-//     const imageSrc = URL.createObjectURL(this.files[0]);
-//     document.getElementById('add-item-image').src = imageSrc;
-// }
-
-// const addItemRemoveImageBtn = document.getElementById('add-item-remove-upload-btn');
-
-// addItemRemoveImageBtn.addEventListener('click', onAddItemRemoveImage);
-
-// function onAddItemRemoveImage(e) {
-//     addModalImageInput.value = "";
-//     document.getElementById('add-item-image').src = '/front-end/images/no_image-placeholder.png';
-// }
-
-// Upload and remove uploaded image in modify item modal
-
-
-
-//////////
+////////// Dynamically load items from API //////////
 
 const loadProducts = async () => {
     try {
         const data = await makeRequest({ path: '/products' });
         const modifiedData = data.map(x => x = { ...x, quantity: Math.floor(Math.random() * 11), forSale: 1 });
-        console.log(modifiedData);
+
+        // Display 10 items per page
 
         let startSlice = 0;
         let endSlice = 10;
@@ -230,6 +169,10 @@ const loadProducts = async () => {
         const forwardBtn = document.querySelector('#forward-btn');
         let pageIndex = document.querySelector('#page-index');
         pageIndex.textContent = `${startSlice + 1} - ${endSlice} of ${modifiedData.length}`;
+
+        // Pagiantion functionality
+
+        // Pagiantion forward button
 
         forwardBtn.addEventListener('click', () => {
             console.log(searchItemsToLoad);
@@ -255,6 +198,8 @@ const loadProducts = async () => {
             }
 
         })
+
+        // Pagiantion backward button
 
         backwardBtn.addEventListener('click', () => {
             console.log(searchItemsToLoad);
@@ -282,6 +227,8 @@ const loadProducts = async () => {
             }
         })
 
+        // Search functionality
+
         const searchForm = document.querySelector('#search-form');
 
         searchForm.addEventListener('submit', (e) => {
@@ -306,6 +253,8 @@ const loadProducts = async () => {
 }
 
 loadProducts();
+
+// Display fetched items in table function
 
 function displayItemsInTable(items) {
     const tableBody = document.querySelector('tbody');
@@ -340,6 +289,8 @@ function displayItemsInTable(items) {
             </div>
         </td>
         `;
+
+        // Open modify modal when modify button is clicked
 
         const modifyBtn = tableRow.querySelector('.modify-btn');
         modifyBtn.addEventListener('click', onModifyBtnClick);
@@ -414,6 +365,8 @@ function displayItemsInTable(items) {
             overlay.appendChild(modal);
             overlay.style.display = 'flex';
 
+            // Close modal when close modal button is clicked
+
             const modalCloseBtn = modal.querySelector('.close-btn');
             modalCloseBtn.addEventListener('click', onModalCloseBtnClick);
 
@@ -421,6 +374,8 @@ function displayItemsInTable(items) {
                 modal.remove();
                 overlay.style.display = 'none';
             }
+
+            // Close modal when overlay is clicked
 
             overlay.addEventListener('click', onOverlayClick);
 
@@ -431,6 +386,8 @@ function displayItemsInTable(items) {
                 }
             }
 
+            // Upload and display image in modify modal
+
             const modifyModalImageInput = modal.querySelector('#modify-item-upload-image');
 
             modifyModalImageInput.addEventListener('change', onModifyModalImageUpload);
@@ -440,6 +397,8 @@ function displayItemsInTable(items) {
                 modal.querySelector('#modify-item-image').src = imageSrc;
             }
 
+            // Remove uploaded image from modify modal
+
             const modifyItemRemoveImageBtn = modal.querySelector('#modify-item-remove-image-btn');
 
             modifyItemRemoveImageBtn.addEventListener('click', onModifyItemRemoveImage);
@@ -448,6 +407,8 @@ function displayItemsInTable(items) {
                 modifyModalImageInput.value = "";
                 modal.querySelector('#modify-item-image').src = '/front-end/images/no_image-placeholder.png';
             }
+
+            // Modify modal submit request
 
             const form = modal.querySelector('form');
             form.addEventListener('submit', onModifySubmit);
@@ -475,16 +436,22 @@ function displayItemsInTable(items) {
             }
         }
 
+        // Show pop-up when item delete button is clicked
+
         const deleteBtn = tableRow.querySelector('.delete-btn');
         deleteBtn.addEventListener('click', showPopup);
 
-        // Pop Up
+        // Open and close pop-up functionality
 
         function showPopup(e) {
+            // Close previous opened pop-up if there is such
+
             const prevPopUp = document.getElementById('pop-up');
             if (prevPopUp !== null) {
                 prevPopUp.remove();
             }
+
+            // Create pop-up and append it to parent element
 
             const divPopUp = document.createElement('div');
             divPopUp.id = 'pop-up';
@@ -501,27 +468,29 @@ function displayItemsInTable(items) {
 
             deleteBtnParent.appendChild(divPopUp);
 
+            // Configure pop-up position depending on browser window
+
             const elementPopUp = document.getElementById('pop-up');
 
             let positionLeft;
             let positionTop;
 
             if (position.x + elementPopUp.offsetWidth >= window.innerWidth) {
-                positionLeft = position.left - position.left - 230;
+                positionLeft = position.left - position.left - 224;
                 elementPopUp.classList.add('top-right-pointer');
             } else if (position.x + elementPopUp.offsetWidth >= window.innerWidth && position.y + elementPopUp.offsetHeight + 20 >= window.innerHeight) {
-                positionLeft = position.left - position.left - 0;
+                positionLeft = position.left - position.left - 100;
                 elementPopUp.classList.add('bottom-right-pointer');
             } else {
-                positionLeft = position.left - position.left - 0;
+                positionLeft = position.left - position.left - 100;
                 elementPopUp.classList.add('top-middle-pointer');
             }
 
             if (position.y + elementPopUp.offsetHeight + 50 >= window.innerHeight && !(position.x + elementPopUp.offsetWidth >= window.innerWidth)) {
-                positionTop = position.top - position.top - 0;
+                positionTop = position.top - position.top - 100;
                 elementPopUp.classList.add('bottom-middle-pointer');
             } else if (position.y + elementPopUp.offsetHeight + 50 >= window.innerHeight && position.x + elementPopUp.offsetWidth >= window.innerWidth) {
-                positionTop = position.top - position.top - 0;
+                positionTop = position.top - position.top - 100;
                 elementPopUp.classList.add('bottom-right-pointer');
             }
             else {
@@ -533,6 +502,8 @@ function displayItemsInTable(items) {
                 top: `${positionTop}px`,
                 visibility: 'visible',
             });
+
+            // Delete item request when confirm button is clicked
 
             const confirmBtn = document.getElementById('confirm-btn');
             console.log(confirmBtn);
@@ -548,6 +519,8 @@ function displayItemsInTable(items) {
                 deleteItem();
             }
 
+            // Close pop-up if cancel button is clicked
+
             const cancelBtn = document.getElementById('cancel-btn');
             cancelBtn.addEventListener('click', closePopUp);
 
@@ -558,6 +531,8 @@ function displayItemsInTable(items) {
                 deleteBtnParent.removeChild(divPopUp);
                 window.removeEventListener('click', trackWindowEvent);
             }
+
+            // Close pop-up if clicked outside pop-up
 
             function trackWindowEvent(e) {
                 if (!e.target.matches('.inside-pop-up') && !e.target.matches('.delete-btn')) {

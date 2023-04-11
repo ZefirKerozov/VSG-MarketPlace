@@ -1,3 +1,5 @@
+///// NOT USED IN APP /////
+
 const templateDesktop = document.createElement('template');
 const templateMobile = document.createElement('template');
 

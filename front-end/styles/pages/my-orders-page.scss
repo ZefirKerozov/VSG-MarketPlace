@@ -1,29 +1,11 @@
-@use 'global';
-@use 'header';
-@use 'navigation';
-
-@import '../styles/mixins';
-
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import '../abstracts/mixins';
 
 $background-color: #FFFFFF;
 
-//// Body and main container styles ////
+//// Items section styles ////
 
 body {
     position: relative;
-    height: 100vh;
-    background-color: #F0F2F3;
-    font-family: 'Roboto', sans-serif;
-    overflow: hidden;
-}
-
-#main-container {
-    @include displayFlex();
-    height: calc(100% - 110px);
-    gap: 30px;
-    padding: 30px 20px;
 }
 
 main {
@@ -38,7 +20,6 @@ main {
         @include displayFlex(column);
         height: 100%;
         gap: 20px;
-
         overflow-y: scroll;
 
         /* Hide the scrollbar for Internet Explorer, Edge and Firefox */
@@ -51,6 +32,8 @@ main {
         &::-webkit-scrollbar {
             display: none;
         }
+
+        // Table styles
 
         .responsive-table {
             display: table;
@@ -78,6 +61,8 @@ main {
                 margin-bottom: 20px;
                 font-size: 18px;
 
+                // Table cells width styles
+
                 .col-1 {
                     flex-basis: 40%;
                 }
@@ -97,10 +82,13 @@ main {
                 .col-5 {
                     flex-basis: 30%;
 
-                    .status{
+                    // Order status and cancel button styles
+
+                    .status {
                         @include displayFlex();
                         @include flexProperties(space-between, center);
                         width: 100%;
+                        position: relative;
                     }
 
                     .cancel-btn {
@@ -127,77 +115,6 @@ main {
             .table-row {
                 border: 2px solid #DADCDD;
             }
-
-            @media (max-width: 768px) {
-                .table-header {
-                    display: none;
-                }
-
-                .table-row {
-                    @include displayFlex(column);
-                    @include flexProperties(flex-start);
-                    height: 33.333333%;
-                    padding: 0;
-
-                    .col {
-                        @include displayFlex(row);
-                        @include flexProperties(flex-start, flex-start);
-                        width: calc(100% - 30px);
-                        padding: 15px;
-                        flex-basis: 0;
-                    }
-
-                    .col::before {
-                        content: attr(data-before);
-                        font-weight: 700;
-                        margin-right: 10px;
-                    }
-
-                    .col-1 {
-                        border-bottom: 2px solid #DADCDD;
-                    }
-
-                    .table-first-group {
-                        width: 100%;
-                        justify-content: flex-start;
-                        border-bottom: 2px solid #DADCDD;
-
-                        .col {
-                            flex-basis: 40%;
-                        }
-
-                        .col-3{
-                            flex-basis: 50%;
-                            padding-left: 0;
-                        }
-                    }
-
-                    .table-second-group {
-                        @include displayFlex(column);
-                        @include flexProperties(space-evenly, flex-start);
-                        box-sizing: border-box;
-                        width: 100%;
-
-                        .col {
-                            border-bottom: 2px solid #DADCDD;
-                        }
-
-                        .col:nth-child(1)::before {
-                            content: attr(data-before);
-                            font-weight: 700;
-                        }
-
-                        .col:nth-child(2)::before {
-                            content: attr(data-before);
-                            font-weight: 700;
-                        }
-
-                        .col:nth-child(2) {
-                            border: none;
-                        }
-                    }
-                }
-            }
         }
     }
 }
@@ -207,10 +124,10 @@ main {
 #pop-up {
     @include displayFlex(column);
     @include flexProperties(space-between, flex-end);
-    position: fixed;
+    position: absolute;
     visibility: hidden;
     z-index: 1;
-    width: 300px;
+    width: 274px;
     height: 80px;
     background-color: $background-color;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
@@ -220,7 +137,7 @@ main {
 
     p {
         display: inline;
-        text-align: center;
+        text-align: left;
         width: 100%
     }
 
@@ -260,55 +177,82 @@ main {
 }
 
 @media (max-width: 768px) {
-    header {
-        svg:last-of-type {
-            display: block;
-        }
-    }
-
-    #user-info {
-        @include displayFlex(row-reverse);
-        @include flexProperties(flex-start, center);
-        position: absolute;
-        gap: 10px;
-        font-size: 0.5rem;
-        top: 20px;
-        left: 70px;
-        transform: translate(-50%, 0);
-    }
-
-    nav {
-        border-radius: 0;
-        padding-top: 60px;
-    }
-
-    aside {
-        position: fixed;
-        left: -100%;
-        top: 50px;
-        margin: 10px;
-        min-width: calc(100% - 20px);
-        height: calc(100% - 70px);
-        z-index: 1;
-        transition: 0.3s;
-    }
-
-    aside.active {
-        left: 0;
-    }
-
-    #main-container {
-        padding: 15px;
-        height: calc(100% - 80px);
-    }
-
     main {
         width: 100%;
     }
-}
 
-@media (max-width: 1366px) {
-    aside {
-        width: 30%;
+    // Table styles
+
+    .table-header {
+        display: none;
+    }
+
+    .table-row {
+        @include displayFlex(column);
+        @include flexProperties(flex-start);
+        height: 33.333333%;
+        padding: 0;
+
+        .col {
+            @include displayFlex(row);
+            @include flexProperties(flex-start, flex-start);
+            width: calc(100% - 30px);
+            padding: 15px;
+            flex-basis: 0;
+        }
+
+        // Add table header before cell
+
+        .col::before {
+            content: attr(data-before);
+            font-weight: 700;
+            margin-right: 10px;
+        }
+
+        .col-1 {
+            border-bottom: 2px solid #DADCDD;
+        }
+
+        .table-first-group {
+            width: 100%;
+            justify-content: flex-start;
+            border-bottom: 2px solid #DADCDD;
+
+            .col {
+                flex-basis: 40%;
+            }
+
+            .col-3 {
+                flex-basis: 50%;
+                padding-left: 0;
+            }
+        }
+
+        .table-second-group {
+            @include displayFlex(column);
+            @include flexProperties(space-evenly, flex-start);
+            box-sizing: border-box;
+            width: 100%;
+
+            .col {
+                border-bottom: 2px solid #DADCDD;
+            }
+
+            // Add table header before cell
+
+            .col:nth-child(1)::before {
+                content: attr(data-before);
+                font-weight: 700;
+            }
+
+            .col:nth-child(2)::before {
+                content: attr(data-before);
+                font-weight: 700;
+            }
+
+            .col:nth-child(2) {
+                border: none;
+            }
+        }
     }
 }

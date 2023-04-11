@@ -1,119 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-  border: none;
-}
-
-html {
-  font-size: 30px;
-}
-
-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  height: 50px;
-  background-color: #FFFFFF;
-  padding: 10px 10px;
-  font-family: "Montserrat", sans-serif;
-  box-sizing: border-box;
-}
-header a {
-  height: 30px;
-}
-header #title {
-  font-size: 1rem;
-}
-header svg {
-  width: 30px;
-  height: 30px;
-}
-header svg:last-of-type {
-  display: none;
-}
-header #user-info {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.5rem;
-}
-
-aside {
-  height: 100%;
-  width: 20%;
-  background-color: #FFFFFF;
-  border-radius: 20px;
-}
-
-nav {
-  height: 100%;
-  padding: 39px 18px;
-  box-sizing: border-box;
-}
-nav ul {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  list-style-type: none;
-  height: 100%;
-}
-nav li {
-  border-radius: 10px;
-}
-nav li a {
-  display: block;
-  text-decoration: none;
-  color: #000000;
-  padding: 15px 17px;
-  border-radius: 10px;
-  font-size: 0.5rem;
-}
-nav li svg {
-  margin-right: 5px;
-}
-nav li .active {
-  background-color: #ED1C25;
-  color: #FFFFFF;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-}
-nav li .active svg path {
-  fill: #FFFFFF;
-}
-nav li:last-of-type {
-  margin-top: auto;
-}
-nav li:hover {
-  background-color: #ED1C25;
-  cursor: pointer;
-}
-nav li:hover a {
-  color: #FFFFFF;
-}
-nav li:hover svg path {
-  fill: #FFFFFF;
-}
-
-body {
-  height: 100vh;
-  background-color: #F0F2F3;
-  font-family: "Roboto", sans-serif;
-  overflow: hidden;
-}
-
-#main-container {
-  display: flex;
-  flex-direction: row;
-  height: calc(100% - 110px);
-  gap: 30px;
-  padding: 30px 20px;
-}
-
 main {
   display: flex;
   flex-direction: row;
@@ -218,10 +102,12 @@ main .items::-webkit-scrollbar {
   flex-direction: row;
   position: relative;
   border: none;
-  cursor: pointer;
   background-color: #ED1C25;
   border-radius: 50px;
   padding: 7px;
+}
+.item-card .quantity-wrapper button:hover {
+  cursor: pointer;
 }
 .item-card .quantity-wrapper svg {
   height: 1rem;
@@ -239,7 +125,7 @@ main .items::-webkit-scrollbar {
   position: absolute;
   visibility: hidden;
   z-index: 1;
-  width: 300px;
+  width: 280px;
   height: 80px;
   background-color: #FFFFFF;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
@@ -305,7 +191,7 @@ main .items::-webkit-scrollbar {
   content: "";
   position: absolute;
   top: -10px;
-  left: 280px;
+  left: 270px;
   width: 0px;
   height: 0px;
   border-style: solid;
@@ -331,7 +217,7 @@ main .items::-webkit-scrollbar {
   content: "";
   position: absolute;
   top: 112px;
-  left: 280px;
+  left: 270px;
   width: 0px;
   height: 0px;
   border-style: solid;
@@ -407,55 +293,7 @@ main .items::-webkit-scrollbar {
   cursor: pointer;
 }
 
-.overlay {
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  display: none;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
 @media (max-width: 768px) {
-  header svg:last-of-type {
-    display: block;
-  }
-  #user-info {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: flex-start;
-    align-items: center;
-    position: absolute;
-    gap: 10px;
-    font-size: 0.5rem;
-    top: 20px;
-    left: 70px;
-    transform: translate(-50%, 0);
-  }
-  nav {
-    border-radius: 0;
-    padding-top: 60px;
-  }
-  aside {
-    position: fixed;
-    left: -100%;
-    top: 50px;
-    margin: 10px;
-    min-width: calc(100% - 20px);
-    height: calc(100% - 70px);
-    z-index: 1;
-    transition: 0.3s;
-  }
-  aside.active {
-    left: 0;
-  }
-  #main-container {
-    padding: 15px;
-    height: calc(100% - 80px);
-  }
   main {
     width: 100%;
   }
@@ -482,8 +320,5 @@ main .items::-webkit-scrollbar {
   .item-wrapper {
     min-width: 50%;
     min-height: 50%;
-  }
-  aside {
-    width: 30%;
   }
 }/*# sourceMappingURL=marketplace-page.css.map */
