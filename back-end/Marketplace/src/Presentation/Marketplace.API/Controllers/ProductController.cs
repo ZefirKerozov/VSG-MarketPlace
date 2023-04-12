@@ -27,4 +27,13 @@ public class ProductController : ControllerBase
    {
        return _productService.GetById(productId);
    }
+
+   [HttpGet ]
+   [Route("Invertory")]
+
+   public List<GetAllProductsForInvDto> GetAllProductsForInv()
+   {
+       var result = _productService.GetProductsForInventory();
+       return (List<GetAllProductsForInvDto>)result;
+   }
 }

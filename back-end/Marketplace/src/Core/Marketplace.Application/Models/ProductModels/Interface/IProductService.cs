@@ -7,4 +7,7 @@ public interface IProductService
     public List<GetProductsDto> GetAll();
 
     ProductDetailsDto GetById(int productId);
+    
+    public List<GetAllProductsForInvDto> GetProductsForInventory();
+
 }

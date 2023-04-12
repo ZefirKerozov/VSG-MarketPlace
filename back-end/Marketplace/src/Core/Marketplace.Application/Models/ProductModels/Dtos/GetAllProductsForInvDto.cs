@@ -1,4 +1,4 @@
-﻿namespace Marketplace.Application.Models.InventoryModels.DTOs;
+﻿namespace Marketplace.Application.Models.ProductModels.Dtos;
 
 public class GetAllProductsForInvDto
 {

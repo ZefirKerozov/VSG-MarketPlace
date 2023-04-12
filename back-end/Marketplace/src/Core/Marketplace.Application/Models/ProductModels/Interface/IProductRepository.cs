@@ -8,4 +8,7 @@ public interface IProductRepository
 {
     List<GetProductsDto> GetAllProduct();
     ProductDetailsDto GetProductById(int productId);
+    
+    public List<GetAllProductsForInvDto> GetProductsForInventory();
+
 }

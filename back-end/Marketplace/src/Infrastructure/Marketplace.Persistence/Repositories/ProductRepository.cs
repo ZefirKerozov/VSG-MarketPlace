@@ -1,38 +1,41 @@
 ﻿using System.Data.SqlClient;
 using Dapper;
+using Markerplace.Domain.Entities;
+using Marketplace.Application.Models.GenericRepository;
 using Marketplace.Application.Models.ProductModels.Dtos;
 using Marketplace.Application.Models.ProductModels.Interface;
 using Microsoft.Extensions.Configuration;
 
 namespace Marketplace.Persistence.Repositories;
 
-public class ProductRepository : IProductRepository
+public class ProductRepository : GenericRepository<Products>, IProductRepository
 {
-    private readonly string? _connectionString;
-
-    public ProductRepository(IConfiguration config)
+    public ProductRepository(IUnitOfWork unitOfWork) : base(unitOfWork)
     {
-        this._connectionString = config.GetConnectionString("SqlConnection");
     }
-
     public List<GetProductsDto> GetAllProduct()
     {
-        using var connection = new SqlConnection(this._connectionString);
-        connection.Open();
+        
 
         string query =
             "SELECT  Products.Price,   Products.QuantityForSale,  Categories.name AS CategoryName,  Images.img FROM Products  JOIN Categories ON Products.CategoryId = Categories.Id JOIN Images ON Products.ImageId = Images.Id Where Products.QuantityForSale > 0; ";
-        var result = connection.Query<GetProductsDto>(query);
+        var result = Connection.Query<GetProductsDto>(query);
         return (List<GetProductsDto>)(result);
     }
 
     public ProductDetailsDto GetProductById(int productId)
     {
-        using var connection = new SqlConnection(this._connectionString);
-        connection.Open();
-
         string query = $"SELECT p.Name, p.Price, p.QuantityForSale, p.Description, c.Name as CategoryName  FROM Products p INNER JOIN Categories c ON p.CategoryId = c.Id WHERE p.Id = {productId}";
-        var result = connection.QueryFirst<ProductDetailsDto>(query);
+        var result = Connection.QueryFirst<ProductDetailsDto>(query);
         return (result);
     }
+    
+    public List<GetAllProductsForInvDto> GetProductsForInventory()
+    {
+
+        string query = "SELECT p.Code, p.Name, p.QuantityForSale, p.Quantity, c.Name AS CategoryName FROM Products p INNER JOIN Categories c ON p.CategoryID = c.Id;";
+        var result = Connection.Query<GetAllProductsForInvDto>(query);
+        return  (List<GetAllProductsForInvDto>)(result);
+    }
+    
     }

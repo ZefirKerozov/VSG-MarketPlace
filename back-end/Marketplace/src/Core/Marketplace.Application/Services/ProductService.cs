@@ -22,4 +22,10 @@ public class ProductService :IProductService
         var result = productRepository.GetProductById(productId);
         return result;
     }
+
+    public List<GetAllProductsForInvDto> GetProductsForInventory()
+    {
+        return productRepository.GetProductsForInventory();
+
+    }
 }
