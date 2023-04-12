@@ -16,6 +16,17 @@ builder.Services.AddEndpointsApiExplorer();
      c.SwaggerDoc("v1", new OpenApiInfo { Title = "Marketplace", Version = "v1" });
      c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
  });
+ 
+ builder.Services.AddCors(options =>
+ {
+     options.AddPolicy(name: "CORSPolicy", policy =>
+     {
+         policy
+             .AllowAnyMethod()
+             .AllowAnyHeader()
+             .WithOrigins("*");
+     });
+ });
  var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -25,7 +36,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
- 
+ app.UseCors("CORSPolicy");
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
