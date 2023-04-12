@@ -22,6 +22,9 @@ header {
   font-family: "Montserrat", sans-serif;
   box-sizing: border-box;
 }
+header a {
+  height: 30px;
+}
 header #title {
   font-size: 1rem;
 }
@@ -97,6 +100,7 @@ nav li:hover svg path {
 }
 
 body {
+  position: relative;
   height: 100vh;
   background-color: #F0F2F3;
   font-family: "Roboto", sans-serif;
@@ -123,6 +127,7 @@ main {
 main .items {
   display: flex;
   flex-direction: column;
+  height: 100%;
   gap: 20px;
   overflow-y: scroll;
   /* Hide the scrollbar for Internet Explorer, Edge and Firefox */
@@ -141,7 +146,8 @@ main .items .responsive-table {
 main .items .responsive-table .table-header,
 main .items .responsive-table .table-row {
   border-radius: 10px;
-  padding: 14px 10px;
+  padding: 0 10px;
+  height: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -171,12 +177,18 @@ main .items .responsive-table .table-row .col-5 {
   align-items: center;
   gap: 30px;
 }
-main .items .responsive-table .table-header .col-5 button,
-main .items .responsive-table .table-row .col-5 button {
+main .items .responsive-table .table-header .col-5 .cancel-btn,
+main .items .responsive-table .table-row .col-5 .cancel-btn {
   background: none;
+  width: 12px;
+  height: 12px;
 }
-main .items .responsive-table .table-header .col-5 button:hover,
-main .items .responsive-table .table-row .col-5 button:hover {
+main .items .responsive-table .table-header .col-5 .cancel-btn svg,
+main .items .responsive-table .table-row .col-5 .cancel-btn svg {
+  pointer-events: none;
+}
+main .items .responsive-table .table-header .col-5 .cancel-btn:hover,
+main .items .responsive-table .table-row .col-5 .cancel-btn:hover {
   cursor: pointer;
 }
 main .items .responsive-table .table-header {
@@ -197,7 +209,7 @@ main .items .responsive-table .table-row {
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-end;
-  position: absolute;
+  position: fixed;
   visibility: hidden;
   z-index: 1;
   width: 300px;

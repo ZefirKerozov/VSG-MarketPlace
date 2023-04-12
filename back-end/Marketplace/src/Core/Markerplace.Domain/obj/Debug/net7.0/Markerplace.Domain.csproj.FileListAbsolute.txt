@@ -10,3 +10,15 @@ C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Core\Markerpl
 C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Core\Markerplace.Domain\obj\Debug\net7.0\refint\Markerplace.Domain.dll
 C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Core\Markerplace.Domain\obj\Debug\net7.0\Markerplace.Domain.pdb
 C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Core\Markerplace.Domain\obj\Debug\net7.0\ref\Markerplace.Domain.dll
+C:\Users\YKurtev\Desktop\VSG-marketplace\back-end\Marketplace\src\Core\Markerplace.Domain\bin\Debug\net7.0\Markerplace.Domain.deps.json
+C:\Users\YKurtev\Desktop\VSG-marketplace\back-end\Marketplace\src\Core\Markerplace.Domain\bin\Debug\net7.0\Markerplace.Domain.dll
+C:\Users\YKurtev\Desktop\VSG-marketplace\back-end\Marketplace\src\Core\Markerplace.Domain\bin\Debug\net7.0\Markerplace.Domain.pdb
+C:\Users\YKurtev\Desktop\VSG-marketplace\back-end\Marketplace\src\Core\Markerplace.Domain\obj\Debug\net7.0\Markerplace.Domain.csproj.AssemblyReference.cache
+C:\Users\YKurtev\Desktop\VSG-marketplace\back-end\Marketplace\src\Core\Markerplace.Domain\obj\Debug\net7.0\Markerplace.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\YKurtev\Desktop\VSG-marketplace\back-end\Marketplace\src\Core\Markerplace.Domain\obj\Debug\net7.0\Markerplace.Domain.AssemblyInfoInputs.cache
+C:\Users\YKurtev\Desktop\VSG-marketplace\back-end\Marketplace\src\Core\Markerplace.Domain\obj\Debug\net7.0\Markerplace.Domain.AssemblyInfo.cs
+C:\Users\YKurtev\Desktop\VSG-marketplace\back-end\Marketplace\src\Core\Markerplace.Domain\obj\Debug\net7.0\Markerplace.Domain.csproj.CoreCompileInputs.cache
+C:\Users\YKurtev\Desktop\VSG-marketplace\back-end\Marketplace\src\Core\Markerplace.Domain\obj\Debug\net7.0\Markerplace.Domain.dll
+C:\Users\YKurtev\Desktop\VSG-marketplace\back-end\Marketplace\src\Core\Markerplace.Domain\obj\Debug\net7.0\refint\Markerplace.Domain.dll
+C:\Users\YKurtev\Desktop\VSG-marketplace\back-end\Marketplace\src\Core\Markerplace.Domain\obj\Debug\net7.0\Markerplace.Domain.pdb
+C:\Users\YKurtev\Desktop\VSG-marketplace\back-end\Marketplace\src\Core\Markerplace.Domain\obj\Debug\net7.0\ref\Markerplace.Domain.dll

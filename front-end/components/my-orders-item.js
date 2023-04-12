@@ -31,6 +31,7 @@ templateDesktop.innerHTML = `
 }
 
 .col-5 {
+    position: relative;
     flex-basis: 10%;
     display: flex;
     align-items: center;
@@ -45,6 +46,22 @@ templateDesktop.innerHTML = `
 .cancel-btn:hover{
     cursor: pointer;
 }
+
+.pop-up {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: absolute;
+    visibility: hidden;
+    z-index: 1;
+    width: 300px;
+    height: 80px;
+    background-color: #FFF;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    padding: 16px;
+    font-size: 0.5rem;
 </style>
 <div class="table-row">
     <div class="col col-1">MacBook Pro 16” M1 Max 32GB 1TB</div>
@@ -61,6 +78,13 @@ templateDesktop.innerHTML = `
                 fill="#ED1C25" />
             </svg>
         </button>
+        <div class="pop-up inside-pop-up">
+            <p class="inside-pop-up">Are you sure you want to reject this order?</p>
+            <div class="pop-up-buttons inside-pop-up">
+                <a href="" id="confirm-btn">Yes</a>
+                <a href="" id="cancel-btn">No</a>
+            </div>
+        </div>
     </div>
 </div>
 `;
@@ -189,86 +213,12 @@ class MyOrdersItem extends HTMLElement {
             this.shadowRoot.querySelector('.col-4').textContent =
                 this.getAttribute('order-date');
         }
-        this.shadowRoot
-            .querySelector('.cancel-btn')
-            .addEventListener('click', showPopup);
+        // this.shadowRoot
+        //     .querySelector('.cancel-btn')
+        //     .addEventListener('click', () => {
+        //         alert('Works!')
+        //     });
     }
 }
 
 customElements.define('my-orders-item', MyOrdersItem);
-
-function showPopup(e) {
-    const prevPopUp = document.getElementById('pop-up');
-    if (prevPopUp !== null) {
-        prevPopUp.remove();
-    }
-
-    const divPopUp = document.createElement('div');
-    divPopUp.id = 'pop-up';
-    divPopUp.classList.add('inside-pop-up');
-    divPopUp.innerHTML = `<p class="inside-pop-up">Are you sure you want to reject this order?</p>
-<div class="pop-up-buttons inside-pop-up">
-    <a href="" id="confirm-btn">Yes</a>
-    <a href="" id="cancel-btn">No</a>
-</div>`;
-
-    const position = e.target.getBoundingClientRect();
-
-    const body = document.getElementsByTagName('body')[0];
-
-    body.appendChild(divPopUp);
-
-    const elementPopUp = document.getElementById('pop-up');
-
-    console.log(elementPopUp);
-
-    let positionLeft;
-    let positionTop;
-
-    if (position.x + elementPopUp.offsetWidth >= window.innerWidth) {
-        positionLeft = position.left - position.left - 265;
-        elementPopUp.classList.add('top-right-pointer');
-    } else if (position.x + elementPopUp.offsetWidth >= window.innerWidth && position.y + elementPopUp.offsetHeight + 20 >= window.innerHeight) {
-        positionLeft = position.left - position.left - 100;
-        elementPopUp.classList.add('bottom-right-pointer');
-    } else {
-        positionLeft = position.left - position.left - 140;
-        elementPopUp.classList.add('top-middle-pointer');
-    }
-
-    if (position.y + elementPopUp.offsetHeight + 50 >= window.innerHeight && !(position.x + elementPopUp.offsetWidth >= window.innerWidth)) {
-        positionTop = position.top - position.top - 115;
-        elementPopUp.classList.add('bottom-middle-pointer');
-    } else if (position.y + elementPopUp.offsetHeight + 50 >= window.innerHeight && position.x + elementPopUp.offsetWidth >= window.innerWidth) {
-        positionTop = position.top - position.top - 115;
-        elementPopUp.classList.add('bottom-right-pointer');
-    }
-    else {
-        positionTop = position.top - position.top + 50;
-    }
-
-    Object.assign(elementPopUp.style, {
-        left: `${position.x - 285}px`,
-        top: `${position.y + 25}px`,
-        visibility: 'visible',
-    });
-
-    const cancelBtn = document.getElementById('cancel-btn');
-    cancelBtn.addEventListener('click', closePopUp);
-
-    window.addEventListener('click', trackWindowEvent);
-
-    function closePopUp(e) {
-        e.preventDefault();
-        itemCard.removeChild(divPopUp);
-        window.removeEventListener('click', trackWindowEvent);
-    }
-
-    function trackWindowEvent(e) {
-        console.log(e.target);
-        if (!e.target.matches('.inside-pop-up') && !e.target.matches('.delete-btn')) {
-            body.removeChild(divPopUp);
-            window.removeEventListener('click', trackWindowEvent);
-        }
-    }
-};

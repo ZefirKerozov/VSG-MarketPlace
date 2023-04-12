@@ -59,26 +59,24 @@ DUMMY_DATA = [
 
 // Load My Orders data inside table
 
-const myOrdersTable = document.querySelector('.responsive-table');
+// const myOrdersTable = document.querySelector('.responsive-table');
 
-DUMMY_DATA.forEach(x => {
-    const myOrderItem = document.createElement('my-orders-item');
+// DUMMY_DATA.forEach(x => {
+//     const myOrderItem = document.createElement('my-orders-item');
 
-    myOrderItem.setAttribute('product-name', x.name);
-    myOrderItem.setAttribute('product-qty', x.qty);
-    myOrderItem.setAttribute('product-price', x.price);
-    myOrderItem.setAttribute('order-date', x.orderDate);
+//     myOrderItem.setAttribute('product-name', x.name);
+//     myOrderItem.setAttribute('product-qty', x.qty);
+//     myOrderItem.setAttribute('product-price', x.price);
+//     myOrderItem.setAttribute('order-date', x.orderDate);
 
-    myOrdersTable.appendChild(myOrderItem);
-});
+//     myOrdersTable.appendChild(myOrderItem);
+// });
 
 // Pop Up
 
-const deleteItemBtns = Array.from(document.getElementsByClassName('col-1'));
+const cancelOrderBtns = Array.from(document.getElementsByClassName('cancel-btn'));
 
-console.log(deleteItemBtns);
-
-deleteItemBtns.forEach(x => x.addEventListener('click', showPopup));
+cancelOrderBtns.forEach(x => x.addEventListener('click', showPopup));
 
 function showPopup(e) {
     const prevPopUp = document.getElementById('pop-up');
@@ -89,7 +87,7 @@ function showPopup(e) {
     const divPopUp = document.createElement('div');
     divPopUp.id = 'pop-up';
     divPopUp.classList.add('inside-pop-up');
-    divPopUp.innerHTML = `<p class="inside-pop-up">Are you sure you want to reject this order?</p>
+    divPopUp.innerHTML = `<p class="inside-pop-up">Are you sure you want to remove this item?</p>
 <div class="pop-up-buttons inside-pop-up">
     <a href="" id="confirm-btn">Yes</a>
     <a href="" id="cancel-btn">No</a>
@@ -97,9 +95,9 @@ function showPopup(e) {
 
     const position = e.target.getBoundingClientRect();
 
-    const body = document.getElementsByTagName('body')[0];
+    const cancelButtonParent = e.target.parentElement;
 
-    body.appendChild(divPopUp);
+    cancelButtonParent.appendChild(divPopUp);
 
     const elementPopUp = document.getElementById('pop-up');
 
@@ -146,9 +144,8 @@ function showPopup(e) {
     }
 
     function trackWindowEvent(e) {
-        console.log(e.target);
-        if (!e.target.matches('.inside-pop-up') && !e.target.matches('.delete-btn')) {
-            body.removeChild(divPopUp);
+        if (!e.target.matches('.inside-pop-up') && !e.target.matches('.cancel-btn')) {
+            cancelButtonParent.removeChild(divPopUp);
             window.removeEventListener('click', trackWindowEvent);
         }
     }

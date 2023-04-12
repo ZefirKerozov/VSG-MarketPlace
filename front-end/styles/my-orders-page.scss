@@ -12,6 +12,7 @@ $background-color: #FFFFFF;
 //// Body and main container styles ////
 
 body {
+    position: relative;
     height: 100vh;
     background-color: #F0F2F3;
     font-family: 'Roboto', sans-serif;
@@ -35,6 +36,7 @@ main {
 
     .items {
         @include displayFlex(column);
+        height: 100%;
         gap: 20px;
 
         overflow-y: scroll;
@@ -56,7 +58,8 @@ main {
             .table-header,
             .table-row {
                 border-radius: 10px;
-                padding: 14px 10px;
+                padding: 0 10px;
+                height: 50px;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
@@ -85,11 +88,17 @@ main {
                     align-items: center;
                     gap: 30px;
 
-                    button{
+                    .cancel-btn{
                         background: none;
+                        width: 12px;
+                        height: 12px;
+
+                        svg{
+                            pointer-events: none;
+                        }
                     }
 
-                    button:hover{
+                    .cancel-btn:hover{
                         cursor: pointer;
                     }
                 }
@@ -118,7 +127,7 @@ main {
 #pop-up {
     @include displayFlex(column);
     @include flexProperties(space-between, flex-end);
-    position: absolute;
+    position: fixed;
     visibility: hidden;
     z-index: 1;
     width: 300px;
