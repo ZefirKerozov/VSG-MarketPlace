@@ -1,40 +1,6 @@
+@import '../abstracts/mixins';
+
 $background-color: #FFFFFF;
-
-@mixin displayFlex($flexDirection: row) {
-    display: flex;
-    flex-direction: $flexDirection;
-}
-
-@mixin flexProperties($justifyContent: flex-start, $alignItems: flex-start) {
-    justify-content: $justifyContent;
-    align-items: $alignItems;
-}
-
-@mixin popUpPointerPosition($top, $left, $degrees) {
-    content: '';
-    position: absolute;
-    top: $top;
-    left: $left;
-    width: 0px;
-    height: 0px;
-    border-style: solid;
-    border-width: 0 10px 10px 10px;
-    border-color: transparent transparent #FFFFFF transparent;
-    transform: rotate($degrees);
-}
-
-@mixin popUpButton($backgroundColor, $textColor) {
-    @include displayFlex();
-    @include flexProperties(center, center);
-    width: 57px;
-    height: 22px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    border-radius: 4px;
-    background-color: $backgroundColor;
-    text-decoration: none;
-    font-size: 14px;
-    color: $textColor;
-}
 
 aside {
     height: 100%;
@@ -71,6 +37,8 @@ nav {
             margin-right: 5px;
         }
 
+        // Active nav link styles
+
         .active {
             background-color: #ED1C25;
             color: #FFFFFF;
@@ -97,5 +65,35 @@ nav {
         svg path {
             fill: #FFFFFF;
         }
+    }
+}
+
+//// Navigation responsive styles ////
+
+@media (max-width: 768px) {
+    nav {
+        border-radius: 0;
+        padding-top: 60px;
+    }
+
+    aside {
+        position: fixed;
+        left: -100%;
+        top: 50px;
+        margin: 10px;
+        min-width: calc(100% - 20px);
+        height: calc(100% - 70px);
+        z-index: 1;
+        transition: 0.3s;
+    }
+
+    aside.active {
+        left: 0;
+    }
+}
+
+@media (max-width: 1366px){
+    aside {
+        width: 30%;
     }
 }

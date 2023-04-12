@@ -1,120 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-  border: none;
-}
-
-html {
-  font-size: 30px;
-}
-
-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  height: 50px;
-  background-color: #FFFFFF;
-  padding: 10px 10px;
-  font-family: "Montserrat", sans-serif;
-  box-sizing: border-box;
-}
-header a {
-  height: 30px;
-}
-header #title {
-  font-size: 1rem;
-}
-header svg {
-  width: 30px;
-  height: 30px;
-}
-header svg:last-of-type {
-  display: none;
-}
-header #user-info {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.5rem;
-}
-
-aside {
-  height: 100%;
-  width: 20%;
-  background-color: #FFFFFF;
-  border-radius: 20px;
-}
-
-nav {
-  height: 100%;
-  padding: 39px 18px;
-  box-sizing: border-box;
-}
-nav ul {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  list-style-type: none;
-  height: 100%;
-}
-nav li {
-  border-radius: 10px;
-}
-nav li a {
-  display: block;
-  text-decoration: none;
-  color: #000000;
-  padding: 15px 17px;
-  border-radius: 10px;
-  font-size: 0.5rem;
-}
-nav li svg {
-  margin-right: 5px;
-}
-nav li .active {
-  background-color: #ED1C25;
-  color: #FFFFFF;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-}
-nav li .active svg path {
-  fill: #FFFFFF;
-}
-nav li:last-of-type {
-  margin-top: auto;
-}
-nav li:hover {
-  background-color: #ED1C25;
-  cursor: pointer;
-}
-nav li:hover a {
-  color: #FFFFFF;
-}
-nav li:hover svg path {
-  fill: #FFFFFF;
-}
-
-body {
-  height: 100vh;
-  background-color: #F0F2F3;
-  font-family: "Roboto", sans-serif;
-  overflow: hidden;
-}
-
-#main-container {
-  display: flex;
-  flex-direction: row;
-  height: calc(100vh - 110px);
-  gap: 30px;
-  padding: 30px 20px;
-}
-
 main {
   background-color: #FFFFFF;
   width: 80%;
@@ -150,21 +34,22 @@ main .search-add-container form {
   height: 20px;
 }
 main .search-add-container form input {
-  font-size: 14px;
+  font-size: 0.5rem;
   width: 60%;
   outline: none;
 }
 main .search-add-container #add-btn {
-  font-size: 14px;
+  font-size: 0.5rem;
   line-height: 24px;
   padding: 5px 24px;
   background-color: #2E7D32;
   border-radius: 4px;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
-  font-family: "Roboto", sans-serif;
   color: #FFFFFF;
-  cursor: pointer;
   width: 150px;
+}
+main .search-add-container #add-btn:hover {
+  cursor: pointer;
 }
 main #table-wrapper {
   display: flex;
@@ -184,24 +69,49 @@ main table {
   overflow: scroll;
 }
 main table th {
-  font-size: 16px;
+  font-size: 0.5rem;
   border-bottom: 1px solid #B3B3B3;
 }
 main table tr {
   border-bottom: 1px solid #B3B3B3;
-  height: 10%;
 }
 main table tr:last-of-type {
   border-bottom: none;
 }
 main table td {
   position: relative;
-  font-size: 14px;
+  font-size: 0.5rem;
+  height: 10%;
 }
 main table th,
 main table td {
   padding: 20px;
   text-align: left;
+  white-space: nowrap;
+}
+main table th:nth-child(1),
+main table td:nth-child(1) {
+  width: 5%;
+}
+main table th:nth-child(2),
+main table td:nth-child(2) {
+  width: 50%;
+}
+main table th:nth-child(3),
+main table td:nth-child(3) {
+  width: 15%;
+}
+main table th:nth-child(4),
+main table td:nth-child(4) {
+  width: 10%;
+}
+main table th:nth-child(5),
+main table td:nth-child(5) {
+  width: 10%;
+}
+main table th:nth-child(6),
+main table td:nth-child(6) {
+  width: 5%;
 }
 main table .table-actions {
   display: flex;
@@ -212,6 +122,8 @@ main table .table-actions button {
   width: 12px;
   height: 12px;
   background: none;
+}
+main table .table-actions button:hover {
   cursor: pointer;
 }
 main table .table-actions button > svg {
@@ -233,13 +145,13 @@ main #pagination {
 main #pagination #pagination-controls {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   gap: 10px;
-  width: 120px;
+  width: 100%;
 }
 main #pagination #pagination-controls span {
-  font-size: 16px;
+  font-size: 0.5rem;
 }
 main #pagination #pagination-controls button {
   background: none;
@@ -271,54 +183,33 @@ main #pagination #pagination-controls button:hover {
   gap: 50px;
   padding-top: 50px;
 }
+#add-modal form label,
+#modify-modal form label {
+  font-size: 0.5rem;
+  color: #9A9A9A;
+}
+#add-modal form .input-container,
+#modify-modal form .input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
 #add-modal form .first-row,
 #modify-modal form .first-row {
   display: flex;
   flex-direction: row;
-  gap: 20px;
 }
 #add-modal form .first-row .first-column,
 #modify-modal form .first-row .first-column {
   display: flex;
   flex-direction: column;
-  gap: 35px;
+  gap: 25px;
   width: 50%;
-}
-#add-modal form .first-row .first-column .input-div,
-#modify-modal form .first-row .first-column .input-div {
-  position: relative;
-}
-#add-modal form .first-row .first-column .input-div input:focus ~ .floating-label,
-#add-modal form .first-row .first-column .input-div input:not(:focus):valid ~ .floating-label,
-#modify-modal form .first-row .first-column .input-div input:focus ~ .floating-label,
-#modify-modal form .first-row .first-column .input-div input:not(:focus):valid ~ .floating-label {
-  top: -5px;
-  bottom: 10px;
-  font-size: 0.5rem;
-  opacity: 1;
-}
-#add-modal form .first-row .first-column .input-div span,
-#modify-modal form .first-row .first-column .input-div span {
-  font-size: 0.5rem;
-}
-#add-modal form .first-row .first-column .input-div input,
-#modify-modal form .first-row .first-column .input-div input {
-  font-size: 0.5rem;
-  width: 100%;
-  height: 30px;
-}
-#add-modal form .first-row .first-column .input-div .floating-label,
-#modify-modal form .first-row .first-column .input-div .floating-label {
-  position: absolute;
-  pointer-events: none;
-  left: 0px;
-  top: 15px;
-  transition: 0.2s ease all;
 }
 #add-modal form .first-row .first-column input,
 #modify-modal form .first-row .first-column input {
   width: 100%;
-  height: 30px;
+  height: 20px;
   font-size: 0.5rem;
   border-bottom: 1px solid #9A9A9A;
   outline: none;
@@ -329,7 +220,6 @@ main #pagination #pagination-controls button:hover {
 }
 #add-modal form .first-row .first-column textarea,
 #modify-modal form .first-row .first-column textarea {
-  font-family: "Inter", sans-serif;
   font-size: 0.5rem;
   border-bottom: 1px solid #9A9A9A;
   outline: none;
@@ -338,7 +228,7 @@ main #pagination #pagination-controls button:hover {
 #add-modal form .first-row .first-column select,
 #modify-modal form .first-row .first-column select {
   width: 100%;
-  height: 30px;
+  height: 20px;
   font-size: 0.5rem;
   border-bottom: 1px solid #9A9A9A;
   outline: none;
@@ -347,13 +237,6 @@ main #pagination #pagination-controls button:hover {
 #add-modal form .first-row .first-column select option,
 #modify-modal form .first-row .first-column select option {
   color: #000000;
-}
-#add-modal form .first-row .first-column input[type=number]::-webkit-inner-spin-button,
-#add-modal form .first-row .first-column input[type=number]::-webkit-outer-spin-button,
-#modify-modal form .first-row .first-column input[type=number]::-webkit-inner-spin-button,
-#modify-modal form .first-row .first-column input[type=number]::-webkit-outer-spin-button {
-  opacity: 1;
-  background: none;
 }
 #add-modal form .first-row .second-column,
 #modify-modal form .first-row .second-column {
@@ -443,18 +326,6 @@ main #pagination #pagination-controls button:hover {
   cursor: pointer;
 }
 
-.overlay {
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  display: none;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
 #pop-up {
   display: flex;
   flex-direction: column;
@@ -463,7 +334,7 @@ main #pagination #pagination-controls button:hover {
   position: absolute;
   visibility: hidden;
   z-index: 1;
-  width: 300px;
+  width: 280px;
   height: 80px;
   background-color: #FFFFFF;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
@@ -473,7 +344,7 @@ main #pagination #pagination-controls button:hover {
 }
 #pop-up p {
   display: inline;
-  text-align: center;
+  text-align: left;
   width: 100%;
 }
 #pop-up .pop-up-buttons {
@@ -529,7 +400,7 @@ main #pagination #pagination-controls button:hover {
   content: "";
   position: absolute;
   top: -10px;
-  left: 280px;
+  left: 272px;
   width: 0px;
   height: 0px;
   border-style: solid;
@@ -555,7 +426,7 @@ main #pagination #pagination-controls button:hover {
   content: "";
   position: absolute;
   top: 112px;
-  left: 280px;
+  left: 272px;
   width: 0px;
   height: 0px;
   border-style: solid;
@@ -565,47 +436,11 @@ main #pagination #pagination-controls button:hover {
 }
 
 @media (max-width: 768px) {
-  header svg:last-of-type {
-    display: block;
-  }
-  #main-container {
-    padding: 15px;
-    height: calc(100% - 80px);
+  main {
+    width: calc(100% - 35px);
   }
   main #table-wrapper {
     height: calc(100% - 120px);
-  }
-  #user-info {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: flex-start;
-    align-items: center;
-    position: absolute;
-    gap: 10px;
-    font-size: 0.5rem;
-    top: 20px;
-    left: 70px;
-    transform: translate(-50%, 0);
-  }
-  nav {
-    border-radius: 0;
-    padding-top: 60px;
-  }
-  aside {
-    position: fixed;
-    left: -100%;
-    top: 50px;
-    margin: 10px;
-    min-width: calc(100% - 20px);
-    height: calc(100% - 70px);
-    z-index: 1;
-    transition: 0.3s;
-  }
-  aside.active {
-    left: 0;
-  }
-  main {
-    width: calc(100% - 35px);
   }
   table {
     overflow-x: scroll;
@@ -622,6 +457,7 @@ main #pagination #pagination-controls button:hover {
   #add-modal form,
   #modify-modal form {
     padding-top: 20px;
+    gap: 30px;
   }
   #add-modal form .first-row,
   #modify-modal form .first-row {
@@ -632,7 +468,7 @@ main #pagination #pagination-controls button:hover {
   }
   #add-modal form .first-row .first-column,
   #modify-modal form .first-row .first-column {
-    gap: 25px;
+    gap: 15px;
     width: 100%;
   }
   #add-modal form .first-row .second-column,
@@ -643,10 +479,5 @@ main #pagination #pagination-controls button:hover {
   #modify-modal form .first-row .second-column .upload-remove-btn {
     display: flex;
     flex-direction: row;
-  }
-}
-@media (max-width: 1366px) {
-  aside {
-    width: 30%;
   }
 }/*# sourceMappingURL=inventory-page.css.map */

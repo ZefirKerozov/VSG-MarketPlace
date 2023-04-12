@@ -1,29 +1,6 @@
-@use 'global';
-@use 'header';
-@use 'navigation';
-
-@import '../styles/mixins';
-
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import '../abstracts/mixins';
 
 $background-color: #FFFFFF;
-
-//// Body and main container styles ////
-
-body {
-    height: 100vh;
-    background-color: #F0F2F3;
-    font-family: 'Roboto', sans-serif;
-    overflow: hidden;
-}
-
-#main-container {
-    @include displayFlex();
-    height: calc(100% - 110px);
-    gap: 30px;
-    padding: 30px 20px;
-}
 
 //// Items section styles ////
 
@@ -139,10 +116,13 @@ main {
             @include displayFlex();
             position: relative;
             border: none;
-            cursor: pointer;
             background-color: #ED1C25;
             border-radius: 50px;
             padding: 7px;
+        }
+
+        button:hover{
+            cursor: pointer;
         }
 
         svg {
@@ -164,7 +144,7 @@ main {
     position: absolute;
     visibility: hidden;
     z-index: 1;
-    width: 300px;
+    width: 280px;
     height: 80px;
     background-color: $background-color;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
@@ -202,7 +182,7 @@ main {
 }
 
 .top-right-pointer::before {
-    @include popUpPointerPosition(-10px, 280px, 0deg);
+    @include popUpPointerPosition(-10px, 270px, 0deg);
 }
 
 .bottom-middle-pointer::before {
@@ -210,7 +190,7 @@ main {
 }
 
 .bottom-right-pointer::before {
-    @include popUpPointerPosition(112px, 280px, 180deg);
+    @include popUpPointerPosition(112px, 270px, 180deg);
 }
 
 //// Modal styles ////
@@ -298,62 +278,9 @@ main {
     }
 }
 
-//// Modal overlay styles ////
-
-.overlay {
-    @include flexProperties(center, center);
-    position: fixed;
-    display: none;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgb(0, 0, 0, 0.5);
-}
+//// Responsive styles ////
 
 @media (max-width: 768px) {
-    header {
-        svg:last-of-type {
-            display: block;
-        }
-    }
-
-    #user-info {
-        @include displayFlex(row-reverse);
-        @include flexProperties(flex-start, center);
-        position: absolute;
-        gap: 10px;
-        font-size: 0.5rem;
-        top: 20px;
-        left: 70px;
-        transform: translate(-50%, 0);
-    }
-
-    nav {
-        border-radius: 0;
-        padding-top: 60px;
-    }
-
-    aside {
-        position: fixed;
-        left: -100%;
-        top: 50px;
-        margin: 10px;
-        min-width: calc(100% - 20px);
-        height: calc(100% - 70px);
-        z-index: 1;
-        transition: 0.3s;
-    }
-
-    aside.active {
-        left: 0;
-    }
-
-    #main-container {
-        padding: 15px;
-        height: calc(100% - 80px);
-    }
-
     main {
         width: 100%;
     }
@@ -385,9 +312,5 @@ main {
     .item-wrapper {
         min-width: 50%;
         min-height: 50%;
-    }
-
-    aside {
-        width: 30%;
     }
 }

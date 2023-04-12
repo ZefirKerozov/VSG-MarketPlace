@@ -1,0 +1,60 @@
+@import '../abstracts/mixins';
+
+$background-color: #FFFFFF;
+
+header {
+    @include displayFlex();
+    @include flexProperties(space-between, center);
+    width: 100%;
+    height: 50px;
+    background-color: $background-color;
+    padding: 10px 10px;
+    box-sizing: border-box;
+
+    a {
+        height: 30px;
+    }
+
+    #title {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1rem;
+    }
+
+    svg {
+        width: 30px;
+        height: 30px;
+    }
+
+    svg:last-of-type {
+        display: none
+    }
+
+    #user-info {
+        @include displayFlex();
+        @include flexProperties(flex-start, center);
+        gap: 10px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 0.5rem;
+    }
+}
+
+//// Header responsive styles ////
+
+@media (max-width: 768px) {
+    header {
+        svg:last-of-type {
+            display: block;
+        }
+    }
+
+    #user-info {
+        @include displayFlex(row-reverse);
+        @include flexProperties(flex-start, center);
+        position: absolute;
+        gap: 10px;
+        font-size: 0.5rem;
+        top: 20px;
+        left: 70px;
+        transform: translate(-50%, 0);
+    }
+}

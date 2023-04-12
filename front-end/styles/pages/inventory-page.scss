@@ -1,30 +1,10 @@
-@use 'global';
-@use 'header';
-@use 'navigation';
+@import '../abstracts/mixins';
 
-@import '../styles/mixins';
-
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
 $background-color: #FFFFFF;
 
-//// Body and main container styles ////
-
-body {
-    height: 100vh;
-    background-color: #F0F2F3;
-    font-family: 'Roboto', sans-serif;
-    overflow: hidden;
-}
-
-#main-container {
-    @include displayFlex();
-    height: calc(100vh - 110px);
-    gap: 30px;
-    padding: 30px 20px;
-}
+//// Items section styles ////
 
 main {
     background-color: $background-color;
@@ -64,7 +44,7 @@ main {
             height: 20px;
 
             input {
-                font-size: 14px;
+                font-size: 0.5rem;
                 width: 60%;
                 outline: none;
             }
@@ -73,16 +53,18 @@ main {
         // Add item button styles
 
         #add-btn {
-            font-size: 14px;
+            font-size: 0.5rem;
             line-height: 24px;
             padding: 5px 24px;
             background-color: #2E7D32;
             border-radius: 4px;
             box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
-            font-family: 'Roboto', sans-serif;
             color: #FFFFFF;
-            cursor: pointer;
             width: 150px;
+        }
+
+        #add-btn:hover {
+            cursor: pointer;
         }
     }
 
@@ -105,13 +87,12 @@ main {
         overflow: scroll;
 
         th {
-            font-size: 16px;
+            font-size: 0.5rem;
             border-bottom: 1px solid #B3B3B3;
         }
 
         tr {
             border-bottom: 1px solid #B3B3B3;
-            height: 10%;
         }
 
         tr:last-of-type {
@@ -120,14 +101,50 @@ main {
 
         td {
             position: relative;
-            font-size: 14px;
+            font-size: 0.5rem;
+            height: calc(100% / 10);
         }
 
         th,
         td {
             padding: 20px;
             text-align: left;
+            white-space: nowrap;
         }
+
+        // Table cells width styles
+
+        th:nth-child(1),
+        td:nth-child(1) {
+            width: 5%;
+        }
+
+        th:nth-child(2),
+        td:nth-child(2) {
+            width: 50%;
+        }
+
+        th:nth-child(3),
+        td:nth-child(3) {
+            width: 15%;
+        }
+
+        th:nth-child(4),
+        td:nth-child(4) {
+            width: 10%;
+        }
+
+        th:nth-child(5),
+        td:nth-child(5) {
+            width: 10%;
+        }
+
+        th:nth-child(6),
+        td:nth-child(6) {
+            width: 5%;
+        }
+
+        // Modify and delete item button styles
 
         .table-actions {
             @include displayFlex();
@@ -137,6 +154,9 @@ main {
                 width: 12px;
                 height: 12px;
                 background: none;
+            }
+
+            button:hover {
                 cursor: pointer;
             }
 
@@ -145,6 +165,8 @@ main {
             }
         }
     }
+
+    // Pagiantion styles
 
     #pagination {
         @include displayFlex();
@@ -157,20 +179,23 @@ main {
         height: 57px;
         padding-right: 20px;
 
-        #pagination-controls{
+        // Pagination controls styles
+
+        #pagination-controls {
             @include displayFlex();
-            @include flexProperties(space-between, center);
+            @include flexProperties(flex-end, center);
             gap: 10px;
-            width: 120px;
-            span{
-                font-size: 16px;
+            width: 100%;
+
+            span {
+                font-size: 0.5rem;
             }
 
-            button{
+            button {
                 background: none;
             }
 
-            button:hover{
+            button:hover {
                 cursor: pointer;
             }
         }
@@ -202,50 +227,29 @@ main {
         gap: 50px;
         padding-top: 50px;
 
+        label {
+            font-size: 0.5rem;
+            color: #9A9A9A
+        }
+
+        .input-container {
+            @include displayFlex(column);
+            gap: 0px;
+        }
+
         .first-row {
             @include displayFlex();
-            gap: 20px;
 
             // Form first column styles
 
             .first-column {
                 @include displayFlex(column);
-                gap: 35px;
+                gap: 25px;
                 width: 50%;
-
-                .input-div {
-                    position: relative;
-
-                    input:focus~.floating-label,
-                    input:not(:focus):valid~.floating-label {
-                        top: -5px;
-                        bottom: 10px;
-                        font-size: 0.5rem;
-                        opacity: 1;
-                    }
-
-                    span {
-                        font-size: 0.5rem;
-                    }
-
-                    input {
-                        font-size: 0.5rem;
-                        width: 100%;
-                        height: 30px;
-                    }
-
-                    .floating-label {
-                        position: absolute;
-                        pointer-events: none;
-                        left: 0px;
-                        top: 15px;
-                        transition: 0.2s ease all;
-                    }
-                }
 
                 input {
                     width: 100%;
-                    height: 30px;
+                    height: 20px;
                     font-size: 0.5rem;
                     border-bottom: 1px solid #9A9A9A;
                     outline: none;
@@ -256,7 +260,6 @@ main {
                 }
 
                 textarea {
-                    font-family: 'Inter', sans-serif;
                     font-size: 0.5rem;
                     border-bottom: 1px solid #9A9A9A;
                     outline: none;
@@ -265,7 +268,7 @@ main {
 
                 select {
                     width: 100%;
-                    height: 30px;
+                    height: 20px;
                     font-size: 0.5rem;
                     border-bottom: 1px solid #9A9A9A;
                     outline: none;
@@ -276,11 +279,11 @@ main {
                     }
                 }
 
-                input[type=number]::-webkit-inner-spin-button,
-                input[type=number]::-webkit-outer-spin-button {
-                    opacity: 1;
-                    background: none
-                }
+                // input[type=number]::-webkit-inner-spin-button,
+                // input[type=number]::-webkit-outer-spin-button {
+                //     opacity: 1;
+                //     background: none
+                // }
             }
 
             // Form second column styles
@@ -296,7 +299,7 @@ main {
                 img {
                     width: 260px;
                     height: 150px;
-                    object-fit: contain
+                    object-fit: contain;
                 }
 
                 // Upload and remove button styles
@@ -377,19 +380,6 @@ main {
     }
 }
 
-//// Modal overlay styles ////
-
-.overlay {
-    @include flexProperties(center, center);
-    position: fixed;
-    display: none;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgb(0, 0, 0, 0.5);
-}
-
 //// Pop up styles ////
 
 #pop-up {
@@ -398,7 +388,7 @@ main {
     position: absolute;
     visibility: hidden;
     z-index: 1;
-    width: 300px;
+    width: 280px;
     height: 80px;
     background-color: $background-color;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
@@ -408,7 +398,7 @@ main {
 
     p {
         display: inline;
-        text-align: center;
+        text-align: left;
         width: 100%
     }
 
@@ -436,7 +426,7 @@ main {
 }
 
 .top-right-pointer::before {
-    @include popUpPointerPosition(-10px, 280px, 0deg);
+    @include popUpPointerPosition(-10px, 272px, 0deg);
 }
 
 .bottom-middle-pointer::before {
@@ -444,61 +434,18 @@ main {
 }
 
 .bottom-right-pointer::before {
-    @include popUpPointerPosition(112px, 280px, 180deg);
+    @include popUpPointerPosition(112px, 272px, 180deg);
 }
 
+// Responsive styles
+
 @media (max-width: 768px) {
-    header {
-        svg:last-of-type {
-            display: block;
-        }
-    }
-
-    #main-container {
-        padding: 15px;
-        height: calc(100% - 80px);
-    }
-
-    main{
-        #table-wrapper{
-            height: calc(100% - 120px);
-        }
-    }
-    
-
-    #user-info {
-        @include displayFlex(row-reverse);
-        @include flexProperties(flex-start, center);
-        position: absolute;
-        gap: 10px;
-        font-size: 0.5rem;
-        top: 20px;
-        left: 70px;
-        transform: translate(-50%, 0);
-    }
-
-    nav {
-        border-radius: 0;
-        padding-top: 60px;
-    }
-
-    aside {
-        position: fixed;
-        left: -100%;
-        top: 50px;
-        margin: 10px;
-        min-width: calc(100% - 20px);
-        height: calc(100% - 70px);
-        z-index: 1;
-        transition: 0.3s;
-    }
-
-    aside.active {
-        left: 0;
-    }
-
     main {
         width: calc(100% - 35px);
+
+        #table-wrapper {
+            height: calc(100% - 120px);
+        }
     }
 
     table {
@@ -509,6 +456,8 @@ main {
         overflow-x: scroll;
     }
 
+    // Add and modify modal styles
+
     #add-modal,
     #modify-modal {
         width: calc(100vw - 80px);
@@ -517,13 +466,14 @@ main {
 
         form {
             padding-top: 20px;
+            gap: 30px;
 
             .first-row {
                 @include displayFlex(column);
                 @include flexProperties(center, center);
 
                 .first-column {
-                    gap: 25px;
+                    gap: 15px;
                     width: 100%;
                 }
 
@@ -536,11 +486,5 @@ main {
                 }
             }
         }
-    }
-}
-
-@media (max-width: 1366px) {
-    aside {
-        width: 30%;
     }
 }

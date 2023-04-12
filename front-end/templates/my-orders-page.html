@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/my-orders-page.css">
-    <script src="/front-end/js/my-orders-page.js" defer></script>
-    <script src="/front-end/components/my-orders-item.js" defer></script>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <script src="/front-end/js/my-orders-page.js" type="module" defer></script>
     <title>My orders</title>
 </head>
 
 <body>
+    <!--Header-->
     <header>
         <a href="/front-end/index.html">
             <img src="../images/vsg-marketplace-mini-logo.png" alt="Marketplace logo">
@@ -28,6 +28,7 @@
         </svg>
     </header>
     <div id="main-container">
+        <!--Aside navigation-->
         <aside>
             <nav>
                 <ul>
@@ -94,28 +95,16 @@
                 <div class="responsive-table">
                     <div class="table-header">
                         <div class="col col-1">Name</div>
-                        <div class="col col-2">QTY</div>
-                        <div class="col col-3">Price</div>
-                        <div class="col col-4">Order Date</div>
-                        <div class="col col-5">Status</div>
-                    </div>
-                    <div class="table-row">
-                        <div class="col col-1">MacBook Pro 16” M1 Max 32GB 1TB</div>
-                        <div class="col col-2">1</div>
-                        <div class="col col-3">5000 BGN</div>
-                        <div class="col col-4">2023-03-13 16:30</div>
-                        <div class="col col-5">
-                            <span>Pending</span>
-                            <button class="cancel-btn">
-                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                    d="M11.8203 1.35156L7.17188 6L11.8203 10.6484L10.6484 11.8203L6 7.17188L1.35156 11.8203L0.179688 10.6484L4.82812 6L0.179688 1.35156L1.35156 0.179688L6 4.82812L10.6484 0.179688L11.8203 1.35156Z"
-                                    fill="#ED1C25" />
-                                </svg>
-                            </button>
+                        <div class="table-first-group">
+                            <div class="col col-2">QTY</div>
+                            <div class="col col-3">Price</div>
+                        </div>
+                        <div class="table-second-group">
+                            <div class="col col-4">Order Date</div>
+                            <div class="col col-5">Status</div>
                         </div>
                     </div>
+                    <!--Items (table rows) are rendered here-->
                 </div>
             </div>
         </main>

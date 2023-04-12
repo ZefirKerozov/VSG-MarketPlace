@@ -1,45 +1,11 @@
 import { makeRequest } from "../utils/makeRequest.js";
+import "../utils/navLinks.js";
+import "../utils/hamburgerMenu.js";
 
-const navLinks = Array.from(document.querySelectorAll('li a'));
-const currentURL = new URL(document.URL);
-navLinks.filter(x => x.pathname === currentURL.pathname).map(x => x.classList.add('active'));
+// Attach event listener to buy buttons to show pop-up
 
 const buyBtn = Array.from(document.getElementsByClassName('buy-btn'));
 buyBtn.forEach(x => x.addEventListener('click', showPopup));
-
-// Show and hide hamburger mobile menu
-
-const hamburger = document.querySelector(".hamburger");
-const asideNav = document.getElementsByTagName('aside')[0];
-const hamburgerBtn = document.getElementsByTagName('svg')[0];
-
-hamburgerBtn.addEventListener('click', openHamburgerMenu);
-
-window.addEventListener('resize', () => {
-    const userInfo = document.getElementById('user-info');
-    if (window.innerWidth <= 768) {
-        asideNav.prepend(userInfo);
-    } else {
-        document.getElementsByTagName('header')[0].appendChild(userInfo);
-    }
-});
-
-window.addEventListener('load', () => {
-    const userInfo = document.getElementById('user-info');
-    if (window.innerWidth <= 768) {
-        asideNav.prepend(userInfo);
-    } else {
-        document.getElementsByTagName('header')[0].appendChild(userInfo);
-    }
-});
-
-function openHamburgerMenu(e) {
-    if (asideNav.classList.contains('active')) {
-        asideNav.classList.remove('active');
-    } else {
-        asideNav.classList.add('active');
-    }
-}
 
 ////////// Dynamically load items from API //////////
 
@@ -49,12 +15,11 @@ const loadProducts = async () => {
     try {
         const data = await makeRequest({ path: '/products' });
         const modifiedData = data.map(x => x = { ...x, quantity: Math.floor(Math.random() * 11) });
-        console.log(modifiedData);
         modifiedData.forEach(x => {
             const selectMenu = document.createElement('select');
             selectMenu.name = 'quantity';
             selectMenu.id = 'quantity';
-            for(let i = 1; i <= x.quantity; i++){
+            for (let i = 1; i <= x.quantity; i++) {
                 selectMenu.innerHTML += `<option value="${i}">${i}</option>`;
             }
             const itemDiv = document.createElement('div');
@@ -92,12 +57,14 @@ const loadProducts = async () => {
             const buyBtn = itemDiv.querySelector('.buy-btn');
             buyBtn.addEventListener('click', showPopup);
 
-            ///// Show and hide item description modal
+            // Show and hide item description modal
+
+            // Show modal when clicked on item image
 
             const itemImage = itemDiv.querySelector('.item-card img');
             itemImage.addEventListener('click', onItemImageClick);
 
-            function onItemImageClick(){
+            function onItemImageClick() {
                 const modal = document.createElement('div');
                 modal.id = 'description-modal';
 
@@ -129,19 +96,23 @@ const loadProducts = async () => {
                 overlay.appendChild(modal);
                 overlay.style.display = 'flex';
 
+                // Close modal if modal close button is clicked
+
                 const modalCloseBtn = modal.querySelector('.close-btn');
                 modalCloseBtn.addEventListener('click', onModalCloseBtnClick);
 
-                function onModalCloseBtnClick(){
+                function onModalCloseBtnClick() {
                     modal.remove();
                     overlay.style.display = 'none';
                 }
 
+                // Close modal when user clicks on overlay
+
                 overlay.addEventListener('click', onOverlayClick);
 
-                function onOverlayClick(e){
+                function onOverlayClick(e) {
                     console.log('works');
-                    if(e.target.matches('.overlay')){
+                    if (e.target.matches('.overlay')) {
                         modal.remove();
                         overlay.style.display = 'none';
                     }
@@ -155,39 +126,17 @@ const loadProducts = async () => {
 
 loadProducts();
 
-
-// Modal
-
-// const modalOverlay = document.getElementsByClassName('overlay')[0];
-// modalOverlay.addEventListener('click', onOverlayClick);
-
-// const modalCloseBtn = document.getElementsByClassName('close-btn')[0];
-// modalCloseBtn.addEventListener('click', onModalCloseBtnClick);
-
-// const itemsImages = Array.from(document.querySelectorAll('.item-card img'));
-// itemsImages.forEach(x => x.addEventListener('click', onItemImageClick));
-
-// function onOverlayClick(e) {
-//     if (e.target.matches('.overlay')) {
-//         modalOverlay.style.display = 'none';
-//     }
-// }
-
-// function onModalCloseBtnClick(e) {
-//     modalOverlay.style.display = 'none';
-// }
-
-// function onItemImageClick(e) {
-//     modalOverlay.style.display = 'flex';
-// }
-
-// Pop Up
+// Open and close pop-up functionality
 
 function showPopup(e) {
+    // Close previous opened pop-up if there is such
+
     const prevPopUp = document.getElementById('pop-up');
     if (prevPopUp !== null) {
         prevPopUp.remove();
     }
+
+    // Create pop-up and append it to parent element
 
     const divPopUp = document.createElement('div');
     divPopUp.id = 'pop-up';
@@ -204,31 +153,45 @@ function showPopup(e) {
 
     itemCard.appendChild(divPopUp);
 
+    // Configure pop-up position depending on browser window
+
     const elementPopUp = document.getElementById('pop-up');
 
     let positionLeft;
     let positionTop;
 
     if (position.x + elementPopUp.offsetWidth >= window.innerWidth) {
-        positionLeft = position.left - position.left + 5;
+        if (window.innerWidth <= 768) {
+            positionLeft = position.left - position.left + 4;
+        } else {
+            positionLeft = position.left - position.left + 12;
+        }
         elementPopUp.classList.add('top-right-pointer');
     } else if (position.x + elementPopUp.offsetWidth >= window.innerWidth && position.y + elementPopUp.offsetHeight + 20 >= window.innerHeight) {
         positionLeft = position.left - position.left - 100;
         elementPopUp.classList.add('bottom-right-pointer');
     } else {
-        positionLeft = position.left - position.left + 130;
+        positionLeft = position.left - position.left + 128;
         elementPopUp.classList.add('top-middle-pointer');
     }
 
     if (position.y + elementPopUp.offsetHeight + 50 >= window.innerHeight && !(position.x + elementPopUp.offsetWidth >= window.innerWidth)) {
-        positionTop = position.top - position.top + 130;
+        positionTop = position.top - position.top + 120;
         elementPopUp.classList.add('bottom-middle-pointer');
     } else if (position.y + elementPopUp.offsetHeight + 50 >= window.innerHeight && position.x + elementPopUp.offsetWidth >= window.innerWidth) {
-        positionTop = position.top - position.top + 130;
+        if (window.innerWidth <= 768) {
+            positionTop = position.top - position.top + 125;
+        } else {
+            positionTop = position.top - position.top + 120;
+        }
         elementPopUp.classList.add('bottom-right-pointer');
     }
     else {
-        positionTop = position.top - position.top + 320;
+        if (window.innerWidth <= 768) {
+            positionTop = position.top - position.top + 310;
+        } else {
+            positionTop = position.top - position.top + 305;
+        }
     }
 
     Object.assign(elementPopUp.style, {
@@ -236,6 +199,8 @@ function showPopup(e) {
         top: `${positionTop}px`,
         visibility: 'visible',
     });
+
+    // Close pop-up if cancel button is clicked
 
     const cancelBtn = document.getElementById('cancel-btn');
     cancelBtn.addEventListener('click', closePopUp);
@@ -247,6 +212,8 @@ function showPopup(e) {
         itemCard.removeChild(divPopUp);
         window.removeEventListener('click', trackWindowEvent);
     }
+
+    // Close pop-up if clicked outside pop-up
 
     function trackWindowEvent(e) {
         console.log(e.target);
