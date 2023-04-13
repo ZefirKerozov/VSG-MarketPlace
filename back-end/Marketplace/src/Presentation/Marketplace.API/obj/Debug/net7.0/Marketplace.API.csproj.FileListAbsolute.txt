@@ -104,3 +104,5 @@ C:\Users\YKurtev\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\M
 C:\Users\YKurtev\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\obj\Debug\net7.0\Marketplace.API.pdb
 C:\Users\YKurtev\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\obj\Debug\net7.0\Marketplace.API.genruntimeconfig.cache
 C:\Users\YKurtev\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\obj\Debug\net7.0\ref\Marketplace.API.dll
+C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\StructureMap.dll
+C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

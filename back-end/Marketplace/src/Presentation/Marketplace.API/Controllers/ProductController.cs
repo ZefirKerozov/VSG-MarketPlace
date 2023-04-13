@@ -1,4 +1,5 @@
-﻿using Marketplace.Application.Models.ProductModels.Dtos;
+﻿using Markerplace.Domain.Entities;
+using Marketplace.Application.Models.ProductModels.Dtos;
 using Marketplace.Application.Models.ProductModels.Interface;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -17,6 +18,8 @@ public class ProductController : ControllerBase
    }
    
    [HttpGet]
+   [Route("ForSale")]
+
    public List<GetProductsDto> GetAll()
    {
       return _productService.GetAll();
@@ -29,11 +32,16 @@ public class ProductController : ControllerBase
    }
 
    [HttpGet ]
-   [Route("Invertory")]
 
    public List<GetAllProductsForInvDto> GetAllProductsForInv()
    {
        var result = _productService.GetProductsForInventory();
        return (List<GetAllProductsForInvDto>)result;
+   }
+
+   [HttpPost]
+   public void AddProduct(AddProductDto productDto)
+   {
+       _productService.AddProduct(productDto);
    }
 }

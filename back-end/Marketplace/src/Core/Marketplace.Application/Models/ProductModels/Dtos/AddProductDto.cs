@@ -1,6 +1,6 @@
-﻿namespace Markerplace.Domain.Entities;
+﻿namespace Marketplace.Application.Models.ProductModels.Dtos;
 
-public class Products :BaseEntity
+public class AddProductDto
 {
     public string Name { get; set; }
 
