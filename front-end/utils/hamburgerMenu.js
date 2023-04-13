@@ -10,7 +10,7 @@ window.addEventListener('resize', () => {
     if (window.innerWidth <= 768) {
         asideNav.prepend(userInfo);
     } else {
-        document.getElementsByTagName('header')[0].appendChild(userInfo);
+        document.getElementsByTagName('header')[0]?.appendChild(userInfo);
     }
 });
 
@@ -19,7 +19,7 @@ window.addEventListener('load', () => {
     if (window.innerWidth <= 768) {
         asideNav.prepend(userInfo);
     } else {
-        document.getElementsByTagName('header')[0].appendChild(userInfo);
+        document.getElementsByTagName('header')[0]?.appendChild(userInfo);
     }
 });
 

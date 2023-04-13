@@ -1,18 +1,18 @@
-#main {
+#main-container-login {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   height: 100vh;
-  background-image: url(/front-end/images/vsg-background.png);
+  background-image: url(/images/vsg-background.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
-#main svg {
+#main-container-login svg {
   width: 80%;
 }
-#main a {
+#main-container-login a {
   color: #FFFFFF;
   background-color: #ED1C25;
   font-size: 1rem;
@@ -22,15 +22,12 @@
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
   text-decoration: none;
 }
-#main a:hover {
+#main-container-login a:hover {
   cursor: pointer;
 }
 
 @media (max-width: 768px) {
-  html {
-    font-size: 20px;
-  }
-  #main {
+  #main-container-login {
     background-size: cover;
     justify-content: center;
     gap: 3rem;
