@@ -5,7 +5,7 @@ using Marketplace.Application.Models.GenericRepository;
 
 namespace Marketplace.Persistence.Repositories
 {
-    public abstract class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
+    public  class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
     {
         private readonly IUnitOfWork _unitOfWork;
         public GenericRepository(IUnitOfWork unitOfWork)
