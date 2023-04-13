@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Markerplace.Domain.Entities;
+using Marketplace.Application.Models.ImageModels.Interface;
 using Marketplace.Application.Models.ProductModels.Dtos;
 using Marketplace.Application.Models.ProductModels.Interface;
 
@@ -10,11 +11,14 @@ public class ProductService :IProductService
     private readonly IProductRepository _productRepository;
 
     private readonly IMapper _mapper;
+    private readonly IImageService _imageService;
 
-    public ProductService(IProductRepository productRepository, IMapper mapper)
+    public ProductService(IProductRepository productRepository, IMapper mapper, IImageService imageService)
     {
         _productRepository = productRepository;
         _mapper = mapper;
+        _imageService = imageService;
+        _imageService = imageService;
     }
     public List<GetProductsDto> GetAll()
     {
@@ -37,5 +41,11 @@ public class ProductService :IProductService
     public void AddProduct(AddProductDto productDto)
     { 
         _productRepository.Create( _mapper.Map<Products>(productDto));
+    }
+
+    public void DeleteProduct(int id)
+    {
+        _imageService.DeleteImages(id);
+        _productRepository.Delete(id);
     }
 }

@@ -14,7 +14,7 @@ public class ProductController : ControllerBase
 
    public ProductController(IProductService productService)
    {
-       this._productService = productService;
+       _productService = productService;
    }
    
    [HttpGet]
@@ -43,5 +43,11 @@ public class ProductController : ControllerBase
    public void AddProduct(AddProductDto productDto)
    {
        _productService.AddProduct(productDto);
+   }
+
+   [HttpDelete("{id}")]
+   public void DeleteProduct(int id)
+   {
+       _productService.DeleteProduct(id);
    }
 }

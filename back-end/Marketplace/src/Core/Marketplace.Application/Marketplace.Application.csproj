@@ -20,4 +20,8 @@
       <ProjectReference Include="..\Markerplace.Domain\Markerplace.Domain.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Models\ImageModels\Dtos" />
+    </ItemGroup>
+
 </Project>

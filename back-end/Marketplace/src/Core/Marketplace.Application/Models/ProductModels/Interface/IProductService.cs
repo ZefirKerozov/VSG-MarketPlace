@@ -13,4 +13,5 @@ public interface IProductService
 
     public void AddProduct(AddProductDto productDto);
 
+    void DeleteProduct(int id);
 }
