@@ -48,4 +48,6 @@ public class ProductService :IProductService
         _imageService.DeleteImages(id);
         _productRepository.Delete(id);
     }
+
+   
 }

@@ -25,14 +25,13 @@ public class ProductController : ControllerBase
       return _productService.GetAll();
    }
    
-   [HttpGet ("productId")]
+   [HttpGet ("{productId}")]
    public ProductDetailsDto ProductDetails(int productId)
    {
        return _productService.GetById(productId);
    }
 
    [HttpGet ]
-
    public List<GetAllProductsForInvDto> GetAllProductsForInv()
    {
        var result = _productService.GetProductsForInventory();
@@ -40,14 +39,18 @@ public class ProductController : ControllerBase
    }
 
    [HttpPost]
+   [Route("Inventory/Add")]
    public void AddProduct(AddProductDto productDto)
    {
        _productService.AddProduct(productDto);
    }
 
-   [HttpDelete("{id}")]
+   [HttpDelete]
+   [Route("Inventory/Delete/{id}")]
    public void DeleteProduct(int id)
    {
        _productService.DeleteProduct(id);
    }
+
+   
 }
