@@ -15,14 +15,13 @@ const itemsContainer = document.querySelector('.items');
 
 const loadProducts = async () => {
     try {
-        const data = await makeRequest({ path: '/Products' });
+        const data = await makeRequest({ path: '/Products/ForSale' });
         console.log(data);
-        const modifiedData = data.map(x => x = { ...x, quantity: Math.floor(Math.random() * 11) });
-        modifiedData.forEach(x => {
+        data.forEach(x => {
             const selectMenu = document.createElement('select');
             selectMenu.name = 'quantity';
             selectMenu.id = 'quantity';
-            for (let i = 1; i <= x.quantity; i++) {
+            for (let i = 1; i <= x.quantityForSale; i++) {
                 selectMenu.innerHTML += `<option value="${i}">${i}</option>`;
             }
             const itemDiv = document.createElement('div');
@@ -30,12 +29,12 @@ const loadProducts = async () => {
             itemDiv.innerHTML = `
             <div class="item-card">
                 <div class="img-wrapper">
-                    <img src="${x.image}" alt="Product image">
+                    <img src="${x.img}" alt="Product image">
                 </div>
                 <div class="item-info">
                     <div class="price-category">
                         <span class="item-price">${x.price} BGN</span>
-                        <span class="item-category">${x.category}</span>
+                        <span class="item-category">${x.categoryName}</span>
                     </div>
                     <div class="quantity-wrapper">
                         <form class="quantity">
@@ -67,24 +66,26 @@ const loadProducts = async () => {
             const itemImage = itemDiv.querySelector('.item-card img');
             itemImage.addEventListener('click', onItemImageClick);
 
-            function onItemImageClick() {
+            async function onItemImageClick() {
+                const itemData = await makeRequest({ path: `/Products/${x.id}` });
+                console.log(itemData);
                 const modal = document.createElement('div');
                 modal.id = 'description-modal';
 
                 modal.innerHTML = `
-                <img src="${x.image}" alt="Item image">
+                <img src="${itemData.img}" alt="Item image">
                 <div class="item-description">
                     <div class="top">
                         <div class="title-category">
-                            <span class="title">${x.title}</span>
-                            <span class="category">${x.category}</span>
+                            <span class="title">${itemData.name}</span>
+                            <span class="category">${itemData.category}</span>
                         </div>
                         <div class="price-quantity">
-                            <span class="price">${x.price} BGN</span>
-                            <span class="quantity">Qty: ${x.quantity}</span>
+                            <span class="price">${itemData.price} BGN</span>
+                            <span class="quantity">Qty: ${itemData.quantityForSale}</span>
                         </div>
                     </div>
-                    <p>${x.description}</p>
+                    <p>${itemData.description}</p>
                 </div>
                 <button class="close-btn">
                     <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">

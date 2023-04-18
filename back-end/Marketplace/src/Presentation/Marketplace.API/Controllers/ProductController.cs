@@ -20,9 +20,9 @@ public class ProductController : ControllerBase
    [HttpGet]
    [Route("ForSale")]
 
-   public List<GetProductsDto> GetAll()
+   public List<GetProductsDto> GetAllProductForSale()
    {
-      return _productService.GetAll();
+      return _productService.GetAllProductForSale();
    }
    
    [HttpGet ("{productId}")]

@@ -26,6 +26,8 @@ public class ImageService :IImageService
     }
     public void DeleteImages(int id)
     {
+        var image = _imageRepository.GetById(id);
+        _cloudinary.Destroy(new DeletionParams(image.img));
         _imageRepository.Delete(id);
     }
 
@@ -43,6 +45,7 @@ public class ImageService :IImageService
         string base64 = Convert.ToBase64String(bytes);
 
         //construct image path
+        
         var prefix = @"data:image/png;base64,";
         var imagePath = prefix + base64;
 

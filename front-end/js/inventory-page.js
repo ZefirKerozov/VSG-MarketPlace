@@ -242,7 +242,7 @@ const loadProducts = async () => {
             startSlice = 0;
             endSlice = 10;
 
-            searchItemsToLoad = data.filter(x => x.title.toLowerCase().includes(search.toLowerCase()));
+            searchItemsToLoad = data.filter(x => x.name.toLowerCase().includes(search.toLowerCase()));
 
             displayItemsInTable(searchItemsToLoad.slice(startSlice, endSlice));
             pageIndex.textContent = `${startSlice + 1} - ${endSlice} of ${searchItemsToLoad.length}`;

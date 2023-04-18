@@ -5,7 +5,7 @@ namespace Marketplace.Application.Models.ProductModels.Interface;
 
 public interface IProductService
 {
-    public List<GetProductsDto> GetAll();
+    public List<GetProductsDto> GetAllProductForSale();
 
     ProductDetailsDto GetById(int productId);
 

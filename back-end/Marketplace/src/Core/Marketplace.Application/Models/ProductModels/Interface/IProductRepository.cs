@@ -7,7 +7,7 @@ namespace Marketplace.Application.Models.ProductModels.Interface;
 
 public interface IProductRepository :IGenericRepository<Products>
 {
-    List<GetProductsDto> GetAllProduct();
+    List<GetProductsDto> GetAllProductForSale();
     ProductDetailsDto GetProductById(int productId);
     
     public List<GetAllProductsForInvDto> GetProductsForInventory();

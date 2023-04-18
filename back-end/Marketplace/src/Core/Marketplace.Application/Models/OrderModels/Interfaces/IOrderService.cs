@@ -4,7 +4,7 @@ namespace Marketplace.Application.Models.OrderModels.Interfaces;
 
 public interface IOrderService
 {
-    List<GetOrdersDto> GetAllOrders();
+    List<GetOrdersDto> GetPendingsOrders();
     void ChangeStatus(int id);
 
 }

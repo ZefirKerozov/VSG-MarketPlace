@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Marketplace.API.Controllers;
 
+[Route("api/Images")]
+[ApiController]
 public class ImageController : ControllerBase
 {
     private readonly IImageService _imageService;
@@ -12,9 +14,15 @@ public class ImageController : ControllerBase
     {
         _imageService = imageService;
     }
-    [HttpPost("{productId}")]
+    [HttpPost("Upload/{productId}")]
     public  void UploadImage(int productId, [FromForm] AddImageDto image)
     {
         _imageService.UploadImage(productId, image);
+    }
+
+    [HttpDelete("Delete/{imageId}")]
+    public void DeleteImages(int imageId)
+    {
+        _imageService.DeleteImages(imageId);
     }
 }

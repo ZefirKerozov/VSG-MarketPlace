@@ -19,9 +19,9 @@ public class ProductService :IProductService
         _imageService = imageService;
         _imageService = imageService;
     }
-    public List<GetProductsDto> GetAll()
+    public List<GetProductsDto> GetAllProductForSale()
     {
-        var result = _productRepository.GetAllProduct();
+        var result = _productRepository.GetAllProductForSale();
         return result;
     }
 
