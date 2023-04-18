@@ -19,6 +19,11 @@ public class OrdersService : IOrderService
         return result;
     }
 
+    public List<GetOrdersDto> GetMyOrders(int userId)
+    {
+       return _ordersRepository.GetMyOrders(userId);
+    }
+
     public void ChangeStatus(int id)
     {
         var order = _ordersRepository.GetById(id);
