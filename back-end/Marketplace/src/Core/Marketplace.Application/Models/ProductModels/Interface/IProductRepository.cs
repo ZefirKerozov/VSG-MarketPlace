@@ -11,5 +11,6 @@ public interface IProductRepository :IGenericRepository<Products>
     ProductDetailsDto GetProductById(int productId);
     
     public List<GetAllProductsForInvDto> GetProductsForInventory();
-    
+
+
 }

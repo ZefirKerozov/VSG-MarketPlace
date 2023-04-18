@@ -832,6 +832,7 @@
           "Dapper": "2.0.123",
           "Dapper.SimpleCRUD": "2.3.0",
           "Markerplace.Domain": "1.0.0",
+          "Microsoft.Extensions.Configuration.Abstractions": "8.0.0-preview.2.23128.3",
           "Microsoft.Extensions.DependencyInjection": "8.0.0-preview.2.23128.3",
           "StructureMap": "4.7.1",
           "System.Data.SqlClient": "4.8.5"
