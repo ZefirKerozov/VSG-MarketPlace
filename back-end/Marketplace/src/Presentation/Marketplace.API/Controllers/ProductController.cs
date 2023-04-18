@@ -40,9 +40,9 @@ public class ProductController : ControllerBase
 
    [HttpPost]
    [Route("Inventory/Add")]
-   public void AddProduct(AddProductDto productDto)
+   public int AddProduct(AddProductDto productDto)
    {
-       _productService.AddProduct(productDto);
+      return _productService.AddProduct(productDto);
    }
 
    [HttpDelete]

@@ -141,13 +141,19 @@ function onAddItemBtnClick(e) {
         const quantityForSale = formData.get('quantityForSale');
         const price = formData.get('price');
         const quantity = formData.get('quantity');
-        const image = URL.createObjectURL(formData.get('image'));
-
-        console.log({ name, quantity, description, code, quantityForSale, categoryId, location: 'Tarnovo', price });
+        const image = formData.get('image');
 
         const addItem = async () => {
-            const addItem = await makeRequest({ path: `/Products/Inventory/Add`, method: 'POST', data: { name, quantity, description, code, quantityForSale, categoryId, location: 'Tarnovo', price } });
-            console.log(addItem);
+            const itemId = await makeRequest({ path: `/Products/Inventory/Add`, method: 'POST', data: { name, quantity, description, code, quantityForSale, categoryId, location: 'Tarnovo', price } });
+            // await makeRequest({ path: `/${itemId}`, method: 'POST', data: { image } });
+
+            const imageFormData = new FormData();
+            imageFormData.append('image', image);
+
+            await fetch(`http://localhost:5288/${itemId}`, {
+                method: 'POST',
+                body: imageFormData
+            });
         }
 
         addItem();
@@ -159,18 +165,17 @@ function onAddItemBtnClick(e) {
 const loadProducts = async () => {
     try {
         const data = await makeRequest({ path: '/Products' });
-        const modifiedData = data.map(x => x = { ...x, quantity: Math.floor(Math.random() * 11), forSale: 1 });
 
         // Display 10 items per page
 
         let startSlice = 0;
         let endSlice = 10;
-        let slicedItemsToLoad = modifiedData.slice(startSlice, endSlice);
+        let slicedItemsToLoad = data.slice(startSlice, endSlice);
         let searchItemsToLoad;
         const backwardBtn = document.querySelector('#backward-btn');
         const forwardBtn = document.querySelector('#forward-btn');
         let pageIndex = document.querySelector('#page-index');
-        pageIndex.textContent = `${startSlice + 1} - ${endSlice} of ${modifiedData.length}`;
+        pageIndex.textContent = `${startSlice + 1} - ${endSlice} of ${data.length}`;
 
         // Pagiantion functionality
 
@@ -189,12 +194,12 @@ const loadProducts = async () => {
                 displayItemsInTable(searchItemsToLoad.slice(startSlice, endSlice));
                 pageIndex.textContent = `${startSlice + 1} - ${endSlice} of ${searchItemsToLoad.length}`;
             } else {
-                if (searchItemsToLoad === undefined && endSlice < modifiedData.length) {
+                if (searchItemsToLoad === undefined && endSlice < data.length) {
                     startSlice += 10;
                     endSlice += 10;
-                    slicedItemsToLoad = modifiedData.slice(startSlice, endSlice);
+                    slicedItemsToLoad = data.slice(startSlice, endSlice);
                     displayItemsInTable(slicedItemsToLoad);
-                    pageIndex.textContent = `${startSlice + 1} - ${endSlice} of ${modifiedData.length}`;
+                    pageIndex.textContent = `${startSlice + 1} - ${endSlice} of ${data.length}`;
                 }
             }
 
@@ -218,9 +223,9 @@ const loadProducts = async () => {
                 if (searchItemsToLoad === undefined && startSlice > 0) {
                     startSlice -= 10;
                     endSlice -= 10;
-                    slicedItemsToLoad = modifiedData.slice(startSlice, endSlice);
+                    slicedItemsToLoad = data.slice(startSlice, endSlice);
                     displayItemsInTable(slicedItemsToLoad);
-                    pageIndex.textContent = `${startSlice + 1} - ${endSlice} of ${modifiedData.length}`;
+                    pageIndex.textContent = `${startSlice + 1} - ${endSlice} of ${data.length}`;
                 }
             }
         })
@@ -237,7 +242,7 @@ const loadProducts = async () => {
             startSlice = 0;
             endSlice = 10;
 
-            searchItemsToLoad = modifiedData.filter(x => x.title.toLowerCase().includes(search.toLowerCase()));
+            searchItemsToLoad = data.filter(x => x.title.toLowerCase().includes(search.toLowerCase()));
 
             displayItemsInTable(searchItemsToLoad.slice(startSlice, endSlice));
             pageIndex.textContent = `${startSlice + 1} - ${endSlice} of ${searchItemsToLoad.length}`;
@@ -262,9 +267,9 @@ function displayItemsInTable(items) {
         const tableRow = document.createElement('tr');
         tableRow.innerHTML = `
         <td>${x.id}</td>
-        <td>${x.title}</td>
-        <td>${x.category}</td>
-        <td>${x.forSale}</td>
+        <td>${x.name}</td>
+        <td>${x.categoryName}</td>
+        <td>${x.quantityForSale}</td>
         <td>${x.quantity}</td>
         <td>
             <div class="table-actions">
@@ -509,11 +514,12 @@ function displayItemsInTable(items) {
             function onDeleteItem(e) {
                 e.preventDefault();
                 const deleteItem = async () => {
-                    const deletedItem = await makeRequest({ path: `/products/${x.id}`, method: 'DELETE' })
+                    const deletedItem = await makeRequest({ path: `/Products/Inventory/Delete/${x.id}`, method: 'DELETE' })
                     console.log(deletedItem);
                 }
 
                 deleteItem();
+                window.location.reload();
             }
 
             // Close pop-up if cancel button is clicked

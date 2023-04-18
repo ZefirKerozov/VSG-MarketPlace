@@ -37,9 +37,9 @@ public class ProductService :IProductService
 
     }
 
-    public void AddProduct(AddProductDto productDto)
+    public int AddProduct(AddProductDto productDto)
     { 
-        _productRepository.Create( _mapper.Map<Products>(productDto));
+        return  _productRepository.Create( _mapper.Map<Products>(productDto));
     }
 
     public void DeleteProduct(int id)
