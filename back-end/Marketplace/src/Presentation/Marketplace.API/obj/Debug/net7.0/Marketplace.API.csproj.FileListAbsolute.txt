@@ -106,3 +106,5 @@ C:\Users\YKurtev\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\M
 C:\Users\YKurtev\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\obj\Debug\net7.0\ref\Marketplace.API.dll
 C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\StructureMap.dll
 C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\CloudinaryDotNet.dll
+C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\Newtonsoft.Json.dll
