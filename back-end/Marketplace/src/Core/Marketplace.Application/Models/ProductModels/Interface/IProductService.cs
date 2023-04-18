@@ -11,7 +11,7 @@ public interface IProductService
 
     public List<GetAllProductsForInvDto> GetProductsForInventory();
 
-    public void AddProduct(AddProductDto productDto);
+    public int AddProduct(AddProductDto productDto);
 
     void DeleteProduct(int id);
 
