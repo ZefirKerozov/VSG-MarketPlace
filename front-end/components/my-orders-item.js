@@ -99,7 +99,7 @@ template.innerHTML = `
     justify-content: space-between;
     align-items: flex-end;
     position: absolute;
-    z-index: 1;
+    z-index: 999;
     width: 300px;
     height: 80px;
     background-color: #FFF;
@@ -174,7 +174,7 @@ customElements.define('my-orders-item', MyOrdersItem);
 function showPopup(e) {
     // Close previous opened pop-up if there is such
 
-    console.log(e.target.parentElement.parentElement.parentElement.parentElement);
+    console.log(e.target);
 
     const prevPopUp = document.getElementById('pop-up');
     if (prevPopUp !== null) {

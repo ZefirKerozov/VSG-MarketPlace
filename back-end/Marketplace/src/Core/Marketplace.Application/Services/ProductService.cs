@@ -9,7 +9,6 @@ namespace Marketplace.Application.Services;
 public class ProductService :IProductService
 {
     private readonly IProductRepository _productRepository;
-
     private readonly IMapper _mapper;
     private readonly IImageService _imageService;
 
