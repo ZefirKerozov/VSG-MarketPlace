@@ -17,4 +17,10 @@ public class ImageController : ControllerBase
     {
         _imageService.UploadImage(productId, image);
     }
+
+    [HttpDelete("{imageId}")]
+    public void DeleteImages(int imageId)
+    {
+        _imageService.DeleteImages(imageId);
+    }
 }
