@@ -28,7 +28,7 @@ function onAddItemBtnClick(e) {
                 </div>
                 <div class="input-container">
                     <label for="name">Name*</label>    
-                    <input type="text" id="name" name="title" required>
+                    <input type="text" id="name" name="name" required>
                 </div>
                 <div class="input-container">
                     <label for="descriptionText">Description</label>
@@ -38,13 +38,13 @@ function onAddItemBtnClick(e) {
                     <label for="add-item-select">Category*</input>
                     <select id="add-item-select" name="category" required>
                         <option value="" disabled selected></option>
-                        <option value="Laptops">Laptops</option>
-                        <option value="Monitors">Monitors</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
                     </select>
                 </div>
                 <div class="input-container">
                     <label for="qty-for-sale">Qty for sale</label>
-                    <input type="number" id="qty-for-sale" name="forSale">
+                    <input type="number" id="qty-for-sale" name="quantityForSale">
                 </div>
                 <div class="input-container">
                     <label for="sale-price">Sale price</label>
@@ -135,16 +135,18 @@ function onAddItemBtnClick(e) {
         const formData = new FormData(e.target);
 
         const code = formData.get('code');
-        const title = formData.get('title');
+        const name = formData.get('name');
         const description = formData.get('description');
-        const category = formData.get('category');
-        const forSale = formData.get('forSale');
+        const categoryId = formData.get('category');
+        const quantityForSale = formData.get('quantityForSale');
         const price = formData.get('price');
         const quantity = formData.get('quantity');
         const image = URL.createObjectURL(formData.get('image'));
 
+        console.log({ name, quantity, description, code, quantityForSale, categoryId, location: 'Tarnovo', price });
+
         const addItem = async () => {
-            const addItem = await makeRequest({ path: `/products`, method: 'POST', data: { title, price, description, image, quantity } });
+            const addItem = await makeRequest({ path: `/Products/Inventory/Add`, method: 'POST', data: { name, quantity, description, code, quantityForSale, categoryId, location: 'Tarnovo', price } });
             console.log(addItem);
         }
 
@@ -156,7 +158,7 @@ function onAddItemBtnClick(e) {
 
 const loadProducts = async () => {
     try {
-        const data = await makeRequest({ path: '/products' });
+        const data = await makeRequest({ path: '/Products' });
         const modifiedData = data.map(x => x = { ...x, quantity: Math.floor(Math.random() * 11), forSale: 1 });
 
         // Display 10 items per page

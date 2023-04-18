@@ -15,7 +15,8 @@ const itemsContainer = document.querySelector('.items');
 
 const loadProducts = async () => {
     try {
-        const data = await makeRequest({ path: '/products' });
+        const data = await makeRequest({ path: '/Products' });
+        console.log(data);
         const modifiedData = data.map(x => x = { ...x, quantity: Math.floor(Math.random() * 11) });
         modifiedData.forEach(x => {
             const selectMenu = document.createElement('select');

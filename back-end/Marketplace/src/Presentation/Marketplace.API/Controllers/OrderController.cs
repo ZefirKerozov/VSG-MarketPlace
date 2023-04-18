@@ -23,4 +23,10 @@ public class OrderController :ControllerBase
     {
         return _orderService.GetAllOrders();
     }
+    [HttpPut]
+    [Route("Orders/Status/{id}")]
+    public void ChangeStatus(int id)
+    {
+        _orderService.ChangeStatus(id);
+    }
 }
