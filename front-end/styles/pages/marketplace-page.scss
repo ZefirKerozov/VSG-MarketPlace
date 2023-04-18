@@ -4,7 +4,7 @@ $background-color: #FFFFFF;
 
 //// Items section styles ////
 
-main {
+#main-container-marketplace {
     @include displayFlex();
     background-color: $background-color;
     border-radius: 20px;
@@ -281,7 +281,7 @@ main {
 //// Responsive styles ////
 
 @media (max-width: 768px) {
-    main {
+    #main-container-marketplace {
         width: 100%;
     }
 

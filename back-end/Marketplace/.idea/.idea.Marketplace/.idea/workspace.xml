@@ -14,19 +14,68 @@
   <component name="ChangeListManager">
     <list default="true" id="9c0d6560-6cf2-4d11-9582-a67b8eb58620" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Marketplace/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Marketplace/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/Marketplace.Application/Models/OrderModels/Interfaces/IOrderService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Marketplace.Application/Models/OrderModels/Interfaces/IOrderService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Markerplace.Domain/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Markerplace.Domain/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Marketplace.Application/Helpers/Profiles/ProductProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Marketplace.Application/Helpers/Profiles/ProductProfile.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Core/Marketplace.Application/Models/ProductModels/Interface/IProductService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Marketplace.Application/Models/ProductModels/Interface/IProductService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/Marketplace.Application/Services/OrdersService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Marketplace.Application/Services/OrdersService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Core/Marketplace.Application/Services/ProductService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Marketplace.Application/Services/ProductService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Presentation/Marketplace.API/Controllers/OrderController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/Marketplace.API/Controllers/OrderController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Marketplace.Application/bin/Debug/net7.0/Marketplace.Application.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Marketplace.Application/bin/Debug/net7.0/Marketplace.Application.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Marketplace.Application/bin/Debug/net7.0/Marketplace.Application.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Marketplace.Application/bin/Debug/net7.0/Marketplace.Application.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Marketplace.Application/obj/Debug/net7.0/Marketplace.Application.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Marketplace.Application/obj/Debug/net7.0/Marketplace.Application.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Marketplace.Application/obj/Debug/net7.0/Marketplace.Application.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Marketplace.Application/obj/Debug/net7.0/Marketplace.Application.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Marketplace.Application/obj/Debug/net7.0/Marketplace.Application.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Marketplace.Application/obj/Debug/net7.0/Marketplace.Application.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Marketplace.Application/obj/Debug/net7.0/Marketplace.Application.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Marketplace.Application/obj/Debug/net7.0/Marketplace.Application.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Marketplace.Application/obj/Debug/net7.0/ref/Marketplace.Application.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Marketplace.Application/obj/Debug/net7.0/ref/Marketplace.Application.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Marketplace.Application/obj/Debug/net7.0/refint/Marketplace.Application.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Marketplace.Application/obj/Debug/net7.0/refint/Marketplace.Application.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Marketplace.Application/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Marketplace.Application/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/bin/Debug/net7.0/Marketplace.Application.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/bin/Debug/net7.0/Marketplace.Application.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/bin/Debug/net7.0/Marketplace.Application.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/bin/Debug/net7.0/Marketplace.Application.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/bin/Debug/net7.0/Marketplace.Persistence.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/bin/Debug/net7.0/Marketplace.Persistence.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/bin/Debug/net7.0/Marketplace.Persistence.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/bin/Debug/net7.0/Marketplace.Persistence.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/obj/Debug/net7.0/Marketplace.Persistence.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/obj/Debug/net7.0/Marketplace.Persistence.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/obj/Debug/net7.0/Marketplace.Persistence.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/obj/Debug/net7.0/Marketplace.Persistence.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/obj/Debug/net7.0/Marketplace.Persistence.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/obj/Debug/net7.0/Marketplace.Persistence.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/obj/rider.project.restore.info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Presentation/Marketplace.API/Controllers/ProductController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/Marketplace.API/Controllers/ProductController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Presentation/Marketplace.API/bin/Debug/net7.0/Marketplace.API.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/Marketplace.API/bin/Debug/net7.0/Marketplace.API.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Presentation/Marketplace.API/bin/Debug/net7.0/Marketplace.API.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/Marketplace.API/bin/Debug/net7.0/Marketplace.API.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Presentation/Marketplace.API/bin/Debug/net7.0/Marketplace.Application.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/Marketplace.API/bin/Debug/net7.0/Marketplace.Application.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Presentation/Marketplace.API/bin/Debug/net7.0/Marketplace.Application.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/Marketplace.API/bin/Debug/net7.0/Marketplace.Application.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Presentation/Marketplace.API/bin/Debug/net7.0/Marketplace.Persistence.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/Marketplace.API/bin/Debug/net7.0/Marketplace.Persistence.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Presentation/Marketplace.API/bin/Debug/net7.0/Marketplace.Persistence.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/Marketplace.API/bin/Debug/net7.0/Marketplace.Persistence.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Presentation/Marketplace.API/obj/Debug/net7.0/Marketplace.API.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/Marketplace.API/obj/Debug/net7.0/Marketplace.API.csproj.AssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Presentation/Marketplace.API/obj/Debug/net7.0/Marketplace.API.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/Marketplace.API/obj/Debug/net7.0/Marketplace.API.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Presentation/Marketplace.API/obj/Debug/net7.0/Marketplace.API.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/Marketplace.API/obj/Debug/net7.0/Marketplace.API.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Presentation/Marketplace.API/obj/Debug/net7.0/ref/Marketplace.API.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/Marketplace.API/obj/Debug/net7.0/ref/Marketplace.API.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Presentation/Marketplace.API/obj/Debug/net7.0/refint/Marketplace.API.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/Marketplace.API/obj/Debug/net7.0/refint/Marketplace.API.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Presentation/Marketplace.API/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/Marketplace.API/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front-end/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front-end/js/inventory-page.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/js/inventory-page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front-end/js/marketplace-page.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/js/marketplace-page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front-end/js/my-orders-page.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/js/my-orders-page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front-end/js/pending-orders-page.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/js/pending-orders-page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front-end/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front-end/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front-end/styles/pages/inventory-page.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/styles/pages/inventory-page.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front-end/styles/pages/inventory-page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/styles/pages/inventory-page.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front-end/styles/pages/login-page.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/styles/pages/login-page.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front-end/styles/pages/login-page.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/styles/pages/login-page.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front-end/styles/pages/login-page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/styles/pages/login-page.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front-end/styles/pages/marketplace-page.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/styles/pages/marketplace-page.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front-end/styles/pages/marketplace-page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/styles/pages/marketplace-page.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front-end/styles/pages/my-orders-page.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/styles/pages/my-orders-page.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front-end/styles/pages/my-orders-page.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/styles/pages/my-orders-page.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front-end/styles/pages/my-orders-page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/styles/pages/my-orders-page.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front-end/styles/pages/pending-orders-page.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/styles/pages/pending-orders-page.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front-end/styles/pages/pending-orders-page.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/styles/pages/pending-orders-page.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front-end/styles/pages/pending-orders-page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/styles/pages/pending-orders-page.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front-end/styles/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/styles/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front-end/styles/styles.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/styles/styles.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front-end/templates/inventory-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/templates/inventory-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front-end/templates/marketplace-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/templates/marketplace-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front-end/templates/my-orders-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/templates/my-orders-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front-end/templates/pending-orders-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/templates/pending-orders-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front-end/utils/hamburgerMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/utils/hamburgerMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front-end/utils/makeRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../front-end/utils/makeRequest.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +99,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7029bcb5fa91c02b9e89b30801d67e98d89b0de66c74b952f69312e578b4/SqlConnectionHelper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/789b158a98468e474a2af1348cfd47e7792de2ae2344f55a03ddf85b16699b/WebApplicationBuilder.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7a403cba08345c96e825f152f83f7387ca90e5b98cf92f2d95fbedc8d25d24/ServiceCollectionServiceExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/829d6ac6e62b9bee9ef8e79e827d87d0c31a7c2eefbc354135d9a8f2c4deb/Mapper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/878910279067a69744823f3ab1230c177a593e37dfe46787dbbce03d3d3799/ResourceInvoker.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9a6b1457cbcf17db31a383ba49ef9bcc786cf3ef77146d997eee499b27a46d/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a9b35bc5d5da43a49af8d74dac7ab37ccc1bb654cb7dfe8f9a21501181ed9b/CastHelpers.cs" root0="SKIP_HIGHLIGHTING" />
@@ -258,7 +308,7 @@
       <updated>1680505649949</updated>
       <workItem from="1680505651862" duration="280000" />
       <workItem from="1680506006253" duration="61145000" />
-      <workItem from="1681290094069" duration="22287000" />
+      <workItem from="1681290094069" duration="26352000" />
     </task>
     <servers />
   </component>

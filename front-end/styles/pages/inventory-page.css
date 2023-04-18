@@ -1,19 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
-main {
+#main-container-inventory {
   background-color: #FFFFFF;
   width: 80%;
   border-radius: 20px;
   padding: 23px 18px 39px 18px;
   position: relative;
 }
-main .search-add-container {
+#main-container-inventory .search-add-container {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   align-items: flex-end;
   gap: 15px;
 }
-main .search-add-container .search {
+#main-container-inventory .search-add-container .search {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -21,24 +21,24 @@ main .search-add-container .search {
   gap: 10px;
   border-bottom: 1px solid #000000;
 }
-main .search-add-container .search #search-btn {
+#main-container-inventory .search-add-container .search #search-btn {
   background: none;
   cursor: pointer;
 }
-main .search-add-container .search #search-btn svg {
+#main-container-inventory .search-add-container .search #search-btn svg {
   height: 11px;
   width: 11px;
 }
-main .search-add-container form {
+#main-container-inventory .search-add-container form {
   display: flex;
   height: 20px;
 }
-main .search-add-container form input {
+#main-container-inventory .search-add-container form input {
   font-size: 0.5rem;
   width: 60%;
   outline: none;
 }
-main .search-add-container #add-btn {
+#main-container-inventory .search-add-container #add-btn {
   font-size: 0.5rem;
   line-height: 24px;
   padding: 5px 24px;
@@ -48,10 +48,10 @@ main .search-add-container #add-btn {
   color: #FFFFFF;
   width: 150px;
 }
-main .search-add-container #add-btn:hover {
+#main-container-inventory .search-add-container #add-btn:hover {
   cursor: pointer;
 }
-main #table-wrapper {
+#main-container-inventory #table-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -63,73 +63,73 @@ main #table-wrapper {
   height: calc(100vh - 282px);
   overflow: scroll;
 }
-main table {
+#main-container-inventory table {
   min-width: 100%;
   border-collapse: collapse;
   overflow: scroll;
 }
-main table th {
+#main-container-inventory table th {
   font-size: 0.5rem;
   border-bottom: 1px solid #B3B3B3;
 }
-main table tr {
+#main-container-inventory table tr {
   border-bottom: 1px solid #B3B3B3;
 }
-main table tr:last-of-type {
+#main-container-inventory table tr:last-of-type {
   border-bottom: none;
 }
-main table td {
+#main-container-inventory table td {
   position: relative;
   font-size: 0.5rem;
   height: 10%;
 }
-main table th,
-main table td {
+#main-container-inventory table th,
+#main-container-inventory table td {
   padding: 20px;
   text-align: left;
   white-space: nowrap;
 }
-main table th:nth-child(1),
-main table td:nth-child(1) {
+#main-container-inventory table th:nth-child(1),
+#main-container-inventory table td:nth-child(1) {
   width: 5%;
 }
-main table th:nth-child(2),
-main table td:nth-child(2) {
+#main-container-inventory table th:nth-child(2),
+#main-container-inventory table td:nth-child(2) {
   width: 50%;
 }
-main table th:nth-child(3),
-main table td:nth-child(3) {
+#main-container-inventory table th:nth-child(3),
+#main-container-inventory table td:nth-child(3) {
   width: 15%;
 }
-main table th:nth-child(4),
-main table td:nth-child(4) {
+#main-container-inventory table th:nth-child(4),
+#main-container-inventory table td:nth-child(4) {
   width: 10%;
 }
-main table th:nth-child(5),
-main table td:nth-child(5) {
+#main-container-inventory table th:nth-child(5),
+#main-container-inventory table td:nth-child(5) {
   width: 10%;
 }
-main table th:nth-child(6),
-main table td:nth-child(6) {
+#main-container-inventory table th:nth-child(6),
+#main-container-inventory table td:nth-child(6) {
   width: 5%;
 }
-main table .table-actions {
+#main-container-inventory table .table-actions {
   display: flex;
   flex-direction: row;
   gap: 20px;
 }
-main table .table-actions button {
+#main-container-inventory table .table-actions button {
   width: 12px;
   height: 12px;
   background: none;
 }
-main table .table-actions button:hover {
+#main-container-inventory table .table-actions button:hover {
   cursor: pointer;
 }
-main table .table-actions button > svg {
+#main-container-inventory table .table-actions button > svg {
   pointer-events: none;
 }
-main #pagination {
+#main-container-inventory #pagination {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -142,7 +142,7 @@ main #pagination {
   height: 57px;
   padding-right: 20px;
 }
-main #pagination #pagination-controls {
+#main-container-inventory #pagination #pagination-controls {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -150,13 +150,13 @@ main #pagination #pagination-controls {
   gap: 10px;
   width: 100%;
 }
-main #pagination #pagination-controls span {
+#main-container-inventory #pagination #pagination-controls span {
   font-size: 0.5rem;
 }
-main #pagination #pagination-controls button {
+#main-container-inventory #pagination #pagination-controls button {
   background: none;
 }
-main #pagination #pagination-controls button:hover {
+#main-container-inventory #pagination #pagination-controls button:hover {
   cursor: pointer;
 }
 
@@ -436,10 +436,10 @@ main #pagination #pagination-controls button:hover {
 }
 
 @media (max-width: 768px) {
-  main {
+  #main-container-inventory {
     width: calc(100% - 35px);
   }
-  main #table-wrapper {
+  #main-container-inventory #table-wrapper {
     height: calc(100% - 120px);
   }
   table {

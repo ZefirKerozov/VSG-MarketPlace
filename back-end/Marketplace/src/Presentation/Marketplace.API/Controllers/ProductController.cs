@@ -52,5 +52,12 @@ public class ProductController : ControllerBase
        _productService.DeleteProduct(id);
    }
 
+   [HttpPut]
+   [Route("Edit/{id}")]
+
+   public void EditProducts(int id, ProductEditDto product)
+   {
+       _productService.EditProducts(id, product);
+   }
    
 }

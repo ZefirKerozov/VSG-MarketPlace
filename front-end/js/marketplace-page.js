@@ -2,10 +2,12 @@ import { makeRequest } from "../utils/makeRequest.js";
 import "../utils/navLinks.js";
 import "../utils/hamburgerMenu.js";
 
-// Attach event listener to buy buttons to show pop-up
+// const testFetch = async () => {
+//     const result = await makeRequest({ path: '/Products/productId?productId=2'});
+//     console.log(result);
+// }
 
-const buyBtn = Array.from(document.getElementsByClassName('buy-btn'));
-buyBtn.forEach(x => x.addEventListener('click', showPopup));
+// testFetch();
 
 ////////// Dynamically load items from API //////////
 
@@ -111,7 +113,6 @@ const loadProducts = async () => {
                 overlay.addEventListener('click', onOverlayClick);
 
                 function onOverlayClick(e) {
-                    console.log('works');
                     if (e.target.matches('.overlay')) {
                         modal.remove();
                         overlay.style.display = 'none';
@@ -155,7 +156,7 @@ function showPopup(e) {
 
     // Configure pop-up position depending on browser window
 
-    const elementPopUp = document.getElementById('pop-up');
+    const elementPopUp = document.querySelector('#pop-up');
 
     let positionLeft;
     let positionTop;
@@ -202,7 +203,7 @@ function showPopup(e) {
 
     // Close pop-up if cancel button is clicked
 
-    const cancelBtn = document.getElementById('cancel-btn');
+    const cancelBtn = document.querySelector('#cancel-btn');
     cancelBtn.addEventListener('click', closePopUp);
 
     window.addEventListener('click', trackWindowEvent);

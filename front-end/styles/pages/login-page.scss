@@ -2,11 +2,11 @@
 
 //// Login page styles ////
 
-#main {
+#main-container-login {
     @include displayFlex(column);
     @include flexProperties(space-evenly, center);
     height: 100vh;
-    background-image: url(/front-end/images/vsg-background.png);
+    background-image: url(/images/vsg-background.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -38,11 +38,7 @@
 //// Responsive styles ////
 
 @media (max-width: 768px) {
-    html {
-        font-size: 20px;
-    }
-
-    #main {
+    #main-container-login {
         background-size: cover;
         justify-content: center;
         gap: 3rem;

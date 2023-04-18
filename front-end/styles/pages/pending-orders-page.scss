@@ -7,7 +7,7 @@ $background-color: #FFFFFF;
 
 //// Items secton styles ////
 
-main {
+#main-container-pending-orders {
     @include displayFlex(column);
     background-color: $background-color;
     border-radius: 20px;
@@ -15,7 +15,7 @@ main {
     width: 80%;
     gap: 30px;
 
-    .items {
+    #pending-items {
         @include displayFlex(column);
         gap: 20px;
 
@@ -34,7 +34,7 @@ main {
 
         // Table styles
 
-        .responsive-table {
+        #pending-items-responsive-table {
             display: table;
 
             .table-first-group {
@@ -129,73 +129,79 @@ main {
 // Responsive styles
 
 @media (max-width: 768px) {
-    main {
+    #main-container-pending-orders {
         width: 100%;
-    }
 
-    // Table styles
+        #pending-items {
 
-    .table-header {
-        display: none;
-    }
+            #pending-items-responsive-table {
 
-    .table-row {
-        @include displayFlex(column);
-        @include flexProperties(flex-start);
-        height: 33.333333%;
-        padding: 0;
+                // Table styles
 
-        .table-first-group {
-            width: calc(100% - 20px);
-            justify-content: space-between;
-            border-bottom: 2px solid #DADCDD;
-            padding: 10px;
+                .table-header {
+                    display: none;
+                }
 
-            .col {
-                @include displayFlex(column);
-                @include flexProperties(center, flex-start);
-                margin-left: 10px;
-            }
+                .table-row {
+                    @include displayFlex(column);
+                    @include flexProperties(flex-start);
+                    height: 33.333333%;
+                    padding: 0;
 
-            // Add table header before cell
+                    .table-first-group {
+                        width: calc(100% - 20px);
+                        justify-content: space-between;
+                        border-bottom: 2px solid #DADCDD;
+                        padding: 10px;
 
-            .col::before {
-                content: attr(data-before);
-                font-weight: 700;
-            }
-        }
+                        .col {
+                            @include displayFlex(column);
+                            @include flexProperties(center, flex-start);
+                            margin-left: 10px;
+                        }
 
-        .table-second-group {
-            @include displayFlex(column);
-            @include flexProperties(space-evenly, flex-start);
-            box-sizing: border-box;
-            width: 100%;
+                        // Add table header before cell
 
-            .col {
-                display: flex;
-                align-items: center;
-                width: calc(100% - 20px);
-                gap: 10px;
-                border-bottom: 2px solid #DADCDD;
-                padding: 18px 10px;
-            }
+                        .col::before {
+                            content: attr(data-before);
+                            font-weight: 700;
+                        }
+                    }
 
-            .col:nth-child(3) {
-                @include displayFlex();
-                @include flexProperties(center, center);
-                border: none;
-            }
+                    .table-second-group {
+                        @include displayFlex(column);
+                        @include flexProperties(space-evenly, flex-start);
+                        box-sizing: border-box;
+                        width: 100%;
 
-            // Add table header before cell
+                        .col {
+                            display: flex;
+                            align-items: center;
+                            width: calc(100% - 20px);
+                            gap: 10px;
+                            border-bottom: 2px solid #DADCDD;
+                            padding: 18px 10px;
+                        }
 
-            .col:nth-child(1)::before {
-                content: attr(data-before);
-                font-weight: 700;
-            }
+                        .col:nth-child(3) {
+                            @include displayFlex();
+                            @include flexProperties(center, center);
+                            border: none;
+                        }
 
-            .col:nth-child(2)::before {
-                content: attr(data-before);
-                font-weight: 700;
+                        // Add table header before cell
+
+                        .col:nth-child(1)::before {
+                            content: attr(data-before);
+                            font-weight: 700;
+                        }
+
+                        .col:nth-child(2)::before {
+                            content: attr(data-before);
+                            font-weight: 700;
+                        }
+                    }
+                }
             }
         }
     }

@@ -49,5 +49,10 @@ public class ProductService :IProductService
         _productRepository.Delete(id);
     }
 
-   
+    public void EditProducts(int id, ProductEditDto product)
+    {
+        var productForEdit = _mapper.Map<Products>(product);
+        productForEdit.Id = id;
+        _productRepository.Update(productForEdit);
+    }
 }

@@ -6,9 +6,9 @@ import "../utils/hamburgerMenu.js";
 
 const overlay = document.querySelector('.overlay');
 
-const addItemBtn = document.getElementById('add-btn');
+const addItemBtn = document.querySelector('#add-btn');
 
-addItemBtn.addEventListener('click', onAddItemBtnClick);
+addItemBtn?.addEventListener('click', onAddItemBtnClick);
 
 // Open add item modal
 
@@ -175,7 +175,6 @@ const loadProducts = async () => {
         // Pagiantion forward button
 
         forwardBtn.addEventListener('click', () => {
-            console.log(searchItemsToLoad);
             if (searchItemsToLoad !== undefined && endSlice < searchItemsToLoad.length) {
                 console.log('inside forward serach handler');
 
@@ -202,18 +201,15 @@ const loadProducts = async () => {
         // Pagiantion backward button
 
         backwardBtn.addEventListener('click', () => {
-            console.log(searchItemsToLoad);
             if (searchItemsToLoad !== undefined && startSlice - 10 >= 0) {
-                console.log('inside backward serach handler');
-
                 startSlice -= 10;
-                console.log(startSlice);
+
                 if (endSlice - 10 < searchItemsToLoad.length) {
                     endSlice = 10;
                 } else {
                     endSlice -= 10;
                 }
-                console.log(endSlice);
+
                 displayItemsInTable(searchItemsToLoad.slice(startSlice, endSlice));
                 pageIndex.textContent = `${startSlice + 1} - ${endSlice} of ${searchItemsToLoad.length}`;
             } else {
@@ -470,7 +466,7 @@ function displayItemsInTable(items) {
 
             // Configure pop-up position depending on browser window
 
-            const elementPopUp = document.getElementById('pop-up');
+            const elementPopUp = document.querySelector('#pop-up');
 
             let positionLeft;
             let positionTop;
@@ -505,8 +501,7 @@ function displayItemsInTable(items) {
 
             // Delete item request when confirm button is clicked
 
-            const confirmBtn = document.getElementById('confirm-btn');
-            console.log(confirmBtn);
+            const confirmBtn = document.querySelector('#confirm-btn');
             confirmBtn.addEventListener('click', onDeleteItem);
 
             function onDeleteItem(e) {
@@ -521,7 +516,7 @@ function displayItemsInTable(items) {
 
             // Close pop-up if cancel button is clicked
 
-            const cancelBtn = document.getElementById('cancel-btn');
+            const cancelBtn = document.querySelector('#cancel-btn');
             cancelBtn.addEventListener('click', closePopUp);
 
             window.addEventListener('click', trackWindowEvent);

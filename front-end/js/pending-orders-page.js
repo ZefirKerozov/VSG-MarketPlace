@@ -27,7 +27,7 @@ const DUMMY_DATA = [
 
 // Render table rows from DUMMY_DATA
 
-const table = document.querySelector('.responsive-table');
+const table = document.querySelector('#pending-items-responsive-table');
 
 DUMMY_DATA.forEach(x => {
     const tableRow = document.createElement('div');
@@ -58,7 +58,7 @@ DUMMY_DATA.forEach(x => {
         Order price - ${x.price}`);
     });
 
-    table.appendChild(tableRow);
+    table?.appendChild(tableRow);
 });
 
 ///// NOT USED IN APP /////

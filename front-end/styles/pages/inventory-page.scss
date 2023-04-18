@@ -6,7 +6,7 @@ $background-color: #FFFFFF;
 
 //// Items section styles ////
 
-main {
+#main-container-inventory {
     background-color: $background-color;
     width: 80%;
     border-radius: 20px;
@@ -440,7 +440,7 @@ main {
 // Responsive styles
 
 @media (max-width: 768px) {
-    main {
+    #main-container-inventory {
         width: calc(100% - 35px);
 
         #table-wrapper {
