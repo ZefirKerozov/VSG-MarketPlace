@@ -14,11 +14,11 @@ public class OrdersRepository : GenericRepository<Orders>, IOrdersRepository
     {
     }
 
-    public List<GetOrdersDto> GetOrders()
+    public List<GetOrdersDto> GetPendingsOrders()
     {
 
         var query =
-            "SELECT Products.Name, Products.Price, Orders.Quantity, Orders.OrderDate, Orders.Status FROM Products INNER JOIN Orders ON Products.Id = Orders.ProductID";
+            "SELECT Products.Name, Products.Price, Orders.Quantity, Orders.OrderDate, Orders.Status FROM Products INNER JOIN Orders ON Products.Id = Orders.ProductID Where Orders.Status = 'Pending'";
 
         var result = Connection.Query<GetOrdersDto>(query);
         return (List<GetOrdersDto>)result;

@@ -14,7 +14,7 @@ public class ProductRepository : GenericRepository<Products>, IProductRepository
     {
     }
 
-    public List<GetProductsDto> GetAllProduct()
+    public List<GetProductsDto> GetAllProductForSale()
     {
 
 

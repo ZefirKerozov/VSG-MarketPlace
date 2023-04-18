@@ -19,9 +19,10 @@ public class OrderController :ControllerBase
     }
 
     [HttpGet]
-    public List<GetOrdersDto> GetOrders()
+    [Route("Pneding")]
+    public List<GetOrdersDto> GetPendingOrders()
     {
-        return _orderService.GetAllOrders();
+        return _orderService.GetPendingsOrders();
     }
     [HttpPut]
     [Route("Orders/Status/{id}")]

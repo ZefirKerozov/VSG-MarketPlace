@@ -13,9 +13,9 @@ public class OrdersService : IOrderService
         _ordersRepository = ordersRepository;
     }
 
-    public List<GetOrdersDto> GetAllOrders()
+    public List<GetOrdersDto> GetPendingsOrders()
     {
-        var result = _ordersRepository.GetOrders();
+        var result = _ordersRepository.GetPendingsOrders();
         return result;
     }
 
