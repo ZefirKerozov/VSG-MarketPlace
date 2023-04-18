@@ -17,7 +17,7 @@ public class ImageRepository :GenericRepository<Images>, IImageRepository
 
     public  GetImageDto GetImageByProductId(int productId)
     {
-        var query = "SELECT i.Id, i.img AS  PublicId  FROM Products AS p   JOIN Images AS i on p.Id = i.ProductId WHERE p.Id= @productId";
+        var query = @"SELECT i.Id, i.img AS  PublicId  FROM Products AS p   JOIN Images AS i on p.Id = i.ProductId WHERE p.Id= @productId";
 
         return Connection.QueryFirst<GetImageDto>(query);
     }

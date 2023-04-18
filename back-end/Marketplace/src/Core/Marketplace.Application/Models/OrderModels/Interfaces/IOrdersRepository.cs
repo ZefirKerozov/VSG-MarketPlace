@@ -7,4 +7,6 @@ namespace Marketplace.Application.Models.OrderModels.Interfaces;
 public interface IOrdersRepository :IGenericRepository<Orders>
 {
      List<GetOrdersDto> GetPendingsOrders();
+     
+     List<GetOrdersDto> GetMyOrders(int userId);
 }

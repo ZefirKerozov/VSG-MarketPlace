@@ -23,4 +23,12 @@ public class OrdersRepository : GenericRepository<Orders>, IOrdersRepository
         var result = Connection.Query<GetOrdersDto>(query);
         return (List<GetOrdersDto>)result;
     }
+
+    public List<GetOrdersDto> GetMyOrders(int userId)
+    {
+        var query = $"SELECT Products.Name, Products.Price, Orders.Quantity, Orders.OrderDate, Orders.Status FROM Products INNER JOIN Orders ON Products.Id = Orders.ProductID Where Orders.UserId= {userId}";
+
+        var result = Connection.Query<GetOrdersDto>(query);
+        return (List<GetOrdersDto>)result;
+    }
 }

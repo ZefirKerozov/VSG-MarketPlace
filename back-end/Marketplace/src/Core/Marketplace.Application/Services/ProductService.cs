@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Markerplace.Domain.Entities;
+using Marketplace.Application.Helpers.Constants;
 using Marketplace.Application.Models.ImageModels.Interface;
 using Marketplace.Application.Models.ProductModels.Dtos;
 using Marketplace.Application.Models.ProductModels.Interface;
@@ -22,6 +23,10 @@ public class ProductService :IProductService
     public List<GetProductsDto> GetAllProductForSale()
     {
         var result = _productRepository.GetAllProductForSale();
+        foreach (var product in result)
+        {
+            product.img = CloudinaryConstants.baseUrl + product.img;
+        }
         return result;
     }
 
