@@ -15,6 +15,7 @@ public static class ConfigurationApplicationLayer
     public static IServiceCollection AddConfigurationApplicationLayer(this IServiceCollection services)
     {
         services.AddAutoMapper(typeof(ProductProfile).Assembly);
+        services.AddAutoMapper(typeof(OrderProfile).Assembly);
         services.AddScoped<IProductService, ProductService>();
         services.AddScoped<IOrderService, OrdersService>();
         services.AddScoped<IImageService, ImageService>();

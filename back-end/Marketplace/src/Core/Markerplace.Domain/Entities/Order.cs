@@ -2,13 +2,12 @@
 
 namespace Markerplace.Domain.Entities;
 
-public class Orders :BaseEntity
+public class Orders : BaseEntity
 {
     public int Quantity { get; set; }
+    public OrderStatus Status { get; set; } = OrderStatus.Pending;
 
-    public OrderStatus Status { get; set; }
-
-    public DateTime OrderDate { get; set; }
+    public DateTime OrderDate { get; set; } = DateTime.Now;
 
     public int ProductId { get; set; }
 

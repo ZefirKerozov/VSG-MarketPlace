@@ -9,4 +9,5 @@ public interface IOrderService
 
     void ChangeStatus(int id);
 
+    void CreateOrder(CreateOrderDto dto);
 }

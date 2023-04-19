@@ -36,4 +36,12 @@ public class OrderController :ControllerBase
     {
         return _orderService.GetMyOrders(userId);
     }
+
+    [HttpPost]
+    [Route("Add")]
+    
+    public void CreateOrder(CreateOrderDto dto)
+    {
+        _orderService.CreateOrder(dto);
+    }
 }
