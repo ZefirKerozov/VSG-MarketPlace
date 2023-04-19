@@ -22,4 +22,8 @@
       <ProjectReference Include="..\Markerplace.Domain\Markerplace.Domain.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Helpers\Middlewares" />
+    </ItemGroup>
+
 </Project>

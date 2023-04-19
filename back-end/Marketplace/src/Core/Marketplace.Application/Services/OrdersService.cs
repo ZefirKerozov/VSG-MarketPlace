@@ -34,6 +34,15 @@ public class OrdersService : IOrderService
 
     public List<GetOrdersDto> GetMyOrders(int userId)
     {
+        try
+        {
+            
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
         var result = _ordersRepository.GetMyOrders(userId);
         foreach (var order in result)
         {
