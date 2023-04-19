@@ -1,4 +1,5 @@
 const baseURL = 'http://localhost:5288/api';
+// const baseURL = 'https://fakestoreapi.com';
 
 export const makeRequest = async ({
     path,
