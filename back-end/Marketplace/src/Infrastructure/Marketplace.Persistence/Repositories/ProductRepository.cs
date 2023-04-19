@@ -19,7 +19,7 @@ public class ProductRepository : GenericRepository<Products>, IProductRepository
 
 
         string query =
-            "SELECT Products.Descriptions, Products.Id,  Products.Price,   Products.QuantityForSale,  Categories.name AS CategoryName,  Images.img FROM Products  JOIN Categories ON Products.CategoryId = Categories.Id JOIN Images ON Products.Id = Images.ProductId Where Products.QuantityForSale > 0; ";
+            "SELECT Products.Description, Products.Id,  Products.Price,   Products.QuantityForSale,  Categories.name AS CategoryName,  Images.img FROM Products  JOIN Categories ON Products.CategoryId = Categories.Id JOIN Images ON Products.Id = Images.ProductId Where Products.QuantityForSale > 0; ";
         var result = Connection.Query<GetProductsDto>(query);
         return (List<GetProductsDto>)(result);
     }
