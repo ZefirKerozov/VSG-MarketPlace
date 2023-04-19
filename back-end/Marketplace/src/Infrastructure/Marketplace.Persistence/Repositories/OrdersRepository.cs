@@ -18,7 +18,7 @@ public class OrdersRepository : GenericRepository<Orders>, IOrdersRepository
     {
 
         var query =
-            "SELECT Products.Name, Products.Price, Orders.Quantity, Orders.OrderDate, Orders.Status FROM Products INNER JOIN Orders ON Products.Id = Orders.ProductID Where Orders.Status = 'Pending'";
+            "SELECT Orders.Code, Orders.Price, Orders.Quantity, Orders.OrderDate, Orders.Status, Orders.Id FROM Orders  Where Orders.Status = '0'";
 
         var result = Connection.Query<GetOrdersDto>(query);
         return (List<GetOrdersDto>)result;
@@ -26,9 +26,9 @@ public class OrdersRepository : GenericRepository<Orders>, IOrdersRepository
 
     public List<GetOrdersDto> GetMyOrders(int userId)
     {
-        var query = $"SELECT Products.Name, Products.Price, Orders.Quantity, Orders.OrderDate, Orders.Status FROM Products INNER JOIN Orders ON Products.Id = Orders.ProductID Where Orders.UserId= {userId}";
+        var query = @"SELECT Orders.Code, Orders.Price, Orders.Quantity, Orders.OrderDate, Orders.Status, Orders.Id FROM Orders  Where Orders.UserId= @userId";
 
-        var result = Connection.Query<GetOrdersDto>(query);
+        var result = Connection.Query<GetOrdersDto>(query, new{userId});
         return (List<GetOrdersDto>)result;
     }
 }

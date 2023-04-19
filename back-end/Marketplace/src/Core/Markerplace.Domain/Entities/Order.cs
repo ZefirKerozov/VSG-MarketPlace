@@ -12,4 +12,8 @@ public class Orders : BaseEntity
     public int ProductId { get; set; }
 
     public int UserId { get; set; }
+
+    public decimal Price { get; set; }
+
+    public string Code { get; set; }
 }

@@ -26,9 +26,9 @@ public class ImageService :IImageService
     }
     public void DeleteImages(int id)
     {
-        var image = _imageRepository.GetById(id);
+        var image = _imageRepository.GetImageByProductId(id);
         _cloudinary.Destroy(new DeletionParams(image.img));
-        _imageRepository.Delete(id);
+        _imageRepository.Delete(image.Id);
     }
 
     public void UploadImage(int productId, AddImageDto image)

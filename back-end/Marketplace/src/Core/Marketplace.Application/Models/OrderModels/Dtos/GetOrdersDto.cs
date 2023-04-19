@@ -4,7 +4,9 @@ namespace Marketplace.Application.Models.OrderModels.Dtos;
 
 public class GetOrdersDto
 {
-    public string Name { get; set; }
+    public int Id { get; set; }
+    
+    public string Code { get; set; }
 
     public int Quantity { get; set; }
 
@@ -12,6 +14,6 @@ public class GetOrdersDto
 
     public DateTime OrderDate { get; set; }
 
-    public OrderStatus Status { get; set; }
+    public string Status { get; set; }
 
 }

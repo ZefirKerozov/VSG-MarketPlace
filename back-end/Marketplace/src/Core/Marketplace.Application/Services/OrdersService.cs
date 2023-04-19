@@ -13,7 +13,7 @@ public class OrdersService : IOrderService
     private readonly IProductRepository _productRepository;
     private readonly IMapper _mapper;
 
-    public OrdersService(IOrdersRepository ordersRepository,IProductRepository productRepository, IMapper mapper)
+    public OrdersService(IOrdersRepository ordersRepository, IProductRepository productRepository, IMapper mapper)
     {
         _ordersRepository = ordersRepository;
         _productRepository = productRepository;
@@ -26,16 +26,20 @@ public class OrdersService : IOrderService
         foreach (var order in result)
         {
             order.Price *= order.Quantity;
+            order.Status = ((OrderStatus)int.Parse(order.Status)).ToString();
         }
+
         return result;
     }
 
     public List<GetOrdersDto> GetMyOrders(int userId)
     {
+     
         var result = _ordersRepository.GetMyOrders(userId);
         foreach (var order in result)
         {
             order.Price *= order.Quantity;
+            order.Status = ((OrderStatus)int.Parse(order.Status)).ToString();
         }
 
         return result;
@@ -55,11 +59,27 @@ public class OrdersService : IOrderService
         product.QuantityForSale -= dto.Quantity;
 
         product.Quantity -= dto.Quantity;
+
+        dto.Code = product.Code;
+
+        dto.Price = product.Price;
         
         _productRepository.Update(product);
 
         var order = _mapper.Map<Orders>(dto);
 
         _ordersRepository.Create(order);
+    }
+
+    public void RejectOrder(int id)
+    {
+        var order = _ordersRepository.GetById(id);
+        var product = _productRepository.GetById(order.ProductId);
+
+        product.Quantity += order.Quantity;
+        product.QuantityForSale += order.Quantity;
+        
+        _productRepository.Update(product);
+        _ordersRepository.Delete(id);
     }
 }

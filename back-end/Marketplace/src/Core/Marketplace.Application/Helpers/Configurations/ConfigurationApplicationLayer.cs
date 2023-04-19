@@ -1,10 +1,7 @@
-﻿using Markerplace.Domain.Enums;
-using Marketplace.Application.Models.GenericRepository;
-using Marketplace.Application.Models.OrderModels.Interfaces;
+﻿using Marketplace.Application.Models.OrderModels.Interfaces;
 using Marketplace.Application.Models.ProductModels.Interface;
 using Marketplace.Application.Services;
 using Microsoft.Extensions.DependencyInjection;
-using AutoMapper;
 using Marketplace.Application.Helpers.Profiles;
 using Marketplace.Application.Models.ImageModels.Interface;
 
@@ -19,6 +16,7 @@ public static class ConfigurationApplicationLayer
         services.AddScoped<IProductService, ProductService>();
         services.AddScoped<IOrderService, OrdersService>();
         services.AddScoped<IImageService, ImageService>();
+
         return services;
 
     }
