@@ -18,7 +18,7 @@ public class OrdersRepository : GenericRepository<Orders>, IOrdersRepository
     {
 
         var query =
-            "SELECT Products.Name, Products.Price, Orders.Quantity, Orders.OrderDate, Orders.Status FROM Products INNER JOIN Orders ON Products.Id = Orders.ProductID Where Orders.Status = 'Pending'";
+            "SELECT Products.Name, Products.Price, Orders.Quantity, Orders.OrderDate, Orders.Status FROM Products INNER JOIN Orders ON Products.Id = Orders.ProductID Where Orders.Status = '0'";
 
         var result = Connection.Query<GetOrdersDto>(query);
         return (List<GetOrdersDto>)result;

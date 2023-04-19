@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\YKurtev\\Desktop\\VSG-marketplace\\back-end\\Marketplace\\src\\Core\\Markerplace.Domain\\Markerplace.Domain.csproj": {}
+    "C:\\Users\\ZKerozov\\Desktop\\VSG-marketplace\\back-end\\Marketplace\\src\\Core\\Markerplace.Domain\\Markerplace.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\YKurtev\\Desktop\\VSG-marketplace\\back-end\\Marketplace\\src\\Core\\Markerplace.Domain\\Markerplace.Domain.csproj": {
+    "C:\\Users\\ZKerozov\\Desktop\\VSG-marketplace\\back-end\\Marketplace\\src\\Core\\Markerplace.Domain\\Markerplace.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\YKurtev\\Desktop\\VSG-marketplace\\back-end\\Marketplace\\src\\Core\\Markerplace.Domain\\Markerplace.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\ZKerozov\\Desktop\\VSG-marketplace\\back-end\\Marketplace\\src\\Core\\Markerplace.Domain\\Markerplace.Domain.csproj",
         "projectName": "Markerplace.Domain",
-        "projectPath": "C:\\Users\\YKurtev\\Desktop\\VSG-marketplace\\back-end\\Marketplace\\src\\Core\\Markerplace.Domain\\Markerplace.Domain.csproj",
-        "packagesPath": "C:\\Users\\YKurtev\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\YKurtev\\Desktop\\VSG-marketplace\\back-end\\Marketplace\\src\\Core\\Markerplace.Domain\\obj\\",
+        "projectPath": "C:\\Users\\ZKerozov\\Desktop\\VSG-marketplace\\back-end\\Marketplace\\src\\Core\\Markerplace.Domain\\Markerplace.Domain.csproj",
+        "packagesPath": "C:\\Users\\ZKerozov\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ZKerozov\\Desktop\\VSG-marketplace\\back-end\\Marketplace\\src\\Core\\Markerplace.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\YKurtev\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\ZKerozov\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -71,7 +71,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\ZKerozov\\.dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

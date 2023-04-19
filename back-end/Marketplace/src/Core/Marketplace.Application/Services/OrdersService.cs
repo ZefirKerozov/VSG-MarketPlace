@@ -26,6 +26,7 @@ public class OrdersService : IOrderService
         foreach (var order in result)
         {
             order.Price *= order.Quantity;
+            order.Status = ((OrderStatus)int.Parse(order.Status)).ToString();
         }
         return result;
     }
@@ -36,6 +37,7 @@ public class OrdersService : IOrderService
         foreach (var order in result)
         {
             order.Price *= order.Quantity;
+            order.Status = ((OrderStatus)int.Parse(order.Status)).ToString();
         }
 
         return result;
