@@ -150,7 +150,7 @@ function onAddItemBtnClick(e) {
             const imageFormData = new FormData();
             imageFormData.append('image', image);
 
-            await fetch(`http://localhost:5288/${itemId}`, {
+            await fetch(`http://localhost:5288/api/Images/Upload/${itemId}`, {
                 method: 'POST',
                 body: imageFormData
             });
@@ -165,11 +165,12 @@ function onAddItemBtnClick(e) {
 const loadProducts = async () => {
     try {
         const data = await makeRequest({ path: '/Products' });
+        console.log(data);
 
         // Display 10 items per page
 
         let startSlice = 0;
-        let endSlice = 10;
+        let endSlice = data.length < 10 ? data.length : 10;
         let slicedItemsToLoad = data.slice(startSlice, endSlice);
         let searchItemsToLoad;
         const backwardBtn = document.querySelector('#backward-btn');
@@ -266,7 +267,7 @@ function displayItemsInTable(items) {
     items.forEach(x => {
         const tableRow = document.createElement('tr');
         tableRow.innerHTML = `
-        <td>${x.id}</td>
+        <td>${x.code}</td>
         <td>${x.name}</td>
         <td>${x.categoryName}</td>
         <td>${x.quantityForSale}</td>
@@ -311,11 +312,11 @@ function displayItemsInTable(items) {
                 <div class="first-column">
                 <div class="input-container">
                     <label for="code">Code*</label>
-                    <input type="number" id="code" name="code" value="${x.id}" required/>
+                    <input type="number" id="code" name="code" value="${x.code}" required/>
                 </div>
                 <div class="input-container">
                     <label for="name">Name*</label>    
-                    <input type="text" id="name" name="title" value="${x.title}" required/>
+                    <input type="text" id="name" name="title" value="${x.name}" required/>
                 </div>
                 <div class="input-container">
                     <label for="descriptionText">Description</label>
@@ -519,7 +520,7 @@ function displayItemsInTable(items) {
                 }
 
                 deleteItem();
-                window.location.reload();
+                // window.location.reload();
             }
 
             // Close pop-up if cancel button is clicked

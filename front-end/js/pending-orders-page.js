@@ -1,5 +1,6 @@
 import "../utils/navLinks.js";
 import "../utils/hamburgerMenu.js";
+import "../components/pending-orders-item.js";
 
 const DUMMY_DATA = [
     {
@@ -29,37 +30,51 @@ const DUMMY_DATA = [
 
 const table = document.querySelector('#pending-items-responsive-table');
 
+// Load Pending Items data inside table
+
 DUMMY_DATA.forEach(x => {
-    const tableRow = document.createElement('div');
-    tableRow.classList.add('table-row');
-    tableRow.innerHTML = `
-    <div class="table-first-group">
-        <div class="col col-1" data-before="Code">${x.code}</div>
-        <div class="col col-2" data-before="Qty">${x.qty}</div>
-        <div class="col col-3" data-before="Price">${x.price} BGN</div>
-    </div>
-    <div class="table-second-group">
-        <div class="col col-4" data-before="Ordered By:">${x.email}</div>
-        <div class="col col-5" data-before="Order Date:">${x.orderDate}</div>
-        <div class="col col-6">
-            <span>
-                <button class="complete-btn">Complete</button>
-            </span>
-        </div>
-    </div>
-    `;
+    const pendingItem = document.createElement('pending-orders-item');
 
-    const completeBtn = tableRow.querySelector('.complete-btn');
-    completeBtn.addEventListener('click', () => {
-        alert(`You completed order number ${x.code}.
-        Ordered by ${x.email}
-        Ordered on ${x.orderDate}
-        Order qty - ${x.qty}
-        Order price - ${x.price}`);
-    });
+    pendingItem.setAttribute('product-code', x.code);
+    pendingItem.setAttribute('product-qty', x.qty);
+    pendingItem.setAttribute('product-price', x.price);
+    pendingItem.setAttribute('ordered-by', x.email);
+    pendingItem.setAttribute('order-date', x.orderDate);
 
-    table?.appendChild(tableRow);
+    table.appendChild(pendingItem);
 });
+
+// DUMMY_DATA.forEach(x => {
+//     const tableRow = document.createElement('div');
+//     tableRow.classList.add('table-row');
+//     tableRow.innerHTML = `
+//     <div class="table-first-group">
+//         <div class="col col-1" data-before="Code">${x.code}</div>
+//         <div class="col col-2" data-before="Qty">${x.qty}</div>
+//         <div class="col col-3" data-before="Price">${x.price} BGN</div>
+//     </div>
+//     <div class="table-second-group">
+//         <div class="col col-4" data-before="Ordered By:">${x.email}</div>
+//         <div class="col col-5" data-before="Order Date:">${x.orderDate}</div>
+//         <div class="col col-6">
+//             <span>
+//                 <button class="complete-btn">Complete</button>
+//             </span>
+//         </div>
+//     </div>
+//     `;
+
+//     const completeBtn = tableRow.querySelector('.complete-btn');
+//     completeBtn.addEventListener('click', () => {
+//         alert(`You completed order number ${x.code}.
+//         Ordered by ${x.email}
+//         Ordered on ${x.orderDate}
+//         Order qty - ${x.qty}
+//         Order price - ${x.price}`);
+//     });
+
+//     table?.appendChild(tableRow);
+// });
 
 ///// NOT USED IN APP /////
 
