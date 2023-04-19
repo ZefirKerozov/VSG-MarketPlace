@@ -6,7 +6,7 @@ public class GetOrdersDto
 {
     public int Id { get; set; }
     
-    public string Name { get; set; }
+    public string Code { get; set; }
 
     public int Quantity { get; set; }
 

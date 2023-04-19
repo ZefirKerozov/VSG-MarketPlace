@@ -9,4 +9,8 @@ public class CreateOrderDto
     public int ProductId { get; set; }
 
     public int UserId { get; set; }
+
+    public string Code { get; set; }
+
+    public decimal Price { get; set; }
 }

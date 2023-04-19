@@ -34,15 +34,7 @@ public class OrdersService : IOrderService
 
     public List<GetOrdersDto> GetMyOrders(int userId)
     {
-        try
-        {
-            
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            throw;
-        }
+     
         var result = _ordersRepository.GetMyOrders(userId);
         foreach (var order in result)
         {
@@ -68,6 +60,10 @@ public class OrdersService : IOrderService
 
         product.Quantity -= dto.Quantity;
 
+        dto.Code = product.Code;
+
+        dto.Price = product.Price;
+        
         _productRepository.Update(product);
 
         var order = _mapper.Map<Orders>(dto);
