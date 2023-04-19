@@ -10,6 +10,7 @@
 #main-container-marketplace .items {
   display: flex;
   flex-direction: row;
+  width: 100%;
   padding: 20px 0;
   flex-wrap: wrap;
   align-content: flex-start;
@@ -27,8 +28,8 @@
 
 .item-wrapper {
   box-sizing: border-box;
-  max-width: 25%;
-  max-height: 45%;
+  width: 25%;
+  height: 45%;
   padding: 20px;
 }
 

@@ -107,6 +107,48 @@ template.innerHTML = `
     border-radius: 4px;
     padding: 16px;
     font-size: 0.5rem;
+}
+
+p {
+    display: inline;
+    text-align: left;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.pop-up-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+#confirm-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 57px;
+    height: 22px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    background-color: #ED1C25;
+    text-decoration: none;
+    font-size: 14px;
+    color: #FFFFFF;
+}
+
+#cancel-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 57px;
+    height: 22px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    text-decoration: none;
+    font-size: 14px;
+    color: #ED1C25;
+}
 </style>
 
 <div class="table-row">
@@ -198,7 +240,7 @@ function showPopup(e) {
 
     const position = e.target.getBoundingClientRect();
 
-    const parent = e.target;
+    const parent = e.target.parentElement;
 
     parent.appendChild(overlay);
     parent.appendChild(divPopUp);
@@ -216,7 +258,7 @@ function showPopup(e) {
         if (window.innerWidth <= 768) {
             positionLeft = position.left - position.left - 76;
         } else {
-            positionLeft = position.left - position.left - 160;
+            positionLeft = position.left - position.left - 170;
         }
         elementPopUp.classList.add('top-right-pointer');
     } else if (position.x + elementPopUp.offsetWidth >= window.innerWidth && position.y + elementPopUp.offsetHeight + 20 >= window.innerHeight) {
@@ -248,6 +290,8 @@ function showPopup(e) {
 
     const cancelBtn = parent.querySelector('#cancel-btn');
     cancelBtn.addEventListener('click', closePopUp);
+
+    overlay.addEventListener('click', closePopUp);
 
     window.addEventListener('click', trackWindowEvent);
 

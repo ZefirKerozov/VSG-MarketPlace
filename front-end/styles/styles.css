@@ -183,7 +183,7 @@ nav li:hover svg path {
   justify-content: space-evenly;
   align-items: center;
   height: 100vh;
-  background-image: url(/images/vsg-background.png);
+  background-image: url(../../images/vsg-background.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100% 100%;
@@ -224,6 +224,7 @@ nav li:hover svg path {
 #main-container-marketplace .items {
   display: flex;
   flex-direction: row;
+  width: 100%;
   padding: 20px 0;
   flex-wrap: wrap;
   align-content: flex-start;
@@ -241,8 +242,8 @@ nav li:hover svg path {
 
 .item-wrapper {
   box-sizing: border-box;
-  max-width: 25%;
-  max-height: 45%;
+  width: 25%;
+  height: 45%;
   padding: 20px;
 }
 
