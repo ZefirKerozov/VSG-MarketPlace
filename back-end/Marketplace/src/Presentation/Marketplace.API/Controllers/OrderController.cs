@@ -44,4 +44,11 @@ public class OrderController :ControllerBase
     {
         _orderService.CreateOrder(dto);
     }
+
+    [HttpDelete]
+    [Route("Reject/{id}")]
+    public void RejectOrder(int id)
+    {
+        _orderService.RejectOrder( id);
+    }
 }
