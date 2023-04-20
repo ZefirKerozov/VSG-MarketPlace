@@ -67,7 +67,9 @@ public class OrdersService : IOrderService
         order.Code = product.Code;
 
         order.Price = product.Price;
-            
+
+        order.Name = product.Name;
+        
         _ordersRepository.Create(order);
     }
 

@@ -16,4 +16,6 @@ public class GetOrdersDto
 
     public string Status { get; set; }
 
+    public string Name { get; set; }
+
 }
