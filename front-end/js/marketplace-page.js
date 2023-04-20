@@ -187,19 +187,19 @@ const loadProducts = async () => {
                 modal.id = 'description-modal';
 
                 modal.innerHTML = `
-                <img src="${itemData.img}" alt="Item image">
+                <img src="${x.img}" alt="Item image">
                 <div class="item-description">
                     <div class="top">
                         <div class="title-category">
-                            <span class="title">${itemData.name}</span>
-                            <span class="category">${itemData.category}</span>
+                            <span class="title">${x.name}</span>
+                            <span class="category">${x.categoryName}</span>
                         </div>
                         <div class="price-quantity">
-                            <span class="price">${itemData.price} BGN</span>
-                            <span class="quantity">Qty: ${itemData.quantityForSale}</span>
+                            <span class="price">${x.price} BGN</span>
+                            <span class="quantity">Qty: ${x.quantityForSale}</span>
                         </div>
                     </div>
-                    <p>${itemData.description}</p>
+                    <p>${x.description}</p>
                 </div>
                 <button class="close-btn">
                     <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">

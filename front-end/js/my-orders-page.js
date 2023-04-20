@@ -42,7 +42,7 @@ const table = document.querySelector('#my-orders-responsive-table');
 const loadItems = async () => {
     try {
         const data = await makeRequest({ path: `/Orders/MyOrders/1` });
-
+        console.log(data);
         data.forEach(x => {
             const tableRow = document.createElement('div');
             tableRow.classList.add('table-row');
@@ -56,7 +56,7 @@ const loadItems = async () => {
                 <div class="col col-4" data-before="Order Date:">${x.orderDate}</div>
                 <div class="col col-5" data-before="Status:">
                     <div class="status">
-                        <span class="status-message">Pending</span>
+                        <span class="status-message">${x.status}</span>
                         <button class="cancel-btn">
                             <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">

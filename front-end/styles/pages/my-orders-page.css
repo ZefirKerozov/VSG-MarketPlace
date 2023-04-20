@@ -42,7 +42,7 @@ body {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  width: 35%;
+  width: 40%;
 }
 #main-container-my-orders #my-orders-items #my-orders-responsive-table .table-header,
 #main-container-my-orders #my-orders-items #my-orders-responsive-table .table-row {
@@ -61,15 +61,15 @@ body {
 }
 #main-container-my-orders #my-orders-items #my-orders-responsive-table .table-header .col-2,
 #main-container-my-orders #my-orders-items #my-orders-responsive-table .table-row .col-2 {
-  flex-basis: 25%;
+  flex-basis: 20%;
 }
 #main-container-my-orders #my-orders-items #my-orders-responsive-table .table-header .col-3,
 #main-container-my-orders #my-orders-items #my-orders-responsive-table .table-row .col-3 {
-  flex-basis: 25%;
+  flex-basis: 35%;
 }
 #main-container-my-orders #my-orders-items #my-orders-responsive-table .table-header .col-4,
 #main-container-my-orders #my-orders-items #my-orders-responsive-table .table-row .col-4 {
-  flex-basis: 50%;
+  flex-basis: 60%;
 }
 #main-container-my-orders #my-orders-items #my-orders-responsive-table .table-header .col-5,
 #main-container-my-orders #my-orders-items #my-orders-responsive-table .table-row .col-5 {
