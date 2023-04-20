@@ -1,5 +1,7 @@
  using Marketplace.Application.Helpers.Configurations;
+ using Marketplace.Application.Helpers.Middlewares;
  using Marketplace.Persistence.Configuration;
+ using Microsoft.AspNetCore.Diagnostics;
  using Microsoft.OpenApi.Models;
 
  var builder = WebApplication.CreateBuilder(args);
@@ -41,6 +43,8 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
+ app.UseMiddleware<ExceptionHandlingMIddleware>();
+ 
 app.MapControllers();
 
 app.Run();

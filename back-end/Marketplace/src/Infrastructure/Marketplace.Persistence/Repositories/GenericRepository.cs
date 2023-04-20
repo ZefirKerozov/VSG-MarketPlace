@@ -17,15 +17,15 @@ namespace Marketplace.Persistence.Repositories
         public IDbTransaction Transaction => _unitOfWork.Transaction;
         public List<T> GetAll()
         {
-            return Connection.GetList<T>(null,null, Transaction).ToList();
+            return Connection.GetList<T>(null, null,Transaction).ToList();
         }
         public T GetById(int id)
         {
-            return Connection.Get<T>(id,Transaction);
+            return Connection.Get<T>(id , Transaction);
         }
         public int Create(T entity)
         {
-            return (int)Connection.Insert<T>(entity, Transaction);
+            return (int)Connection.Insert<T>(entity);
         }
         public void Update(T entity)
         {
