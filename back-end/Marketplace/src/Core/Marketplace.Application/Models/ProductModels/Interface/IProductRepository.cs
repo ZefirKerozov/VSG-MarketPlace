@@ -10,7 +10,4 @@ public interface IProductRepository :IGenericRepository<Products>
     List<GetProductsDto> GetAllProductForSale();
     ProductDetailsDto GetProductById(int productId);
     
-    public List<GetAllProductsForInvDto> GetProductsForInventory();
-
-
 }

@@ -9,7 +9,6 @@ public interface IProductService
 
     ProductDetailsDto GetById(int productId);
 
-    public List<GetAllProductsForInvDto> GetProductsForInventory();
 
     public int AddProduct(AddProductDto productDto);
 

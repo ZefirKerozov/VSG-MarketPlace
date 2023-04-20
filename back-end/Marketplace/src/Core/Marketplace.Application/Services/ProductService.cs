@@ -36,11 +36,6 @@ public class ProductService :IProductService
         return result;
     }
 
-    public List<GetAllProductsForInvDto> GetProductsForInventory()
-    {
-        return _productRepository.GetProductsForInventory();
-
-    }
 
     public int AddProduct(AddProductDto productDto)
     { 
