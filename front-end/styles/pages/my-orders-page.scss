@@ -47,7 +47,7 @@ body {
             .table-second-group {
                 @include displayFlex();
                 @include flexProperties(space-around, center);
-                width: 35%;
+                width: 40%;
             }
 
             .table-header,
@@ -68,15 +68,15 @@ body {
                 }
 
                 .col-2 {
-                    flex-basis: 25%;
+                    flex-basis: 20%;
                 }
 
                 .col-3 {
-                    flex-basis: 25%;
+                    flex-basis: 35%;
                 }
 
                 .col-4 {
-                    flex-basis: 50%;
+                    flex-basis: 60%;
                 }
 
                 .col-5 {
