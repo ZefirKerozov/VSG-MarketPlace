@@ -5,19 +5,40 @@ using Microsoft.Extensions.Configuration;
 
 namespace Marketplace.Persistence.Repositories;
 
-public class UnitOfWork :IUnitOfWork
+public class UnitOfWork : IUnitOfWork
 {
-    private  IDbConnection _connection;
- 
+    private IDbConnection _connection;
+
+    private IDbTransaction _transaction;
+
     public UnitOfWork(IConfiguration config)
     {
         _connection = new SqlConnection(config.GetConnectionString("SqlConnection"));
-      _connection.Open();
+        _connection.Open();
+        _transaction = _connection.BeginTransaction();
     }
-    public IDbConnection Connection { get => _connection; }
+
+    public IDbConnection Connection
+    {
+        get => _connection;
+    }
+
+    public IDbTransaction Transaction
+    {
+        get => _transaction;
+    }
 
     public void Dispose()
     {
-        Connection.Dispose();
+        if (_connection != null)
+        {
+            _connection.Close();
+            _connection.Dispose();
+        }
+
+        if (_transaction != null)
+        {
+            _transaction.Dispose();
+        }
     }
 }
