@@ -18,9 +18,9 @@ public class ProductController : ControllerBase
    }
    
    [HttpGet]
-   [Route("ForSale")]
+   [Route("All")]
 
-   public List<GetProductsDto> GetAllProductForSale()
+   public List<GetProductsDto> GetAllProducts()
    {
       return _productService.GetAllProductForSale();
    }
@@ -31,12 +31,6 @@ public class ProductController : ControllerBase
        return _productService.GetById(productId);
    }
 
-   [HttpGet ]
-   public List<GetAllProductsForInvDto> GetAllProductsForInv()
-   {
-       var result = _productService.GetProductsForInventory();
-       return (List<GetAllProductsForInvDto>)result;
-   }
 
    [HttpPost]
    [Route("Inventory/Add")]
