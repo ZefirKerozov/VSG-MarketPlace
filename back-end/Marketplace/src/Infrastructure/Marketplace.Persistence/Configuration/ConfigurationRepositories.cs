@@ -1,4 +1,5 @@
 ﻿using Markerplace.Domain.Entities;
+using Marketplace.Application.Models.CategorieModels.Interfaces;
 using Marketplace.Application.Models.GenericRepository;
 using Marketplace.Application.Models.ImageModels.Interface;
 using Marketplace.Application.Models.OrderModels.Interfaces;
@@ -17,6 +18,7 @@ public static class ConfigurationRepositories
         services.AddScoped<IProductRepository, ProductRepository>();
         services.AddScoped<IOrdersRepository, OrdersRepository>();
         services.AddScoped<IImageRepository, ImageRepository>();
+        services.AddScoped<ICategorieRepository, CategoryRepository>();
 
         return services;
     }
