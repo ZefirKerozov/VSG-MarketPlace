@@ -42,8 +42,8 @@ const table = document.querySelector('#my-orders-responsive-table');
 const loadItems = async () => {
     try {
         const data = await makeRequest({ path: `/Orders/MyOrders/1` });
-        console.log(data);
-        data.forEach(x => {
+        const dataToJSON = await data.json();
+        dataToJSON.forEach(x => {
             const tableRow = document.createElement('div');
             tableRow.classList.add('table-row');
             tableRow.innerHTML = `

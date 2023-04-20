@@ -12,7 +12,7 @@ addItemBtn?.addEventListener('click', onAddItemBtnClick);
 
 // Open add item modal
 
-function onAddItemBtnClick(e) {
+async function onAddItemBtnClick(e) {
     const modal = document.createElement('div');
     modal.id = 'add-modal';
     modal.innerHTML = `
@@ -38,8 +38,6 @@ function onAddItemBtnClick(e) {
                     <label for="add-item-select">Category*</input>
                     <select id="add-item-select" name="category" required>
                         <option value="" disabled selected></option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
                     </select>
                 </div>
                 <div class="input-container">
@@ -77,6 +75,13 @@ function onAddItemBtnClick(e) {
         </svg>
     </button>
     `;
+
+    const categories = await makeRequest({ path: `/Category/All` });
+    const categoriesToJSON = await categories.json();
+    const categoriesSelect = modal.querySelector('#add-item-select');
+    categoriesToJSON.forEach(x => {
+        categoriesSelect.innerHTML += `<option value=${x.id}>${x.name}</option>`;
+    });
 
     overlay.appendChild(modal);
     overlay.style.display = 'flex';
@@ -145,15 +150,19 @@ function onAddItemBtnClick(e) {
 
         const addItem = async () => {
             const itemId = await makeRequest({ path: `/Products/Inventory/Add`, method: 'POST', data: { name, quantity, description, code, quantityForSale, categoryId, location: 'Tarnovo', price } });
+            const itemIdToJSON = await itemId.json();
+            console.log(itemIdToJSON);
             // await makeRequest({ path: `/${itemId}`, method: 'POST', data: { image } });
 
             const imageFormData = new FormData();
             imageFormData.append('image', image);
 
-            await fetch(`http://localhost:5288/api/Images/Upload/${itemId}`, {
+            await fetch(`http://localhost:5288/api/Images/Upload/${itemIdToJSON}`, {
                 method: 'POST',
                 body: imageFormData
             });
+
+            window.location.assign(`http:///127.0.0.1:5500/front-end/templates/inventory-page.html`);
         }
 
         addItem();
@@ -165,18 +174,18 @@ function onAddItemBtnClick(e) {
 const loadProducts = async () => {
     try {
         const data = await makeRequest({ path: '/Products' });
-        console.log(data);
-
+        const dataToJSON = await data.json();
+        console.log(dataToJSON);
         // Display 10 items per page
 
         let startSlice = 0;
-        let endSlice = data.length < 10 ? data.length : 10;
-        let slicedItemsToLoad = data.slice(startSlice, endSlice);
+        let endSlice = dataToJSON.length < 10 ? dataToJSON.length : 10;
+        let slicedItemsToLoad = dataToJSON.slice(startSlice, endSlice);
         let searchItemsToLoad;
         const backwardBtn = document.querySelector('#backward-btn');
         const forwardBtn = document.querySelector('#forward-btn');
         let pageIndex = document.querySelector('#page-index');
-        pageIndex.textContent = `${startSlice + 1} - ${endSlice} of ${data.length}`;
+        pageIndex.textContent = `${startSlice + 1} - ${endSlice} of ${dataToJSON.length}`;
 
         // Pagiantion functionality
 
@@ -195,12 +204,12 @@ const loadProducts = async () => {
                 displayItemsInTable(searchItemsToLoad.slice(startSlice, endSlice));
                 pageIndex.textContent = `${startSlice + 1} - ${endSlice} of ${searchItemsToLoad.length}`;
             } else {
-                if (searchItemsToLoad === undefined && endSlice < data.length) {
+                if (searchItemsToLoad === undefined && endSlice < dataToJSON.length) {
                     startSlice += 10;
                     endSlice += 10;
-                    slicedItemsToLoad = data.slice(startSlice, endSlice);
+                    slicedItemsToLoad = dataToJSON.slice(startSlice, endSlice);
                     displayItemsInTable(slicedItemsToLoad);
-                    pageIndex.textContent = `${startSlice + 1} - ${endSlice} of ${data.length}`;
+                    pageIndex.textContent = `${startSlice + 1} - ${endSlice} of ${dataToJSON.length}`;
                 }
             }
 
@@ -224,9 +233,9 @@ const loadProducts = async () => {
                 if (searchItemsToLoad === undefined && startSlice > 0) {
                     startSlice -= 10;
                     endSlice -= 10;
-                    slicedItemsToLoad = data.slice(startSlice, endSlice);
+                    slicedItemsToLoad = dataToJSON.slice(startSlice, endSlice);
                     displayItemsInTable(slicedItemsToLoad);
-                    pageIndex.textContent = `${startSlice + 1} - ${endSlice} of ${data.length}`;
+                    pageIndex.textContent = `${startSlice + 1} - ${endSlice} of ${dataToJSON.length}`;
                 }
             }
         })
@@ -243,7 +252,7 @@ const loadProducts = async () => {
             startSlice = 0;
             endSlice = 10;
 
-            searchItemsToLoad = data.filter(x => x.name.toLowerCase().includes(search.toLowerCase()));
+            searchItemsToLoad = dataToJSON.filter(x => x.name.toLowerCase().includes(search.toLowerCase()));
 
             displayItemsInTable(searchItemsToLoad.slice(startSlice, endSlice));
             pageIndex.textContent = `${startSlice + 1} - ${endSlice} of ${searchItemsToLoad.length}`;
@@ -331,7 +340,7 @@ function displayItemsInTable(items) {
                 </div>
                 <div class="input-container">
                     <label for="qty-for-sale">Qty for sale</label>
-                    <input type="number" id="qty-for-sale" name="forSale" value="${x.forSale}"/>
+                    <input type="number" id="qty-for-sale" name="forSale" value="${x.quantityForSale}"/>
                 </div>
                 <div class="input-container">
                     <label for="sale-price">Sale price</label>
@@ -516,11 +525,10 @@ function displayItemsInTable(items) {
                 e.preventDefault();
                 const deleteItem = async () => {
                     const deletedItem = await makeRequest({ path: `/Products/Inventory/Delete/${x.id}`, method: 'DELETE' })
-                    console.log(deletedItem);
+                    window.location.assign(`http://127.0.0.1:5500/front-end/templates/inventory-page.html`);
                 }
 
                 deleteItem();
-                // window.location.reload();
             }
 
             // Close pop-up if cancel button is clicked

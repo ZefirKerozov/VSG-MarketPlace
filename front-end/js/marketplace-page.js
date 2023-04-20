@@ -10,8 +10,8 @@ const itemsContainer = document.querySelector('.items');
 const loadProducts = async () => {
     try {
         const data = await makeRequest({ path: '/Products/ForSale' });
-        console.log(data);
-        data.forEach(x => {
+        const dataToJSON = await data.json();
+        dataToJSON.forEach(x => {
             // const marketplaceItem = document.createElement('marketplace-item');
             // marketplaceItem.style.width = '25%';
 
