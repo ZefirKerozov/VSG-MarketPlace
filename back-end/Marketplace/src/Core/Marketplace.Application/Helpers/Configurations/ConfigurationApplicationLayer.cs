@@ -3,6 +3,7 @@ using Marketplace.Application.Models.ProductModels.Interface;
 using Marketplace.Application.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Marketplace.Application.Helpers.Profiles;
+using Marketplace.Application.Models.CategorieModels.Interfaces;
 using Marketplace.Application.Models.ImageModels.Interface;
 
 namespace Marketplace.Application.Helpers.Configurations;
@@ -16,6 +17,7 @@ public static class ConfigurationApplicationLayer
         services.AddScoped<IProductService, ProductService>();
         services.AddScoped<IOrderService, OrdersService>();
         services.AddScoped<IImageService, ImageService>();
+        services.AddScoped<ICategorieService, CategorieService>();
 
         return services;
 

@@ -13,12 +13,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9c0d6560-6cf2-4d11-9582-a67b8eb58620" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Core/Markerplace.Domain/Entities/Order.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Markerplace.Domain/Entities/Order.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/Marketplace.Application/Models/OrderModels/Dtos/GetOrdersDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Marketplace.Application/Models/OrderModels/Dtos/GetOrdersDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/Marketplace.Application/Models/ProductModels/Dtos/GetAllProductsForInvDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Marketplace.Application/Models/ProductModels/Dtos/GetAllProductsForInvDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/Marketplace.Application/Services/OrdersService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Marketplace.Application/Services/OrdersService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/Repositories/OrdersRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/Repositories/OrdersRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/Repositories/ProductRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/Repositories/ProductRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Marketplace.Application/Helpers/Configurations/ConfigurationApplicationLayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Marketplace.Application/Helpers/Configurations/ConfigurationApplicationLayer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/Configuration/ConfigurationRepositories.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/Configuration/ConfigurationRepositories.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Presentation/Marketplace.API/Controllers/CategoryController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/Marketplace.API/Controllers/CategoryController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -254,7 +251,7 @@
       <updated>1680505649949</updated>
       <workItem from="1680505651862" duration="280000" />
       <workItem from="1680506006253" duration="61145000" />
-      <workItem from="1681290094069" duration="59283000" />
+      <workItem from="1681290094069" duration="60569000" />
     </task>
     <servers />
   </component>
