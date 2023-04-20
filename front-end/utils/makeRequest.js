@@ -31,7 +31,7 @@ export const makeRequest = async ({
             return Promise.reject('Something went wrong!');
         }
 
-        return res.json();
+        return res;
     } catch (err) {
         throw Error(err);
     }

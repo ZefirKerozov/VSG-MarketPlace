@@ -48,8 +48,8 @@ const table = document.querySelector('#pending-items-responsive-table');
 const loadItems = async () => {
     try {
         const data = await makeRequest({ path: `/Orders/Pending` });
-        console.log(data);
-        data.forEach(x => {
+        const dataToJSON = await data.json();
+        dataToJSON.forEach(x => {
             const tableRow = document.createElement('div');
             tableRow.classList.add('table-row');
             tableRow.innerHTML = `
@@ -70,13 +70,12 @@ const loadItems = async () => {
             `;
 
             const completeBtn = tableRow.querySelector('.complete-btn');
-            completeBtn.addEventListener('click', () => {
-                alert(`You completed order number ${x.code}.
-                Ordered by ${x.email}
-                Ordered on ${x.orderDate}
-                Order qty - ${x.qty}
-                Order price - ${x.price}`);
-            });
+            completeBtn.addEventListener('click', onCompleteOrder);
+
+            async function onCompleteOrder(){
+                await makeRequest({path: `/Orders/Orders/Status/${x.id}`, method: 'PUT'});
+                window.location.assign(`http://127.0.0.1:5500/front-end/templates/pending-orders-page.html`);
+            }
 
             table?.appendChild(tableRow);
         });
