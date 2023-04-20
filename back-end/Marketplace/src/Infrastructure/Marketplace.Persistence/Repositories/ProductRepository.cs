@@ -36,7 +36,7 @@ public class ProductRepository : GenericRepository<Products>, IProductRepository
     {
 
         string query =
-            "SELECT p.Id, p.Code, p.Name, p.QuantityForSale, p.Quantity, c.Name AS CategoryName FROM Products p INNER JOIN Categories c ON p.CategoryID = c.Id;";
+            "SELECT p.Description,p.Id, p.Code, p.Name, p.QuantityForSale, p.Quantity, c.Name AS CategoryName FROM Products p INNER JOIN Categories c ON p.CategoryID = c.Id;";
         var result = Connection.Query<GetAllProductsForInvDto>(query);
         return (List<GetAllProductsForInvDto>)(result);
     }

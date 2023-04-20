@@ -16,4 +16,6 @@ public class Orders : BaseEntity
     public decimal Price { get; set; }
 
     public string Code { get; set; }
+
+    public string Name { get; set; }
 }

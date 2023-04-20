@@ -13,4 +13,6 @@ public class GetAllProductsForInvDto
     public int Quantity { get; set; }
 
     public string CategoryName { get; set; }
+
+    public string Description { get; set; }
 }
