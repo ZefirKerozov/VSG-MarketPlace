@@ -26,7 +26,7 @@ public class OrdersRepository : GenericRepository<Orders>, IOrdersRepository
 
     public List<GetOrdersDto> GetMyOrders(int userId)
     {
-        var query = @"SELECT Orders.Name Orders.Code, Orders.Price, Orders.Quantity, Orders.OrderDate, Orders.Status, Orders.Id FROM Orders  Where Orders.UserId= @userId";
+        var query = @"SELECT Orders.Name, Orders.Code, Orders.Price, Orders.Quantity, Orders.OrderDate, Orders.Status, Orders.Id FROM Orders  Where Orders.UserId= @userId";
 
         var result = Connection.Query<GetOrdersDto>(query, new{userId});
         return (List<GetOrdersDto>)result;
