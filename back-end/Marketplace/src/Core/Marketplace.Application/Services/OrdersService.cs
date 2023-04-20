@@ -60,14 +60,14 @@ public class OrdersService : IOrderService
 
         product.Quantity -= dto.Quantity;
 
-        dto.Code = product.Code;
-
-        dto.Price = product.Price;
-        
         _productRepository.Update(product);
 
         var order = _mapper.Map<Orders>(dto);
+        
+        order.Code = product.Code;
 
+        order.Price = product.Price;
+            
         _ordersRepository.Create(order);
     }
 
