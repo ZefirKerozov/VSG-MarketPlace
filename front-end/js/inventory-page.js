@@ -116,6 +116,7 @@ async function onAddItemBtnClick(e) {
     function onAddModalImageUpload(e) {
         const imageSrc = URL.createObjectURL(this.files[0]);
         modal.querySelector('#add-item-image').src = imageSrc;
+        console.log(addModalImageInput.value);
     }
 
     // Remove uplaoded image from add item modal
@@ -447,11 +448,13 @@ function displayItemsInTable(items) {
                 const image = URL.createObjectURL(formData.get('image'));
 
                 const modifyItem = async () => {
-                    console.log({name, quantity, description, code, quantityForSale, categoryId, location: 'Tarnovo', price});
-                    console.log(x.id);
                     const modifyItem = await makeRequest({ path: `/Products/Edit/${x.id}`, method: 'PUT', data: { name, quantity, description, code, quantityForSale, categoryId, location: 'Tarnovo', price } });
-                    const modifyItemToJSON = await modifyItem.json();
-                    console.log(modifyItemToJSON);
+                    
+                    const imageFormData = new FormData();
+                    imageFormData.append('image', image);
+                    console.log(imageFormData.image);
+
+                    // window.location.assign(`http://127.0.0.1:5500/front-end/templates/inventory-page.html`);
                 }
 
                 modifyItem();
