@@ -13,6 +13,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9c0d6560-6cf2-4d11-9582-a67b8eb58620" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Core/Marketplace.Application/Models/ExceptionModel/HttpException.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Core/Marketplace.Application/Services/ExceptionService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Marketplace/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Marketplace/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Core/Marketplace.Application/Models/CategorieModels/Interfaces/ICategorieService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Marketplace.Application/Models/CategorieModels/Interfaces/ICategorieService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Core/Marketplace.Application/Models/ExceptionModel/ErrorDetails.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Marketplace.Application/Models/ExceptionModel/ErrorDetails.cs" afterDir="false" />
@@ -315,7 +317,7 @@
       <workItem from="1680505651862" duration="280000" />
       <workItem from="1680506006253" duration="61145000" />
       <workItem from="1681290094069" duration="68496000" />
-      <workItem from="1681993788429" duration="11030000" />
+      <workItem from="1681993788429" duration="11392000" />
     </task>
     <servers />
   </component>
