@@ -19,16 +19,16 @@ public class ExceptionHandlingMIddleware
             await _next(context);
             unitOfWork.Transaction.Commit();
         }
-        catch (Exception e)
+        catch (HttpException e)
         {
             unitOfWork.Transaction.Rollback();
-            context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+            context.Response.StatusCode = (int)e.HttpStatusCode;
             context.Response.ContentType = "aplication/json";
 
             await context.Response.WriteAsync(new ErrorDetails
             {
                 StatusCode = context.Response.StatusCode,
-                Message = "Internal server error!"
+                Message = e.Message
             }.ToString());
             
         }
