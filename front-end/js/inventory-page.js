@@ -116,6 +116,7 @@ async function onAddItemBtnClick(e) {
     function onAddModalImageUpload(e) {
         const imageSrc = URL.createObjectURL(this.files[0]);
         modal.querySelector('#add-item-image').src = imageSrc;
+        console.log(addModalImageInput.value);
     }
 
     // Remove uplaoded image from add item modal
@@ -162,7 +163,7 @@ async function onAddItemBtnClick(e) {
                 body: imageFormData
             });
 
-            window.location.assign(`http:///127.0.0.1:5500/front-end/templates/inventory-page.html`);
+            // window.location.assign(`http:///127.0.0.1:5500/front-end/templates/inventory-page.html`);
         }
 
         addItem();
@@ -173,7 +174,7 @@ async function onAddItemBtnClick(e) {
 
 const loadProducts = async () => {
     try {
-        const data = await makeRequest({ path: '/Products' });
+        const data = await makeRequest({ path: '/Products/All' });
         const dataToJSON = await data.json();
         console.log(dataToJSON);
         // Display 10 items per page
@@ -308,7 +309,7 @@ function displayItemsInTable(items) {
         const modifyBtn = tableRow.querySelector('.modify-btn');
         modifyBtn.addEventListener('click', onModifyBtnClick);
 
-        function onModifyBtnClick() {
+        async function onModifyBtnClick() {
             const modal = document.createElement('div');
             modal.id = 'modify-modal';
 
@@ -325,7 +326,7 @@ function displayItemsInTable(items) {
                 </div>
                 <div class="input-container">
                     <label for="name">Name*</label>    
-                    <input type="text" id="name" name="title" value="${x.name}" required/>
+                    <input type="text" id="name" name="name" value="${x.name}" required/>
                 </div>
                 <div class="input-container">
                     <label for="descriptionText">Description</label>
@@ -335,12 +336,11 @@ function displayItemsInTable(items) {
                     <label for="add-item-select">Category*</input>
                     <select id="add-item-select" name="category" required>
                         <option value="" disabled></option>
-                        <option value="${x.category}" selected>Laptops</option>
                     </select>
                 </div>
                 <div class="input-container">
                     <label for="qty-for-sale">Qty for sale</label>
-                    <input type="number" id="qty-for-sale" name="forSale" value="${x.quantityForSale}"/>
+                    <input type="number" id="qty-for-sale" name="quantityForSale" value="${x.quantityForSale}"/>
                 </div>
                 <div class="input-container">
                     <label for="sale-price">Sale price</label>
@@ -352,7 +352,7 @@ function displayItemsInTable(items) {
                 </div>
             </div>
                     <div class="second-column">
-                        <img src="${x.image}" id="modify-item-image"
+                        <img src="${x.img}" id="modify-item-image"
                             alt="Photo preview">
                         <div class="upload-remove-btn">
                             <label for="modify-item-upload-image">Upload</label>
@@ -374,6 +374,13 @@ function displayItemsInTable(items) {
             </button>
         </div>
         `;
+
+            const categories = await makeRequest({ path: `/Category/All` });
+            const categoriesToJSON = await categories.json();
+            const categoriesSelect = modal.querySelector('#add-item-select');
+            categoriesToJSON.forEach(y => {
+                categoriesSelect.innerHTML += `<option value=${y.id} ${x.categoryName === y.name ? 'selected' : ''}>${y.name}</option>`;
+            });
 
             overlay.appendChild(modal);
             overlay.style.display = 'flex';
@@ -432,17 +439,22 @@ function displayItemsInTable(items) {
                 const formData = new FormData(e.target);
 
                 const code = formData.get('code');
-                const title = formData.get('title');
+                const name = formData.get('name');
                 const description = formData.get('description');
-                const category = formData.get('category');
-                const forSale = formData.get('forSale');
+                const categoryId = formData.get('category');
+                const quantityForSale = formData.get('quantityForSale');
                 const price = formData.get('price');
                 const quantity = formData.get('quantity');
                 const image = URL.createObjectURL(formData.get('image'));
 
                 const modifyItem = async () => {
-                    const modifyItem = await makeRequest({ path: `/products/${x.id}`, method: 'PUT', data: { title, price, description, image, quantity } });
-                    console.log(modifyItem);
+                    const modifyItem = await makeRequest({ path: `/Products/Edit/${x.id}`, method: 'PUT', data: { name, quantity, description, code, quantityForSale, categoryId, location: 'Tarnovo', price } });
+                    
+                    const imageFormData = new FormData();
+                    imageFormData.append('image', image);
+                    console.log(imageFormData.image);
+
+                    // window.location.assign(`http://127.0.0.1:5500/front-end/templates/inventory-page.html`);
                 }
 
                 modifyItem();
