@@ -27,8 +27,11 @@ public class ImageService :IImageService
     public async Task DeleteImages(int id)
     {
         var image = await _imageRepository.GetImageByProductId(id);
+        if (image!=null)
+        {
         _cloudinary.Destroy(new DeletionParams(image.img));
-       await _imageRepository.Delete(image.Id);
+        await _imageRepository.Delete(image.Id);
+        }
     }
 
     public async Task UploadImage(int productId, AddImageDto image)
