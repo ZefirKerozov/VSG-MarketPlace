@@ -3,7 +3,7 @@ import "../utils/navLinks.js";
 import "../utils/hamburgerMenu.js";
 import "../components/marketplace-item.js";
 
-document.documentElement.setAttribute('data-theme', 'dark');
+document.documentElement.setAttribute('data-theme', localStorage.getItem('theme'));
 
 ////////// Dynamically load items from API //////////
 
@@ -13,7 +13,7 @@ const loadProducts = async () => {
     try {
         const data = await makeRequest({ path: '/Products/All' });
         const dataToJSON = await data.json();
-        dataToJSON.forEach(x => {
+        dataToJSON.filter(x => x.quantityForSale > 0).forEach(x => {
             // const marketplaceItem = document.createElement('marketplace-item');
             // marketplaceItem.style.width = '25%';
 

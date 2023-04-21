@@ -1,4 +1,5 @@
 @import "../abstracts/mixins";
+@import "../base/colors";
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
@@ -27,6 +28,7 @@ body {
     height: calc(100% - 110px);
     gap: 30px;
     padding: 30px 20px;
+    background-color: var(--color-backgroundMain);
 }
 
 //// Modal overlay styles ////

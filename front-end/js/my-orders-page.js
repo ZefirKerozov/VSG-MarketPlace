@@ -3,6 +3,8 @@ import "../utils/hamburgerMenu.js";
 import "../components/my-orders-item.js";
 import { makeRequest } from "../utils/makeRequest.js";
 
+document.documentElement.setAttribute('data-theme', localStorage.getItem('theme'));
+
 const DUMMY_DATA = [
     {
         name: 'MacBook Pro M2 16 inch',
@@ -26,7 +28,7 @@ const DUMMY_DATA = [
 
 // Render table rows from DUMMY_DATA
 
-const table = document.querySelector('#my-orders-responsive-table');
+const table = document.querySelector('#rows');
 
 // DUMMY_DATA.forEach(x => {
 //     const myOrderItem = document.createElement('my-orders-item');

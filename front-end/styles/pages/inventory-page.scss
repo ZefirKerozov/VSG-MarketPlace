@@ -1,4 +1,5 @@
 @import '../abstracts/mixins';
+@import '../base/colors';
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
@@ -7,7 +8,7 @@ $background-color: #FFFFFF;
 //// Items section styles ////
 
 #main-container-inventory {
-    background-color: $background-color;
+    background-color: var(--color-background);
     width: 80%;
     border-radius: 20px;
     padding: 23px 18px 39px 18px;
@@ -26,7 +27,7 @@ $background-color: #FFFFFF;
             @include displayFlex();
             @include flexProperties(center, center);
             gap: 10px;
-            border-bottom: 1px solid #000000;
+            border-bottom: 1px solid var(--color-text);
 
             #search-btn {
                 background: none;
@@ -35,6 +36,7 @@ $background-color: #FFFFFF;
                 svg {
                     height: 11px;
                     width: 11px;
+                    color: var(--color-text);
                 }
             }
         }
@@ -45,8 +47,10 @@ $background-color: #FFFFFF;
 
             input {
                 font-size: 0.5rem;
-                width: 60%;
+                width: 100%;
                 outline: none;
+                background-color: var(--color-background);
+                color: var(--color-text);
             }
         }
 
@@ -89,6 +93,7 @@ $background-color: #FFFFFF;
         th {
             font-size: 0.5rem;
             border-bottom: 1px solid #B3B3B3;
+            color: var(--color-text);
         }
 
         tr {
@@ -103,6 +108,7 @@ $background-color: #FFFFFF;
             position: relative;
             font-size: 0.5rem;
             height: calc(100% / 10);
+            color: var(--color-text);
         }
 
         th,
@@ -189,6 +195,7 @@ $background-color: #FFFFFF;
 
             span {
                 font-size: 0.5rem;
+                color: var(--color-text);
             }
 
             button {
@@ -210,7 +217,7 @@ $background-color: #FFFFFF;
     width: 550px;
     height: 650px;
     padding: 55px 20px 55px 50px;
-    background-color: $background-color;
+    background-color: var(--color-background);
     border-radius: 20px;
     overflow: hidden;
     font-family: 'Inter', sans-serif;
@@ -218,6 +225,7 @@ $background-color: #FFFFFF;
     h1 {
         font-size: 0.8rem;
         font-weight: 700;
+        color: var(--color-text)
     }
 
     // Modal form styles
@@ -253,6 +261,8 @@ $background-color: #FFFFFF;
                     font-size: 0.5rem;
                     border-bottom: 1px solid #9A9A9A;
                     outline: none;
+                    color: var(--color-text);
+                    background-color: var(--color-background);
 
                     #initial-option:checked {
                         color: #2E7D32;
@@ -264,6 +274,8 @@ $background-color: #FFFFFF;
                     border-bottom: 1px solid #9A9A9A;
                     outline: none;
                     resize: none;
+                    background-color: var(--color-background);
+                    color: var(--color-text);
                 }
 
                 select {
@@ -273,9 +285,11 @@ $background-color: #FFFFFF;
                     border-bottom: 1px solid #9A9A9A;
                     outline: none;
                     color: #757575;
+                    background-color: var(--color-background);
+                    color: var(--color-text);
 
                     option {
-                        color: #000000;
+                        color: var(--color-text);
                     }
                 }
 
@@ -299,7 +313,7 @@ $background-color: #FFFFFF;
                 img {
                     width: 260px;
                     height: 150px;
-                    object-fit: contain;
+                    object-fit: unset;
                 }
 
                 // Upload and remove button styles
@@ -390,8 +404,8 @@ $background-color: #FFFFFF;
     z-index: 1;
     width: 280px;
     height: 80px;
-    background-color: $background-color;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    background-color: var(--color-background);
+    box-shadow: var(--color-boxshadow);
     border-radius: 4px;
     padding: 16px;
     font-size: 0.5rem;
@@ -399,7 +413,8 @@ $background-color: #FFFFFF;
     p {
         display: inline;
         text-align: left;
-        width: 100%
+        width: 100%;
+        color: var(--color-text);
     }
 
     // Pop up buttons styles

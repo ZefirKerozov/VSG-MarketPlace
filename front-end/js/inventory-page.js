@@ -2,6 +2,8 @@ import { makeRequest } from "../utils/makeRequest.js";
 import "../utils/navLinks.js";
 import "../utils/hamburgerMenu.js";
 
+document.documentElement.setAttribute('data-theme', localStorage.getItem('theme'));
+
 // Open add item modal if add item button is clicked
 
 const overlay = document.querySelector('.overlay');
@@ -457,9 +459,8 @@ function displayItemsInTable(items) {
                 const quantity = formData.get('quantity');
                 const image = formData.get('image');
 
-                const modifiedImage = URL.createObjectURL(image);
                 const imageFormData = new FormData();
-                imageFormData.append('image', modifiedImage);
+                imageFormData.append('image', image);
 
                 const modifyItem = async () => {
                     const modifyItem = await makeRequest({ path: `/Products/Edit/${x.id}`, method: 'PUT', data: { name, quantity, description, code, quantityForSale, categoryId, location: 'Tarnovo', price } });
@@ -468,10 +469,7 @@ function displayItemsInTable(items) {
 
                     if (image.name) {
                         // add request
-                        console.log(x.id);
-                        console.log(modifiedImage);
-                        console.log(imageFormData);
-                        await fetch(`http://localhost:5288/api/Images/Upload/${x.id}`, {
+                        await fetch(`http://localhost:5288/api/Images/Edit/${x.id}`, {
                             method: 'POST',
                             body: imageFormData
                         });
