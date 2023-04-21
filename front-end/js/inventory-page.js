@@ -445,14 +445,33 @@ function displayItemsInTable(items) {
                 const quantityForSale = formData.get('quantityForSale');
                 const price = formData.get('price');
                 const quantity = formData.get('quantity');
-                const image = URL.createObjectURL(formData.get('image'));
+                const image = formData.get('image');
+
+                const modifiedImage = URL.createObjectURL(image);
+                const imageFormData = new FormData();
+                imageFormData.append('image', modifiedImage);
 
                 const modifyItem = async () => {
                     const modifyItem = await makeRequest({ path: `/Products/Edit/${x.id}`, method: 'PUT', data: { name, quantity, description, code, quantityForSale, categoryId, location: 'Tarnovo', price } });
-                    
-                    const imageFormData = new FormData();
-                    imageFormData.append('image', image);
-                    console.log(imageFormData.image);
+
+                    const img = document.querySelector('#modify-item-image');
+
+                    if (image.name) {
+                        // add request
+                        console.log(x.id);
+                        console.log(modifiedImage);
+                        console.log(imageFormData);
+                        await fetch(`http://localhost:5288/api/Images/Upload/${x.id}`, {
+                            method: 'POST',
+                            body: imageFormData
+                        });
+                    } else if (x.img !== img.src) {
+                        // delete request
+                        await fetch(`http://localhost:5288/api/Images/Delete/${x.id}`, {
+                            method: 'DELETE',
+                            body: imageFormData
+                        });
+                    }
 
                     // window.location.assign(`http://127.0.0.1:5500/front-end/templates/inventory-page.html`);
                 }
