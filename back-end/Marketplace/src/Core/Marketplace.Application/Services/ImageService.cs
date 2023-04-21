@@ -28,11 +28,13 @@ public class ImageService : IImageService
         _cloudinary = new Cloudinary(cloudinaryAccount);
     }
 
-    public async Task DeleteImages(int id)
+    public async Task DeleteImages(int productId)
     {
-        await ExceptionService.ThrowExceptionWhenIdNotFound(id, _imageRepository);
+        await ExceptionService.ThrowExceptionWhenIdNotFound(productId, _productRepository);
 
-        var image = await _imageRepository.GetImageByProductId(id);
+        var image = await _imageRepository.GetImageByProductId(productId);
+        
+        
         if (image != null)
         {
             _cloudinary.Destroy(new DeletionParams(image.img));
@@ -82,5 +84,11 @@ public class ImageService : IImageService
         };
 
         await _imageRepository.Create(newImage);
+    }
+
+    public async Task EditImage(int productId, AddImageDto image)
+    {
+        await DeleteImages(productId);
+        await UploadImage(productId, image);
     }
 }

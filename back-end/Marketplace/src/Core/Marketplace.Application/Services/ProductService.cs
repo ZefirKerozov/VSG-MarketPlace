@@ -23,9 +23,13 @@ public class ProductService :IProductService
     public async Task<List<GetProductsDto>> GetAllProductForSale()
     {
         var result = await _productRepository.GetAllProductForSale();
+        
         foreach (var product in result)
         {
+            if (product.img != null)
+            {
             product.img = CloudinaryConstants.baseUrl + product.img;
+            }
         }
         return  result;
     }
@@ -46,6 +50,7 @@ public class ProductService :IProductService
     public async Task DeleteProduct(int id)
     {
         await  ExceptionService.ThrowExceptionWhenIdNotFound(id, _productRepository); 
+        
        await _imageService.DeleteImages(id);
       await  _productRepository.Delete(id);
     }

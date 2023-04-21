@@ -20,9 +20,16 @@ public class ImageController : ControllerBase
        await _imageService.UploadImage(productId, image);
     }
 
+    [HttpPost("Edit/{productId}")]
+    public async Task  EditImage(int productId, [FromForm] AddImageDto image )
+    {
+        await _imageService.EditImage( productId,  image);
+    }
+    
     [HttpDelete("Delete/{productId}")]
     public async Task  DeleteImages(int productId)
     {
        await _imageService.DeleteImages(productId);
     }
+    
 }

@@ -1,4 +1,5 @@
 @import '../abstracts/mixins';
+@import '../base/colors';
 
 $background-color: #FFFFFF;
 
@@ -7,7 +8,7 @@ header {
     @include flexProperties(space-between, center);
     width: 100%;
     height: 50px;
-    background-color: $background-color;
+    background-color: var(--color-background);
     padding: 10px 10px;
     box-sizing: border-box;
 
@@ -18,6 +19,7 @@ header {
     #title {
         font-family: 'Montserrat', sans-serif;
         font-size: 1rem;
+        color: var(--color-text);
     }
 
     svg {
@@ -35,6 +37,7 @@ header {
         gap: 10px;
         font-family: 'Roboto', sans-serif;
         font-size: 0.5rem;
+        color: var(--color-text);
     }
 }
 

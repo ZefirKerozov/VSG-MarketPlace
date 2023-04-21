@@ -39,12 +39,6 @@ public class ProductController : ControllerBase
       return await _productService.AddProduct(productDto);
    }
 
-   [HttpDelete]
-   [Route("Inventory/Delete/{id}")]
-   public async Task DeleteProduct(int id)
-   {
-      await _productService.DeleteProduct(id);
-   }
 
    [HttpPut]
    [Route("Edit/{id}")]
@@ -54,4 +48,10 @@ public class ProductController : ControllerBase
       await _productService.EditProducts(id, product);
    }
    
+   [HttpDelete]
+   [Route("Inventory/Delete/{id}")]
+   public async Task DeleteProduct(int id)
+   {
+      await _productService.DeleteProduct(id);
+   }
 }

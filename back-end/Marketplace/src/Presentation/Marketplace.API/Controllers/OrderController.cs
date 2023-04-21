@@ -24,12 +24,6 @@ public class OrderController :ControllerBase
     {
         return await _orderService.GetPendingsOrders();
     }
-    [HttpPut]
-    [Route("Orders/Status/{id}")]
-    public async Task ChangeStatus(int id)
-    {
-       await _orderService.ChangeStatus(id);
-    }
     [HttpGet]
     [Route("MyOrders/{userId}")]
     public async Task<List<GetOrdersDto>> GetMyOrders(int userId)
@@ -45,6 +39,13 @@ public class OrderController :ControllerBase
       await  _orderService.CreateOrder(dto);
     }
 
+    [HttpPut]
+    [Route("Orders/Status/{id}")]
+    public async Task ChangeStatus(int id)
+    {
+       await _orderService.ChangeStatus(id);
+    }
+    
     [HttpDelete]
     [Route("Reject/{id}")]
     public async Task RejectOrder(int id)
