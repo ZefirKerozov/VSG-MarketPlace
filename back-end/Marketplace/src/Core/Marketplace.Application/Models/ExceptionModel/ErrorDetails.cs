@@ -2,7 +2,7 @@
 
 namespace Marketplace.Application.Models.ExceptionModel;
 
-public class ErrorDetails
+public class ErrorDetails :Exception
 {
     public int StatusCode  { get; set; }
 

@@ -5,7 +5,7 @@ namespace Marketplace.Application.Models.ImageModels.Interface;
 
 public interface IImageService
 {
-    void DeleteImages(int id);
+    Task DeleteImages(int id);
 
-   void UploadImage(int productId, AddImageDto image);
+   Task UploadImage(int productId, AddImageDto image);
 }

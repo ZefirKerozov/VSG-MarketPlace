@@ -24,14 +24,14 @@ public class ImageService :IImageService
             _config["Cloudinary:APISecret"]);
         _cloudinary = new Cloudinary(cloudinaryAccount);
     }
-    public void DeleteImages(int id)
+    public async Task DeleteImages(int id)
     {
-        var image = _imageRepository.GetImageByProductId(id);
+        var image = await _imageRepository.GetImageByProductId(id);
         _cloudinary.Destroy(new DeletionParams(image.img));
-        _imageRepository.Delete(image.Id);
+       await _imageRepository.Delete(image.Id);
     }
 
-    public void UploadImage(int productId, AddImageDto image)
+    public async Task UploadImage(int productId, AddImageDto image)
     {
         _cloudinary.Api.Secure = true;
 
@@ -58,9 +58,9 @@ public class ImageService :IImageService
 
         var uploadResult =  _cloudinary.Upload(@uploadParams);
 
-         SaveImageInDatabase(productId, uploadResult.PublicId);
+       await  SaveImageInDatabase(productId, uploadResult.PublicId);
     }
-    private  void SaveImageInDatabase(int productId, string publicId)
+    private async  Task SaveImageInDatabase(int productId, string publicId)
     {
        
             Images newImage = new Images()
@@ -69,7 +69,7 @@ public class ImageService :IImageService
                 img = publicId
             };
 
-            _imageRepository.Create(newImage);
+          await  _imageRepository.Create(newImage);
         
         
     }

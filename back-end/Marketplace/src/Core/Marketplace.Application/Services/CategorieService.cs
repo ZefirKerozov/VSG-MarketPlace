@@ -13,8 +13,8 @@ public class CategorieService :ICategorieService
         _categorieRepository = categorieRepository;
     }
     
-    public List<Categories> GetCategories()
+    public async Task<List<Categories>> GetCategories()
     {
-       return _categorieRepository.GetAll();
+       return await _categorieRepository.GetAll();
     }
 }

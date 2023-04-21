@@ -1,8 +1,6 @@
 ﻿using Markerplace.Domain.Entities;
 using Marketplace.Application.Models.GenericRepository;
 using Marketplace.Application.Models.ImageModels.Interface;
-using CloudinaryDotNet;
-using CloudinaryDotNet.Actions;
 using Dapper;
 using Marketplace.Application.Models.ImageModels.Dtos;
 
@@ -15,10 +13,10 @@ public class ImageRepository :GenericRepository<Images>, IImageRepository
     {
     }
 
-    public  GetImageDto GetImageByProductId(int productId)
+    public async  Task<GetImageDto> GetImageByProductId(int productId)
     {
         var query = @"SELECT i.Id, i.img   FROM Products AS p   JOIN Images AS i on p.Id = i.ProductId WHERE p.Id= @productId";
-
-        return Connection.QueryFirst<GetImageDto>(query, new {productId}, Transaction);
+        var result =  await Connection.QueryFirstAsync<GetImageDto>(query, new {productId}, Transaction);
+        return  result;
     }
 }

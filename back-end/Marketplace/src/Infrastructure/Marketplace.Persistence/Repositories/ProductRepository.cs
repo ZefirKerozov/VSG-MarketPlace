@@ -14,22 +14,22 @@ public class ProductRepository : GenericRepository<Products>, IProductRepository
     {
     }
 
-    public List<GetProductsDto> GetAllProductForSale()
+    public async  Task<List<GetProductsDto>> GetAllProductForSale()
     {
 
 
         string query =
             "SELECT Products.Quantity,Products.Code, Products.Name, Products.Description, Products.Id,  Products.Price,   Products.QuantityForSale,  Categories.Name AS CategoryName,  Images.img FROM Products  JOIN Categories ON Products.CategoryId = Categories.Id JOIN Images ON Products.Id = Images.ProductId ";
-        var result = Connection.Query<GetProductsDto>(query, null, Transaction);
+        var result = await Connection.QueryAsync<GetProductsDto>(query, null, Transaction);
         return (List<GetProductsDto>)(result);
     }
 
-    public ProductDetailsDto GetProductById(int productId)
+    public async Task<ProductDetailsDto> GetProductById(int productId)
     {
         string query =
             @"SELECT p.Id, p.Name, p.Price, p.QuantityForSale, p.Description, c.Name as CategoryName, Images.img  FROM Products p INNER JOIN Categories c ON p.CategoryId = c.Id JOIN Images ON p.Id = Images.ProductId WHERE p.Id = @productId";
-        var result = Connection.QueryFirst<ProductDetailsDto>(query, new{productId}, Transaction);
-        return (result);
+        var result = await Connection.QueryFirstAsync<ProductDetailsDto>(query, new{productId}, Transaction);
+        return  (result);
     }
 
   

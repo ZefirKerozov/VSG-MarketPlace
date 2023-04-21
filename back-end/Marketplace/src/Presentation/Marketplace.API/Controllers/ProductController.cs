@@ -12,7 +12,7 @@ public class ProductController : ControllerBase
 {
    private readonly IProductService _productService;
 
-   public ProductController(IProductService productService)
+   public   ProductController(IProductService productService)
    {
        _productService = productService;
    }
@@ -20,38 +20,38 @@ public class ProductController : ControllerBase
    [HttpGet]
    [Route("All")]
 
-   public List<GetProductsDto> GetAllProducts()
+   public async Task<List<GetProductsDto>> GetAllProducts()
    {
-      return _productService.GetAllProductForSale();
+      return await _productService.GetAllProductForSale();
    }
    
    [HttpGet ("{productId}")]
-   public ProductDetailsDto ProductDetails(int productId)
+   public async Task<ProductDetailsDto> ProductDetails(int productId)
    {
-       return _productService.GetById(productId);
+       return await _productService.GetById(productId);
    }
 
 
    [HttpPost]
    [Route("Inventory/Add")]
-   public int AddProduct(AddProductDto productDto)
+   public async Task<int> AddProduct(AddProductDto productDto)
    {
-      return _productService.AddProduct(productDto);
+      return await _productService.AddProduct(productDto);
    }
 
    [HttpDelete]
    [Route("Inventory/Delete/{id}")]
-   public void DeleteProduct(int id)
+   public async Task DeleteProduct(int id)
    {
-       _productService.DeleteProduct(id);
+      await _productService.DeleteProduct(id);
    }
 
    [HttpPut]
    [Route("Edit/{id}")]
 
-   public void EditProducts(int id, ProductEditDto product)
+   public async Task EditProducts(int id, ProductEditDto product)
    {
-       _productService.EditProducts(id, product);
+      await _productService.EditProducts(id, product);
    }
    
 }

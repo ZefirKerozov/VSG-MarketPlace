@@ -14,21 +14,21 @@ public class OrdersRepository : GenericRepository<Orders>, IOrdersRepository
     {
     }
 
-    public List<GetOrdersDto> GetPendingsOrders()
+    public async Task<List<GetOrdersDto>> GetPendingsOrders()
     {
 
         var query =
             "SELECT Orders.Code, Orders.Price, Orders.Quantity, Orders.OrderDate, Orders.Status, Orders.Id, Orders.UserId  FROM Orders  Where Orders.Status = '0'";
 
-        var result = Connection.Query<GetOrdersDto>(query,null,Transaction);
-        return (List<GetOrdersDto>)result;
+        var result = await Connection.QueryAsync<GetOrdersDto>(query,null,Transaction);
+        return  (List<GetOrdersDto>)result;
     }
 
-    public List<GetOrdersDto> GetMyOrders(int userId)
+    public async Task<List<GetOrdersDto>> GetMyOrders(int userId)
     {
         var query = @"SELECT Orders.Name, Orders.Code, Orders.Price, Orders.Quantity, Orders.OrderDate, Orders.Status, Orders.Id FROM Orders  Where Orders.UserId= @userId";
 
-        var result = Connection.Query<GetOrdersDto>(query, new{userId}, Transaction);
-        return (List<GetOrdersDto>)result;
+        var result = await Connection.QueryAsync<GetOrdersDto>(query, new{userId}, Transaction);
+        return  (List<GetOrdersDto>)result;
     }
 }

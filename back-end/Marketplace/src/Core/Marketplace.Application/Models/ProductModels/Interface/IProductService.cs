@@ -5,15 +5,14 @@ namespace Marketplace.Application.Models.ProductModels.Interface;
 
 public interface IProductService
 {
-    public List<GetProductsDto> GetAllProductForSale();
+    public Task<List<GetProductsDto>> GetAllProductForSale();
 
-    ProductDetailsDto GetById(int productId);
-
-
-    public int AddProduct(AddProductDto productDto);
-
-    void DeleteProduct(int id);
+    Task<ProductDetailsDto> GetById(int productId);
 
 
-    void EditProducts(int id, ProductEditDto product);
+    public Task<int> AddProduct(AddProductDto productDto);
+
+    Task DeleteProduct(int id);
+    
+    Task EditProducts(int id, ProductEditDto product);
 }

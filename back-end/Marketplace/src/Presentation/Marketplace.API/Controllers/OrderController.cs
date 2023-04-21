@@ -20,35 +20,35 @@ public class OrderController :ControllerBase
 
     [HttpGet]
     [Route("Pending")]
-    public List<GetOrdersDto> GetPendingOrders()
+    public async Task<List<GetOrdersDto>> GetPendingOrders()
     {
-        return _orderService.GetPendingsOrders();
+        return await _orderService.GetPendingsOrders();
     }
     [HttpPut]
     [Route("Orders/Status/{id}")]
-    public void ChangeStatus(int id)
+    public async Task ChangeStatus(int id)
     {
-        _orderService.ChangeStatus(id);
+       await _orderService.ChangeStatus(id);
     }
     [HttpGet]
     [Route("MyOrders/{userId}")]
-    public List<GetOrdersDto> GetMyOrders(int userId)
+    public async Task<List<GetOrdersDto>> GetMyOrders(int userId)
     {
-        return _orderService.GetMyOrders(userId);
+        return await _orderService.GetMyOrders(userId);
     }
 
     [HttpPost]
     [Route("Add")]
     
-    public void CreateOrder(CreateOrderDto dto)
+    public async Task CreateOrder(CreateOrderDto dto)
     {
-        _orderService.CreateOrder(dto);
+      await  _orderService.CreateOrder(dto);
     }
 
     [HttpDelete]
     [Route("Reject/{id}")]
-    public void RejectOrder(int id)
+    public async Task RejectOrder(int id)
     {
-        _orderService.RejectOrder( id);
+       await _orderService.RejectOrder( id);
     }
 }

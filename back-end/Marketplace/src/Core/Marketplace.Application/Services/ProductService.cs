@@ -20,38 +20,39 @@ public class ProductService :IProductService
         _imageService = imageService;
         _imageService = imageService;
     }
-    public List<GetProductsDto> GetAllProductForSale()
+    public async Task<List<GetProductsDto>> GetAllProductForSale()
     {
-        var result = _productRepository.GetAllProductForSale();
+        var result = await _productRepository.GetAllProductForSale();
         foreach (var product in result)
         {
             product.img = CloudinaryConstants.baseUrl + product.img;
         }
-        return result;
+        return  result;
     }
 
-    public ProductDetailsDto GetById(int productId)
+    public async Task<ProductDetailsDto> GetById(int productId)
     {
         var result = _productRepository.GetProductById(productId);
-        return result;
+        return await result;
     }
 
 
-    public int AddProduct(AddProductDto productDto)
+    public async Task<int> AddProduct(AddProductDto productDto)
     { 
-        return  _productRepository.Create( _mapper.Map<Products>(productDto));
+        return await _productRepository.Create( _mapper.Map<Products>(productDto));
     }
 
-    public void DeleteProduct(int id)
+    public async Task DeleteProduct(int id)
     {
-        _imageService.DeleteImages(id);
-        _productRepository.Delete(id);
+       await _imageService.DeleteImages(id);
+      await  _productRepository.Delete(id);
     }
 
-    public void EditProducts(int id, ProductEditDto product)
+    public async Task EditProducts(int id, ProductEditDto product)
     {
+       //await throw ExceptionService.ThrowExceptionWhenIdNotFound(id);
         var productForEdit = _mapper.Map<Products>(product);
         productForEdit.Id = id;
-        _productRepository.Update(productForEdit);
+      await  _productRepository.Update(productForEdit);
     }
 }

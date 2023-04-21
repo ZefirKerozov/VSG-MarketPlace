@@ -15,14 +15,14 @@ public class ImageController : ControllerBase
         _imageService = imageService;
     }
     [HttpPost("Upload/{productId}")]
-    public  void UploadImage(int productId, [FromForm] AddImageDto image)
+    public  async Task UploadImage(int productId, [FromForm] AddImageDto image)
     {
-        _imageService.UploadImage(productId, image);
+       await _imageService.UploadImage(productId, image);
     }
 
-    [HttpDelete("Delete/{imageId}")]
-    public void DeleteImages(int imageId)
+    [HttpDelete("Delete/{productId}")]
+    public async Task  DeleteImages(int productId)
     {
-        _imageService.DeleteImages(imageId);
+       await _imageService.DeleteImages(productId);
     }
 }

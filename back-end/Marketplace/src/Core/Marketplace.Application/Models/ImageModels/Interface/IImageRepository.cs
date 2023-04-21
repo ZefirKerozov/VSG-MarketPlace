@@ -7,5 +7,5 @@ namespace Marketplace.Application.Models.ImageModels.Interface;
 public interface IImageRepository :IGenericRepository<Images>
 {
     
-    GetImageDto GetImageByProductId(int productId);
+    Task<GetImageDto> GetImageByProductId(int productId);
 }

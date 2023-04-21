@@ -4,10 +4,10 @@ namespace Marketplace.Application.Models.GenericRepository
 {
     public interface IGenericRepository<T>
     {
-        List<T> GetAll();
-        T GetById(int id);
-        int Create(T entity);
-        void Update(T entity);
-        public void Delete(int id);
+        Task<List<T>> GetAll();
+        Task<T> GetById(int id);
+        Task<int> Create(T entity);
+        Task Update(T entity);
+         Task Delete(int id);
     }
 }

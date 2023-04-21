@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Transactions;
+using AutoMapper;
 using Markerplace.Domain.Entities;
 using Markerplace.Domain.Enums;
 using Marketplace.Application.Models.OrderModels.Dtos;
@@ -20,47 +21,47 @@ public class OrdersService : IOrderService
         _mapper = mapper;
     }
 
-    public List<GetOrdersDto> GetPendingsOrders()
+    public async Task<List<GetOrdersDto>> GetPendingsOrders()
     {
         var result = _ordersRepository.GetPendingsOrders();
-        foreach (var order in result)
+        foreach (var order in result.Result)
         {
             order.Price *= order.Quantity;
             order.Status = ((OrderStatus)int.Parse(order.Status)).ToString();
         }
 
-        return result;
+        return await result;
     }
 
-    public List<GetOrdersDto> GetMyOrders(int userId)
+    public async Task<List<GetOrdersDto>> GetMyOrders(int userId)
     {
      
         var result = _ordersRepository.GetMyOrders(userId);
-        foreach (var order in result)
+        foreach (var order in result.Result)
         {
             order.Price *= order.Quantity;
             order.Status = ((OrderStatus)int.Parse(order.Status)).ToString();
         }
 
-        return result;
+        return await result;
     }
 
-    public void ChangeStatus(int id)
+    public async Task ChangeStatus(int id)
     {
-        var order = _ordersRepository.GetById(id);
+        var order = _ordersRepository.GetById(id).Result;
         order.Status = OrderStatus.Finished;
-        _ordersRepository.Update(order);
+      await  _ordersRepository.Update(order);
     }
 
-    public void CreateOrder(CreateOrderDto dto)
+    public  async Task CreateOrder(CreateOrderDto dto)
     {
-        var product = _productRepository.GetById(dto.ProductId);
+        var product = await _productRepository.GetById(dto.ProductId);
 
         product.QuantityForSale -= dto.Quantity;
 
         product.Quantity -= dto.Quantity;
 
-        _productRepository.Update(product);
+       await _productRepository.Update(product);
 
         var order = _mapper.Map<Orders>(dto);
         
@@ -69,19 +70,18 @@ public class OrdersService : IOrderService
         order.Price = product.Price;
 
         order.Name = product.Name;
-        
-        _ordersRepository.Create(order);
+       await _ordersRepository.Create(order);
     }
 
-    public void RejectOrder(int id)
+    public async Task RejectOrder(int id)
     {
-        var order = _ordersRepository.GetById(id);
-        var product = _productRepository.GetById(order.ProductId);
+        var order = await _ordersRepository.GetById(id);
+        var product = await _productRepository.GetById(order.ProductId);
 
         product.Quantity += order.Quantity;
         product.QuantityForSale += order.Quantity;
         
-        _productRepository.Update(product);
-        _ordersRepository.Delete(id);
+       await _productRepository.Update(product);
+       await _ordersRepository.Delete(id);
     }
 }
