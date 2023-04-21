@@ -16,7 +16,7 @@ public class ImageRepository :GenericRepository<Images>, IImageRepository
     public async  Task<GetImageDto> GetImageByProductId(int productId)
     {
         var query = @"SELECT i.Id, i.img   FROM Products AS p   JOIN Images AS i on p.Id = i.ProductId WHERE p.Id= @productId";
-        var result =  await Connection.QueryFirstAsync<GetImageDto>(query, new {productId}, Transaction);
+        var result =  await Connection.QueryFirstOrDefaultAsync<GetImageDto>(query, new {productId}, Transaction);
         return  result;
     }
 }

@@ -34,7 +34,6 @@ public class ImageService : IImageService
 
         var image = await _imageRepository.GetImageByProductId(productId);
         
-        await ExceptionService.ThrowExceptionWhenIdNotFound(image.Id, _imageRepository);
         
         if (image != null)
         {
