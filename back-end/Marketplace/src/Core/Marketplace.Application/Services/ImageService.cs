@@ -3,39 +3,47 @@ using CloudinaryDotNet.Actions;
 using Markerplace.Domain.Entities;
 using Marketplace.Application.Models.ImageModels.Dtos;
 using Marketplace.Application.Models.ImageModels.Interface;
+using Marketplace.Application.Models.ProductModels.Interface;
 using Microsoft.Extensions.Configuration;
 
 namespace Marketplace.Application.Services;
 
-public class ImageService :IImageService
+public class ImageService : IImageService
 {
     private readonly IImageRepository _imageRepository;
     private readonly IConfiguration _config;
+    private readonly IProductRepository _productRepository;
     private readonly Cloudinary _cloudinary;
 
 
-    public ImageService(IImageRepository imageRepository, IConfiguration config)
+    public ImageService(IImageRepository imageRepository, IConfiguration config, IProductRepository productRepository)
     {
         _imageRepository = imageRepository;
         _config = config;
+        _productRepository = productRepository;
         var cloudinaryAccount = new Account(
             _config["Cloudinary:CloudName"],
             _config["Cloudinary:APIKey"],
             _config["Cloudinary:APISecret"]);
         _cloudinary = new Cloudinary(cloudinaryAccount);
     }
+
     public async Task DeleteImages(int id)
     {
+        await ExceptionService.ThrowExceptionWhenIdNotFound(id, _imageRepository);
+
         var image = await _imageRepository.GetImageByProductId(id);
-        if (image!=null)
+        if (image != null)
         {
-        _cloudinary.Destroy(new DeletionParams(image.img));
-        await _imageRepository.Delete(image.Id);
+            _cloudinary.Destroy(new DeletionParams(image.img));
+            await _imageRepository.Delete(image.Id);
         }
     }
 
     public async Task UploadImage(int productId, AddImageDto image)
     {
+        await  ExceptionService.ThrowExceptionWhenIdNotFound(productId,_productRepository );
+
         _cloudinary.Api.Secure = true;
 
         //Turn file into byte array
@@ -45,10 +53,11 @@ public class ImageService :IImageService
             image.Image.CopyTo(memoryStream);
             bytes = memoryStream.ToArray();
         }
+
         string base64 = Convert.ToBase64String(bytes);
 
         //construct image path
-        
+
         var prefix = @"data:image/png;base64,";
         var imagePath = prefix + base64;
 
@@ -59,21 +68,19 @@ public class ImageService :IImageService
             Folder = "MarketPlace/"
         };
 
-        var uploadResult =  _cloudinary.Upload(@uploadParams);
+        var uploadResult = _cloudinary.Upload(@uploadParams);
 
-       await  SaveImageInDatabase(productId, uploadResult.PublicId);
+        await SaveImageInDatabase(productId, uploadResult.PublicId);
     }
-    private async  Task SaveImageInDatabase(int productId, string publicId)
-    {
-       
-            Images newImage = new Images()
-            {
-                ProductId = productId,
-                img = publicId
-            };
 
-          await  _imageRepository.Create(newImage);
-        
-        
+    private async Task SaveImageInDatabase(int productId, string publicId)
+    {
+        Images newImage = new Images()
+        {
+            ProductId = productId,
+            img = publicId
+        };
+
+        await _imageRepository.Create(newImage);
     }
 }
