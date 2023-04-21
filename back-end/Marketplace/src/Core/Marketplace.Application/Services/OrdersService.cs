@@ -48,15 +48,19 @@ public class OrdersService : IOrderService
 
     public async Task ChangeStatus(int id)
     {
-        var order = _ordersRepository.GetById(id).Result;
+        await  ExceptionService.ThrowExceptionWhenIdNotFound(id, _ordersRepository);
+        var order = await _ordersRepository.GetById(id);
+        ExceptionService.ThrowExceptionWhenOrderIsNotPending(order);
         order.Status = OrderStatus.Finished;
       await  _ordersRepository.Update(order);
     }
 
     public  async Task CreateOrder(CreateOrderDto dto)
     {
-        var product = await _productRepository.GetById(dto.ProductId);
+        await  ExceptionService.ThrowExceptionWhenIdNotFound(dto.ProductId, _productRepository);
 
+        var product = await _productRepository.GetById(dto.ProductId);
+         ExceptionService.ThrowExceptionWhenNotEnoughQuantity(product.QuantityForSale, dto.Quantity);
         product.QuantityForSale -= dto.Quantity;
 
         product.Quantity -= dto.Quantity;
@@ -75,8 +79,17 @@ public class OrdersService : IOrderService
 
     public async Task RejectOrder(int id)
     {
+        await ExceptionService.ThrowExceptionWhenIdNotFound(id, _ordersRepository);
+
         var order = await _ordersRepository.GetById(id);
+        
+        await ExceptionService.ThrowExceptionWhenIdNotFound(order.ProductId, _productRepository);
+        
         var product = await _productRepository.GetById(order.ProductId);
+        
+        ExceptionService.ThrowExceptionWhenOrderIsNotPending(order);
+        
+        ExceptionService.ThrowExceptionWhenIdsDoNotMatch(id, product.Id);
 
         product.Quantity += order.Quantity;
         product.QuantityForSale += order.Quantity;

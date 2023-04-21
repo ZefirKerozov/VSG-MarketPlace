@@ -32,6 +32,7 @@ public class ProductService :IProductService
 
     public async Task<ProductDetailsDto> GetById(int productId)
     {
+        await  ExceptionService.ThrowExceptionWhenIdNotFound(productId, _productRepository);
         var result = _productRepository.GetProductById(productId);
         return await result;
     }
@@ -44,13 +45,14 @@ public class ProductService :IProductService
 
     public async Task DeleteProduct(int id)
     {
+        await  ExceptionService.ThrowExceptionWhenIdNotFound(id, _productRepository); 
        await _imageService.DeleteImages(id);
       await  _productRepository.Delete(id);
     }
 
     public async Task EditProducts(int id, ProductEditDto product)
     {
-       //await throw ExceptionService.ThrowExceptionWhenIdNotFound(id);
+       await  ExceptionService.ThrowExceptionWhenIdNotFound(id, _productRepository);
         var productForEdit = _mapper.Map<Products>(product);
         productForEdit.Id = id;
       await  _productRepository.Update(productForEdit);
