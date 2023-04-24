@@ -42,4 +42,12 @@ public static class ExceptionService
             throw new HttpException("Requested Ids do not match!", HttpStatusCode.BadRequest);
         }
     }
+    
+    public static void ThrowExceptionWhenOrderIsNotComplete(string statusCode)
+    {
+        if (statusCode == OrderStatus.Pending.ToString())
+        {
+            throw new HttpException("Product can't be delete, because order is not complete!", HttpStatusCode.BadRequest);
+        }
+    }
 }

@@ -31,4 +31,13 @@ public class OrdersRepository : GenericRepository<Orders>, IOrdersRepository
         var result = await Connection.QueryAsync<GetOrdersDto>(query, new{userId}, Transaction);
         return  (List<GetOrdersDto>)result;
     }
+
+    public async Task<GetOrderByProductIdDto> GetOrderByProductId(int productId)
+    {
+        var query = @"SELECT Id, Quantity, Status, OrderDate, ProductId, UserId, Code, Price, Name FROM Orders WHERE ProductId = @productId";
+
+        var result = await Connection.QueryFirstOrDefaultAsync<GetOrderByProductIdDto>(query,new{ productId},Transaction);
+
+        return result;
+    }
 }
