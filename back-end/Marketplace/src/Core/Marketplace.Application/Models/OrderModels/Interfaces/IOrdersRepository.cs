@@ -9,4 +9,6 @@ public interface IOrdersRepository :IGenericRepository<Orders>
      Task<List<GetOrdersDto>> GetPendingsOrders();
      
      Task<List<GetOrdersDto>> GetMyOrders(int userId);
+     
+     Task<GetOrderByProductIdDto> GetOrderByProductId(int productId);
 }

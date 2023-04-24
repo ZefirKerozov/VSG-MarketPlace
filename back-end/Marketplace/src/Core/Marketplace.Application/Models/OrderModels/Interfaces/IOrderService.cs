@@ -11,4 +11,6 @@ public interface IOrderService
 
     Task CreateOrder(CreateOrderDto dto);
     Task RejectOrder(int id);
+
+    Task<string> GetStatusCodeByProductId(int productId);
 }

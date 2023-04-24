@@ -9,5 +9,5 @@ public interface IProductRepository :IGenericRepository<Products>
 {
     Task<List<GetProductsDto>> GetAllProductForSale();
     Task<ProductDetailsDto> GetProductById(int productId);
-    
+
 }

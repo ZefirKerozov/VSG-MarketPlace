@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using Markerplace.Domain.Entities;
+using Markerplace.Domain.Enums;
 using Marketplace.Application.Helpers.Constants;
 using Marketplace.Application.Models.ImageModels.Interface;
+using Marketplace.Application.Models.OrderModels.Interfaces;
 using Marketplace.Application.Models.ProductModels.Dtos;
 using Marketplace.Application.Models.ProductModels.Interface;
 
@@ -12,12 +14,14 @@ public class ProductService : IProductService
     private readonly IProductRepository _productRepository;
     private readonly IMapper _mapper;
     private readonly IImageService _imageService;
+    private readonly IOrderService _orderService;
 
-    public ProductService(IProductRepository productRepository, IMapper mapper, IImageService imageService)
+    public ProductService(IProductRepository productRepository, IMapper mapper, IImageService imageService, IOrderService orderService)
     {
         _productRepository = productRepository;
         _mapper = mapper;
         _imageService = imageService;
+        _orderService = orderService;
         _imageService = imageService;
     }
 
@@ -52,7 +56,11 @@ public class ProductService : IProductService
     public async Task DeleteProduct(int id)
     {
         await ExceptionService.ThrowExceptionWhenIdNotFound(id, _productRepository);
-
+        
+        var statusCode = await _orderService.GetStatusCodeByProductId(id);
+      
+        ExceptionService.ThrowExceptionWhenOrderIsNotComplete(statusCode);
+         
         await _imageService.DeleteImages(id);
         await _productRepository.Delete(id);
     }

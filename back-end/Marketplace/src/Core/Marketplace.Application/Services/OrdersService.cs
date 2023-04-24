@@ -97,4 +97,11 @@ public class OrdersService : IOrderService
        await _productRepository.Update(product);
        await _ordersRepository.Delete(id);
     }
+
+    public async Task<string> GetStatusCodeByProductId(int productId)
+    {
+        var order = await _ordersRepository.GetOrderByProductId(productId);
+        var orderStatus = ((OrderStatus)int.Parse(order.Status)).ToString();
+        return orderStatus;
+    }
 }
