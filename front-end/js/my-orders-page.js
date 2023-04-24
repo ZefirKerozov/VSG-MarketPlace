@@ -194,12 +194,11 @@ const loadItems = async () => {
                 const confirmBtn = document.getElementById('confirm-btn');
                 confirmBtn.addEventListener('click', onConfirmBtnClick);
 
-                function onConfirmBtnClick(e) {
+                async function onConfirmBtnClick(e) {
                     e.preventDefault();
                     const statusMessage = tableRow.querySelector('.status-message');
-                    statusMessage.textContent = 'Canceled';
-                    console.log(cancelBtn);
-                    cancelOrderBtn.style.display = 'none';
+                    
+                    const canceledOrder = await makeRequest({path: `/Orders/Reject/${x.id}`})
                 }
             };
 
