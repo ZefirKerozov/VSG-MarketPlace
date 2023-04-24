@@ -1,10 +1,16 @@
-﻿using Marketplace.Application.Models.OrderModels.Interfaces;
+﻿using System.Reflection;
+using FluentValidation;
+using Markerplace.Domain.Entities;
+using Marketplace.Application.Models.OrderModels.Interfaces;
 using Marketplace.Application.Models.ProductModels.Interface;
 using Marketplace.Application.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Marketplace.Application.Helpers.Profiles;
+using Marketplace.Application.Helpers.Validators;
 using Marketplace.Application.Models.CategorieModels.Interfaces;
 using Marketplace.Application.Models.ImageModels.Interface;
+using Marketplace.Application.Models.OrderModels.Dtos;
+using Marketplace.Application.Models.ProductModels.Dtos;
 
 namespace Marketplace.Application.Helpers.Configurations;
 
@@ -18,6 +24,10 @@ public static class ConfigurationApplicationLayer
         services.AddScoped<IOrderService, OrdersService>();
         services.AddScoped<IImageService, ImageService>();
         services.AddScoped<ICategorieService, CategorieService>();
+        
+        services.AddScoped<IValidator<CreateOrderDto>, CreateOrderValidator>();
+        services.AddScoped<IValidator<AddProductDto>, CreateProductValidator>();
+        services.AddScoped<IValidator<ProductEditDto>, EditProductValidator>();
 
         return services;
 

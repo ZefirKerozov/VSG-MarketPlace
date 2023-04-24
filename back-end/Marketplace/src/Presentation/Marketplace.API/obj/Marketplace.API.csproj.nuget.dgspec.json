@@ -50,6 +50,10 @@
               "target": "Package",
               "version": "[2.3.0, )"
             },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.5.2, )"
+            },
             "System.Data.SqlClient": {
               "target": "Package",
               "version": "[4.8.5, )"
@@ -132,6 +136,10 @@
             "Dapper.SimpleCRUD": {
               "target": "Package",
               "version": "[2.3.0, )"
+            },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.5.2, )"
             },
             "Microsoft.Extensions.Configuration.Abstractions": {
               "target": "Package",
@@ -223,6 +231,10 @@
               "target": "Package",
               "version": "[2.3.0, )"
             },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.5.2, )"
+            },
             "Microsoft.Extensions.Configuration": {
               "target": "Package",
               "version": "[8.0.0-preview.2.23128.3, )"
@@ -304,6 +316,10 @@
             "Dapper.SimpleCRUD": {
               "target": "Package",
               "version": "[2.3.0, )"
+            },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.5.2, )"
             },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",

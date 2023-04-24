@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "/ZTwiWijxxT8NYovsW/YvGRtwBxSGluFTLndzmPoroh0f5SqbQeTAeCNomOgtO+JITWae+dWQKQBnv89kCF2ow==",
+  "dgSpecHash": "toKo6OpOQ6Hb5iHL/xCKTc1hRPHsh+OzVpvhPRi9tntvaUN5qAYxM90rHyeqtQhQO3HCCzBQmRDRX1k2BmuZsw==",
   "success": true,
   "projectFilePath": "C:\\Users\\ZKerozov\\Desktop\\VSG-marketplace\\back-end\\Marketplace\\src\\Infrastructure\\Marketplace.Persistence\\Marketplace.Persistence.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,7 @@
     "C:\\Users\\ZKerozov\\.nuget\\packages\\cloudinarydotnet\\1.20.0\\cloudinarydotnet.1.20.0.nupkg.sha512",
     "C:\\Users\\ZKerozov\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\ZKerozov\\.nuget\\packages\\dapper.simplecrud\\2.3.0\\dapper.simplecrud.2.3.0.nupkg.sha512",
+    "C:\\Users\\ZKerozov\\.nuget\\packages\\fluentvalidation\\11.5.2\\fluentvalidation.11.5.2.nupkg.sha512",
     "C:\\Users\\ZKerozov\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\ZKerozov\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\ZKerozov\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",

@@ -7,7 +7,7 @@ using Marketplace.Application.Models.ProductModels.Interface;
 
 namespace Marketplace.Application.Services;
 
-public class ProductService :IProductService
+public class ProductService : IProductService
 {
     private readonly IProductRepository _productRepository;
     private readonly IMapper _mapper;
@@ -20,46 +20,48 @@ public class ProductService :IProductService
         _imageService = imageService;
         _imageService = imageService;
     }
+
     public async Task<List<GetProductsDto>> GetAllProductForSale()
     {
         var result = await _productRepository.GetAllProductForSale();
-        
+
         foreach (var product in result)
         {
             if (product.img != null)
             {
-            product.img = CloudinaryConstants.baseUrl + product.img;
+                product.img = CloudinaryConstants.baseUrl + product.img;
             }
         }
-        return  result;
+
+        return result;
     }
 
     public async Task<ProductDetailsDto> GetById(int productId)
     {
-        await  ExceptionService.ThrowExceptionWhenIdNotFound(productId, _productRepository);
+        await ExceptionService.ThrowExceptionWhenIdNotFound(productId, _productRepository);
         var result = _productRepository.GetProductById(productId);
         return await result;
     }
 
 
     public async Task<int> AddProduct(AddProductDto productDto)
-    { 
-        return await _productRepository.Create( _mapper.Map<Products>(productDto));
+    {
+        return await _productRepository.Create(_mapper.Map<Products>(productDto));
     }
 
     public async Task DeleteProduct(int id)
     {
-        await  ExceptionService.ThrowExceptionWhenIdNotFound(id, _productRepository); 
-        
-       await _imageService.DeleteImages(id);
-      await  _productRepository.Delete(id);
+        await ExceptionService.ThrowExceptionWhenIdNotFound(id, _productRepository);
+
+        await _imageService.DeleteImages(id);
+        await _productRepository.Delete(id);
     }
 
     public async Task EditProducts(int id, ProductEditDto product)
     {
-       await  ExceptionService.ThrowExceptionWhenIdNotFound(id, _productRepository);
+        await ExceptionService.ThrowExceptionWhenIdNotFound(id, _productRepository);
         var productForEdit = _mapper.Map<Products>(product);
         productForEdit.Id = id;
-      await  _productRepository.Update(productForEdit);
+        await _productRepository.Update(productForEdit);
     }
 }

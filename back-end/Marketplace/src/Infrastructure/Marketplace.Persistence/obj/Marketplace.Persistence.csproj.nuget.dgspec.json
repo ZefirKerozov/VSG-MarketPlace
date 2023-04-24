@@ -50,6 +50,10 @@
               "target": "Package",
               "version": "[2.3.0, )"
             },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.5.2, )"
+            },
             "System.Data.SqlClient": {
               "target": "Package",
               "version": "[4.8.5, )"
@@ -132,6 +136,10 @@
             "Dapper.SimpleCRUD": {
               "target": "Package",
               "version": "[2.3.0, )"
+            },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.5.2, )"
             },
             "Microsoft.Extensions.Configuration.Abstractions": {
               "target": "Package",
@@ -222,6 +230,10 @@
             "Dapper.SimpleCRUD": {
               "target": "Package",
               "version": "[2.3.0, )"
+            },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.5.2, )"
             },
             "Microsoft.Extensions.Configuration": {
               "target": "Package",

@@ -1,4 +1,6 @@
-﻿using Markerplace.Domain.Entities;
+﻿using FluentValidation;
+using Markerplace.Domain.Entities;
+using Marketplace.Application.Helpers.Validators;
 using Marketplace.Application.Models.ProductModels.Dtos;
 using Marketplace.Application.Models.ProductModels.Interface;
 using Microsoft.AspNetCore.Authorization;
@@ -11,10 +13,14 @@ namespace Marketplace.API.Controllers;
 public class ProductController : ControllerBase
 {
    private readonly IProductService _productService;
+   private readonly IValidator<AddProductDto> _productValidator;
+   private readonly IValidator<ProductEditDto> _editValidator;
 
-   public   ProductController(IProductService productService)
+   public   ProductController(IProductService productService, IValidator<AddProductDto> productValidator, IValidator<ProductEditDto> editValidator)
    {
-       _productService = productService;
+      _productService = productService;
+      _productValidator = productValidator;
+      _editValidator = editValidator;
    }
    
    [HttpGet]
@@ -36,6 +42,7 @@ public class ProductController : ControllerBase
    [Route("Inventory/Add")]
    public async Task<int> AddProduct(AddProductDto productDto)
    {
+      await  _productValidator.ValidateAndThrowAsync(productDto);
       return await _productService.AddProduct(productDto);
    }
 
@@ -45,6 +52,7 @@ public class ProductController : ControllerBase
 
    public async Task EditProducts(int id, ProductEditDto product)
    {
+      await _editValidator.ValidateAndThrowAsync(product);
       await _productService.EditProducts(id, product);
    }
    

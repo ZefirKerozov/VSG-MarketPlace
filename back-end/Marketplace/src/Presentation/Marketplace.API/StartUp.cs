@@ -18,7 +18,7 @@ builder.Services.AddEndpointsApiExplorer();
      c.SwaggerDoc("v1", new OpenApiInfo { Title = "Marketplace", Version = "v1" });
      c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
  });
- 
+
  builder.Services.AddCors(options =>
  {
      options.AddPolicy(name: "CORSPolicy", policy =>
