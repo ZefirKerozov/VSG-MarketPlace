@@ -101,7 +101,12 @@ public class OrdersService : IOrderService
     public async Task<string> GetStatusCodeByProductId(int productId)
     {
         var order = await _ordersRepository.GetOrderByProductId(productId);
+        if (order != null)
+        {
         var orderStatus = ((OrderStatus)int.Parse(order.Status)).ToString();
         return orderStatus;
+        }
+
+        return "Without product";
     }
 }
