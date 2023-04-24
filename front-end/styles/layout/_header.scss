@@ -73,9 +73,12 @@ header {
 
     #user-info {
         @include displayFlex(row-reverse);
-        @include flexProperties(flex-end, center);
+        @include flexProperties(flex-start, center);
+        position: absolute;
         gap: 10px;
         font-size: 0.5rem;
-        padding: 18px;
+        top: 20px;
+        left: 70px;
+        transform: translate(-50%, 0);
     }
 }

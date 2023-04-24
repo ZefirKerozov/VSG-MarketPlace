@@ -140,11 +140,14 @@ header #user-info {
   #user-info {
     display: flex;
     flex-direction: row-reverse;
-    justify-content: flex-end;
+    justify-content: flex-start;
     align-items: center;
+    position: absolute;
     gap: 10px;
     font-size: 0.5rem;
-    padding: 18px;
+    top: 20px;
+    left: 70px;
+    transform: translate(-50%, 0);
   }
 }
 aside {
@@ -205,8 +208,7 @@ nav li:hover svg path {
 @media (max-width: 768px) {
   nav {
     border-radius: 0;
-    padding-top: 0;
-    height: 92%;
+    padding-top: 60px;
   }
   aside {
     position: fixed;
