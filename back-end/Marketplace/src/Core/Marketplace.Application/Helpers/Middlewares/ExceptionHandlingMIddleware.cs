@@ -4,18 +4,23 @@ using FluentValidation;
 using Marketplace.Application.Models.ExceptionModel;
 using Marketplace.Application.Models.GenericRepository;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
 
 namespace Marketplace.Application.Helpers.Middlewares;
 
 public class ExceptionHandlingMIddleware
 {
     private readonly RequestDelegate _next;
+    private readonly ILogger _logger;
 
-    public ExceptionHandlingMIddleware(RequestDelegate next)
+    public ExceptionHandlingMIddleware(RequestDelegate next, ILogger<ExceptionHandlingMIddleware> logger)
     {
         _next = next;
-    } 
-    public async Task InvokeAsync(HttpContext context,IUnitOfWork unitOfWork){
+        _logger = logger;
+    }
+
+    public async Task InvokeAsync(HttpContext context, IUnitOfWork unitOfWork)
+    {
         try
         {
             await _next(context);
@@ -44,15 +49,21 @@ public class ExceptionHandlingMIddleware
                     });
                 }
             }
+            else
+            {
+                problems.Add(new ErrorDetails()
+                {
+                    StatusCode = 500,
+                    Message = "Internal Server Error"
+                });
+                _logger.LogError(e.Message);
+            }
 
             context.Response.StatusCode = (int)problems[0].StatusCode;
             context.Response.ContentType = "application/json";
             var json = JsonSerializer.Serialize(problems);
-    
+
             await context.Response.WriteAsync(json);
         }
     }
-
-
-    
-} 
+}

@@ -116,4 +116,12 @@ C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\
 C:\Users\YKurtev\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\CloudinaryDotNet.dll
 C:\Users\YKurtev\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\Newtonsoft.Json.dll
 C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\FluentValidation.dll
+<<<<<<< HEAD
 C:\Users\YKurtev\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\FluentValidation.dll
+=======
+C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\nlog.config
+C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\NLog.dll
+C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\NLog.Database.dll
+C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\NLog.Extensions.Logging.dll
+C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\NLog.Web.AspNetCore.dll
+>>>>>>> f73d2ab3c2cdb9ec88bfa7a08e22653939b6f3b2

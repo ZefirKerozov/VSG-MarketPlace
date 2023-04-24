@@ -56,10 +56,13 @@ public class ProductService : IProductService
     public async Task DeleteProduct(int id)
     {
         await ExceptionService.ThrowExceptionWhenIdNotFound(id, _productRepository);
-        
+
         var statusCode = await _orderService.GetStatusCodeByProductId(id);
-      
+        if (statusCode != "Without product")
+        {
         ExceptionService.ThrowExceptionWhenOrderIsNotComplete(statusCode);
+        }
+      
          
         await _imageService.DeleteImages(id);
         await _productRepository.Delete(id);

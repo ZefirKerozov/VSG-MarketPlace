@@ -54,6 +54,22 @@
               "target": "Package",
               "version": "[11.5.2, )"
             },
+            "NLog": {
+              "target": "Package",
+              "version": "[5.1.3, )"
+            },
+            "NLog.Database": {
+              "target": "Package",
+              "version": "[5.1.3, )"
+            },
+            "NLog.Extensions.Logging": {
+              "target": "Package",
+              "version": "[5.2.3, )"
+            },
+            "NLog.Web.AspNetCore": {
+              "target": "Package",
+              "version": "[5.2.3, )"
+            },
             "System.Data.SqlClient": {
               "target": "Package",
               "version": "[4.8.5, )"
@@ -149,6 +165,22 @@
               "target": "Package",
               "version": "[8.0.0-preview.2.23128.3, )"
             },
+            "NLog": {
+              "target": "Package",
+              "version": "[5.1.3, )"
+            },
+            "NLog.Database": {
+              "target": "Package",
+              "version": "[5.1.3, )"
+            },
+            "NLog.Extensions.Logging": {
+              "target": "Package",
+              "version": "[5.2.3, )"
+            },
+            "NLog.Web.AspNetCore": {
+              "target": "Package",
+              "version": "[5.2.3, )"
+            },
             "StructureMap": {
               "target": "Package",
               "version": "[4.7.1, )"
@@ -239,6 +271,22 @@
               "target": "Package",
               "version": "[8.0.0-preview.2.23128.3, )"
             },
+            "NLog": {
+              "target": "Package",
+              "version": "[5.1.3, )"
+            },
+            "NLog.Database": {
+              "target": "Package",
+              "version": "[5.1.3, )"
+            },
+            "NLog.Extensions.Logging": {
+              "target": "Package",
+              "version": "[5.2.3, )"
+            },
+            "NLog.Web.AspNetCore": {
+              "target": "Package",
+              "version": "[5.2.3, )"
+            },
             "System.Data.SqlClient": {
               "target": "Package",
               "version": "[4.8.5, )"
@@ -324,6 +372,22 @@
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[7.0.3, )"
+            },
+            "NLog": {
+              "target": "Package",
+              "version": "[5.1.3, )"
+            },
+            "NLog.Database": {
+              "target": "Package",
+              "version": "[5.1.3, )"
+            },
+            "NLog.Extensions.Logging": {
+              "target": "Package",
+              "version": "[5.2.3, )"
+            },
+            "NLog.Web.AspNetCore": {
+              "target": "Package",
+              "version": "[5.2.3, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
