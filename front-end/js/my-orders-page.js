@@ -3,7 +3,33 @@ import "../utils/hamburgerMenu.js";
 import "../components/my-orders-item.js";
 import { makeRequest } from "../utils/makeRequest.js";
 
+// Dark mode functionality
+
 document.documentElement.setAttribute('data-theme', localStorage.getItem('theme'));
+
+const darkModeSwitch = document.querySelector('#dark-mode');
+
+const theme = localStorage.getItem('theme');
+
+if (theme === undefined) {
+    localStorage.setItem('theme', 'light');
+}
+
+if (theme === 'dark') {
+    darkModeSwitch.checked = true;
+} else if (theme === 'light') {
+    darkModeSwitch.checked = false;
+}
+
+darkModeSwitch.addEventListener('change', () => {
+    if (darkModeSwitch.checked) {
+        localStorage.setItem('theme', 'dark');
+        document.documentElement.setAttribute('data-theme', localStorage.getItem('theme'));
+    } else {
+        localStorage.setItem('theme', 'light');
+        document.documentElement.setAttribute('data-theme', localStorage.getItem('theme'));
+    }
+});
 
 const DUMMY_DATA = [
     {

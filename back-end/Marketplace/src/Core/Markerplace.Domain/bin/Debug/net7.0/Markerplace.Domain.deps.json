@@ -11,6 +11,7 @@
           "CloudinaryDotNet": "1.20.0",
           "Dapper": "2.0.123",
           "Dapper.SimpleCRUD": "2.3.0",
+          "FluentValidation": "11.5.2",
           "System.Data.SqlClient": "4.8.5"
         },
         "runtime": {
@@ -47,6 +48,14 @@
           "lib/netstandard2.0/Dapper.SimpleCRUD.dll": {
             "assemblyVersion": "2.1.0.0",
             "fileVersion": "2.1.0.0"
+          }
+        }
+      },
+      "FluentValidation/11.5.2": {
+        "runtime": {
+          "lib/net7.0/FluentValidation.dll": {
+            "assemblyVersion": "11.0.0.0",
+            "fileVersion": "11.5.2.0"
           }
         }
       },
@@ -211,6 +220,13 @@
       "sha512": "sha512-9wj9b3IYADmNea3hwlkS0qKRCcbTYcJ4uYCdZdE9O34nTvl0mJv1Hy6sSFA5t/UN8zKscWiDFWT8B+4tOnoQvA==",
       "path": "dapper.simplecrud/2.3.0",
       "hashPath": "dapper.simplecrud.2.3.0.nupkg.sha512"
+    },
+    "FluentValidation/11.5.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kj/hW/iusp2zq1Vt1YPLgDj6UG0DhoJXGkLwjLwm3j7vUtRF8DVA5vHJfItG3BxDjLWJUR2pvw8fK7rnuysZNA==",
+      "path": "fluentvalidation/11.5.2",
+      "hashPath": "fluentvalidation.11.5.2.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Html.Abstractions/2.2.0": {
       "type": "package",

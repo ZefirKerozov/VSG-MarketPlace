@@ -86,6 +86,27 @@ header {
   padding: 10px 10px;
   box-sizing: border-box;
 }
+header .left-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+header .left-container .dark-mode-switch-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+}
+header .left-container .dark-mode-switch-container label {
+  font-size: 0.5rem;
+  color: var(--color-text);
+}
+header .left-container .dark-mode-switch-container input {
+  border-radius: 20px;
+}
 header a {
   height: 30px;
 }
@@ -869,8 +890,8 @@ html[data-theme=dark] {
 #modify-modal form .first-row .second-column img {
   width: 260px;
   height: 150px;
-  -o-object-fit: unset;
-     object-fit: unset;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 #add-modal form .first-row .second-column .upload-remove-btn,
 #modify-modal form .first-row .second-column .upload-remove-btn {

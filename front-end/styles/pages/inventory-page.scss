@@ -313,7 +313,7 @@ $background-color: #FFFFFF;
                 img {
                     width: 260px;
                     height: 150px;
-                    object-fit: unset;
+                    object-fit: contain;
                 }
 
                 // Upload and remove button styles

@@ -1,4 +1,6 @@
 ﻿using System.Net;
+using System.Text.Json;
+using FluentValidation;
 using Marketplace.Application.Models.ExceptionModel;
 using Marketplace.Application.Models.GenericRepository;
 using Microsoft.AspNetCore.Http;
@@ -19,18 +21,35 @@ public class ExceptionHandlingMIddleware
             await _next(context);
             unitOfWork.Transaction.Commit();
         }
-        catch (HttpException e)
+        catch (Exception e)
         {
             unitOfWork.Transaction.Rollback();
-            context.Response.StatusCode = (int)e.HttpStatusCode;
-            context.Response.ContentType = "aplication/json";
-
-            await context.Response.WriteAsync(new ErrorDetails
+            List<ErrorDetails> problems = new List<ErrorDetails>();
+            if (e is HttpException httpException)
             {
-                StatusCode = context.Response.StatusCode,
-                Message = e.Message
-            }.ToString());
-            
+                problems.Add(new ErrorDetails()
+                {
+                    StatusCode = (int)httpException.HttpStatusCode,
+                    Message = e.Message
+                });
+            }
+            else if (e is ValidationException validationException)
+            {
+                foreach (var error in validationException.Errors)
+                {
+                    problems.Add(new ErrorDetails()
+                    {
+                        StatusCode = 400,
+                        Message = error.ErrorMessage
+                    });
+                }
+            }
+
+            context.Response.StatusCode = (int)problems[0].StatusCode;
+            context.Response.ContentType = "application/json";
+            var json = JsonSerializer.Serialize(problems);
+    
+            await context.Response.WriteAsync(json);
         }
     }
 

@@ -1,4 +1,5 @@
-﻿using Markerplace.Domain.Enums;
+﻿using FluentValidation;
+using Markerplace.Domain.Enums;
 using Marketplace.Application.Models.OrderModels.Dtos;
 using Marketplace.Application.Models.OrderModels.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -11,11 +12,13 @@ namespace Marketplace.API.Controllers;
 public class OrderController :ControllerBase
 {
     private readonly IOrderService _orderService;
+    private readonly IValidator<CreateOrderDto> _createOrderValidator;
 
-   
-    public OrderController(IOrderService orderService)
+
+    public OrderController(IOrderService orderService, IValidator<CreateOrderDto> createOrderValidator)
     {
         _orderService = orderService;
+        _createOrderValidator = createOrderValidator;
     }
 
     [HttpGet]
@@ -36,6 +39,7 @@ public class OrderController :ControllerBase
     
     public async Task CreateOrder(CreateOrderDto dto)
     {
+        await _createOrderValidator.ValidateAndThrowAsync(dto);
       await  _orderService.CreateOrder(dto);
     }
 
