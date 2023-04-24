@@ -5,7 +5,7 @@ $background-color: #FFFFFF;
 aside {
     height: 100%;
     width: 20%;
-    background-color: $background-color;
+    background-color: var(--color-background);
     border-radius: 20px;
 }
 
@@ -27,7 +27,7 @@ nav {
         a {
             display: block;
             text-decoration: none;
-            color: #000000;
+            color: var(--color-text);
             padding: 15px 17px;
             border-radius: 10px;
             font-size: 0.5rem;

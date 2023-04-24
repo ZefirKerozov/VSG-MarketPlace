@@ -3,6 +3,8 @@ import "../utils/navLinks.js";
 import "../utils/hamburgerMenu.js";
 import "../components/marketplace-item.js";
 
+document.documentElement.setAttribute('data-theme', localStorage.getItem('theme'));
+
 ////////// Dynamically load items from API //////////
 
 const itemsContainer = document.querySelector('.items');
@@ -11,7 +13,7 @@ const loadProducts = async () => {
     try {
         const data = await makeRequest({ path: '/Products/All' });
         const dataToJSON = await data.json();
-        dataToJSON.forEach(x => {
+        dataToJSON.filter(x => x.quantityForSale > 0).forEach(x => {
             // const marketplaceItem = document.createElement('marketplace-item');
             // marketplaceItem.style.width = '25%';
 
@@ -181,8 +183,8 @@ const loadProducts = async () => {
             itemImage.addEventListener('click', onItemImageClick);
 
             async function onItemImageClick() {
-                const itemData = await makeRequest({ path: `/Products/${x.id}` });
-                console.log(itemData);
+                // const itemData = await makeRequest({ path: `/Products/${x.id}` });
+                // console.log(itemData);
                 const modal = document.createElement('div');
                 modal.id = 'description-modal';
 

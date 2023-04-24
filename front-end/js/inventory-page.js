@@ -2,6 +2,8 @@ import { makeRequest } from "../utils/makeRequest.js";
 import "../utils/navLinks.js";
 import "../utils/hamburgerMenu.js";
 
+document.documentElement.setAttribute('data-theme', localStorage.getItem('theme'));
+
 // Open add item modal if add item button is clicked
 
 const overlay = document.querySelector('.overlay');
@@ -98,7 +100,7 @@ async function onAddItemBtnClick(e) {
 
     // Close add item modal when overlay is clicked
 
-    overlay.addEventListener('click', onOverlayClick);
+    overlay.addEventListener('mousedown', onOverlayClick);
 
     function onOverlayClick(e) {
         if (e.target.matches('.overlay')) {
@@ -194,7 +196,7 @@ const loadProducts = async () => {
 
         forwardBtn.addEventListener('click', () => {
             if (searchItemsToLoad !== undefined && endSlice < searchItemsToLoad.length) {
-                console.log('inside forward serach handler');
+                console.log('inside forward search handler');
 
                 startSlice += 10;
                 if (endSlice + 10 > searchItemsToLoad.length) {
@@ -206,8 +208,13 @@ const loadProducts = async () => {
                 pageIndex.textContent = `${startSlice + 1} - ${endSlice} of ${searchItemsToLoad.length}`;
             } else {
                 if (searchItemsToLoad === undefined && endSlice < dataToJSON.length) {
-                    startSlice += 10;
-                    endSlice += 10;
+                    if (dataToJSON.length - endSlice <= 10) {
+                        startSlice += 10;
+                        endSlice += dataToJSON.length - endSlice;
+                    } else {
+                        startSlice += 10;
+                        endSlice += 10;
+                    }
                     slicedItemsToLoad = dataToJSON.slice(startSlice, endSlice);
                     displayItemsInTable(slicedItemsToLoad);
                     pageIndex.textContent = `${startSlice + 1} - ${endSlice} of ${dataToJSON.length}`;
@@ -232,8 +239,13 @@ const loadProducts = async () => {
                 pageIndex.textContent = `${startSlice + 1} - ${endSlice} of ${searchItemsToLoad.length}`;
             } else {
                 if (searchItemsToLoad === undefined && startSlice > 0) {
-                    startSlice -= 10;
-                    endSlice -= 10;
+                    if (endSlice - 10 < 10) {
+                        startSlice -= 10;
+                        endSlice = 10;
+                    } else {
+                        startSlice -= 10;
+                        endSlice -= 10;
+                    }
                     slicedItemsToLoad = dataToJSON.slice(startSlice, endSlice);
                     displayItemsInTable(slicedItemsToLoad);
                     pageIndex.textContent = `${startSlice + 1} - ${endSlice} of ${dataToJSON.length}`;
@@ -397,7 +409,7 @@ function displayItemsInTable(items) {
 
             // Close modal when overlay is clicked
 
-            overlay.addEventListener('click', onOverlayClick);
+            overlay.addEventListener('mousedown', onOverlayClick);
 
             function onOverlayClick(e) {
                 if (e.target.matches('.overlay')) {
@@ -447,9 +459,8 @@ function displayItemsInTable(items) {
                 const quantity = formData.get('quantity');
                 const image = formData.get('image');
 
-                const modifiedImage = URL.createObjectURL(image);
                 const imageFormData = new FormData();
-                imageFormData.append('image', modifiedImage);
+                imageFormData.append('image', image);
 
                 const modifyItem = async () => {
                     const modifyItem = await makeRequest({ path: `/Products/Edit/${x.id}`, method: 'PUT', data: { name, quantity, description, code, quantityForSale, categoryId, location: 'Tarnovo', price } });
@@ -458,10 +469,7 @@ function displayItemsInTable(items) {
 
                     if (image.name) {
                         // add request
-                        console.log(x.id);
-                        console.log(modifiedImage);
-                        console.log(imageFormData);
-                        await fetch(`http://localhost:5288/api/Images/Upload/${x.id}`, {
+                        await fetch(`http://localhost:5288/api/Images/Edit/${x.id}`, {
                             method: 'POST',
                             body: imageFormData
                         });

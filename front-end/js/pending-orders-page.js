@@ -3,6 +3,8 @@ import "../utils/hamburgerMenu.js";
 import "../components/pending-orders-item.js";
 import { makeRequest } from "../utils/makeRequest.js";
 
+document.documentElement.setAttribute('data-theme', localStorage.getItem('theme'));
+
 const DUMMY_DATA = [
     {
         code: 1,
@@ -29,7 +31,7 @@ const DUMMY_DATA = [
 
 // Render table rows from DUMMY_DATA
 
-const table = document.querySelector('#pending-items-responsive-table');
+const table = document.querySelector('#rows');
 
 // Load Pending Items data inside table
 
