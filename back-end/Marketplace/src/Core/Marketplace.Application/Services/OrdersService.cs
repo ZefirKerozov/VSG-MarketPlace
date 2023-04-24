@@ -89,8 +89,6 @@ public class OrdersService : IOrderService
         
         ExceptionService.ThrowExceptionWhenOrderIsNotPending(order);
         
-        ExceptionService.ThrowExceptionWhenIdsDoNotMatch(id, product.Id);
-
         product.Quantity += order.Quantity;
         product.QuantityForSale += order.Quantity;
         

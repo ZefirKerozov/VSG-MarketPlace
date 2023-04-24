@@ -321,7 +321,7 @@ html[data-theme=dark] {
     width: 100%;
   }
   .item-wrapper {
-    max-width: 100%;
+    width: 100%;
   }
   #description-modal {
     width: calc(100vw - 40px);

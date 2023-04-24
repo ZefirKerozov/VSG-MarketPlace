@@ -60,7 +60,7 @@ public class ProductService : IProductService
         var statusCode = await _orderService.GetStatusCodeByProductId(id);
         if (statusCode != "Without product")
         {
-        ExceptionService.ThrowExceptionWhenOrderIsNotComplete(statusCode);
+            ExceptionService.ThrowExceptionWhenOrderIsNotComplete(statusCode);
         }
       
          
