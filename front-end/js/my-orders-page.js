@@ -105,7 +105,10 @@ const loadItems = async () => {
                 <div class="col col-5" data-before="Status:">
                     <div class="status">
                         <span class="status-message">${x.status}</span>
-                        <button class="cancel-btn">
+                        ${x.status === "Finished" || x.status === "Canceled"
+                    ? ''
+                    : `
+                            <button class="cancel-btn">
                             <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -113,13 +116,14 @@ const loadItems = async () => {
                                     fill="#ED1C25" />
                             </svg>
                         </button>
+                            `}
                     </div>
                 </div>
             </div>
             `;
 
             const cancelOrderBtn = tableRow.querySelector('.cancel-btn');
-            cancelOrderBtn.addEventListener('click', showPopup);
+            cancelOrderBtn?.addEventListener('click', showPopup);
 
             // Open and close pop-up functionality
 
@@ -216,9 +220,7 @@ const loadItems = async () => {
 
                 async function onConfirmBtnClick(e) {
                     e.preventDefault();
-                    const statusMessage = tableRow.querySelector('.status-message');
-                    
-                    const canceledOrder = await makeRequest({path: `/Orders/Reject/${x.id}`})
+                    const canceledOrder = await makeRequest({ path: `/Orders/Reject/${x.id}`, method: 'DELETE'});
                 }
             };
 

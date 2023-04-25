@@ -116,6 +116,10 @@ $background-color: #FFFFFF;
             }
         }
 
+        #quantity{
+            width: 40px;
+        }
+
         button {
             @include displayFlex();
             position: relative;

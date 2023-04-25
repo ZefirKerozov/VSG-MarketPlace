@@ -213,7 +213,7 @@ async function onAddItemBtnClick(e) {
                 body: imageFormData
             });
 
-            // window.location.assign(`http:///127.0.0.1:5500/front-end/templates/inventory-page.html`);
+            window.location.reload();
         }
 
         addItem();
@@ -312,10 +312,15 @@ const loadProducts = async () => {
             const formData = new FormData(e.target);
             const search = formData.get('search');
 
-            startSlice = 0;
-            endSlice = 10;
-
             searchItemsToLoad = dataToJSON.filter(x => x.name.toLowerCase().includes(search.toLowerCase()));
+
+            startSlice = 0;
+            
+            if(searchItemsToLoad.length > 10){
+                endSlice = 10;
+            }else{
+                endSlice = searchItemsToLoad.length;
+            }
 
             displayItemsInTable(searchItemsToLoad.slice(startSlice, endSlice));
             pageIndex.textContent = `${startSlice + 1} - ${endSlice} of ${searchItemsToLoad.length}`;
@@ -616,7 +621,7 @@ function displayItemsInTable(items) {
                 e.preventDefault();
                 const deleteItem = async () => {
                     const deletedItem = await makeRequest({ path: `/Products/Inventory/Delete/${x.id}`, method: 'DELETE' })
-                    window.location.assign(`http://127.0.0.1:5500/front-end/templates/inventory-page.html`);
+                    window.location.reload();
                 }
 
                 deleteItem();

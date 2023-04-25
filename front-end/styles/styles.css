@@ -283,6 +283,7 @@ nav li:hover svg path {
   nav {
     border-radius: 0;
     padding-top: 15px;
+    height: 92%;
   }
   aside {
     position: fixed;
@@ -481,6 +482,9 @@ html[data-theme=dark] {
 .item-card .quantity-wrapper .quantity label {
   font-size: 0.3rem;
   color: #B3B3B3;
+}
+.item-card .quantity-wrapper #quantity {
+  width: 40px;
 }
 .item-card .quantity-wrapper button {
   display: flex;
