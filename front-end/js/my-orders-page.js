@@ -1,35 +1,8 @@
 import "../utils/navLinks.js";
 import "../utils/hamburgerMenu.js";
+import "../utils/darkMode.js";
 import "../components/my-orders-item.js";
-import { makeRequest } from "../utils/makeRequest.js";
-
-// Dark mode functionality
-
-document.documentElement.setAttribute('data-theme', localStorage.getItem('theme'));
-
-const darkModeSwitch = document.querySelector('#dark-mode');
-
-const theme = localStorage.getItem('theme');
-
-if (theme === undefined) {
-    localStorage.setItem('theme', 'light');
-}
-
-if (theme === 'dark') {
-    darkModeSwitch.checked = true;
-} else if (theme === 'light') {
-    darkModeSwitch.checked = false;
-}
-
-darkModeSwitch.addEventListener('change', () => {
-    if (darkModeSwitch.checked) {
-        localStorage.setItem('theme', 'dark');
-        document.documentElement.setAttribute('data-theme', localStorage.getItem('theme'));
-    } else {
-        localStorage.setItem('theme', 'light');
-        document.documentElement.setAttribute('data-theme', localStorage.getItem('theme'));
-    }
-});
+import { cancelOrder, getAllMyOrders } from "../utils/requests.js";
 
 const DUMMY_DATA = [
     {
@@ -69,9 +42,8 @@ const table = document.querySelector('#rows');
 
 const loadItems = async () => {
     try {
-        const data = await makeRequest({ path: `/Orders/MyOrders/1` });
-        const dataToJSON = await data.json();
-        dataToJSON.forEach(x => {
+        const data = await getAllMyOrders(1);
+        data.forEach(x => {
             const tableRow = document.createElement('div');
             tableRow.classList.add('table-row');
             tableRow.innerHTML = `
@@ -85,7 +57,10 @@ const loadItems = async () => {
                 <div class="col col-5" data-before="Status:">
                     <div class="status">
                         <span class="status-message">${x.status}</span>
-                        <button class="cancel-btn">
+                        ${x.status === "Finished" || x.status === "Canceled"
+                    ? ''
+                    : `
+                            <button class="cancel-btn">
                             <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -93,13 +68,14 @@ const loadItems = async () => {
                                     fill="#ED1C25" />
                             </svg>
                         </button>
+                            `}
                     </div>
                 </div>
             </div>
             `;
 
             const cancelOrderBtn = tableRow.querySelector('.cancel-btn');
-            cancelOrderBtn.addEventListener('click', showPopup);
+            cancelOrderBtn?.addEventListener('click', showPopup);
 
             // Open and close pop-up functionality
 
@@ -139,7 +115,7 @@ const loadItems = async () => {
                     if (window.innerWidth <= 768) {
                         positionLeft = position.left - position.left - 76;
                     } else {
-                        positionLeft = position.left - position.left - 160;
+                        positionLeft = position.left - position.left - 148;
                     }
                     elementPopUp.classList.add('top-right-pointer');
                 } else if (position.x + elementPopUp.offsetWidth >= window.innerWidth && position.y + elementPopUp.offsetHeight + 20 >= window.innerHeight) {
@@ -194,12 +170,10 @@ const loadItems = async () => {
                 const confirmBtn = document.getElementById('confirm-btn');
                 confirmBtn.addEventListener('click', onConfirmBtnClick);
 
-                function onConfirmBtnClick(e) {
+                async function onConfirmBtnClick(e) {
                     e.preventDefault();
-                    const statusMessage = tableRow.querySelector('.status-message');
-                    statusMessage.textContent = 'Canceled';
-                    console.log(cancelBtn);
-                    cancelOrderBtn.style.display = 'none';
+                    await cancelOrder(x.id);
+                    window.location.reload();
                 }
             };
 

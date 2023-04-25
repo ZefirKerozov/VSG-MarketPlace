@@ -1,220 +1,31 @@
-import { makeRequest } from "../utils/makeRequest.js";
 import "../utils/navLinks.js";
 import "../utils/hamburgerMenu.js";
-
-// Dark mode functionality
-
-document.documentElement.setAttribute('data-theme', localStorage.getItem('theme'));
-
-const darkModeSwitch = document.querySelector('#dark-mode');
-
-const theme = localStorage.getItem('theme');
-
-if (theme === undefined) {
-    localStorage.setItem('theme', 'light');
-}
-
-if (theme === 'dark') {
-    darkModeSwitch.checked = true;
-} else if (theme === 'light') {
-    darkModeSwitch.checked = false;
-}
-
-darkModeSwitch.addEventListener('change', () => {
-    if (darkModeSwitch.checked) {
-        localStorage.setItem('theme', 'dark');
-        document.documentElement.setAttribute('data-theme', localStorage.getItem('theme'));
-    } else {
-        localStorage.setItem('theme', 'light');
-        document.documentElement.setAttribute('data-theme', localStorage.getItem('theme'));
-    }
-});
+import "../utils/darkMode.js";
+import { addItem, deleteItem, getAllCategories, getAllProducts, modifyItem } from "../utils/requests.js";
+import createAddItemModal from "../components/add-item-modal.js";
 
 // Open add item modal if add item button is clicked
 
-const overlay = document.querySelector('.overlay');
-
 const addItemBtn = document.querySelector('#add-btn');
 
-addItemBtn?.addEventListener('click', onAddItemBtnClick);
-
-// Open add item modal
-
-async function onAddItemBtnClick(e) {
-    const modal = document.createElement('div');
-    modal.id = 'add-modal';
-    modal.innerHTML = `
-    <div class="modal-content">
-        <h1>Add new item</h1>
-    </div>
-    <form action="">
-        <div class="first-row">
-            <div class="first-column">
-                <div class="input-container">
-                    <label for="code">Code*</label>
-                    <input type="number" id="code" name="code" required>
-                </div>
-                <div class="input-container">
-                    <label for="name">Name*</label>    
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="input-container">
-                    <label for="descriptionText">Description</label>
-                    <textarea name="description" id="descriptionText" name="description" cols="30" rows="4"></textarea>
-                </div>
-                <div class="input-container">
-                    <label for="add-item-select">Category*</input>
-                    <select id="add-item-select" name="category" required>
-                        <option value="" disabled selected></option>
-                    </select>
-                </div>
-                <div class="input-container">
-                    <label for="qty-for-sale">Qty for sale</label>
-                    <input type="number" id="qty-for-sale" name="quantityForSale">
-                </div>
-                <div class="input-container">
-                    <label for="sale-price">Sale price</label>
-                    <input type="number" id="sale-price" name="price">
-                </div>
-                <div class="input-container">
-                    <label for="quantity">Qty*</label>
-                    <input type="number" id="quantity" name="quantity" required>
-                </div>
-            </div>
-            <div class="second-column">
-                <img src="/front-end/images/no_image-placeholder.png" id="add-item-image"
-                    alt="Photo preview">
-                <div class="upload-remove-btn">
-                    <label for="add-item-upload-image">Upload</label>
-                    <input type="file" class="hidden-upload-input" id="add-item-upload-image" name="image">
-                    <button id="add-item-remove-image-btn">Remove</button>
-                </div>
-            </div>
-        </div>
-        <div class="second-row">
-            <input type="submit" value="Add">
-        </div>
-    </form>
-    <button class="close-btn">
-        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-                d="M17.7305 2.02734L10.7578 9L17.7305 15.9727L15.9727 17.7305L9 10.7578L2.02734 17.7305L0.269531 15.9727L7.24219 9L0.269531 2.02734L2.02734 0.269531L9 7.24219L15.9727 0.269531L17.7305 2.02734Z"
-                fill="black" />
-        </svg>
-    </button>
-    `;
-
-    const categories = await makeRequest({ path: `/Category/All` });
-    const categoriesToJSON = await categories.json();
-    const categoriesSelect = modal.querySelector('#add-item-select');
-    categoriesToJSON.forEach(x => {
-        categoriesSelect.innerHTML += `<option value=${x.id}>${x.name}</option>`;
-    });
-
-    overlay.appendChild(modal);
-    overlay.style.display = 'flex';
-
-    // Close add item modal when modal close button is clicked
-
-    const modalCloseBtn = modal.querySelector('.close-btn');
-    modalCloseBtn.addEventListener('click', onModalCloseBtnClick);
-
-    function onModalCloseBtnClick() {
-        modal.remove();
-        overlay.style.display = 'none';
-    }
-
-    // Close add item modal when overlay is clicked
-
-    overlay.addEventListener('mousedown', onOverlayClick);
-
-    function onOverlayClick(e) {
-        if (e.target.matches('.overlay')) {
-            modal.remove();
-            overlay.style.display = 'none';
-        }
-    }
-
-    // Upload and display image in add item modal
-
-    const addModalImageInput = modal.querySelector('#add-item-upload-image');
-
-    addModalImageInput.addEventListener('change', onAddModalImageUpload);
-
-    function onAddModalImageUpload(e) {
-        const imageSrc = URL.createObjectURL(this.files[0]);
-        modal.querySelector('#add-item-image').src = imageSrc;
-        console.log(addModalImageInput.value);
-    }
-
-    // Remove uplaoded image from add item modal
-
-    const addItemRemoveImageBtn = modal.querySelector('#add-item-remove-image-btn');
-
-    addItemRemoveImageBtn.addEventListener('click', onAddItemRemoveImage);
-
-    function onAddItemRemoveImage(e) {
-        addModalImageInput.value = "";
-        modal.querySelector('#add-item-image').src = '/front-end/images/no_image-placeholder.png';
-    }
-
-    // Add item modal submit request
-
-    const form = modal.querySelector('form');
-    form.addEventListener('submit', onAddSubmit);
-
-    function onAddSubmit(e) {
-        e.preventDefault();
-
-        const formData = new FormData(e.target);
-
-        const code = formData.get('code');
-        const name = formData.get('name');
-        const description = formData.get('description');
-        const categoryId = formData.get('category');
-        const quantityForSale = formData.get('quantityForSale');
-        const price = formData.get('price');
-        const quantity = formData.get('quantity');
-        const image = formData.get('image');
-
-        const addItem = async () => {
-            const itemId = await makeRequest({ path: `/Products/Inventory/Add`, method: 'POST', data: { name, quantity, description, code, quantityForSale, categoryId, location: 'Tarnovo', price } });
-            const itemIdToJSON = await itemId.json();
-            console.log(itemIdToJSON);
-            // await makeRequest({ path: `/${itemId}`, method: 'POST', data: { image } });
-
-            const imageFormData = new FormData();
-            imageFormData.append('image', image);
-
-            await fetch(`http://localhost:5288/api/Images/Upload/${itemIdToJSON}`, {
-                method: 'POST',
-                body: imageFormData
-            });
-
-            // window.location.assign(`http:///127.0.0.1:5500/front-end/templates/inventory-page.html`);
-        }
-
-        addItem();
-    }
-}
+addItemBtn?.addEventListener('click', createAddItemModal);
 
 ////////// Dynamically load items from API //////////
 
 const loadProducts = async () => {
     try {
-        const data = await makeRequest({ path: '/Products/All' });
-        const dataToJSON = await data.json();
-        console.log(dataToJSON);
+        const data = await getAllProducts();
+
         // Display 10 items per page
 
         let startSlice = 0;
-        let endSlice = dataToJSON.length < 10 ? dataToJSON.length : 10;
-        let slicedItemsToLoad = dataToJSON.slice(startSlice, endSlice);
+        let endSlice = data.length < 10 ? data.length : 10;
+        let slicedItemsToLoad = data.slice(startSlice, endSlice);
         let searchItemsToLoad;
         const backwardBtn = document.querySelector('#backward-btn');
         const forwardBtn = document.querySelector('#forward-btn');
         let pageIndex = document.querySelector('#page-index');
-        pageIndex.textContent = `${startSlice + 1} - ${endSlice} of ${dataToJSON.length}`;
+        pageIndex.textContent = `${startSlice + 1} - ${endSlice} of ${data.length}`;
 
         // Pagiantion functionality
 
@@ -233,17 +44,17 @@ const loadProducts = async () => {
                 displayItemsInTable(searchItemsToLoad.slice(startSlice, endSlice));
                 pageIndex.textContent = `${startSlice + 1} - ${endSlice} of ${searchItemsToLoad.length}`;
             } else {
-                if (searchItemsToLoad === undefined && endSlice < dataToJSON.length) {
-                    if (dataToJSON.length - endSlice <= 10) {
+                if (searchItemsToLoad === undefined && endSlice < data.length) {
+                    if (data.length - endSlice <= 10) {
                         startSlice += 10;
-                        endSlice += dataToJSON.length - endSlice;
+                        endSlice += data.length - endSlice;
                     } else {
                         startSlice += 10;
                         endSlice += 10;
                     }
-                    slicedItemsToLoad = dataToJSON.slice(startSlice, endSlice);
+                    slicedItemsToLoad = data.slice(startSlice, endSlice);
                     displayItemsInTable(slicedItemsToLoad);
-                    pageIndex.textContent = `${startSlice + 1} - ${endSlice} of ${dataToJSON.length}`;
+                    pageIndex.textContent = `${startSlice + 1} - ${endSlice} of ${data.length}`;
                 }
             }
 
@@ -272,14 +83,16 @@ const loadProducts = async () => {
                         startSlice -= 10;
                         endSlice -= 10;
                     }
-                    slicedItemsToLoad = dataToJSON.slice(startSlice, endSlice);
+                    slicedItemsToLoad = data.slice(startSlice, endSlice);
                     displayItemsInTable(slicedItemsToLoad);
-                    pageIndex.textContent = `${startSlice + 1} - ${endSlice} of ${dataToJSON.length}`;
+                    pageIndex.textContent = `${startSlice + 1} - ${endSlice} of ${data.length}`;
                 }
             }
         })
 
         // Search functionality
+
+        document.querySelector('#search-btn svg path').style.fill = 'var(--color-text)';
 
         const searchForm = document.querySelector('#search-form');
 
@@ -288,10 +101,15 @@ const loadProducts = async () => {
             const formData = new FormData(e.target);
             const search = formData.get('search');
 
-            startSlice = 0;
-            endSlice = 10;
-
             searchItemsToLoad = dataToJSON.filter(x => x.name.toLowerCase().includes(search.toLowerCase()));
+
+            startSlice = 0;
+            
+            if(searchItemsToLoad.length > 10){
+                endSlice = 10;
+            }else{
+                endSlice = searchItemsToLoad.length;
+            }
 
             displayItemsInTable(searchItemsToLoad.slice(startSlice, endSlice));
             pageIndex.textContent = `${startSlice + 1} - ${endSlice} of ${searchItemsToLoad.length}`;
@@ -390,7 +208,7 @@ function displayItemsInTable(items) {
                 </div>
             </div>
                     <div class="second-column">
-                        <img src="${x.img}" id="modify-item-image"
+                        <img src="${x.img === null ? '../images/no_image-placeholder.png' : x.img}" id="modify-item-image"
                             alt="Photo preview">
                         <div class="upload-remove-btn">
                             <label for="modify-item-upload-image">Upload</label>
@@ -413,10 +231,9 @@ function displayItemsInTable(items) {
         </div>
         `;
 
-            const categories = await makeRequest({ path: `/Category/All` });
-            const categoriesToJSON = await categories.json();
+            const categories = await getAllCategories();
             const categoriesSelect = modal.querySelector('#add-item-select');
-            categoriesToJSON.forEach(y => {
+            categories.forEach(y => {
                 categoriesSelect.innerHTML += `<option value=${y.id} ${x.categoryName === y.name ? 'selected' : ''}>${y.name}</option>`;
             });
 
@@ -471,7 +288,7 @@ function displayItemsInTable(items) {
             const form = modal.querySelector('form');
             form.addEventListener('submit', onModifySubmit);
 
-            function onModifySubmit(e) {
+            async function onModifySubmit(e) {
                 e.preventDefault();
 
                 const formData = new FormData(e.target);
@@ -485,32 +302,8 @@ function displayItemsInTable(items) {
                 const quantity = formData.get('quantity');
                 const image = formData.get('image');
 
-                const imageFormData = new FormData();
-                imageFormData.append('image', image);
-
-                const modifyItem = async () => {
-                    const modifyItem = await makeRequest({ path: `/Products/Edit/${x.id}`, method: 'PUT', data: { name, quantity, description, code, quantityForSale, categoryId, location: 'Tarnovo', price } });
-
-                    const img = document.querySelector('#modify-item-image');
-
-                    if (image.name) {
-                        // add request
-                        await fetch(`http://localhost:5288/api/Images/Edit/${x.id}`, {
-                            method: 'POST',
-                            body: imageFormData
-                        });
-                    } else if (x.img !== img.src) {
-                        // delete request
-                        await fetch(`http://localhost:5288/api/Images/Delete/${x.id}`, {
-                            method: 'DELETE',
-                            body: imageFormData
-                        });
-                    }
-
-                    // window.location.assign(`http://127.0.0.1:5500/front-end/templates/inventory-page.html`);
-                }
-
-                modifyItem();
+                await modifyItem(x.id, name, quantity, description, code, quantityForSale, categoryId, 'Plovdiv', price, image, x.img);
+                window.location.reload();
             }
         }
 
@@ -586,14 +379,10 @@ function displayItemsInTable(items) {
             const confirmBtn = document.querySelector('#confirm-btn');
             confirmBtn.addEventListener('click', onDeleteItem);
 
-            function onDeleteItem(e) {
+            async function onDeleteItem(e) {
                 e.preventDefault();
-                const deleteItem = async () => {
-                    const deletedItem = await makeRequest({ path: `/Products/Inventory/Delete/${x.id}`, method: 'DELETE' })
-                    window.location.assign(`http://127.0.0.1:5500/front-end/templates/inventory-page.html`);
-                }
-
-                deleteItem();
+                await deleteItem(x.id);
+                window.location.reload();
             }
 
             // Close pop-up if cancel button is clicked

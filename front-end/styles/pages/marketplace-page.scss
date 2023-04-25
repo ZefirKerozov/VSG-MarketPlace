@@ -116,6 +116,10 @@ $background-color: #FFFFFF;
             }
         }
 
+        #quantity{
+            width: 40px;
+        }
+
         button {
             @include displayFlex();
             position: relative;
@@ -301,7 +305,7 @@ $background-color: #FFFFFF;
     }
 
     .item-wrapper {
-        max-width: 100%;
+        width: 100%;
     }
 
     #description-modal {

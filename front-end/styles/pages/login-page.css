@@ -1,10 +1,24 @@
+html[data-theme=light] {
+  --color-text: #000000;
+  --color-background: #FFFFFF;
+  --color-boxshadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  --color-backgroundMain: #F0F2F3;
+}
+
+html[data-theme=dark] {
+  --color-text: #FFFFFF;
+  --color-background: #353535;
+  --color-boxshadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+  --color-backgroundMain: #6B6B6B;
+}
+
 #main-container-login {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   height: 100vh;
-  background-image: url(../../images/vsg-background.png);
+  background-image: url("/front-end/images/vsg-background.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100% 100%;

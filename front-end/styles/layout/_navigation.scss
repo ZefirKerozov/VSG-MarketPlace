@@ -73,7 +73,8 @@ nav {
 @media (max-width: 768px) {
     nav {
         border-radius: 0;
-        padding-top: 60px;
+        padding-top: 15px;
+        height: 92%;
     }
 
     aside {
@@ -92,7 +93,7 @@ nav {
     }
 }
 
-@media (max-width: 1366px){
+@media (max-width: 1366px) {
     aside {
         width: 30%;
     }

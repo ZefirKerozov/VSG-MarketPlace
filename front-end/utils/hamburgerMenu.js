@@ -5,21 +5,32 @@ const hamburgerBtn = document.getElementsByTagName('svg')[0];
 
 hamburgerBtn.addEventListener('click', openHamburgerMenu);
 
+const userInfo = document.getElementById('user-info');
+const darkModeSwitch = document.querySelector('.dark-mode-switch-container');
+const prependContainer = document.querySelector('#prepend-container');
+prependContainer.id = 'prepend-container';
+
 window.addEventListener('resize', () => {
-    const userInfo = document.getElementById('user-info');
     if (window.innerWidth <= 768) {
-        asideNav.prepend(userInfo);
+        userInfo.style.display = 'none';
+        darkModeSwitch.style.display = 'none';
+        prependContainer.style.display = 'flex';
     } else {
-        document.getElementsByTagName('header')[0]?.appendChild(userInfo);
+        userInfo.style.display = 'flex';
+        darkModeSwitch.style.display = 'flex';
+        prependContainer.style.display = 'none';
     }
 });
 
 window.addEventListener('load', () => {
-    const userInfo = document.getElementById('user-info');
     if (window.innerWidth <= 768) {
-        asideNav.prepend(userInfo);
+        userInfo.style.display = 'none';
+        darkModeSwitch.style.display = 'none';
+        prependContainer.style.display = 'flex';
     } else {
-        document.getElementsByTagName('header')[0]?.appendChild(userInfo);
+        userInfo.style.display = 'flex';
+        darkModeSwitch.style.display = 'flex';
+        prependContainer.style.display = 'none';
     }
 });
 

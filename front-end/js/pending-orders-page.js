@@ -1,35 +1,9 @@
 import "../utils/navLinks.js";
 import "../utils/hamburgerMenu.js";
+import "../utils/darkMode.js";
 import "../components/pending-orders-item.js";
-import { makeRequest } from "../utils/makeRequest.js";
+import { completeOrder, getAllPendingOrders } from "../utils/requests.js";
 
-document.documentElement.setAttribute('data-theme', localStorage.getItem('theme'));// Dark mode functionality
-
-document.documentElement.setAttribute('data-theme', localStorage.getItem('theme'));
-
-const darkModeSwitch = document.querySelector('#dark-mode');
-
-const theme = localStorage.getItem('theme');
-
-if (theme === undefined) {
-    localStorage.setItem('theme', 'light');
-}
-
-if (theme === 'dark') {
-    darkModeSwitch.checked = true;
-} else if (theme === 'light') {
-    darkModeSwitch.checked = false;
-}
-
-darkModeSwitch.addEventListener('change', () => {
-    if (darkModeSwitch.checked) {
-        localStorage.setItem('theme', 'dark');
-        document.documentElement.setAttribute('data-theme', localStorage.getItem('theme'));
-    } else {
-        localStorage.setItem('theme', 'light');
-        document.documentElement.setAttribute('data-theme', localStorage.getItem('theme'));
-    }
-});
 const DUMMY_DATA = [
     {
         code: 1,
@@ -74,9 +48,8 @@ const table = document.querySelector('#rows');
 
 const loadItems = async () => {
     try {
-        const data = await makeRequest({ path: `/Orders/Pending` });
-        const dataToJSON = await data.json();
-        dataToJSON.forEach(x => {
+        const data = await getAllPendingOrders();
+        data.forEach(x => {
             const tableRow = document.createElement('div');
             tableRow.classList.add('table-row');
             tableRow.innerHTML = `
@@ -100,8 +73,8 @@ const loadItems = async () => {
             completeBtn.addEventListener('click', onCompleteOrder);
 
             async function onCompleteOrder(){
-                await makeRequest({path: `/Orders/Orders/Status/${x.id}`, method: 'PUT'});
-                window.location.assign(`http://127.0.0.1:5500/front-end/templates/pending-orders-page.html`);
+                await completeOrder(x.id);
+                window.location.reload();
             }
 
             table?.appendChild(tableRow);
