@@ -1,6 +1,7 @@
 import { makeRequest } from "../utils/makeRequest.js";
 import "../utils/navLinks.js";
 import "../utils/hamburgerMenu.js";
+import { addItem, deleteItem, getAllCategories, getAllProducts, modifyItem } from "../utils/requests.js";
 
 // Dark mode functionality
 
@@ -124,12 +125,9 @@ async function onAddItemBtnClick(e) {
     </button>
     `;
 
-    modal.querySelector('svg path').style.fill = 'var(--color-text)';
-
-    const categories = await makeRequest({ path: `/Category/All` });
-    const categoriesToJSON = await categories.json();
+    const categories = await getAllCategories();
     const categoriesSelect = modal.querySelector('#add-item-select');
-    categoriesToJSON.forEach(x => {
+    categories.forEach(x => {
         categoriesSelect.innerHTML += `<option value=${x.id}>${x.name}</option>`;
     });
 
@@ -199,24 +197,7 @@ async function onAddItemBtnClick(e) {
         const quantity = formData.get('quantity');
         const image = formData.get('image');
 
-        const addItem = async () => {
-            const itemId = await makeRequest({ path: `/Products/Inventory/Add`, method: 'POST', data: { name, quantity, description, code, quantityForSale, categoryId, location: 'Tarnovo', price } });
-            const itemIdToJSON = await itemId.json();
-            console.log(itemIdToJSON);
-            // await makeRequest({ path: `/${itemId}`, method: 'POST', data: { image } });
-
-            const imageFormData = new FormData();
-            imageFormData.append('image', image);
-
-            await fetch(`http://localhost:5288/api/Images/Upload/${itemIdToJSON}`, {
-                method: 'POST',
-                body: imageFormData
-            });
-
-            window.location.reload();
-        }
-
-        addItem();
+        addItem(name, quantity, description, code, quantityForSale, categoryId, 'Plovdiv', price, image);
     }
 }
 
@@ -224,19 +205,18 @@ async function onAddItemBtnClick(e) {
 
 const loadProducts = async () => {
     try {
-        const data = await makeRequest({ path: '/Products/All' });
-        const dataToJSON = await data.json();
-        console.log(dataToJSON);
+        const data = await getAllProducts();
+
         // Display 10 items per page
 
         let startSlice = 0;
-        let endSlice = dataToJSON.length < 10 ? dataToJSON.length : 10;
-        let slicedItemsToLoad = dataToJSON.slice(startSlice, endSlice);
+        let endSlice = data.length < 10 ? data.length : 10;
+        let slicedItemsToLoad = data.slice(startSlice, endSlice);
         let searchItemsToLoad;
         const backwardBtn = document.querySelector('#backward-btn');
         const forwardBtn = document.querySelector('#forward-btn');
         let pageIndex = document.querySelector('#page-index');
-        pageIndex.textContent = `${startSlice + 1} - ${endSlice} of ${dataToJSON.length}`;
+        pageIndex.textContent = `${startSlice + 1} - ${endSlice} of ${data.length}`;
 
         // Pagiantion functionality
 
@@ -255,17 +235,17 @@ const loadProducts = async () => {
                 displayItemsInTable(searchItemsToLoad.slice(startSlice, endSlice));
                 pageIndex.textContent = `${startSlice + 1} - ${endSlice} of ${searchItemsToLoad.length}`;
             } else {
-                if (searchItemsToLoad === undefined && endSlice < dataToJSON.length) {
-                    if (dataToJSON.length - endSlice <= 10) {
+                if (searchItemsToLoad === undefined && endSlice < data.length) {
+                    if (data.length - endSlice <= 10) {
                         startSlice += 10;
-                        endSlice += dataToJSON.length - endSlice;
+                        endSlice += data.length - endSlice;
                     } else {
                         startSlice += 10;
                         endSlice += 10;
                     }
-                    slicedItemsToLoad = dataToJSON.slice(startSlice, endSlice);
+                    slicedItemsToLoad = data.slice(startSlice, endSlice);
                     displayItemsInTable(slicedItemsToLoad);
-                    pageIndex.textContent = `${startSlice + 1} - ${endSlice} of ${dataToJSON.length}`;
+                    pageIndex.textContent = `${startSlice + 1} - ${endSlice} of ${data.length}`;
                 }
             }
 
@@ -294,9 +274,9 @@ const loadProducts = async () => {
                         startSlice -= 10;
                         endSlice -= 10;
                     }
-                    slicedItemsToLoad = dataToJSON.slice(startSlice, endSlice);
+                    slicedItemsToLoad = data.slice(startSlice, endSlice);
                     displayItemsInTable(slicedItemsToLoad);
-                    pageIndex.textContent = `${startSlice + 1} - ${endSlice} of ${dataToJSON.length}`;
+                    pageIndex.textContent = `${startSlice + 1} - ${endSlice} of ${data.length}`;
                 }
             }
         })
@@ -419,7 +399,7 @@ function displayItemsInTable(items) {
                 </div>
             </div>
                     <div class="second-column">
-                        <img src="${x.img}" id="modify-item-image"
+                        <img src="${x.img === null ? '../images/no_image-placeholder.png' : x.img}" id="modify-item-image"
                             alt="Photo preview">
                         <div class="upload-remove-btn">
                             <label for="modify-item-upload-image">Upload</label>
@@ -442,12 +422,9 @@ function displayItemsInTable(items) {
         </div>
         `;
 
-            modal.querySelector('svg path').style.fill = 'var(--color-text)';
-
-            const categories = await makeRequest({ path: `/Category/All` });
-            const categoriesToJSON = await categories.json();
+            const categories = await getAllCategories();
             const categoriesSelect = modal.querySelector('#add-item-select');
-            categoriesToJSON.forEach(y => {
+            categories.forEach(y => {
                 categoriesSelect.innerHTML += `<option value=${y.id} ${x.categoryName === y.name ? 'selected' : ''}>${y.name}</option>`;
             });
 
@@ -502,7 +479,7 @@ function displayItemsInTable(items) {
             const form = modal.querySelector('form');
             form.addEventListener('submit', onModifySubmit);
 
-            function onModifySubmit(e) {
+            async function onModifySubmit(e) {
                 e.preventDefault();
 
                 const formData = new FormData(e.target);
@@ -516,32 +493,7 @@ function displayItemsInTable(items) {
                 const quantity = formData.get('quantity');
                 const image = formData.get('image');
 
-                const imageFormData = new FormData();
-                imageFormData.append('image', image);
-
-                const modifyItem = async () => {
-                    const modifyItem = await makeRequest({ path: `/Products/Edit/${x.id}`, method: 'PUT', data: { name, quantity, description, code, quantityForSale, categoryId, location: 'Tarnovo', price } });
-
-                    const img = document.querySelector('#modify-item-image');
-
-                    if (image.name) {
-                        // add request
-                        await fetch(`http://localhost:5288/api/Images/Edit/${x.id}`, {
-                            method: 'POST',
-                            body: imageFormData
-                        });
-                    } else if (x.img !== img.src) {
-                        // delete request
-                        await fetch(`http://localhost:5288/api/Images/Delete/${x.id}`, {
-                            method: 'DELETE',
-                            body: imageFormData
-                        });
-                    }
-
-                    window.location.reload();
-                }
-
-                modifyItem();
+                await modifyItem(x.id, name, quantity, description, code, quantityForSale, categoryId, 'Plovdiv', price, image, x.img);
             }
         }
 
@@ -585,7 +537,7 @@ function displayItemsInTable(items) {
             let positionTop;
 
             if (position.x + elementPopUp.offsetWidth >= window.innerWidth) {
-                positionLeft = position.left - position.left - 233;
+                positionLeft = position.left - position.left - 224;
                 elementPopUp.classList.add('top-right-pointer');
             } else if (position.x + elementPopUp.offsetWidth >= window.innerWidth && position.y + elementPopUp.offsetHeight + 20 >= window.innerHeight) {
                 positionLeft = position.left - position.left - 100;
@@ -617,14 +569,9 @@ function displayItemsInTable(items) {
             const confirmBtn = document.querySelector('#confirm-btn');
             confirmBtn.addEventListener('click', onDeleteItem);
 
-            function onDeleteItem(e) {
+            async function onDeleteItem(e) {
                 e.preventDefault();
-                const deleteItem = async () => {
-                    const deletedItem = await makeRequest({ path: `/Products/Inventory/Delete/${x.id}`, method: 'DELETE' })
-                    window.location.reload();
-                }
-
-                deleteItem();
+                await deleteItem(x.id);
             }
 
             // Close pop-up if cancel button is clicked

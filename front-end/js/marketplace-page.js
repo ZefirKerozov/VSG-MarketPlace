@@ -81,7 +81,7 @@ const loadProducts = async () => {
             itemDiv.innerHTML = `
             <div class="item-card">
                 <div class="img-wrapper">
-                    <img src="${x.img}" alt="Product image">
+                    <img src="${x.img === null ? '../images/no_image-placeholder.png' : x.img}" alt="Product image">
                 </div>
                 <div class="item-info">
                     <div class="price-category">
@@ -234,7 +234,7 @@ const loadProducts = async () => {
                 modal.id = 'description-modal';
 
                 modal.innerHTML = `
-                <img src="${x.img}" alt="Item image">
+                <img src="${x.img === null ? '../images/no_image-placeholder.png' : x.img}" alt="Item image">
                 <div class="item-description">
                     <div class="top">
                         <div class="title-category">
