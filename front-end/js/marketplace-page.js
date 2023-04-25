@@ -11,54 +11,48 @@ import createMarketplaceItemDescriptionModal from "../components/marketplace-ite
 
 const itemsContainer = document.querySelector('.items');
 
-const loadProducts = async () => {
-    try {
-        const data = await getAllProducts();
+try {
+    const data = await getAllProducts();
 
-        data.filter(x => x.quantityForSale > 0).forEach(x => {
+    data.filter(x => x.quantityForSale > 0).forEach(x => {
 
-            const itemDiv = createMarketplaceItem(x.img, x.quantityForSale, x.price, x.categoryName, itemsContainer);
+        const itemDiv = createMarketplaceItem(x.img, x.quantityForSale, x.price, x.categoryName, itemsContainer);
 
-            // Pop up
+        // Pop up
 
-            const buyBtn = itemDiv.querySelector('.buy-btn');
+        const buyBtn = itemDiv.querySelector('.buy-btn');
 
-            const selectedQuantity = itemDiv.querySelector('#quantity').value;
-            const totalPrice = x.price * selectedQuantity;
+        const selectedQuantity = itemDiv.querySelector('#quantity').value;
+        const totalPrice = x.price * selectedQuantity;
 
-            const popUpText = `<p class="inside-pop-up">Are you sure you want to buy ${selectedQuantity} ${selectedQuantity > 1 ? 'items' : 'item'} for ${totalPrice} BGN?</p>
+        const popUpText = `<p class="inside-pop-up">Are you sure you want to buy ${selectedQuantity} ${selectedQuantity > 1 ? 'items' : 'item'} for ${totalPrice} BGN?</p>
             <div class="pop-up-buttons inside-pop-up">
                 <a href="" id="confirm-btn">Yes</a>
                 <a href="" id="cancel-btn">No</a>
             </div>`;
 
-            async function confirmPurchase(e) {
-                e.preventDefault();
-                await buyProduct(selectedQuantity, x.id, 1);
-                window.location.assign('http://127.0.0.1:5500/front-end/templates/my-orders-page.html');
-            }
+        async function confirmPurchase(e) {
+            e.preventDefault();
+            await buyProduct(selectedQuantity, x.id, 1);
+            window.location.assign('http://127.0.0.1:5500/front-end/templates/my-orders-page.html');
+        }
 
-            buyBtn.addEventListener('click', (e) => {
-                showPopup(e, popUpText, confirmPurchase);
-            });
-
-            // Show and hide item description modal
-
-            // Show modal when clicked on item image
-
-            const itemImage = itemDiv.querySelector('.item-card img');
-            itemImage.addEventListener('click', onItemImageClick);
-
-            async function onItemImageClick() {
-                createMarketplaceItemDescriptionModal(x.img, x.name, x.categoryName, x.price, x.quantityForSale, x.description);
-            }
+        buyBtn.addEventListener('click', (e) => {
+            showPopup(e, popUpText, confirmPurchase);
         });
-    } catch (err) {
-        console.log(err);
-    }
-}
 
-loadProducts();
+        // Show and hide item description modal
+
+        // Show modal when clicked on item image
+
+        const itemImage = itemDiv.querySelector('.item-card img');
+        itemImage.addEventListener('click', () => {
+            createMarketplaceItemDescriptionModal(x.img, x.name, x.categoryName, x.price, x.quantityForSale, x.description);
+        });
+    });
+} catch (err) {
+    console.log(err);
+}
 
 ///// NOT USED IN APP /////
 
