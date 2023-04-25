@@ -2,6 +2,7 @@ import { makeRequest } from "../utils/makeRequest.js";
 import "../utils/navLinks.js";
 import "../utils/hamburgerMenu.js";
 import "../components/marketplace-item.js";
+import { buyProduct, getAllProducts } from "../utils/requests.js";
 
 // Dark mode functionality
 
@@ -57,9 +58,8 @@ const itemsContainer = document.querySelector('.items');
 
 const loadProducts = async () => {
     try {
-        const data = await makeRequest({ path: '/Products/All' });
-        const dataToJSON = await data.json();
-        dataToJSON.filter(x => x.quantityForSale > 0).forEach(x => {
+        const data = await getAllProducts()
+        data.filter(x => x.quantityForSale > 0).forEach(x => {
             // const marketplaceItem = document.createElement('marketplace-item');
             // marketplaceItem.style.width = '25%';
 
@@ -192,8 +192,7 @@ const loadProducts = async () => {
 
                 async function confirmPurchase(e) {
                     e.preventDefault();
-                    console.log(selectedQuantity, x.id);
-                    await makeRequest({ path: `/Orders/Add`, method: 'POST', data: { quantity: selectedQuantity, productId: x.id, userId: 1 } });
+                    await buyProduct(selectedQuantity, x.id, 1);
                     window.location.assign('http://127.0.0.1:5500/front-end/templates/my-orders-page.html');
                 }
 
