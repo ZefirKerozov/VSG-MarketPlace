@@ -122,11 +122,9 @@ C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\
 C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\NLog.Database.dll
 C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\NLog.Extensions.Logging.dll
 C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\NLog.Web.AspNetCore.dll
-<<<<<<< HEAD
 C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\NRedisStack.dll
 C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\Pipelines.Sockets.Unofficial.dll
 C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\StackExchange.Redis.dll
-=======
 >>>>>>> f73d2ab3c2cdb9ec88bfa7a08e22653939b6f3b2
 C:\Users\YKurtev\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\nlog.config
 C:\Users\YKurtev\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\NLog.dll
@@ -134,3 +132,6 @@ C:\Users\YKurtev\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\M
 C:\Users\YKurtev\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\NLog.Extensions.Logging.dll
 C:\Users\YKurtev\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\NLog.Web.AspNetCore.dll
 >>>>>>> 2fe175027f23d1b8d2a34441eeab2f4974947a2b
+C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\FluentMigrator.dll
+C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\FluentMigrator.Abstractions.dll
+C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\de-DE\FluentMigrator.Abstractions.resources.dll

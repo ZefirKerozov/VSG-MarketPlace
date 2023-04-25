@@ -15,6 +15,5 @@ public class Products :BaseEntity
     public int CategoryId { get; set; }
     
     public string Location { get; set; }
-
     public decimal Price { get; set; }
 }
