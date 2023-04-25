@@ -13,7 +13,7 @@ using Marketplace.Application.Models.OrderModels.Dtos;
 using Marketplace.Application.Models.ProductModels.Dtos;
 
 namespace Marketplace.Application.Helpers.Configurations;
-
+using StackExchange.Redis;
 public static class ConfigurationApplicationLayer
 {
     public static IServiceCollection AddConfigurationApplicationLayer(this IServiceCollection services)
@@ -28,7 +28,6 @@ public static class ConfigurationApplicationLayer
         services.AddScoped<IValidator<CreateOrderDto>, CreateOrderValidator>();
         services.AddScoped<IValidator<AddProductDto>, CreateProductValidator>();
         services.AddScoped<IValidator<ProductEditDto>, EditProductValidator>();
-
         return services;
 
     }
