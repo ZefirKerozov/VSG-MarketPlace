@@ -2,6 +2,7 @@ import "../utils/navLinks.js";
 import "../utils/hamburgerMenu.js";
 import "../components/pending-orders-item.js";
 import { makeRequest } from "../utils/makeRequest.js";
+import { completeOrder, getAllPendingOrders } from "../utils/requests.js";
 
 // Dark mode functionality
 
@@ -95,9 +96,8 @@ const table = document.querySelector('#rows');
 
 const loadItems = async () => {
     try {
-        const data = await makeRequest({ path: `/Orders/Pending` });
-        const dataToJSON = await data.json();
-        dataToJSON.forEach(x => {
+        const data = await getAllPendingOrders();
+        data.forEach(x => {
             const tableRow = document.createElement('div');
             tableRow.classList.add('table-row');
             tableRow.innerHTML = `
@@ -121,8 +121,7 @@ const loadItems = async () => {
             completeBtn.addEventListener('click', onCompleteOrder);
 
             async function onCompleteOrder(){
-                await makeRequest({path: `/Orders/Orders/Status/${x.id}`, method: 'PUT'});
-                window.location.assign(`http://127.0.0.1:5500/front-end/templates/pending-orders-page.html`);
+                await completeOrder(x.id);
             }
 
             table?.appendChild(tableRow);

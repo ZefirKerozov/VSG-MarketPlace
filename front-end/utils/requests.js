@@ -56,5 +56,27 @@ export const modifyItem = async (id, name, quantity, description, code, quantity
 }
 
 export const deleteItem = async (id) => {
-    await makeRequest({path: `/Products/Inventory/Delete/${id}`, method: 'DELETE'});
+    await makeRequest({ path: `/Products/Inventory/Delete/${id}`, method: 'DELETE' });
+}
+
+// Pending orders page requests
+
+export const getAllPendingOrders = async () => {
+    const res = await makeRequest({ path: '/Orders/Pending' });
+    return res.json();
+}
+
+export const completeOrder = async (id) => {
+    await makeRequest({ path: `/Orders/Orders/Status/${id}`, method: 'PUT' });
+}
+
+// My orders page requests
+
+export const getAllMyOrders = async (userId) => {
+    const res = await makeRequest({path: `/Orders/MyOrders/${userId}`});
+    return await res.json();
+}
+
+export const cancelOrder = async (orderId) => {
+    await makeRequest({path: `/Orders/Reject/${orderId}`, method: 'DELETE'});
 }

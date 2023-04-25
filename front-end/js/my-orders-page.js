@@ -2,6 +2,7 @@ import "../utils/navLinks.js";
 import "../utils/hamburgerMenu.js";
 import "../components/my-orders-item.js";
 import { makeRequest } from "../utils/makeRequest.js";
+import { cancelOrder, getAllMyOrders } from "../utils/requests.js";
 
 // Dark mode functionality
 
@@ -89,9 +90,8 @@ const table = document.querySelector('#rows');
 
 const loadItems = async () => {
     try {
-        const data = await makeRequest({ path: `/Orders/MyOrders/1` });
-        const dataToJSON = await data.json();
-        dataToJSON.forEach(x => {
+        const data = await getAllMyOrders(1);
+        data.forEach(x => {
             const tableRow = document.createElement('div');
             tableRow.classList.add('table-row');
             tableRow.innerHTML = `
@@ -220,8 +220,7 @@ const loadItems = async () => {
 
                 async function onConfirmBtnClick(e) {
                     e.preventDefault();
-                    const canceledOrder = await makeRequest({ path: `/Orders/Reject/${x.id}`, method: 'DELETE'});
-                    window.location.reload();
+                    await cancelOrder(x.id);
                 }
             };
 
