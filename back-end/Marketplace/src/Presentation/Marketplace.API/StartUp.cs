@@ -4,11 +4,11 @@ using Marketplace.Persistence.Configuration;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.OpenApi.Models;
 using NLog.Web;
+using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -18,8 +18,8 @@ builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "Marketplace", Version = "v1" });
     c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
+    
 });
-
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: "CORSPolicy", policy =>

@@ -21,4 +21,11 @@ public class CategoryController: ControllerBase
     {
         return await _categorieService.GetCategories();
     }
+
+    [HttpPost]
+    [Route("Add/{name}")]
+    public async Task AddCategorie(string name)
+    {
+        await _categorieService.AddCategorie(name);
+    }
 }

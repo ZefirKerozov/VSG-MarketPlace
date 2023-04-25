@@ -21,6 +21,8 @@
           "NLog.Database": "5.1.3",
           "NLog.Extensions.Logging": "5.2.3",
           "NLog.Web.AspNetCore": "5.2.3",
+          "NRedisStack": "0.6.0",
+          "StackExchange.Redis": "2.6.104",
           "StructureMap": "4.7.1",
           "System.Data.SqlClient": "4.8.5"
         },
@@ -222,6 +224,28 @@
           }
         }
       },
+      "NRedisStack/0.6.0": {
+        "dependencies": {
+          "StackExchange.Redis": "2.6.104"
+        },
+        "runtime": {
+          "lib/net7.0/NRedisStack.dll": {
+            "assemblyVersion": "0.6.0.0",
+            "fileVersion": "0.6.0.0"
+          }
+        }
+      },
+      "Pipelines.Sockets.Unofficial/2.2.2": {
+        "dependencies": {
+          "System.IO.Pipelines": "5.0.1"
+        },
+        "runtime": {
+          "lib/net5.0/Pipelines.Sockets.Unofficial.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "2.2.2.34088"
+          }
+        }
+      },
       "runtime.native.System.Data.SqlClient.sni/4.7.0": {
         "dependencies": {
           "runtime.win-arm64.runtime.native.System.Data.SqlClient.sni": "4.4.0",
@@ -253,6 +277,17 @@
             "rid": "win-x86",
             "assetType": "native",
             "fileVersion": "4.6.25512.1"
+          }
+        }
+      },
+      "StackExchange.Redis/2.6.104": {
+        "dependencies": {
+          "Pipelines.Sockets.Unofficial": "2.2.2"
+        },
+        "runtime": {
+          "lib/net5.0/StackExchange.Redis.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.6.104.40210"
           }
         }
       },
@@ -353,6 +388,7 @@
           "System.Threading.Tasks": "4.3.0"
         }
       },
+      "System.IO.Pipelines/5.0.1": {},
       "System.Reflection/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "3.1.0",
@@ -453,6 +489,8 @@
           "NLog.Database": "5.1.3",
           "NLog.Extensions.Logging": "5.2.3",
           "NLog.Web.AspNetCore": "5.2.3",
+          "NRedisStack": "0.6.0",
+          "StackExchange.Redis": "2.6.104",
           "System.Data.SqlClient": "4.8.5"
         },
         "runtime": {
@@ -642,6 +680,20 @@
       "path": "nlog.web.aspnetcore/5.2.3",
       "hashPath": "nlog.web.aspnetcore.5.2.3.nupkg.sha512"
     },
+    "NRedisStack/0.6.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GjOeQ/LbkJvqAFZos6nnrfH2YHHkE+W6s7trfqikMWtagUeBgwZjyfW74Rh/o213AHrstnKM/Lp+mN6FPDXFMQ==",
+      "path": "nredisstack/0.6.0",
+      "hashPath": "nredisstack.0.6.0.nupkg.sha512"
+    },
+    "Pipelines.Sockets.Unofficial/2.2.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Bhk0FWxH1paI+18zr1g5cTL+ebeuDcBCR+rRFO+fKEhretgjs7MF2Mc1P64FGLecWp4zKCUOPzngBNrqVyY7Zg==",
+      "path": "pipelines.sockets.unofficial/2.2.2",
+      "hashPath": "pipelines.sockets.unofficial.2.2.2.nupkg.sha512"
+    },
     "runtime.native.System.Data.SqlClient.sni/4.7.0": {
       "type": "package",
       "serviceable": true,
@@ -669,6 +721,13 @@
       "sha512": "sha512-YhEdSQUsTx+C8m8Bw7ar5/VesXvCFMItyZF7G1AUY+OM0VPZUOeAVpJ4Wl6fydBGUYZxojTDR3I6Bj/+BPkJNA==",
       "path": "runtime.win-x86.runtime.native.system.data.sqlclient.sni/4.4.0",
       "hashPath": "runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512"
+    },
+    "StackExchange.Redis/2.6.104": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ccfmWZifNOk2c+co6urH9BeyUzmbqalyksVy6Ma28xNTLT3Nrng+5OX+EB5KrTsWHykoZTGzTM3L7ndySuxEuA==",
+      "path": "stackexchange.redis/2.6.104",
+      "hashPath": "stackexchange.redis.2.6.104.nupkg.sha512"
     },
     "StructureMap/4.7.1": {
       "type": "package",
@@ -732,6 +791,13 @@
       "sha512": "sha512-3qjaHvxQPDpSOYICjUoTsmoq5u6QJAFRUITgeT/4gqkF1bajbSmb1kwSxEA8AHlofqgcKJcM8udgieRNhaJ5Cg==",
       "path": "system.io/4.3.0",
       "hashPath": "system.io.4.3.0.nupkg.sha512"
+    },
+    "System.IO.Pipelines/5.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qEePWsaq9LoEEIqhbGe6D5J8c9IqQOUuTzzV6wn1POlfdLkJliZY3OlB0j0f17uMWlqZYjH7txj+2YbyrIA8Yg==",
+      "path": "system.io.pipelines/5.0.1",
+      "hashPath": "system.io.pipelines.5.0.1.nupkg.sha512"
     },
     "System.Reflection/4.3.0": {
       "type": "package",
