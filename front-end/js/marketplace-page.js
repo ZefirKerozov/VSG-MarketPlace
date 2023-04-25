@@ -258,6 +258,8 @@ const loadProducts = async () => {
                 </button>
                 `;
 
+                modal.querySelector('svg path').style.fill = 'var(--color-text)';
+
                 const overlay = document.querySelector('.overlay');
                 overlay.appendChild(modal);
                 overlay.style.display = 'flex';

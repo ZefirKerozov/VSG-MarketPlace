@@ -1,3 +1,5 @@
+@import '../base/colors';
+
 @mixin displayFlex($flexDirection: row) {
     display: flex;
     flex-direction: $flexDirection;
@@ -17,7 +19,7 @@
     height: 0px;
     border-style: solid;
     border-width: 0 10px 10px 10px;
-    border-color: transparent transparent #FFFFFF transparent;
+    border-color: transparent transparent var(--color-background) transparent;
     transform: rotate($degrees);
 }
 
@@ -26,7 +28,7 @@
     @include flexProperties(center, center);
     width: 57px;
     height: 22px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: var(--color-boxshadow);
     border-radius: 4px;
     background-color: $backgroundColor;
     text-decoration: none;

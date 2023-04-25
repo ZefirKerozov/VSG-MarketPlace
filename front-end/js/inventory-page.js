@@ -124,6 +124,8 @@ async function onAddItemBtnClick(e) {
     </button>
     `;
 
+    modal.querySelector('svg path').style.fill = 'var(--color-text)';
+
     const categories = await makeRequest({ path: `/Category/All` });
     const categoriesToJSON = await categories.json();
     const categoriesSelect = modal.querySelector('#add-item-select');
@@ -301,6 +303,8 @@ const loadProducts = async () => {
 
         // Search functionality
 
+        document.querySelector('#search-btn svg path').style.fill = 'var(--color-text)';
+
         const searchForm = document.querySelector('#search-form');
 
         searchForm.addEventListener('submit', (e) => {
@@ -432,6 +436,8 @@ function displayItemsInTable(items) {
             </button>
         </div>
         `;
+
+            modal.querySelector('svg path').style.fill = 'var(--color-text)';
 
             const categories = await makeRequest({ path: `/Category/All` });
             const categoriesToJSON = await categories.json();
