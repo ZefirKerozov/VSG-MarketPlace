@@ -93,18 +93,18 @@ header .left-container {
   align-items: center;
   gap: 20px;
 }
-header .left-container .dark-mode-switch-container {
+header .dark-mode-switch-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   gap: 5px;
 }
-header .left-container .dark-mode-switch-container label {
+header .dark-mode-switch-container label {
   font-size: 0.5rem;
   color: var(--color-text);
 }
-header .left-container .dark-mode-switch-container input {
+header .dark-mode-switch-container input {
   border-radius: 20px;
 }
 header a {
@@ -140,14 +140,32 @@ header #user-info {
   #user-info {
     display: flex;
     flex-direction: row-reverse;
-    justify-content: flex-start;
+    justify-content: flex-end;
     align-items: center;
-    position: absolute;
     gap: 10px;
     font-size: 0.5rem;
-    top: 20px;
-    left: 70px;
-    transform: translate(-50%, 0);
+    color: var(--color-text);
+  }
+  #prepend-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px;
+  }
+  .dark-mode-switch-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+  }
+  .dark-mode-switch-container label {
+    font-size: 0.5rem;
+    color: var(--color-text);
+  }
+  .dark-mode-switch-container input {
+    border-radius: 20px;
   }
 }
 aside {
@@ -208,7 +226,7 @@ nav li:hover svg path {
 @media (max-width: 768px) {
   nav {
     border-radius: 0;
-    padding-top: 60px;
+    padding-top: 15px;
   }
   aside {
     position: fixed;
