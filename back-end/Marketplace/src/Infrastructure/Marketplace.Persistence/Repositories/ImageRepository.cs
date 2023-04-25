@@ -6,7 +6,7 @@ using Marketplace.Application.Models.ImageModels.Dtos;
 
 namespace Marketplace.Persistence.Repositories;
 
-public class ImageRepository :GenericRepository<Images>, IImageRepository
+public class ImageRepository :GenericRepository<Image>, IImageRepository
 {
     
     public ImageRepository(IUnitOfWork unitOfWork) : base(unitOfWork)

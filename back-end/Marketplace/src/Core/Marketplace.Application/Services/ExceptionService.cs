@@ -27,7 +27,7 @@ public static class ExceptionService
     }
 
 
-    public static void ThrowExceptionWhenOrderIsNotPending(Orders order)
+    public static void ThrowExceptionWhenOrderIsNotPending(Order order)
     {
         if (order.Status != OrderStatus.Pending)
         {

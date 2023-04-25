@@ -1,6 +1,6 @@
 ﻿namespace Markerplace.Domain.Entities;
 
-public class Categories :BaseEntity
+public class Category :BaseEntity
 {
     public string Name { get; set; }
 }

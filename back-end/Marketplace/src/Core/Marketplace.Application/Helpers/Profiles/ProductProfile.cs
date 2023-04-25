@@ -8,8 +8,8 @@ public class ProductProfile :Profile
 {
     public ProductProfile()
     {
-        CreateMap<AddProductDto, Products>();
-        CreateMap<ProductEditDto, Products>();
+        CreateMap<AddProductDto, Product>();
+        CreateMap<ProductEditDto, Product>();
 
     }
 }

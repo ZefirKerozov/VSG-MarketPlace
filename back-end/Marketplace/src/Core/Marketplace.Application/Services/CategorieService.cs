@@ -22,12 +22,12 @@ public class CategorieService : ICategorieService
         _categorieRepository = categorieRepository;
     }
 
-    public async Task<List<Categories>> GetCategories()
+    public async Task<List<Category>> GetCategories()
     {
         var value = await db.StringGetAsync(categoryKey);
         if (!String.IsNullOrEmpty(value))
         {
-            return JsonSerializer.Deserialize<List<Categories>>(value);
+            return JsonSerializer.Deserialize<List<Category>>(value);
         }
         
         
@@ -43,7 +43,7 @@ public class CategorieService : ICategorieService
         {
            await db.KeyDeleteAsync(categoryKey);
         }
-        var category = new Categories
+        var category = new Category
         {
             Name = name,
         };

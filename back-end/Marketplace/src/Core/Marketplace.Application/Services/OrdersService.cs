@@ -67,7 +67,7 @@ public class OrdersService : IOrderService
 
        await _productRepository.Update(product);
 
-        var order = _mapper.Map<Orders>(dto);
+        var order = _mapper.Map<Order>(dto);
         
         order.Code = product.Code;
 

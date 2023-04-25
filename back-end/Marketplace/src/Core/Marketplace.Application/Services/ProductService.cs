@@ -50,7 +50,7 @@ public class ProductService : IProductService
 
     public async Task<int> AddProduct(AddProductDto productDto)
     {
-        return await _productRepository.Create(_mapper.Map<Products>(productDto));
+        return await _productRepository.Create(_mapper.Map<Product>(productDto));
     }
 
     public async Task DeleteProduct(int id)
@@ -71,7 +71,7 @@ public class ProductService : IProductService
     public async Task EditProducts(int id, ProductEditDto product)
     {
         await ExceptionService.ThrowExceptionWhenIdNotFound(id, _productRepository);
-        var productForEdit = _mapper.Map<Products>(product);
+        var productForEdit = _mapper.Map<Product>(product);
         productForEdit.Id = id;
         await _productRepository.Update(productForEdit);
     }

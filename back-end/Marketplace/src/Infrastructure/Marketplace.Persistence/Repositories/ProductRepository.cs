@@ -8,7 +8,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace Marketplace.Persistence.Repositories;
 
-public class ProductRepository : GenericRepository<Products>, IProductRepository
+public class ProductRepository : GenericRepository<Product>, IProductRepository
 {
     public ProductRepository(IUnitOfWork unitOfWork) : base(unitOfWork)
     {

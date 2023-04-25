@@ -10,8 +10,8 @@ public class ImageTable :Migration
     {
         Create.Table("Image")
             .WithColumn("Id").AsInt64().PrimaryKey().Identity().NotNullable()
-            .WithColumn("img").AsString(50).NotNullable();
-
+            .WithColumn("img").AsString().NotNullable()
+            .WithColumn("PriductId").AsInt64().NotNullable().ForeignKey("Product","Id");
     }
 
     public override void Down()
