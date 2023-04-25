@@ -6,7 +6,8 @@ import "../utils/hamburgerMenu.js";
 
 document.documentElement.setAttribute('data-theme', localStorage.getItem('theme'));
 
-const darkModeSwitch = document.querySelector('#dark-mode');
+const darkModeSwitchHeader = document.querySelector('#dark-mode-header');
+const darkModeSwitchAside = document.querySelector('#dark-mode-aside');
 
 const theme = localStorage.getItem('theme');
 
@@ -15,20 +16,39 @@ if (theme === undefined) {
 }
 
 if (theme === 'dark') {
-    darkModeSwitch.checked = true;
+    darkModeSwitchHeader.checked = true;
+    darkModeSwitchAside.checked = true;
 } else if (theme === 'light') {
-    darkModeSwitch.checked = false;
+    darkModeSwitchHeader.checked = false;
+    darkModeSwitchAside.checked = false;
 }
 
-darkModeSwitch.addEventListener('change', () => {
-    if (darkModeSwitch.checked) {
+darkModeSwitchHeader.addEventListener('change', onDarkModeSwitchHeader);
+darkModeSwitchAside.addEventListener('change', onDarkModeSwitchAside);
+
+function onDarkModeSwitchHeader() {
+    if (darkModeSwitchHeader.checked) {
+        console.log('checked');
         localStorage.setItem('theme', 'dark');
         document.documentElement.setAttribute('data-theme', localStorage.getItem('theme'));
     } else {
+        console.log('unchekced');
         localStorage.setItem('theme', 'light');
         document.documentElement.setAttribute('data-theme', localStorage.getItem('theme'));
     }
-});
+};
+
+function onDarkModeSwitchAside() {
+    if (darkModeSwitchAside.checked) {
+        console.log('checked');
+        localStorage.setItem('theme', 'dark');
+        document.documentElement.setAttribute('data-theme', localStorage.getItem('theme'));
+    } else {
+        console.log('unchekced');
+        localStorage.setItem('theme', 'light');
+        document.documentElement.setAttribute('data-theme', localStorage.getItem('theme'));
+    }
+};
 
 // Open add item modal if add item button is clicked
 
