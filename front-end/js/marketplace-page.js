@@ -149,7 +149,7 @@ const loadProducts = async () => {
                     if (window.innerWidth <= 768) {
                         positionLeft = position.left - position.left + 4;
                     } else {
-                        positionLeft = position.left - position.left + 12;
+                        positionLeft = position.left - position.left + 5;
                     }
                     elementPopUp.classList.add('top-right-pointer');
                 } else if (position.x + elementPopUp.offsetWidth >= window.innerWidth && position.y + elementPopUp.offsetHeight + 20 >= window.innerHeight) {
@@ -175,7 +175,7 @@ const loadProducts = async () => {
                     if (window.innerWidth <= 768) {
                         positionTop = position.top - position.top + 310;
                     } else {
-                        positionTop = position.top - position.top + 275;
+                        positionTop = position.top - position.top + 295;
                     }
                 }
 

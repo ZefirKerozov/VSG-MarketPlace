@@ -163,7 +163,7 @@ const loadItems = async () => {
                     if (window.innerWidth <= 768) {
                         positionLeft = position.left - position.left - 76;
                     } else {
-                        positionLeft = position.left - position.left - 160;
+                        positionLeft = position.left - position.left - 148;
                     }
                     elementPopUp.classList.add('top-right-pointer');
                 } else if (position.x + elementPopUp.offsetWidth >= window.innerWidth && position.y + elementPopUp.offsetHeight + 20 >= window.innerHeight) {
@@ -221,6 +221,7 @@ const loadItems = async () => {
                 async function onConfirmBtnClick(e) {
                     e.preventDefault();
                     const canceledOrder = await makeRequest({ path: `/Orders/Reject/${x.id}`, method: 'DELETE'});
+                    window.location.reload();
                 }
             };
 

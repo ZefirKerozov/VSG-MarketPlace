@@ -538,7 +538,7 @@ function displayItemsInTable(items) {
                         });
                     }
 
-                    // window.location.assign(`http://127.0.0.1:5500/front-end/templates/inventory-page.html`);
+                    window.location.reload();
                 }
 
                 modifyItem();
@@ -585,7 +585,7 @@ function displayItemsInTable(items) {
             let positionTop;
 
             if (position.x + elementPopUp.offsetWidth >= window.innerWidth) {
-                positionLeft = position.left - position.left - 224;
+                positionLeft = position.left - position.left - 233;
                 elementPopUp.classList.add('top-right-pointer');
             } else if (position.x + elementPopUp.offsetWidth >= window.innerWidth && position.y + elementPopUp.offsetHeight + 20 >= window.innerHeight) {
                 positionLeft = position.left - position.left - 100;
