@@ -4,6 +4,7 @@ import "../utils/darkMode.js";
 import { addItem, deleteItem, getAllCategories, getAllProducts, modifyItem } from "../utils/requests.js";
 import createAddItemModal from "../components/add-item-modal.js";
 import createModifyItemModal from "../components/modify-item-modal.js";
+import showPopup from "../utils/pop-up.js";
 
 // Open add item modal if add item button is clicked
 
@@ -169,248 +170,125 @@ function displayItemsInTable(items) {
             createModifyItemModal(x.id, x.code, x.name, x.description, x.quantityForSale, x.price, x.quantity, x.img, x.categoryName);
         });
 
-        // async function onModifyBtnClick() {
-        //     const modal = document.createElement('div');
-        //     modal.id = 'modify-modal';
-
-        //     modal.innerHTML = `
-        //     <div class="modal-content">
-        //         <h1>Modify item</h1>
-        //     </div>
-        //     <form>
-        //         <div class="first-row">
-        //         <div class="first-column">
-        //         <div class="input-container">
-        //             <label for="code">Code*</label>
-        //             <input type="number" id="code" name="code" value="${x.code}" required/>
-        //         </div>
-        //         <div class="input-container">
-        //             <label for="name">Name*</label>    
-        //             <input type="text" id="name" name="name" value="${x.name}" required/>
-        //         </div>
-        //         <div class="input-container">
-        //             <label for="descriptionText">Description</label>
-        //             <textarea name="description" id="descriptionText" name="description" cols="30" rows="4">${x.description}</textarea>
-        //         </div>
-        //         <div class="input-container">
-        //             <label for="add-item-select">Category*</input>
-        //             <select id="add-item-select" name="category" required>
-        //                 <option value="" disabled></option>
-        //             </select>
-        //         </div>
-        //         <div class="input-container">
-        //             <label for="qty-for-sale">Qty for sale</label>
-        //             <input type="number" id="qty-for-sale" name="quantityForSale" value="${x.quantityForSale}"/>
-        //         </div>
-        //         <div class="input-container">
-        //             <label for="sale-price">Sale price</label>
-        //             <input type="number" id="sale-price" name="price" value="${x.price}"/>
-        //         </div>
-        //         <div class="input-container">
-        //             <label for="quantity">Qty*</label>
-        //             <input type="number" id="quantity" name="quantity" value="${x.quantity}" required/>
-        //         </div>
-        //     </div>
-        //             <div class="second-column">
-        //                 <img src="${x.img === null ? '../images/no_image-placeholder.png' : x.img}" id="modify-item-image"
-        //                     alt="Photo preview">
-        //                 <div class="upload-remove-btn">
-        //                     <label for="modify-item-upload-image">Upload</label>
-        //                     <input type="file" class="hidden-upload-input" name="image" id="modify-item-upload-image">
-        //                     <button id="modify-item-remove-image-btn">Remove</button>
-        //                 </div>
-        //             </div>
-        //         </div>
-        //         <div class="second-row">
-        //             <input type="submit" value="Modify" id="modify-btn">
-        //         </div>
-        //     </form>
-        //     <button class="close-btn">
-        //         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-        //             <path
-        //                 d="M17.7305 2.02734L10.7578 9L17.7305 15.9727L15.9727 17.7305L9 10.7578L2.02734 17.7305L0.269531 15.9727L7.24219 9L0.269531 2.02734L2.02734 0.269531L9 7.24219L15.9727 0.269531L17.7305 2.02734Z"
-        //                 fill="black" />
-        //         </svg>
-        //     </button>
-        // </div>
-        // `;
-
-        //     const categories = await getAllCategories();
-        //     const categoriesSelect = modal.querySelector('#add-item-select');
-        //     categories.forEach(y => {
-        //         categoriesSelect.innerHTML += `<option value=${y.id} ${x.categoryName === y.name ? 'selected' : ''}>${y.name}</option>`;
-        //     });
-
-        //     overlay.appendChild(modal);
-        //     overlay.style.display = 'flex';
-
-        //     // Close modal when close modal button is clicked
-
-        //     const modalCloseBtn = modal.querySelector('.close-btn');
-        //     modalCloseBtn.addEventListener('click', onModalCloseBtnClick);
-
-        //     function onModalCloseBtnClick() {
-        //         modal.remove();
-        //         overlay.style.display = 'none';
-        //     }
-
-        //     // Close modal when overlay is clicked
-
-        //     overlay.addEventListener('mousedown', onOverlayClick);
-
-        //     function onOverlayClick(e) {
-        //         if (e.target.matches('.overlay')) {
-        //             modal.remove();
-        //             overlay.style.display = 'none';
-        //         }
-        //     }
-
-        //     // Upload and display image in modify modal
-
-        //     const modifyModalImageInput = modal.querySelector('#modify-item-upload-image');
-
-        //     modifyModalImageInput.addEventListener('change', onModifyModalImageUpload);
-
-        //     function onModifyModalImageUpload(e) {
-        //         const imageSrc = URL.createObjectURL(this.files[0]);
-        //         modal.querySelector('#modify-item-image').src = imageSrc;
-        //     }
-
-        //     // Remove uploaded image from modify modal
-
-        //     const modifyItemRemoveImageBtn = modal.querySelector('#modify-item-remove-image-btn');
-
-        //     modifyItemRemoveImageBtn.addEventListener('click', onModifyItemRemoveImage);
-
-        //     function onModifyItemRemoveImage(e) {
-        //         modifyModalImageInput.value = "";
-        //         modal.querySelector('#modify-item-image').src = '/front-end/images/no_image-placeholder.png';
-        //     }
-
-        //     // Modify modal submit request
-
-        //     const form = modal.querySelector('form');
-        //     form.addEventListener('submit', onModifySubmit);
-
-        //     async function onModifySubmit(e) {
-        //         e.preventDefault();
-
-        //         const formData = new FormData(e.target);
-
-        //         const code = formData.get('code');
-        //         const name = formData.get('name');
-        //         const description = formData.get('description');
-        //         const categoryId = formData.get('category');
-        //         const quantityForSale = formData.get('quantityForSale');
-        //         const price = formData.get('price');
-        //         const quantity = formData.get('quantity');
-        //         const image = formData.get('image');
-
-        //         await modifyItem(x.id, name, quantity, description, code, quantityForSale, categoryId, 'Plovdiv', price, image, x.img);
-        //         window.location.reload();
-        //     }
-        // }
-
         // Show pop-up when item delete button is clicked
 
         const deleteBtn = tableRow.querySelector('.delete-btn');
-        deleteBtn.addEventListener('click', showPopup);
 
-        // Open and close pop-up functionality
+        const popUpText = `
+        <p class="inside-pop-up">Are you sure you want to remove this item?</p>
+        <div class="pop-up-buttons inside-pop-up">
+            <a href="" id="confirm-btn">Yes</a>
+            <a href="" id="cancel-btn">No</a>
+        </div>
+        `;
 
-        function showPopup(e) {
-            // Close previous opened pop-up if there is such
+        async function deleteItem(e) {
+            e.preventDefault();
+            await deleteItem(x.id);
+            window.location.reload();
+        }
 
-            const prevPopUp = document.getElementById('pop-up');
-            if (prevPopUp !== null) {
-                prevPopUp.remove();
-            }
+        deleteBtn.addEventListener('click', (e) => {
+            showPopup(e, popUpText, deleteItem);
+        });
 
-            // Create pop-up and append it to parent element
 
-            const divPopUp = document.createElement('div');
-            divPopUp.id = 'pop-up';
-            divPopUp.classList.add('inside-pop-up');
-            divPopUp.innerHTML = `<p class="inside-pop-up">Are you sure you want to remove this item?</p>
-<div class="pop-up-buttons inside-pop-up">
-<a href="" id="confirm-btn">Yes</a>
-<a href="" id="cancel-btn">No</a>
-</div>`;
 
-            const position = e.target.getBoundingClientRect();
+//         // Open and close pop-up functionality
 
-            const deleteBtnParent = e.target.parentElement;
+//         function showPopup(e) {
+//             // Close previous opened pop-up if there is such
 
-            deleteBtnParent.appendChild(divPopUp);
+//             const prevPopUp = document.getElementById('pop-up');
+//             if (prevPopUp !== null) {
+//                 prevPopUp.remove();
+//             }
 
-            // Configure pop-up position depending on browser window
+//             // Create pop-up and append it to parent element
 
-            const elementPopUp = document.querySelector('#pop-up');
+//             const divPopUp = document.createElement('div');
+//             divPopUp.id = 'pop-up';
+//             divPopUp.classList.add('inside-pop-up');
+//             divPopUp.innerHTML = `<p class="inside-pop-up">Are you sure you want to remove this item?</p>
+// <div class="pop-up-buttons inside-pop-up">
+// <a href="" id="confirm-btn">Yes</a>
+// <a href="" id="cancel-btn">No</a>
+// </div>`;
 
-            let positionLeft;
-            let positionTop;
+//             const position = e.target.getBoundingClientRect();
 
-            if (position.x + elementPopUp.offsetWidth >= window.innerWidth) {
-                positionLeft = position.left - position.left - 224;
-                elementPopUp.classList.add('top-right-pointer');
-            } else if (position.x + elementPopUp.offsetWidth >= window.innerWidth && position.y + elementPopUp.offsetHeight + 20 >= window.innerHeight) {
-                positionLeft = position.left - position.left - 100;
-                elementPopUp.classList.add('bottom-right-pointer');
-            } else {
-                positionLeft = position.left - position.left - 100;
-                elementPopUp.classList.add('top-middle-pointer');
-            }
+//             const deleteBtnParent = e.target.parentElement;
 
-            if (position.y + elementPopUp.offsetHeight + 50 >= window.innerHeight && !(position.x + elementPopUp.offsetWidth >= window.innerWidth)) {
-                positionTop = position.top - position.top - 100;
-                elementPopUp.classList.add('bottom-middle-pointer');
-            } else if (position.y + elementPopUp.offsetHeight + 50 >= window.innerHeight && position.x + elementPopUp.offsetWidth >= window.innerWidth) {
-                positionTop = position.top - position.top - 100;
-                elementPopUp.classList.add('bottom-right-pointer');
-            }
-            else {
-                positionTop = position.top - position.top + 50;
-            }
+//             deleteBtnParent.appendChild(divPopUp);
 
-            Object.assign(elementPopUp.style, {
-                left: `${positionLeft}px`,
-                top: `${positionTop}px`,
-                visibility: 'visible',
-            });
+//             // Configure pop-up position depending on browser window
 
-            // Delete item request when confirm button is clicked
+//             const elementPopUp = document.querySelector('#pop-up');
 
-            const confirmBtn = document.querySelector('#confirm-btn');
-            confirmBtn.addEventListener('click', onDeleteItem);
+//             let positionLeft;
+//             let positionTop;
 
-            async function onDeleteItem(e) {
-                e.preventDefault();
-                await deleteItem(x.id);
-                window.location.reload();
-            }
+//             if (position.x + elementPopUp.offsetWidth >= window.innerWidth) {
+//                 positionLeft = position.left - position.left - 224;
+//                 elementPopUp.classList.add('top-right-pointer');
+//             } else if (position.x + elementPopUp.offsetWidth >= window.innerWidth && position.y + elementPopUp.offsetHeight + 20 >= window.innerHeight) {
+//                 positionLeft = position.left - position.left - 100;
+//                 elementPopUp.classList.add('bottom-right-pointer');
+//             } else {
+//                 positionLeft = position.left - position.left - 100;
+//                 elementPopUp.classList.add('top-middle-pointer');
+//             }
 
-            // Close pop-up if cancel button is clicked
+//             if (position.y + elementPopUp.offsetHeight + 50 >= window.innerHeight && !(position.x + elementPopUp.offsetWidth >= window.innerWidth)) {
+//                 positionTop = position.top - position.top - 100;
+//                 elementPopUp.classList.add('bottom-middle-pointer');
+//             } else if (position.y + elementPopUp.offsetHeight + 50 >= window.innerHeight && position.x + elementPopUp.offsetWidth >= window.innerWidth) {
+//                 positionTop = position.top - position.top - 100;
+//                 elementPopUp.classList.add('bottom-right-pointer');
+//             }
+//             else {
+//                 positionTop = position.top - position.top + 50;
+//             }
 
-            const cancelBtn = document.querySelector('#cancel-btn');
-            cancelBtn.addEventListener('click', closePopUp);
+//             Object.assign(elementPopUp.style, {
+//                 left: `${positionLeft}px`,
+//                 top: `${positionTop}px`,
+//                 visibility: 'visible',
+//             });
 
-            window.addEventListener('click', trackWindowEvent);
+//             // Delete item request when confirm button is clicked
 
-            function closePopUp(e) {
-                e.preventDefault();
-                deleteBtnParent.removeChild(divPopUp);
-                window.removeEventListener('click', trackWindowEvent);
-            }
+//             const confirmBtn = document.querySelector('#confirm-btn');
+//             confirmBtn.addEventListener('click', onDeleteItem);
 
-            // Close pop-up if clicked outside pop-up
+//             async function onDeleteItem(e) {
+//                 e.preventDefault();
+//                 await deleteItem(x.id);
+//                 window.location.reload();
+//             }
 
-            function trackWindowEvent(e) {
-                if (!e.target.matches('.inside-pop-up') && !e.target.matches('.delete-btn')) {
-                    deleteBtnParent.removeChild(divPopUp);
-                    window.removeEventListener('click', trackWindowEvent);
-                }
-            }
-        };
+//             // Close pop-up if cancel button is clicked
+
+//             const cancelBtn = document.querySelector('#cancel-btn');
+//             cancelBtn.addEventListener('click', closePopUp);
+
+//             window.addEventListener('click', trackWindowEvent);
+
+//             function closePopUp(e) {
+//                 e.preventDefault();
+//                 deleteBtnParent.removeChild(divPopUp);
+//                 window.removeEventListener('click', trackWindowEvent);
+//             }
+
+//             // Close pop-up if clicked outside pop-up
+
+//             function trackWindowEvent(e) {
+//                 if (!e.target.matches('.inside-pop-up') && !e.target.matches('.delete-btn')) {
+//                     deleteBtnParent.removeChild(divPopUp);
+//                     window.removeEventListener('click', trackWindowEvent);
+//                 }
+//             }
+//         };
 
         tableBody.appendChild(tableRow);
     })
