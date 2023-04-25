@@ -132,6 +132,12 @@ C:\Users\YKurtev\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\M
 C:\Users\YKurtev\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\NLog.Extensions.Logging.dll
 C:\Users\YKurtev\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\NLog.Web.AspNetCore.dll
 >>>>>>> 2fe175027f23d1b8d2a34441eeab2f4974947a2b
+<<<<<<< HEAD
 C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\FluentMigrator.dll
 C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\FluentMigrator.Abstractions.dll
 C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\de-DE\FluentMigrator.Abstractions.resources.dll
+=======
+C:\Users\YKurtev\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\NRedisStack.dll
+C:\Users\YKurtev\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\Pipelines.Sockets.Unofficial.dll
+C:\Users\YKurtev\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\StackExchange.Redis.dll
+>>>>>>> 2582f687ba3587c992f17ae0633d33f048aacce1

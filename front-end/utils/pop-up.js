@@ -23,6 +23,8 @@ export default function showPopup(e, text, submitFunction) {
 
     const elementPopUp = document.querySelector('#pop-up');
 
+    console.log(elementPopUp);
+
     let positionLeft;
     let positionTop;
 
