@@ -122,6 +122,7 @@ const loadItems = async () => {
 
             async function onCompleteOrder(){
                 await completeOrder(x.id);
+                window.location.reload();
             }
 
             table?.appendChild(tableRow);

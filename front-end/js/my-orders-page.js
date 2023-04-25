@@ -221,6 +221,7 @@ const loadItems = async () => {
                 async function onConfirmBtnClick(e) {
                     e.preventDefault();
                     await cancelOrder(x.id);
+                    window.location.reload();
                 }
             };
 

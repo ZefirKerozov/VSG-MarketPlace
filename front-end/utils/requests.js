@@ -20,20 +20,19 @@ export const getAllCategories = async () => {
 
 export const addItem = async (name, quantity, description, code, quantityForSale, categoryId, location, price, image) => {
     const res = await makeRequest({ path: '/Products/Inventory/Add', method: 'POST', data: { name, quantity, description, code, quantityForSale, categoryId, location, price } });
-    const itemId = await res.json();
-    console.log(itemId);
+    const productId = await res.json();
 
     const imageFormData = new FormData();
     imageFormData.append('image', image);
 
-    await fetch(`http://localhost:5288/api/Images/Upload/${itemId}`, {
+    await fetch(`http://localhost:5288/api/Images/Upload/${productId}`, {
         method: 'POST',
         body: imageFormData
     });
 }
 
-export const modifyItem = async (id, name, quantity, description, code, quantityForSale, categoryId, location, price, image, uploadedImage) => {
-    await makeRequest({ path: `/Products/Edit/${id}`, method: 'PUT', data: { name, quantity, description, code, quantityForSale, categoryId, location, price } });
+export const modifyItem = async (productId, name, quantity, description, code, quantityForSale, categoryId, location, price, image, uploadedImage) => {
+    await makeRequest({ path: `/Products/Edit/${productId}`, method: 'PUT', data: { name, quantity, description, code, quantityForSale, categoryId, location, price } });
 
     const img = document.querySelector('#modify-item-image');
 
@@ -42,21 +41,21 @@ export const modifyItem = async (id, name, quantity, description, code, quantity
 
     if (image.name) {
         // add image request
-        await fetch(`http://localhost:5288/api/Images/Edit/${id}`, {
+        await fetch(`http://localhost:5288/api/Images/Edit/${productId}`, {
             method: 'POST',
             body: imageFormData
         });
     } else if (uploadedImage !== img.src) {
         // delete image request
-        await fetch(`http://localhost:5288/api/Images/Delete/${id}`, {
+        await fetch(`http://localhost:5288/api/Images/Delete/${productId}`, {
             method: 'DELETE',
             body: imageFormData
         });
     }
 }
 
-export const deleteItem = async (id) => {
-    await makeRequest({ path: `/Products/Inventory/Delete/${id}`, method: 'DELETE' });
+export const deleteItem = async (productId) => {
+    await makeRequest({ path: `/Products/Inventory/Delete/${productId}`, method: 'DELETE' });
 }
 
 // Pending orders page requests
@@ -66,8 +65,8 @@ export const getAllPendingOrders = async () => {
     return res.json();
 }
 
-export const completeOrder = async (id) => {
-    await makeRequest({ path: `/Orders/Orders/Status/${id}`, method: 'PUT' });
+export const completeOrder = async (orderId) => {
+    await makeRequest({ path: `/Orders/Orders/Status/${orderId}`, method: 'PUT' });
 }
 
 // My orders page requests

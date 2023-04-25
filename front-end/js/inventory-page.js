@@ -198,6 +198,9 @@ async function onAddItemBtnClick(e) {
         const image = formData.get('image');
 
         addItem(name, quantity, description, code, quantityForSale, categoryId, 'Plovdiv', price, image);
+        setTimeout(() => {
+            window.location.reload();
+        }, 500);
     }
 }
 
@@ -494,6 +497,7 @@ function displayItemsInTable(items) {
                 const image = formData.get('image');
 
                 await modifyItem(x.id, name, quantity, description, code, quantityForSale, categoryId, 'Plovdiv', price, image, x.img);
+                window.location.reload();
             }
         }
 
@@ -572,6 +576,7 @@ function displayItemsInTable(items) {
             async function onDeleteItem(e) {
                 e.preventDefault();
                 await deleteItem(x.id);
+                window.location.reload();
             }
 
             // Close pop-up if cancel button is clicked
