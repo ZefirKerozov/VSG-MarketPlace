@@ -2,7 +2,6 @@ import "../utils/navLinks.js";
 import "../utils/hamburgerMenu.js";
 import "../utils/darkMode.js";
 import "../components/pending-orders-item.js";
-import { makeRequest } from "../utils/makeRequest.js";
 import { completeOrder, getAllPendingOrders } from "../utils/requests.js";
 
 const DUMMY_DATA = [

@@ -1,9 +1,7 @@
-import { makeRequest } from "../utils/makeRequest.js";
 import "../utils/navLinks.js";
 import "../utils/hamburgerMenu.js";
 import "../utils/darkMode.js";
 import { addItem, deleteItem, getAllCategories, getAllProducts, modifyItem } from "../utils/requests.js";
-
 
 // Open add item modal if add item button is clicked
 
