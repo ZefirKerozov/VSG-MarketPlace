@@ -1,3 +1,4 @@
+import showPopup from "../utils/pop-up.js";
 import { deleteItem } from "../utils/requests.js";
 import createModifyItemModal from "./modify-item-modal.js";
 
@@ -59,8 +60,6 @@ export default async function createInventoryTableRow(id, code, name, descriptio
     deleteBtn.addEventListener('click', (e) => {
         showPopup(e, popUpText, deleteInventoryItem, '.delete-btn', 50, -233);
     });
-
-    console.log(tableRow);
 
     return tableRow;
 }

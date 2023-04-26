@@ -125,14 +125,12 @@ try {
 
 // Display fetched items in table function
 
-async function displayItemsInTable(items) {
+function displayItemsInTable(items) {
     const tableBody = document.querySelector('tbody');
     tableBody.innerHTML = '';
 
-    items.forEach(x => {
-        const tableRow = createInventoryTableRow(x.id, x.code, x.name, x.description, x.categoryName, x.quantityForSale, x.quantity, x.price, x.img)
-        console.log(tableRow);
-
+    items.forEach(async x => {
+        const tableRow = await createInventoryTableRow(x.id, x.code, x.name, x.description, x.categoryName, x.quantityForSale, x.quantity, x.price, x.img)
         tableBody.appendChild(tableRow);
     });
 }
