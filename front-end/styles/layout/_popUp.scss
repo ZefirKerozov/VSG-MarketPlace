@@ -1,0 +1,57 @@
+//// Pop up styles ////
+
+#pop-up {
+    @include displayFlex(column);
+    @include flexProperties(space-between, flex-end);
+    position: absolute;
+    visibility: hidden;
+    z-index: 1;
+    width: 280px;
+    height: 80px;
+    background-color: var(--color-background);
+    box-shadow: var(--color-boxshadow);
+    border-radius: 4px;
+    padding: 16px;
+    font-size: 0.5rem;
+
+    p {
+        display: inline;
+        text-align: left;
+        width: 100%;
+        color: var(--color-text);
+    }
+
+    // Pop up buttons styles
+
+    .pop-up-buttons {
+        @include displayFlex();
+        @include flexProperties(flex-end);
+        gap: 20px;
+
+        #confirm-btn {
+            @include popUpButton(#ED1C25, #FFFFFF);
+        }
+
+        #cancel-btn {
+            @include popUpButton(#FFFFFF, #ED1C25);
+        }
+    }
+}
+
+//// Pop up pointer (arrow) styles ////
+
+.top-middle-pointer::before {
+    @include popUpPointerPosition(-10px, 155px, 0deg);
+}
+
+.top-right-pointer::before {
+    @include popUpPointerPosition(-10px, 270px, 0deg);
+}
+
+.bottom-middle-pointer::before {
+    @include popUpPointerPosition(112px, 155px, 180deg);
+}
+
+.bottom-right-pointer::before {
+    @include popUpPointerPosition(112px, 270px, 180deg);
+}

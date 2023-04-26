@@ -304,6 +304,116 @@ nav li:hover svg path {
     width: 30%;
   }
 }
+#pop-up {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: absolute;
+  visibility: hidden;
+  z-index: 1;
+  width: 280px;
+  height: 80px;
+  background-color: var(--color-background);
+  box-shadow: var(--color-boxshadow);
+  border-radius: 4px;
+  padding: 16px;
+  font-size: 0.5rem;
+}
+#pop-up p {
+  display: inline;
+  text-align: left;
+  width: 100%;
+  color: var(--color-text);
+}
+#pop-up .pop-up-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 20px;
+}
+#pop-up .pop-up-buttons #confirm-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 57px;
+  height: 22px;
+  box-shadow: var(--color-boxshadow);
+  border-radius: 4px;
+  background-color: #ED1C25;
+  text-decoration: none;
+  font-size: 14px;
+  color: #FFFFFF;
+}
+#pop-up .pop-up-buttons #cancel-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 57px;
+  height: 22px;
+  box-shadow: var(--color-boxshadow);
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  text-decoration: none;
+  font-size: 14px;
+  color: #ED1C25;
+}
+
+.top-middle-pointer::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 155px;
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 0 10px 10px 10px;
+  border-color: transparent transparent var(--color-background) transparent;
+  transform: rotate(0deg);
+}
+
+.top-right-pointer::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 270px;
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 0 10px 10px 10px;
+  border-color: transparent transparent var(--color-background) transparent;
+  transform: rotate(0deg);
+}
+
+.bottom-middle-pointer::before {
+  content: "";
+  position: absolute;
+  top: 112px;
+  left: 155px;
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 0 10px 10px 10px;
+  border-color: transparent transparent var(--color-background) transparent;
+  transform: rotate(180deg);
+}
+
+.bottom-right-pointer::before {
+  content: "";
+  position: absolute;
+  top: 112px;
+  left: 270px;
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 0 10px 10px 10px;
+  border-color: transparent transparent var(--color-background) transparent;
+  transform: rotate(180deg);
+}
+
 html[data-theme=light] {
   --color-text: #000000;
   --color-background: #FFFFFF;
@@ -621,6 +731,9 @@ html[data-theme=dark] {
   width: 550px;
   height: 600px;
   background-color: var(--color-background);
+  background-image: url("/front-end/images/circles-background.png");
+  background-repeat: no-repeat;
+  background-position: 100% 100%;
   border-radius: 20px;
   overflow: hidden;
 }

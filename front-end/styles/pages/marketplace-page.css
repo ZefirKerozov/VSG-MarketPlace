@@ -266,6 +266,9 @@ html[data-theme=dark] {
   width: 550px;
   height: 600px;
   background-color: var(--color-background);
+  background-image: url("/front-end/images/circles-background.png");
+  background-repeat: no-repeat;
+  background-position: 100% 100%;
   border-radius: 20px;
   overflow: hidden;
 }
