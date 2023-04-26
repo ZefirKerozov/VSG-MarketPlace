@@ -8,13 +8,13 @@ namespace Marketplace.Persistence.Migrations;
     {
         public static void Create(IConfiguration configuration)
         {
-            var marketplaceConnectionString = new SqlConnectionStringBuilder(configuration.GetConnectionString("DatabaseConnection"));
+            var marketplaceConnectionString = new SqlConnectionStringBuilder(configuration.GetConnectionString("SqlConnection"));
             string dbName = marketplaceConnectionString.InitialCatalog;
 
             var parameters = new DynamicParameters();
             parameters.Add("name", dbName);
 
-            using var connection = new SqlConnection(configuration.GetConnectionString("MigrationString"));
+            using var connection = new SqlConnection(configuration.GetConnectionString("SqlConnectionMigration"));
             var records = connection.Query("SELECT * FROM sys.databases WHERE name = @name",
                 parameters);
 

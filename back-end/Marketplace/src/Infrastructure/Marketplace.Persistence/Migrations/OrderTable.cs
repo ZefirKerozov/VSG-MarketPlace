@@ -2,13 +2,13 @@
 
 namespace Marketplace.Persistence.Migrations;
 
-[Migration(20230525)]
+[Migration(20230527)]
 
 public class OrderTable :Migration
 {
     public override void Up()
     {
-        Create.Table("Order")
+        Create.Table("Orders")
             .WithColumn("Id").AsInt64().PrimaryKey().Identity().NotNullable()
             .WithColumn("Status").AsString(255).NotNullable()
             .WithColumn("Quantity").AsInt64().NotNullable()
@@ -19,6 +19,6 @@ public class OrderTable :Migration
 
     public override void Down()
     {
-        Delete.Table("Order");
+        Delete.Table("Orders");
     }
 }
