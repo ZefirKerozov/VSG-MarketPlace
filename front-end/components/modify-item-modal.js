@@ -1,6 +1,8 @@
 import { getAllCategories, modifyItem } from "../utils/requests.js";
 
 export default async function createModifyItemModal(id, code, name, description, quantityForSale, price, quantity, img, categoryName){
+    console.log('in modal');
+    
     const modal = document.createElement('div');
     modal.id = 'modify-modal';
 
