@@ -1,6 +1,7 @@
 using Marketplace.Application.Helpers.Configurations;
 using Marketplace.Application.Helpers.Middlewares;
 using Marketplace.Persistence.Configuration;
+using Marketplace.Persistence.Migrations;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.OpenApi.Models;
 using NLog.Web;
@@ -30,6 +31,7 @@ builder.Services.AddCors(options =>
             .WithOrigins("*");
     });
 });
+builder.Services.AddConfigurationMigration();
 builder.Host.ConfigureLogging(logging => { logging.ClearProviders(); }).UseNLog();
 
 var app = builder.Build();
@@ -40,6 +42,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+DatabaseCreate.Create(app.Services.GetRequiredService<IConfiguration>());
+
+app.MigrateUpDatabase();
 
 app.UseCors("CORSPolicy");
 app.UseHttpsRedirection();

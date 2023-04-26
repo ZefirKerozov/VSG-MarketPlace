@@ -283,6 +283,10 @@
               "target": "Package",
               "version": "[3.3.2, )"
             },
+            "FluentMigrator.Runner": {
+              "target": "Package",
+              "version": "[3.3.2, )"
+            },
             "FluentValidation": {
               "target": "Package",
               "version": "[11.5.2, )"

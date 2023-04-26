@@ -8,14 +8,14 @@ public class ImageTable :Migration
 {
     public override void Up()
     {
-        Create.Table("Image")
+        Create.Table("Images")
             .WithColumn("Id").AsInt64().PrimaryKey().Identity().NotNullable()
             .WithColumn("img").AsString().NotNullable()
-            .WithColumn("PriductId").AsInt64().NotNullable().ForeignKey("Product","Id");
+            .WithColumn("PriductId").AsInt64().NotNullable().ForeignKey("Products","Id");
     }
 
     public override void Down()
     {
-        Delete.Table("Image");
+        Delete.Table("Images");
     }
 }
