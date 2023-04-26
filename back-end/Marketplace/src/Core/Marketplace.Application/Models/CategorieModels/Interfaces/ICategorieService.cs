@@ -9,4 +9,5 @@ public interface ICategorieService
     
     Task AddCategorie(string name);
 
+    Task DeleteCategory(int categoryId);
 }

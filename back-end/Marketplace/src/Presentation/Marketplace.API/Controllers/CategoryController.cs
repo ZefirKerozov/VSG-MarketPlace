@@ -28,4 +28,12 @@ public class CategoryController: ControllerBase
     {
         await _categorieService.AddCategorie(name);
     }
+
+    [HttpDelete]
+    [Route("Delete/{categoryId}")]
+
+    public async Task DeleteCategory(int categoryId)
+    {
+        await _categorieService.DeleteCategory(categoryId);
+    }
 }
