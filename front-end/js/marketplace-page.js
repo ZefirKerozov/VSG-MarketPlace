@@ -38,7 +38,7 @@ try {
         }
 
         buyBtn.addEventListener('click', (e) => {
-            showPopup(e, popUpText, confirmPurchase);
+            showPopup(e, popUpText, confirmPurchase, '.buy-btn', 295, 5, -5);
         });
 
         // Show and hide item description modal

@@ -3195,19 +3195,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ZKerozov\\.nuget\\packages\\": {}
+    "C:\\Users\\YKurtev\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ZKerozov\\Desktop\\VSG-marketplace\\back-end\\Marketplace\\src\\Core\\Marketplace.Application\\Marketplace.Application.csproj",
+      "projectUniqueName": "C:\\Users\\YKurtev\\Desktop\\VSG-marketplace\\back-end\\Marketplace\\src\\Core\\Marketplace.Application\\Marketplace.Application.csproj",
       "projectName": "Marketplace.Application",
-      "projectPath": "C:\\Users\\ZKerozov\\Desktop\\VSG-marketplace\\back-end\\Marketplace\\src\\Core\\Marketplace.Application\\Marketplace.Application.csproj",
-      "packagesPath": "C:\\Users\\ZKerozov\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ZKerozov\\Desktop\\VSG-marketplace\\back-end\\Marketplace\\src\\Core\\Marketplace.Application\\obj\\",
+      "projectPath": "C:\\Users\\YKurtev\\Desktop\\VSG-marketplace\\back-end\\Marketplace\\src\\Core\\Marketplace.Application\\Marketplace.Application.csproj",
+      "packagesPath": "C:\\Users\\YKurtev\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\YKurtev\\Desktop\\VSG-marketplace\\back-end\\Marketplace\\src\\Core\\Marketplace.Application\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ZKerozov\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\YKurtev\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -3219,8 +3219,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\ZKerozov\\Desktop\\VSG-marketplace\\back-end\\Marketplace\\src\\Core\\Markerplace.Domain\\Markerplace.Domain.csproj": {
-              "projectPath": "C:\\Users\\ZKerozov\\Desktop\\VSG-marketplace\\back-end\\Marketplace\\src\\Core\\Markerplace.Domain\\Markerplace.Domain.csproj"
+            "C:\\Users\\YKurtev\\Desktop\\VSG-marketplace\\back-end\\Marketplace\\src\\Core\\Markerplace.Domain\\Markerplace.Domain.csproj": {
+              "projectPath": "C:\\Users\\YKurtev\\Desktop\\VSG-marketplace\\back-end\\Marketplace\\src\\Core\\Markerplace.Domain\\Markerplace.Domain.csproj"
             }
           }
         }
@@ -3316,8 +3316,16 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\YKurtev\\Desktop\\VSG-marketplace\\back-end\\Marketplace\\src\\Core\\Marketplace.Application\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
