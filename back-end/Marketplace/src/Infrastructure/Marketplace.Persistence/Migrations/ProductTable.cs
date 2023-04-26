@@ -7,14 +7,14 @@ public class ProductTable :Migration
 {
     public override void Up()
     {
-        Create.Table("Products")
+        Create.Table("Product")
             .WithColumn("Id").AsInt64().PrimaryKey().Identity().NotNullable()
             .WithColumn("Name").AsString(255).NotNullable()
             .WithColumn("Code").AsString(255).NotNullable()
             .WithColumn("Quantity").AsInt64().NotNullable()
             .WithColumn("Description").AsString().NotNullable()
             .WithColumn("QuantityForSale").AsInt64().NotNullable()
-            .WithColumn("CategoryId").AsInt64().NotNullable().ForeignKey("Categories", "Id")
+            .WithColumn("CategoryId").AsInt64().NotNullable().ForeignKey("Category", "Id")
             .WithColumn("Location").AsString().NotNullable()
             .WithColumn("Price").AsDecimal().NotNullable();
 
@@ -22,6 +22,6 @@ public class ProductTable :Migration
 
     public override void Down()
     {
-        Delete.Table("Products");
+        Delete.Table("Product");
     }
 }

@@ -18,7 +18,7 @@ public class OrdersRepository : GenericRepository<Order>, IOrdersRepository
     {
 
         var query =
-            "SELECT Orders.Code, Orders.Price, Orders.Quantity, Orders.OrderDate, Orders.Status, Orders.Id, Orders.UserId  FROM Orders  Where Orders.Status = '0'";
+            "SELECT Order.Code, Order.Price, Order.Quantity, Order.OrderDate, Order.Status, Order.Id, Order.UserId  FROM Order  Where Order.Status = '0'";
 
         var result = await Connection.QueryAsync<GetOrdersDto>(query,null,Transaction);
         return  (List<GetOrdersDto>)result;
@@ -26,7 +26,7 @@ public class OrdersRepository : GenericRepository<Order>, IOrdersRepository
 
     public async Task<List<GetOrdersDto>> GetMyOrders(int userId)
     {
-        var query = @"SELECT Orders.Name, Orders.Code, Orders.Price, Orders.Quantity, Orders.OrderDate, Orders.Status, Orders.Id FROM Orders  Where Orders.UserId= @userId";
+        var query = @"SELECT * FROM [Order]  Where UserId= @userId";
 
         var result = await Connection.QueryAsync<GetOrdersDto>(query, new{userId}, Transaction);
         return  (List<GetOrdersDto>)result;
@@ -34,7 +34,7 @@ public class OrdersRepository : GenericRepository<Order>, IOrdersRepository
 
     public async Task<GetOrderByProductIdDto> GetOrderByProductId(int productId)
     {
-        var query = @"SELECT Id, Quantity, Status, OrderDate, ProductId, UserId, Code, Price, Name FROM Orders WHERE ProductId = @productId";
+        var query = @"SELECT Id, Quantity, Status, OrderDate, ProductId, UserId, Code, Price, Name FROM Order WHERE ProductId = @productId";
 
         var result = await Connection.QueryFirstOrDefaultAsync<GetOrderByProductIdDto>(query,new{ productId},Transaction);
 

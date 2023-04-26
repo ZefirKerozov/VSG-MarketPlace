@@ -139,7 +139,6 @@ C:\Users\YKurtev\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\M
 C:\Users\YKurtev\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\Pipelines.Sockets.Unofficial.dll
 C:\Users\YKurtev\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\StackExchange.Redis.dll
 >>>>>>> 2582f687ba3587c992f17ae0633d33f048aacce1
-<<<<<<< HEAD
 C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\FluentMigrator.Extensions.Oracle.dll
 C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\FluentMigrator.Extensions.Postgres.dll
 C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\FluentMigrator.Extensions.SqlAnywhere.dll
@@ -185,7 +184,6 @@ C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\
 C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
-=======
 C:\Users\YKurtev\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\FluentMigrator.dll
 C:\Users\YKurtev\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\FluentMigrator.Abstractions.dll
 C:\Users\YKurtev\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Debug\net7.0\de-DE\FluentMigrator.Abstractions.resources.dll

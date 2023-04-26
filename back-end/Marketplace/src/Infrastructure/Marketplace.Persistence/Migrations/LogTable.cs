@@ -8,7 +8,7 @@ public class LogTable :Migration
 {
     public override void Up()
     {
-        Create.Table("Logs")
+        Create.Table("Log")
             .WithColumn("Id").AsInt64().PrimaryKey().Identity().NotNullable()
             .WithColumn("CreatedOn").AsDateTime().NotNullable()
             .WithColumn("Message").AsString().NotNullable()
@@ -18,6 +18,6 @@ public class LogTable :Migration
 
     public override void Down()
     {
-        Delete.Table("Logs");
+        Delete.Table("Log");
     }
 }

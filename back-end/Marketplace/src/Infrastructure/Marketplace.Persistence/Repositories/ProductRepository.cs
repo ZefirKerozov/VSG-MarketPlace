@@ -19,7 +19,7 @@ public class ProductRepository : GenericRepository<Product>, IProductRepository
 
 
         string query =
-            "SELECT Products.Quantity,Products.Code, Products.Name, Products.Description, Products.Id,  Products.Price,   Products.QuantityForSale,  Categories.Name AS CategoryName,  Images.img FROM Products  JOIN Categories ON Products.CategoryId = Categories.Id LEFT JOIN Images ON Products.Id = Images.ProductId ";
+            "SELECT Product.Quantity,Product.Code, Product.Name, Product.Description, Product.Id,  Product.Price,   Product.QuantityForSale,  Category.Name AS CategoryName,  Image.img FROM Product  JOIN Category ON Product.CategoryId = Category.Id LEFT JOIN Image ON Product.Id = Image.ProductId ";
         var result = await Connection.QueryAsync<GetProductsDto>(query, null, Transaction);
         return (List<GetProductsDto>)(result);
     }
@@ -27,7 +27,7 @@ public class ProductRepository : GenericRepository<Product>, IProductRepository
     public async Task<ProductDetailsDto> GetProductById(int productId)
     {
         string query =
-            @"SELECT p.Id, p.Name, p.Price, p.QuantityForSale, p.Description, c.Name as CategoryName, Images.img  FROM Products p INNER JOIN Categories c ON p.CategoryId = c.Id JOIN Images ON p.Id = Images.ProductId WHERE p.Id = @productId";
+            @"SELECT p.Id, p.Name, p.Price, p.QuantityForSale, p.Description, c.Name as CategoryName, Images.img  FROM Product p INNER JOIN Category c ON p.CategoryId = c.Id JOIN Image ON p.Id = Image.ProductId WHERE p.Id = @productId";
         var result = await Connection.QueryFirstAsync<ProductDetailsDto>(query, new{productId}, Transaction);
         return  (result);
     }

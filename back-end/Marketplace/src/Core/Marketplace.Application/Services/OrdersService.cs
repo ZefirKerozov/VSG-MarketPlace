@@ -91,9 +91,9 @@ public class OrdersService : IOrderService
         
         product.Quantity += order.Quantity;
         product.QuantityForSale += order.Quantity;
-        
+        order.Status = OrderStatus.Cancelled;
        await _productRepository.Update(product);
-       await _ordersRepository.Delete(id);
+       await _ordersRepository.Update(order);
     }
 
     public async Task<string> GetStatusCodeByProductId(int productId)
