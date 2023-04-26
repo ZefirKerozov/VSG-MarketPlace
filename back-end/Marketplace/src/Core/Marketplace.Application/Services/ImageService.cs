@@ -77,7 +77,7 @@ public class ImageService : IImageService
 
     private async Task SaveImageInDatabase(int productId, string publicId)
     {
-        Images newImage = new Images()
+        Image newImage = new Image()
         {
             ProductId = productId,
             img = publicId

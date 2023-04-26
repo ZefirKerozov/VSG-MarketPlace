@@ -8,7 +8,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace Marketplace.Persistence.Repositories;
 
-public class OrdersRepository : GenericRepository<Orders>, IOrdersRepository
+public class OrdersRepository : GenericRepository<Order>, IOrdersRepository
 {
     public OrdersRepository(IUnitOfWork unitOfWork) :base(unitOfWork)
     {

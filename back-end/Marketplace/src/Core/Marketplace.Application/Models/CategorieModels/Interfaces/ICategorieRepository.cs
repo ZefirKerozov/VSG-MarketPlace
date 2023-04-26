@@ -4,7 +4,7 @@ using Marketplace.Application.Models.GenericRepository;
 
 namespace Marketplace.Application.Models.CategorieModels.Interfaces;
 
-public interface ICategorieRepository :IGenericRepository<Categories>
+public interface ICategorieRepository :IGenericRepository<Category>
 {
     
 }

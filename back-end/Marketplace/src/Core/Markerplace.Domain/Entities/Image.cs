@@ -1,6 +1,6 @@
 ﻿namespace Markerplace.Domain.Entities;
 
-public class Images : BaseEntity
+public class Image : BaseEntity
 {
     public string img { get; set; }
     

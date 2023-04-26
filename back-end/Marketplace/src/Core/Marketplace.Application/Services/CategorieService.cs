@@ -2,6 +2,7 @@
 using Markerplace.Domain.Entities;
 using Marketplace.Application.Models.CategorieModels.Dtos;
 using Marketplace.Application.Models.CategorieModels.Interfaces;
+using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using StackExchange.Redis;
 using JsonSerializer = System.Text.Json.JsonSerializer;
@@ -11,28 +12,32 @@ namespace Marketplace.Application.Services;
 public class CategorieService : ICategorieService
 {
     private readonly ICategorieRepository _categorieRepository;
+    private  readonly IConfiguration _config;
     private readonly string categoryKey = "category";
 
-    private static readonly ConnectionMultiplexer redis = ConnectionMultiplexer.Connect("localhost:6379");
+    private static ConnectionMultiplexer redis;
 
-    private readonly IDatabase db = redis.GetDatabase();
+    private readonly IDatabase db;
 
-    public CategorieService(ICategorieRepository categorieRepository)
+    public CategorieService(ICategorieRepository categorieRepository, IConfiguration config)
     {
         _categorieRepository = categorieRepository;
+        _config = config;
+        redis = ConnectionMultiplexer.Connect(_config.GetValue<string>("Redis:Connection"));
+        db = redis.GetDatabase();
     }
 
-    public async Task<List<Categories>> GetCategories()
+    public async Task<List<Category>> GetCategories()
     {
         var value = await db.StringGetAsync(categoryKey);
         if (!String.IsNullOrEmpty(value))
         {
-            return JsonSerializer.Deserialize<List<Categories>>(value);
+            return JsonSerializer.Deserialize<List<Category>>(value);
         }
-        
-        
+
+
         var newValue = await _categorieRepository.GetAll();
-        await db.StringGetSetAsync(categoryKey,JsonSerializer.Serialize(newValue));
+        await db.StringGetSetAsync(categoryKey, JsonSerializer.Serialize(newValue));
         return newValue;
     }
 
@@ -41,12 +46,13 @@ public class CategorieService : ICategorieService
         var keyExist = db.KeyExists(categoryKey);
         if (keyExist)
         {
-           await db.KeyDeleteAsync(categoryKey);
+            await db.KeyDeleteAsync(categoryKey);
         }
-        var category = new Categories
+
+        var category = new Category
         {
             Name = name,
         };
-       await _categorieRepository.Create(category);
+        await _categorieRepository.Create(category);
     }
 }

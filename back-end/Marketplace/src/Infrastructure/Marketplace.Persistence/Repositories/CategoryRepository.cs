@@ -5,7 +5,7 @@ using Marketplace.Application.Models.GenericRepository;
 
 namespace Marketplace.Persistence.Repositories;
 
-public class CategoryRepository :GenericRepository<Categories>, ICategorieRepository
+public class CategoryRepository :GenericRepository<Category>, ICategorieRepository
 {
     public CategoryRepository(IUnitOfWork unitOfWork) : base(unitOfWork)
     {

@@ -2,7 +2,7 @@
 
 namespace Markerplace.Domain.Entities;
 
-public class Orders : BaseEntity
+public class Order : BaseEntity
 {
     public int Quantity { get; set; }
     public OrderStatus Status { get; set; } = OrderStatus.Pending;
