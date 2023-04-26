@@ -55,4 +55,10 @@ public class CategorieService : ICategorieService
         };
         await _categorieRepository.Create(category);
     }
+
+    public async Task DeleteCategory(int categoryId)
+    {
+       await  ExceptionService.ThrowExceptionWhenIdNotFound(categoryId ,_categorieRepository);
+        await _categorieRepository.Delete(categoryId);
+    }
 }
