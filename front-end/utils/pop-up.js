@@ -1,4 +1,4 @@
-export default function showPopup(e, popUpText, submitFunction, targetToClose, topPosition, leftPosition) {
+export default function showPopup(e, popUpText, submitFunction, targetToClose, popUpPage) {
     // Close previous opened pop-up if there is such
 
     const prevPopUp = document.getElementById('pop-up');
@@ -15,9 +15,7 @@ export default function showPopup(e, popUpText, submitFunction, targetToClose, t
 
     const position = e.target.getBoundingClientRect();
 
-    const parent = e.target.parentElement;
-
-    console.log(parent);
+    const parent = e.target;
 
     parent.appendChild(divPopUp);
 
@@ -25,42 +23,63 @@ export default function showPopup(e, popUpText, submitFunction, targetToClose, t
 
     const elementPopUp = document.querySelector('#pop-up');
 
-    console.log(elementPopUp);
-
     let positionLeft;
     let positionTop;
+    let positionTopAddDesktop;
+    let positionTopAddMobile;
+
+    if (popUpPage === 'marketplace') {
+        positionTop = 50;
+        positionLeft = -133;
+        positionTopAddDesktop = -168;
+        positionTopAddMobile = -168;
+    }
+
+    if (popUpPage === 'inventory') {
+        positionTop = 50;
+        positionLeft = -97;
+        positionTopAddDesktop = -155;
+        positionTopAddMobile = -155;
+    }
+
+    if (popUpPage === 'my-orders') {
+        positionTop = 50;
+        positionLeft = -264;
+        positionTopAddDesktop = -170;
+        positionTopAddMobile = -170;
+    }
 
     if (position.x + elementPopUp.offsetWidth >= window.innerWidth) {
         if (window.innerWidth <= 768) {
-            positionLeft = position.left - position.left + leftPosition + 8;
+            positionLeft = position.left - position.left + (popUpPage === 'my-orders' ? positionLeft : positionLeft - 115);
         } else {
-            positionLeft = position.left - position.left + leftPosition;
+            positionLeft = position.left - position.left + (popUpPage === 'my-orders' ? positionLeft : positionLeft - 115);
         }
         elementPopUp.classList.add('top-right-pointer');
     } else if (position.x + elementPopUp.offsetWidth >= window.innerWidth && position.y + elementPopUp.offsetHeight + 20 >= window.innerHeight) {
-        positionLeft = position.left - position.left - 100;
+        positionLeft = position.left - position.left - positionLeft;
         elementPopUp.classList.add('bottom-right-pointer');
     } else {
-        positionLeft = position.left - position.left + 128;
+        positionLeft = position.left - position.left + positionLeft;
         elementPopUp.classList.add('top-middle-pointer');
     }
 
     if (position.y + elementPopUp.offsetHeight + 50 >= window.innerHeight && !(position.x + elementPopUp.offsetWidth >= window.innerWidth)) {
-        positionTop = position.top - position.top + 120;
+        positionTop = position.top - position.top + positionTop - 168;
         elementPopUp.classList.add('bottom-middle-pointer');
     } else if (position.y + elementPopUp.offsetHeight + 50 >= window.innerHeight && position.x + elementPopUp.offsetWidth >= window.innerWidth) {
         if (window.innerWidth <= 768) {
-            positionTop = position.top - position.top + topPosition - 160;
+            positionTop = position.top - position.top + positionTop + positionTopAddMobile;
         } else {
-            positionTop = position.top - position.top + 120;
+            positionTop = position.top - position.top + positionTop + positionTopAddDesktop;
         }
         elementPopUp.classList.add('bottom-right-pointer');
     }
     else {
         if (window.innerWidth <= 768) {
-            positionTop = position.top - position.top + topPosition + 5;
+            positionTop = position.top - position.top + (popUpPage === 'my-orders' ? positionTop - 25 : positionTop);
         } else {
-            positionTop = position.top - position.top + topPosition;
+            positionTop = position.top - position.top + (popUpPage === 'my-orders' ? positionTop - 25 : positionTop);
         }
     }
 
@@ -91,7 +110,6 @@ export default function showPopup(e, popUpText, submitFunction, targetToClose, t
     // Close pop-up if clicked outside pop-up
 
     function trackWindowEvent(e) {
-        console.log(e.target);
         if (!e.target.matches('.inside-pop-up') && !e.target.matches(targetToClose)) {
             parent.removeChild(divPopUp);
             window.removeEventListener('click', trackWindowEvent);

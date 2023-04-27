@@ -48,7 +48,7 @@ export default async function createMyOrder(id, name, quantity, price, orderDate
 
     const cancelOrderBtn = tableRow.querySelector('.cancel-btn');
     cancelOrderBtn?.addEventListener('click', (e) => {
-        showPopup(e, popUpText, onCancelOrder, '.cancel-btn', 30, -147);
+        showPopup(e, popUpText, onCancelOrder, '.cancel-btn', 'my-orders');
     });
 
     return tableRow;
