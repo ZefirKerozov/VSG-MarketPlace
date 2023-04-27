@@ -431,7 +431,7 @@ nav li:hover svg path {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
 }
 .dark-mode-switch-container .toggle-checkbox:checked + .toggle-switch {
-  background: #56c080;
+  background: #ED1C25;
 }
 .dark-mode-switch-container .toggle-checkbox:checked + .toggle-switch:before {
   left: 22px;
@@ -486,7 +486,7 @@ nav li:hover svg path {
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
   }
   .toggle-checkbox:checked + .toggle-switch {
-    background: #56c080;
+    background: #ED1C25;
   }
   .toggle-checkbox:checked + .toggle-switch:before {
     left: 22px;

@@ -15,40 +15,9 @@ try {
     const data = await getAllProducts();
 
     data.filter(x => x.quantityForSale > 0).forEach(x => {
+        const itemDiv = createMarketplaceItem(x.id, x.img, x.quantityForSale, x.price, x.categoryName, x.name, x.description);
 
-        const itemDiv = createMarketplaceItem(x.img, x.quantityForSale, x.price, x.categoryName, itemsContainer);
-
-        // Pop up
-
-        const buyBtn = itemDiv.querySelector('.buy-btn');
-
-        const selectedQuantity = itemDiv.querySelector('#quantity').value;
-        const totalPrice = x.price * selectedQuantity;
-
-        const popUpText = `<p class="inside-pop-up">Are you sure you want to buy ${selectedQuantity} ${selectedQuantity > 1 ? 'items' : 'item'} for ${totalPrice} BGN?</p>
-            <div class="pop-up-buttons inside-pop-up">
-                <a href="" id="confirm-btn">Yes</a>
-                <a href="" id="cancel-btn">No</a>
-            </div>`;
-
-        async function confirmPurchase(e) {
-            e.preventDefault();
-            await buyProduct(selectedQuantity, x.id, 1);
-            window.location.assign('http://127.0.0.1:5500/front-end/templates/my-orders-page.html');
-        }
-
-        buyBtn.addEventListener('click', (e) => {
-            showPopup(e, popUpText, confirmPurchase, '.buy-btn', 295, 5, -5);
-        });
-
-        // Show and hide item description modal
-
-        // Show modal when clicked on item image
-
-        const itemImage = itemDiv.querySelector('.item-card img');
-        itemImage.addEventListener('click', () => {
-            createMarketplaceItemDescriptionModal(x.img, x.name, x.categoryName, x.price, x.quantityForSale, x.description);
-        });
+        itemsContainer.appendChild(itemDiv);
     });
 } catch (err) {
     console.log(err);

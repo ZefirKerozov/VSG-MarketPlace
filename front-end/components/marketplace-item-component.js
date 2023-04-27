@@ -1,4 +1,7 @@
-export default function createMarketplaceItem(img, quantityForSale, price, categoryName, containerToAppendTo) {
+import showPopup from "../utils/pop-up.js";
+import createMarketplaceItemDescriptionModal from "./marketplace-item-description-modal.js";
+
+export default function createMarketplaceItem(id, img, quantityForSale, price, categoryName, name, description) {
     const selectMenu = document.createElement('select');
     selectMenu.name = 'quantity';
     selectMenu.id = 'quantity';
@@ -36,7 +39,36 @@ export default function createMarketplaceItem(img, quantityForSale, price, categ
 
     const selectForm = itemDiv.querySelector('form');
     selectForm.appendChild(selectMenu);
-    containerToAppendTo.appendChild(itemDiv);
+
+    // Show modal when clicked on item image
+
+    const itemImage = itemDiv.querySelector('.item-card img');
+    itemImage.addEventListener('click', () => {
+        createMarketplaceItemDescriptionModal(img, name, categoryName, price, quantityForSale, description);
+    });
+
+    // Show pop up when item buy btn is clicked
+
+    const buyBtn = itemDiv.querySelector('.buy-btn');
+
+    const selectedQuantity = itemDiv.querySelector('#quantity').value;
+    const totalPrice = price * selectedQuantity;
+
+    const popUpText = `<p class="inside-pop-up">Are you sure you want to buy ${selectedQuantity} ${selectedQuantity > 1 ? 'items' : 'item'} for ${totalPrice} BGN?</p>
+        <div class="pop-up-buttons inside-pop-up">
+            <a href="" id="confirm-btn">Yes</a>
+            <a href="" id="cancel-btn">No</a>
+        </div>`;
+
+    async function confirmPurchase(e) {
+        e.preventDefault();
+        await buyProduct(selectedQuantity, id, 1);
+        window.location.assign('http://127.0.0.1:5500/front-end/templates/my-orders-page.html');
+    }
+
+    buyBtn.addEventListener('click', (e) => {
+        showPopup(e, popUpText, confirmPurchase, '.buy-btn', 295, 5, -5);
+    });
 
     return itemDiv;
 }
