@@ -23,27 +23,29 @@ public class OrdersService : IOrderService
 
     public async Task<List<GetOrdersDto>> GetPendingsOrders()
     {
-        var result = _ordersRepository.GetPendingsOrders();
-        foreach (var order in result.Result)
+        var result = await _ordersRepository.GetPendingsOrders();
+        foreach (var order in result)
         {
             order.Price *= order.Quantity;
             order.Status = ((OrderStatus)int.Parse(order.Status)).ToString();
+            order.OrderDate = DateTime.Now.ToString("yyyy’-‘MM’-‘dd’ ’HH’:’mm’");
         }
-
-        return await result;
+        
+        return result;
     }
 
     public async Task<List<GetOrdersDto>> GetMyOrders(int userId)
     {
      
-        var result = _ordersRepository.GetMyOrders(userId);
-        foreach (var order in result.Result)
+        var result = await _ordersRepository.GetMyOrders(userId);
+        foreach (var order in result)
         {
             order.Price *= order.Quantity;
             order.Status = ((OrderStatus)int.Parse(order.Status)).ToString();
+            order.OrderDate = DateTime.Now.ToString("yyyy’-‘MM’-‘dd’ ’HH’:’mm’");
         }
 
-        return await result;
+        return  result;
     }
 
     public async Task ChangeStatus(int id)
