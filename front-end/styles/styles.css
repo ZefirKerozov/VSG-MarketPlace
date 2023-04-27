@@ -142,12 +142,54 @@ header .dark-mode-switch-container {
   align-items: center;
   gap: 5px;
 }
-header .dark-mode-switch-container label {
-  font-size: 0.5rem;
-  color: var(--color-text);
+header .dark-mode-switch-container .toggle {
+  cursor: pointer;
+  display: inline-block;
 }
-header .dark-mode-switch-container input {
-  border-radius: 20px;
+header .dark-mode-switch-container .toggle-switch {
+  display: inline-block;
+  background: #ccc;
+  border-radius: 16px;
+  width: 58px;
+  height: 32px;
+  position: relative;
+  vertical-align: middle;
+  transition: background 0.25s;
+}
+header .dark-mode-switch-container .toggle-switch:before,
+header .dark-mode-switch-container .toggle-switch:after {
+  content: "";
+}
+header .dark-mode-switch-container .toggle-switch:before {
+  display: block;
+  background: linear-gradient(to bottom, #fff 0%, #eee 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  transition: left 0.25s;
+}
+header .dark-mode-switch-container .toggle:hover .toggle-switch:before {
+  background: linear-gradient(to bottom, #fff 0%, #fff 100%);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
+}
+header .dark-mode-switch-container .toggle-checkbox:checked + .toggle-switch {
+  background: #56c080;
+}
+header .dark-mode-switch-container .toggle-checkbox:checked + .toggle-switch:before {
+  left: 30px;
+}
+header .dark-mode-switch-container .toggle-checkbox {
+  position: absolute;
+  visibility: hidden;
+}
+header .dark-mode-switch-container .toggle-label {
+  margin-left: 5px;
+  position: relative;
+  top: 2px;
 }
 header a {
   height: 30px;
