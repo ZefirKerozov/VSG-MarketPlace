@@ -35,14 +35,6 @@ public static class ExceptionService
         }
     }
 
-    public static void ThrowExceptionWhenIdsDoNotMatch(int firstId, int secondId)
-    {
-        if (firstId != secondId)
-        {
-            throw new HttpException("Requested Ids do not match!", HttpStatusCode.BadRequest);
-        }
-    }
-    
     public static void ThrowExceptionWhenOrderIsNotComplete(string statusCode)
     {
         if (statusCode == OrderStatus.Pending.ToString())
