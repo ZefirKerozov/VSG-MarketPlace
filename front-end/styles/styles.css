@@ -284,18 +284,20 @@ nav li:hover svg path {
   position: absolute;
   visibility: hidden;
   z-index: 1;
-  width: 280px;
+  width: 260px;
   height: 80px;
   background-color: var(--color-background);
   box-shadow: var(--color-boxshadow);
   border-radius: 4px;
   padding: 16px;
   font-size: 0.5rem;
+  white-space: normal;
 }
 #pop-up p {
   display: inline;
   text-align: left;
   width: 100%;
+  line-height: 25px;
   color: var(--color-text);
 }
 #pop-up .pop-up-buttons {
@@ -338,7 +340,7 @@ nav li:hover svg path {
   content: "";
   position: absolute;
   top: -10px;
-  left: 155px;
+  left: 145px;
   width: 0px;
   height: 0px;
   border-style: solid;
@@ -351,7 +353,7 @@ nav li:hover svg path {
   content: "";
   position: absolute;
   top: -10px;
-  left: 280px;
+  left: 260px;
   width: 0px;
   height: 0px;
   border-style: solid;
@@ -364,7 +366,7 @@ nav li:hover svg path {
   content: "";
   position: absolute;
   top: 112px;
-  left: 155px;
+  left: 145px;
   width: 0px;
   height: 0px;
   border-style: solid;
@@ -377,7 +379,7 @@ nav li:hover svg path {
   content: "";
   position: absolute;
   top: 112px;
-  left: 280px;
+  left: 260px;
   width: 0px;
   height: 0px;
   border-style: solid;
@@ -582,8 +584,9 @@ html[data-theme=dark] {
 .item-wrapper {
   box-sizing: border-box;
   width: 25%;
-  height: 45%;
+  height: 330px;
   padding: 20px;
+  position: relative;
 }
 
 .item-card {
@@ -642,6 +645,7 @@ html[data-theme=dark] {
   align-items: center;
   gap: 10px;
   width: 50%;
+  position: relative;
 }
 .item-card .quantity-wrapper .quantity {
   display: flex;
@@ -1559,6 +1563,7 @@ body {
 }
 #main-container-my-orders #my-orders-items #my-orders-responsive-table .table-header .col-5 .cancel-btn,
 #main-container-my-orders #my-orders-items #my-orders-responsive-table .table-row .col-5 .cancel-btn {
+  position: relative;
   background: none;
   width: 12px;
   height: 12px;

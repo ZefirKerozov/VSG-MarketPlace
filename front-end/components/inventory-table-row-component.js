@@ -58,7 +58,7 @@ export default async function createInventoryTableRow(id, code, name, descriptio
     }
 
     deleteBtn.addEventListener('click', (e) => {
-        showPopup(e, popUpText, deleteInventoryItem, '.delete-btn', 50, -233);
+        showPopup(e, popUpText, deleteInventoryItem, '.delete-btn', 'inventory');
     });
 
     return tableRow;

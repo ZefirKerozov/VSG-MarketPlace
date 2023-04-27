@@ -29,8 +29,9 @@ html[data-theme=dark] {
 .item-wrapper {
   box-sizing: border-box;
   width: 25%;
-  height: 45%;
+  height: 330px;
   padding: 20px;
+  position: relative;
 }
 
 .item-card {
@@ -89,6 +90,7 @@ html[data-theme=dark] {
   align-items: center;
   gap: 10px;
   width: 50%;
+  position: relative;
 }
 .item-card .quantity-wrapper .quantity {
   display: flex;

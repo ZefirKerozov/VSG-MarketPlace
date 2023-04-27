@@ -3,8 +3,9 @@
 .item-wrapper {
     box-sizing: border-box;
     width: 25%;
-    height: 45%;
+    height: 330px;
     padding: 20px;
+    position: relative;
 }
 
 .item-card {
@@ -68,6 +69,7 @@
         @include flexProperties(flex-end, center);
         gap: 10px;
         width: 50%;
+        position: relative;
 
         .quantity {
             @include displayFlex(column);

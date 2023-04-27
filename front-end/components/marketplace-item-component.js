@@ -1,4 +1,5 @@
 import showPopup from "../utils/pop-up.js";
+import { buyProduct } from "../utils/requests.js";
 import createMarketplaceItemDescriptionModal from "./marketplace-item-description-modal.js";
 
 export default function createMarketplaceItem(id, img, quantityForSale, price, categoryName, name, description) {
@@ -67,7 +68,7 @@ export default function createMarketplaceItem(id, img, quantityForSale, price, c
     }
 
     buyBtn.addEventListener('click', (e) => {
-        showPopup(e, popUpText, confirmPurchase, '.buy-btn', 295, 5, -5);
+        showPopup(e, popUpText, confirmPurchase, '.buy-btn', 'marketplace');
     });
 
     return itemDiv;

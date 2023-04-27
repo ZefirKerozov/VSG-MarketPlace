@@ -118,6 +118,7 @@ body {
 }
 #main-container-my-orders #my-orders-items #my-orders-responsive-table .table-header .col-5 .cancel-btn,
 #main-container-my-orders #my-orders-items #my-orders-responsive-table .table-row .col-5 .cancel-btn {
+  position: relative;
   background: none;
   width: 12px;
   height: 12px;
