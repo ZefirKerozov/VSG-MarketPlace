@@ -12,7 +12,9 @@
     <projectFile profileName="https">src/Presentation/Marketplace/Marketplace.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9c0d6560-6cf2-4d11-9582-a67b8eb58620" name="Changes" comment="" />
+    <list default="true" id="9c0d6560-6cf2-4d11-9582-a67b8eb58620" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/Repositories/OrdersRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/Repositories/OrdersRepository.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,6 +47,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/829d6ac6e62b9bee9ef8e79e827d87d0c31a7c2eefbc354135d9a8f2c4deb/Mapper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/82b7507b229cf2565fd18e9e5272d70c13bac2148452d034d6b3d88d662/ObjectMethodExecutor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/878910279067a69744823f3ab1230c177a593e37dfe46787dbbce03d3d3799/ResourceInvoker.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8aeca8dfcec95a81b42a28e5c138e1c321e89def3fed605511172a8beaec/AsyncTaskMethodBuilderT.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9a6b1457cbcf17db31a383ba49ef9bcc786cf3ef77146d997eee499b27a46d/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a9b35bc5d5da43a49af8d74dac7ab37ccc1bb654cb7dfe8f9a21501181ed9b/CastHelpers.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/af7a1fd16db25e80d3e562916655e0aa58f0a179668fefe98c8148d7cb354d3a/DbConnection.cs" root0="SKIP_HIGHLIGHTING" />
@@ -265,7 +268,7 @@
       <workItem from="1682081372012" duration="22003000" />
       <workItem from="1682418371643" duration="9493000" />
       <workItem from="1682431729473" duration="6166000" />
-      <workItem from="1682510637840" duration="8731000" />
+      <workItem from="1682510637840" duration="9250000" />
     </task>
     <servers />
   </component>
@@ -357,32 +360,6 @@
           <option name="timeStamp" value="65" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/src/Core/Marketplace.Application/Services/OrdersService.cs</url>
-          <line>59</line>
-          <properties documentPath="C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Core\Marketplace.Application\Services\OrdersService.cs" initialLine="59" containingFunctionPresentation="method 'CreateOrder'">
-            <startOffsets>
-              <option value="1925" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2013" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="66" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/src/Core/Marketplace.Application/Services/OrdersService.cs</url>
-          <line>61</line>
-          <properties documentPath="C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Core\Marketplace.Application\Services\OrdersService.cs" initialLine="61" containingFunctionPresentation="method 'CreateOrder'">
-            <startOffsets>
-              <option value="2023" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2085" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="67" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/src/Presentation/Marketplace.API/Controllers/OrderController.cs</url>
           <line>32</line>
           <properties documentPath="C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\Controllers\OrderController.cs" initialLine="32" containingFunctionPresentation="method 'GetMyOrders'">
@@ -433,6 +410,32 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="71" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/Core/Marketplace.Application/Services/ImageService.cs</url>
+          <line>34</line>
+          <properties documentPath="C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Core\Marketplace.Application\Services\ImageService.cs" initialLine="34" containingFunctionPresentation="method 'DeleteImages'">
+            <startOffsets>
+              <option value="1250" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1316" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="72" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/Core/Marketplace.Application/Services/ImageService.cs</url>
+          <line>32</line>
+          <properties documentPath="C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Core\Marketplace.Application\Services\ImageService.cs" initialLine="32" containingFunctionPresentation="method 'DeleteImages'">
+            <startOffsets>
+              <option value="1157" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1240" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="73" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
