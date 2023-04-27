@@ -18,7 +18,7 @@ public class OrdersRepository : GenericRepository<Order>, IOrdersRepository
     {
 
         var query =
-            "SELECT Order.Code, Order.Price, Order.Quantity, Order.OrderDate, Order.Status, Order.Id, Order.UserId  FROM Order  Where Order.Status = '0'";
+            "SELECT [Order].Code, [Order].Price, [Order].Quantity, [Order].OrderDate, [Order].Status, [Order].Id, [Order].UserId  FROM [Order]  Where [Order].Status = '0'";
 
         var result = await Connection.QueryAsync<GetOrdersDto>(query,null,Transaction);
         return  (List<GetOrdersDto>)result;
