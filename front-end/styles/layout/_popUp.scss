@@ -45,7 +45,7 @@
 }
 
 .top-right-pointer::before {
-    @include popUpPointerPosition(-10px, 270px, 0deg);
+    @include popUpPointerPosition(-10px, 280px, 0deg);
 }
 
 .bottom-middle-pointer::before {
@@ -53,5 +53,5 @@
 }
 
 .bottom-right-pointer::before {
-    @include popUpPointerPosition(112px, 270px, 180deg);
+    @include popUpPointerPosition(112px, 280px, 180deg);
 }
