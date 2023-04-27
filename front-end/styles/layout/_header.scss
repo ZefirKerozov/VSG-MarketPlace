@@ -151,13 +151,15 @@ header {
         @include flexProperties(space-between, center);
         gap: 5px;
 
-        label {
-            font-size: 0.5rem;
-            color: var(--color-text);
-        }
+        // label {
+        //     font-size: 0.5rem;
+        //     color: var(--color-text);
+        // }
 
-        input {
-            border-radius: 20px;
-        }
+        // input {
+        //     border-radius: 20px;
+        // }
+
+        
     }
 }

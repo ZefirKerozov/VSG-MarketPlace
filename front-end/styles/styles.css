@@ -249,13 +249,6 @@ header #user-info {
     align-items: center;
     gap: 5px;
   }
-  .dark-mode-switch-container label {
-    font-size: 0.5rem;
-    color: var(--color-text);
-  }
-  .dark-mode-switch-container input {
-    border-radius: 20px;
-  }
 }
 html[data-theme=light] {
   --color-text: #000000;
