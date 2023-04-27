@@ -12,9 +12,7 @@
     <projectFile profileName="https">src/Presentation/Marketplace/Marketplace.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9c0d6560-6cf2-4d11-9582-a67b8eb58620" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/Repositories/OrdersRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/Repositories/OrdersRepository.cs" afterDir="false" />
-    </list>
+    <list default="true" id="9c0d6560-6cf2-4d11-9582-a67b8eb58620" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -268,7 +266,7 @@
       <workItem from="1682081372012" duration="22003000" />
       <workItem from="1682418371643" duration="9493000" />
       <workItem from="1682431729473" duration="6166000" />
-      <workItem from="1682510637840" duration="9250000" />
+      <workItem from="1682510637840" duration="9991000" />
     </task>
     <servers />
   </component>
@@ -345,19 +343,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="64" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/src/Core/Marketplace.Application/Services/ProductService.cs</url>
-          <line>52</line>
-          <properties documentPath="C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Core\Marketplace.Application\Services\ProductService.cs" initialLine="52" containingFunctionPresentation="method 'AddProduct'">
-            <startOffsets>
-              <option value="1721" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1794" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="65" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/src/Presentation/Marketplace.API/Controllers/OrderController.cs</url>
