@@ -1,5 +1,5 @@
-import showPopup from "../utils/pop-up";
-import { cancelOrder } from "../utils/requests";
+import showPopup from "../utils/pop-up.js";
+import { cancelOrder } from "../utils/requests.js";
 
 export default async function createMyOrder(id, name, quantity, price, orderDate, status) {
     const tableRow = document.createElement('div');
@@ -15,7 +15,7 @@ export default async function createMyOrder(id, name, quantity, price, orderDate
         <div class="col col-5" data-before="Status:">
             <div class="status">
                 <span class="status-message">${status}</span>
-                ${status === "Finished" || status === "Canceled"
+                ${status === "Finished" || status === "Cancelled"
             ? ''
             : `
                     <button class="cancel-btn">
@@ -48,6 +48,8 @@ export default async function createMyOrder(id, name, quantity, price, orderDate
 
     const cancelOrderBtn = tableRow.querySelector('.cancel-btn');
     cancelOrderBtn?.addEventListener('click', (e) => {
-        showPopup(e, popUpText, onCancelOrder, '.cancel-btn', 50, -233);
+        showPopup(e, popUpText, onCancelOrder, '.cancel-btn', 30, -147);
     });
+
+    return tableRow;
 }

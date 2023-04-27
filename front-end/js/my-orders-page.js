@@ -3,6 +3,7 @@ import "../utils/hamburgerMenu.js";
 import "../utils/darkMode.js";
 import "../components/my-orders-item.js";
 import { cancelOrder, getAllMyOrders } from "../utils/requests.js";
+import createMyOrder from "../components/my-orders-component.js";
 
 const DUMMY_DATA = [
     {
@@ -43,139 +44,140 @@ const table = document.querySelector('#rows');
 const loadItems = async () => {
     try {
         const data = await getAllMyOrders(1);
-        data.forEach(x => {
-            const tableRow = document.createElement('div');
-            tableRow.classList.add('table-row');
-            tableRow.innerHTML = `
-            <div class="col col-1" data-before="Name:">${x.name}</div>
-            <div class="table-first-group">
-                <div class="col col-2" data-before="Qty:">${x.quantity}</div>
-                <div class="col col-3" data-before="Price:">${x.price} BGN</div>
-            </div>
-            <div class="table-second-group">
-                <div class="col col-4" data-before="Order Date:">${x.orderDate}</div>
-                <div class="col col-5" data-before="Status:">
-                    <div class="status">
-                        <span class="status-message">${x.status}</span>
-                        ${x.status === "Finished" || x.status === "Canceled"
-                    ? ''
-                    : `
-                            <button class="cancel-btn">
-                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M11.8203 1.35156L7.17188 6L11.8203 10.6484L10.6484 11.8203L6 7.17188L1.35156 11.8203L0.179688 10.6484L4.82812 6L0.179688 1.35156L1.35156 0.179688L6 4.82812L10.6484 0.179688L11.8203 1.35156Z"
-                                    fill="#ED1C25" />
-                            </svg>
-                        </button>
-                            `}
-                    </div>
-                </div>
-            </div>
-            `;
+        data.forEach(async x => {
+            const tableRow = await createMyOrder(x.id, x.name, x.quantity, x.price, x.orderDate, x.status);
+            // const tableRow = document.createElement('div');
+            // tableRow.classList.add('table-row');
+            // tableRow.innerHTML = `
+            // <div class="col col-1" data-before="Name:">${x.name}</div>
+            // <div class="table-first-group">
+            //     <div class="col col-2" data-before="Qty:">${x.quantity}</div>
+            //     <div class="col col-3" data-before="Price:">${x.price} BGN</div>
+            // </div>
+            // <div class="table-second-group">
+            //     <div class="col col-4" data-before="Order Date:">${x.orderDate}</div>
+            //     <div class="col col-5" data-before="Status:">
+            //         <div class="status">
+            //             <span class="status-message">${x.status}</span>
+            //             ${x.status === "Finished" || x.status === "Canceled"
+            //         ? ''
+            //         : `
+            //                 <button class="cancel-btn">
+            //                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+            //                     xmlns="http://www.w3.org/2000/svg">
+            //                     <path
+            //                         d="M11.8203 1.35156L7.17188 6L11.8203 10.6484L10.6484 11.8203L6 7.17188L1.35156 11.8203L0.179688 10.6484L4.82812 6L0.179688 1.35156L1.35156 0.179688L6 4.82812L10.6484 0.179688L11.8203 1.35156Z"
+            //                         fill="#ED1C25" />
+            //                 </svg>
+            //             </button>
+            //                 `}
+            //         </div>
+            //     </div>
+            // </div>
+            // `;
 
-            const cancelOrderBtn = tableRow.querySelector('.cancel-btn');
-            cancelOrderBtn?.addEventListener('click', showPopup);
+            //     const cancelOrderBtn = tableRow.querySelector('.cancel-btn');
+            //     cancelOrderBtn?.addEventListener('click', showPopup);
 
-            // Open and close pop-up functionality
+            //     // Open and close pop-up functionality
 
-            function showPopup(e) {
-                // Close previous opened pop-up if there is such
+            //     function showPopup(e) {
+            //         // Close previous opened pop-up if there is such
 
-                const prevPopUp = document.getElementById('pop-up');
-                if (prevPopUp !== null) {
-                    prevPopUp.remove();
-                }
+            //         const prevPopUp = document.getElementById('pop-up');
+            //         if (prevPopUp !== null) {
+            //             prevPopUp.remove();
+            //         }
 
-                // Create pop-up and append it to parent element
+            //         // Create pop-up and append it to parent element
 
-                const divPopUp = document.createElement('div');
-                divPopUp.id = 'pop-up';
-                divPopUp.classList.add('inside-pop-up');
-                divPopUp.innerHTML = `<p class="inside-pop-up">Are you sure you want to remove this item?</p>
-        <div class="pop-up-buttons inside-pop-up">
-            <a href="" id="confirm-btn">Yes</a>
-            <a href="" id="cancel-btn">No</a>
-        </div>`;
+            //         const divPopUp = document.createElement('div');
+            //         divPopUp.id = 'pop-up';
+            //         divPopUp.classList.add('inside-pop-up');
+            //         divPopUp.innerHTML = `<p class="inside-pop-up">Are you sure you want to remove this item?</p>
+            // <div class="pop-up-buttons inside-pop-up">
+            //     <a href="" id="confirm-btn">Yes</a>
+            //     <a href="" id="cancel-btn">No</a>
+            // </div>`;
 
-                const position = e.target.getBoundingClientRect();
+            //         const position = e.target.getBoundingClientRect();
 
-                const cancelButtonParent = e.target.parentElement;
+            //         const cancelButtonParent = e.target.parentElement;
 
-                cancelButtonParent.appendChild(divPopUp);
+            //         cancelButtonParent.appendChild(divPopUp);
 
-                // Configure pop-up position depending on browser window
+            //         // Configure pop-up position depending on browser window
 
-                const elementPopUp = document.getElementById('pop-up');
+            //         const elementPopUp = document.getElementById('pop-up');
 
-                let positionLeft;
-                let positionTop;
+            //         let positionLeft;
+            //         let positionTop;
 
-                if (position.x + elementPopUp.offsetWidth >= window.innerWidth) {
-                    if (window.innerWidth <= 768) {
-                        positionLeft = position.left - position.left - 76;
-                    } else {
-                        positionLeft = position.left - position.left - 148;
-                    }
-                    elementPopUp.classList.add('top-right-pointer');
-                } else if (position.x + elementPopUp.offsetWidth >= window.innerWidth && position.y + elementPopUp.offsetHeight + 20 >= window.innerHeight) {
-                    positionLeft = position.left - position.left - 100;
-                    elementPopUp.classList.add('bottom-right-pointer');
-                } else {
-                    positionLeft = position.left - position.left - 140;
-                    elementPopUp.classList.add('top-middle-pointer');
-                }
+            //         if (position.x + elementPopUp.offsetWidth >= window.innerWidth) {
+            //             if (window.innerWidth <= 768) {
+            //                 positionLeft = position.left - position.left - 76;
+            //             } else {
+            //                 positionLeft = position.left - position.left - 148;
+            //             }
+            //             elementPopUp.classList.add('top-right-pointer');
+            //         } else if (position.x + elementPopUp.offsetWidth >= window.innerWidth && position.y + elementPopUp.offsetHeight + 20 >= window.innerHeight) {
+            //             positionLeft = position.left - position.left - 100;
+            //             elementPopUp.classList.add('bottom-right-pointer');
+            //         } else {
+            //             positionLeft = position.left - position.left - 140;
+            //             elementPopUp.classList.add('top-middle-pointer');
+            //         }
 
-                if (position.y + elementPopUp.offsetHeight + 50 >= window.innerHeight && !(position.x + elementPopUp.offsetWidth >= window.innerWidth)) {
-                    positionTop = position.top - position.top - 115;
-                    elementPopUp.classList.add('bottom-middle-pointer');
-                } else if (position.y + elementPopUp.offsetHeight + 50 >= window.innerHeight && position.x + elementPopUp.offsetWidth >= window.innerWidth) {
-                    positionTop = position.top - position.top - 120;
-                    elementPopUp.classList.add('bottom-right-pointer');
-                }
-                else {
-                    positionTop = position.top - position.top + 30;
-                }
+            //         if (position.y + elementPopUp.offsetHeight + 50 >= window.innerHeight && !(position.x + elementPopUp.offsetWidth >= window.innerWidth)) {
+            //             positionTop = position.top - position.top - 115;
+            //             elementPopUp.classList.add('bottom-middle-pointer');
+            //         } else if (position.y + elementPopUp.offsetHeight + 50 >= window.innerHeight && position.x + elementPopUp.offsetWidth >= window.innerWidth) {
+            //             positionTop = position.top - position.top - 120;
+            //             elementPopUp.classList.add('bottom-right-pointer');
+            //         }
+            //         else {
+            //             positionTop = position.top - position.top + 30;
+            //         }
 
-                Object.assign(elementPopUp.style, {
-                    left: `${positionLeft}px`,
-                    top: `${positionTop}px`,
-                    visibility: 'visible',
-                });
+            //         Object.assign(elementPopUp.style, {
+            //             left: `${positionLeft}px`,
+            //             top: `${positionTop}px`,
+            //             visibility: 'visible',
+            //         });
 
-                // Close pop-up if cancel button is clicked
+            //         // Close pop-up if cancel button is clicked
 
-                const cancelBtn = document.getElementById('cancel-btn');
-                cancelBtn.addEventListener('click', closePopUp);
+            //         const cancelBtn = document.getElementById('cancel-btn');
+            //         cancelBtn.addEventListener('click', closePopUp);
 
-                window.addEventListener('click', trackWindowEvent);
+            //         window.addEventListener('click', trackWindowEvent);
 
-                function closePopUp(e) {
-                    e.preventDefault();
-                    itemCard.removeChild(divPopUp);
-                    window.removeEventListener('click', trackWindowEvent);
-                }
+            //         function closePopUp(e) {
+            //             e.preventDefault();
+            //             itemCard.removeChild(divPopUp);
+            //             window.removeEventListener('click', trackWindowEvent);
+            //         }
 
-                // Close pop-up if clicked outside pop-up
+            //         // Close pop-up if clicked outside pop-up
 
-                function trackWindowEvent(e) {
-                    if (!e.target.matches('.inside-pop-up') && !e.target.matches('.cancel-btn')) {
-                        cancelButtonParent.removeChild(divPopUp);
-                        window.removeEventListener('click', trackWindowEvent);
-                    }
-                }
+            //         function trackWindowEvent(e) {
+            //             if (!e.target.matches('.inside-pop-up') && !e.target.matches('.cancel-btn')) {
+            //                 cancelButtonParent.removeChild(divPopUp);
+            //                 window.removeEventListener('click', trackWindowEvent);
+            //             }
+            //         }
 
-                // Cancel order if cancel order button is clicked
+            //         // Cancel order if cancel order button is clicked
 
-                const confirmBtn = document.getElementById('confirm-btn');
-                confirmBtn.addEventListener('click', onConfirmBtnClick);
+            //         const confirmBtn = document.getElementById('confirm-btn');
+            //         confirmBtn.addEventListener('click', onConfirmBtnClick);
 
-                async function onConfirmBtnClick(e) {
-                    e.preventDefault();
-                    await cancelOrder(x.id);
-                    window.location.reload();
-                }
-            };
+            //         async function onConfirmBtnClick(e) {
+            //             e.preventDefault();
+            //             await cancelOrder(x.id);
+            //             window.location.reload();
+            //         }
+            //     };
 
             table?.appendChild(tableRow);
         });
