@@ -25,28 +25,24 @@ export default function showPopup(e, popUpText, submitFunction, targetToClose, p
 
     let positionLeft;
     let positionTop;
-    let positionTopAddDesktop;
-    let positionTopAddMobile;
+    let positionToAdd;
 
     if (popUpPage === 'marketplace') {
         positionTop = 50;
         positionLeft = -133;
-        positionTopAddDesktop = -168;
-        positionTopAddMobile = -168;
+        positionToAdd = -168;
     }
 
     if (popUpPage === 'inventory') {
         positionTop = 50;
         positionLeft = -97;
-        positionTopAddDesktop = -155;
-        positionTopAddMobile = -155;
+        positionToAdd = -155;
     }
 
     if (popUpPage === 'my-orders') {
         positionTop = 50;
         positionLeft = -264;
-        positionTopAddDesktop = -170;
-        positionTopAddMobile = -170;
+        positionToAdd = -170;
     }
 
     if (position.x + elementPopUp.offsetWidth >= window.innerWidth) {
@@ -69,9 +65,9 @@ export default function showPopup(e, popUpText, submitFunction, targetToClose, p
         elementPopUp.classList.add('bottom-middle-pointer');
     } else if (position.y + elementPopUp.offsetHeight + 50 >= window.innerHeight && position.x + elementPopUp.offsetWidth >= window.innerWidth) {
         if (window.innerWidth <= 768) {
-            positionTop = position.top - position.top + positionTop + positionTopAddMobile;
+            positionTop = position.top - position.top + positionToAdd;
         } else {
-            positionTop = position.top - position.top + positionTop + positionTopAddDesktop;
+            positionTop = position.top - position.top + positionToAdd;
         }
         elementPopUp.classList.add('bottom-right-pointer');
     }
