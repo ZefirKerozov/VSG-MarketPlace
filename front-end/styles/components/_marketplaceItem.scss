@@ -6,6 +6,7 @@
     height: 330px;
     padding: 20px;
     position: relative;
+    @include fadeIn();
 }
 
 .item-card {

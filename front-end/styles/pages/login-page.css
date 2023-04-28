@@ -22,9 +22,30 @@ html[data-theme=dark] {
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100% 100%;
+  position: relative;
 }
 #main-container-login svg {
   width: 80%;
+  position: absolute;
+  top: 20%;
+  animation-name: svgSlide;
+  animation-duration: 0.8s;
+}
+@keyframes svgSlide {
+  0% {
+    top: -25%;
+  }
+  100% {
+    top: 20%;
+  }
+}
+@keyframes aSlide {
+  0% {
+    bottom: -10%;
+  }
+  100% {
+    bottom: 25%;
+  }
 }
 #main-container-login a {
   color: #FFFFFF;
@@ -35,6 +56,10 @@ html[data-theme=dark] {
   border-radius: 4px;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
   text-decoration: none;
+  position: absolute;
+  bottom: 25%;
+  animation-name: aSlide;
+  animation-duration: 0.8s;
 }
 #main-container-login a:hover {
   cursor: pointer;

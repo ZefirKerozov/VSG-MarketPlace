@@ -32,6 +32,16 @@ html[data-theme=dark] {
   height: 330px;
   padding: 20px;
   position: relative;
+  animation-name: fadeIn;
+  animation-duration: 1s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
 }
 
 .item-card {
