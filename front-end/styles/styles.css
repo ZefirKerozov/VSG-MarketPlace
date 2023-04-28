@@ -401,6 +401,7 @@ nav li:hover svg path {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  gap: 10px;
 }
 .dark-mode-switch-container .toggle-switch {
   display: inline-block;
@@ -445,7 +446,6 @@ nav li:hover svg path {
 .dark-mode-switch-container .toggle-label {
   font-size: 0.5rem;
   color: var(--color-text);
-  margin-left: 5px;
   position: relative;
 }
 

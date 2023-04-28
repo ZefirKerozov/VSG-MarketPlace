@@ -7,6 +7,7 @@
         cursor: pointer;
         @include displayFlex();
         @include flexProperties(space-between, center);
+        gap: 10px;
     }
 
     .toggle-switch {
@@ -59,7 +60,6 @@
     .toggle-label {
         font-size: 0.5rem;
         color: var(--color-text);
-        margin-left: 5px;
         position: relative;
     }
 }
