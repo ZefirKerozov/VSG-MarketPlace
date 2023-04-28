@@ -29,13 +29,13 @@ export default function showPopup(e, popUpText, submitFunction, targetToClose, p
 
     if (popUpPage === 'marketplace') {
         positionTop = 50;
-        positionLeft = -133;
+        positionLeft = -131;
         positionToAdd = -168;
     }
 
     if (popUpPage === 'inventory') {
         positionTop = 50;
-        positionLeft = -97;
+        positionLeft = -96;
         positionToAdd = -155;
     }
 
@@ -47,16 +47,16 @@ export default function showPopup(e, popUpText, submitFunction, targetToClose, p
 
     if (position.x + elementPopUp.offsetWidth >= window.innerWidth) {
         if (window.innerWidth <= 768) {
-            positionLeft = position.left - position.left + (popUpPage === 'my-orders' ? positionLeft : positionLeft - 115);
+            positionLeft = position.left - position.left + (popUpPage === 'my-orders' ? positionLeft : positionLeft - 116);
         } else {
-            positionLeft = position.left - position.left + (popUpPage === 'my-orders' ? positionLeft : positionLeft - 115);
+            positionLeft = position.left - position.left + (popUpPage === 'my-orders' ? positionLeft : positionLeft - 116);
         }
         elementPopUp.classList.add('top-right-pointer');
     } else if (position.x + elementPopUp.offsetWidth >= window.innerWidth && position.y + elementPopUp.offsetHeight + 20 >= window.innerHeight) {
         positionLeft = position.left - position.left - positionLeft;
         elementPopUp.classList.add('bottom-right-pointer');
     } else {
-        positionLeft = position.left - position.left + positionLeft;
+        positionLeft = position.left - position.left + positionLeft - 2;
         elementPopUp.classList.add('top-middle-pointer');
     }
 
@@ -65,9 +65,9 @@ export default function showPopup(e, popUpText, submitFunction, targetToClose, p
         elementPopUp.classList.add('bottom-middle-pointer');
     } else if (position.y + elementPopUp.offsetHeight + 50 >= window.innerHeight && position.x + elementPopUp.offsetWidth >= window.innerWidth) {
         if (window.innerWidth <= 768) {
-            positionTop = position.top - position.top + positionToAdd;
+            positionTop = position.top - position.top + positionTop - (popUpPage === 'inventory' ? 155 : popUpPage === 'marketplace' ? 168 : 175);
         } else {
-            positionTop = position.top - position.top + positionToAdd;
+            positionTop = position.top - position.top + positionTop - (popUpPage === 'inventory' ? 155 : popUpPage === 'marketplace' ? 168 : 175);
         }
         elementPopUp.classList.add('bottom-right-pointer');
     }
