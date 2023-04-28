@@ -449,11 +449,6 @@ nav li:hover svg path {
   position: relative;
 }
 
-@media (max-width: 768px) {
-  .toggle {
-    flex-direction: row-reverse;
-  }
-}
 html[data-theme=light] {
   --color-text: #000000;
   --color-background: #FFFFFF;
