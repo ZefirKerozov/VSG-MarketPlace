@@ -2,11 +2,13 @@
 using Markerplace.Domain.Enums;
 using Marketplace.Application.Models.OrderModels.Dtos;
 using Marketplace.Application.Models.OrderModels.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Server.Kestrel.Transport.Quic;
 
 namespace Marketplace.API.Controllers;
 
+[Authorize]
 [Route("api/Orders")]
 [ApiController]
 public class OrderController :ControllerBase

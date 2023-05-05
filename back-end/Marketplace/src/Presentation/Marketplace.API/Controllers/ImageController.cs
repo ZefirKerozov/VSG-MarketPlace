@@ -1,9 +1,11 @@
 ﻿using Marketplace.Application.Models.ImageModels.Dtos;
 using Marketplace.Application.Models.ImageModels.Interface;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Marketplace.API.Controllers;
 
+[Authorize]
 [Route("api/Images")]
 [ApiController]
 public class ImageController : ControllerBase

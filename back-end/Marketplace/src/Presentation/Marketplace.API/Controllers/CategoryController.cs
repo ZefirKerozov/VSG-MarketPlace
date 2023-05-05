@@ -1,10 +1,11 @@
 ﻿using Markerplace.Domain.Entities;
 using Marketplace.Application.Models.CategorieModels.Dtos;
 using Marketplace.Application.Models.CategorieModels.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Marketplace.API.Controllers;
-
+[Authorize]
 [Route("api/Category")]
 [ApiController]
 public class CategoryController: ControllerBase
