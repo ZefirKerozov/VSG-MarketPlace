@@ -102,6 +102,10 @@ $background-color: #FFFFFF;
             border-bottom: 1px solid #B3B3B3;
         }
 
+        tbody tr{
+            @include fadeIn();
+        }
+
         tr:last-of-type {
             border-bottom: none;
         }

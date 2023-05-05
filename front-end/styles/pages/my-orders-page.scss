@@ -122,6 +122,7 @@ body {
             .table-row {
                 border: 2px solid #DADCDD;
                 background-color: var(--color-background);
+                @include fadeIn();
             }
 
             .col {

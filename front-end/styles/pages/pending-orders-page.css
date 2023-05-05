@@ -119,6 +119,16 @@ html[data-theme=dark] {
 #main-container-pending-orders #pending-items #pending-items-responsive-table .table-row {
   background-color: var(--color-background);
   border: 2px solid #DADCDD;
+  animation-name: fadeIn;
+  animation-duration: 1s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
 }
 #main-container-pending-orders #pending-items #pending-items-responsive-table .table-header {
   background-color: var(--color-backgroundMain);

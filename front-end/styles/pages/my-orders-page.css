@@ -138,6 +138,16 @@ body {
 #main-container-my-orders #my-orders-items #my-orders-responsive-table .table-row {
   border: 2px solid #DADCDD;
   background-color: var(--color-background);
+  animation-name: fadeIn;
+  animation-duration: 1s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
 }
 #main-container-my-orders #my-orders-items #my-orders-responsive-table .col {
   color: var(--color-text);

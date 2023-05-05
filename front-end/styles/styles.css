@@ -81,6 +81,17 @@ body {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-duration: 0.5s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
 }
 
 @media (max-width: 768px) {
@@ -243,12 +254,14 @@ nav li:last-of-type {
 nav li:hover {
   background-color: #ED1C25;
   cursor: pointer;
+  transition: 0.3s;
 }
 nav li:hover a {
   color: #FFFFFF;
 }
 nav li:hover svg path {
   fill: #FFFFFF;
+  transition: 0.3s;
 }
 
 @media (max-width: 768px) {
@@ -292,6 +305,16 @@ nav li:hover svg path {
   padding: 16px;
   font-size: 0.5rem;
   white-space: normal;
+  animation-name: fadeIn;
+  animation-duration: 1s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
 }
 #pop-up p {
   display: inline;
@@ -401,6 +424,7 @@ nav li:hover svg path {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  gap: 10px;
 }
 .dark-mode-switch-container .toggle-switch {
   display: inline-block;
@@ -445,65 +469,9 @@ nav li:hover svg path {
 .dark-mode-switch-container .toggle-label {
   font-size: 0.5rem;
   color: var(--color-text);
-  margin-left: 5px;
   position: relative;
 }
 
-@media (max-width: 768px) {
-  .toggle {
-    cursor: pointer;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .toggle-switch {
-    display: inline-block;
-    background: #ccc;
-    border-radius: 16px;
-    width: 45px;
-    height: 26px;
-    position: relative;
-    vertical-align: middle;
-    transition: background 0.25s;
-  }
-  .toggle-switch:before,
-  .toggle-switch:after {
-    content: "";
-  }
-  .toggle-switch:before {
-    display: block;
-    background: linear-gradient(to bottom, #fff 0%, #eee 100%);
-    border-radius: 50%;
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    top: 3px;
-    left: 3px;
-    transition: left 0.25s;
-  }
-  .toggle:hover .toggle-switch:before {
-    background: linear-gradient(to bottom, #fff 0%, #fff 100%);
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
-  }
-  .toggle-checkbox:checked + .toggle-switch {
-    background: #ED1C25;
-  }
-  .toggle-checkbox:checked + .toggle-switch:before {
-    left: 22px;
-  }
-  .toggle-checkbox {
-    position: absolute;
-    visibility: hidden;
-  }
-  .toggle-label {
-    font-size: 0.5rem;
-    color: var(--color-text);
-    margin-left: 5px;
-    position: relative;
-  }
-}
 html[data-theme=light] {
   --color-text: #000000;
   --color-background: #FFFFFF;
@@ -528,9 +496,30 @@ html[data-theme=dark] {
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100% 100%;
+  position: relative;
 }
 #main-container-login svg {
   width: 80%;
+  position: absolute;
+  top: 20%;
+  animation-name: svgSlide;
+  animation-duration: 0.8s;
+}
+@keyframes svgSlide {
+  0% {
+    top: -25%;
+  }
+  100% {
+    top: 20%;
+  }
+}
+@keyframes aSlide {
+  0% {
+    bottom: -10%;
+  }
+  100% {
+    bottom: 25%;
+  }
 }
 #main-container-login a {
   color: #FFFFFF;
@@ -541,6 +530,10 @@ html[data-theme=dark] {
   border-radius: 4px;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
   text-decoration: none;
+  position: absolute;
+  bottom: 25%;
+  animation-name: aSlide;
+  animation-duration: 0.8s;
 }
 #main-container-login a:hover {
   cursor: pointer;
@@ -587,6 +580,16 @@ html[data-theme=dark] {
   height: 330px;
   padding: 20px;
   position: relative;
+  animation-name: fadeIn;
+  animation-duration: 1s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
 }
 
 .item-card {
@@ -1131,6 +1134,18 @@ html[data-theme=dark] {
 #main-container-inventory table tr {
   border-bottom: 1px solid #B3B3B3;
 }
+#main-container-inventory table tbody tr {
+  animation-name: fadeIn;
+  animation-duration: 1s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
 #main-container-inventory table tr:last-of-type {
   border-bottom: none;
 }
@@ -1351,6 +1366,16 @@ html[data-theme=dark] {
 #main-container-pending-orders #pending-items #pending-items-responsive-table .table-row {
   background-color: var(--color-background);
   border: 2px solid #DADCDD;
+  animation-name: fadeIn;
+  animation-duration: 1s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
 }
 #main-container-pending-orders #pending-items #pending-items-responsive-table .table-header {
   background-color: var(--color-backgroundMain);
@@ -1583,6 +1608,16 @@ body {
 #main-container-my-orders #my-orders-items #my-orders-responsive-table .table-row {
   border: 2px solid #DADCDD;
   background-color: var(--color-background);
+  animation-name: fadeIn;
+  animation-duration: 1s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
 }
 #main-container-my-orders #my-orders-items #my-orders-responsive-table .col {
   color: var(--color-text);

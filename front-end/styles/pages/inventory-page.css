@@ -314,6 +314,18 @@ html[data-theme=dark] {
 #main-container-inventory table tr {
   border-bottom: 1px solid #B3B3B3;
 }
+#main-container-inventory table tbody tr {
+  animation-name: fadeIn;
+  animation-duration: 1s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
 #main-container-inventory table tr:last-of-type {
   border-bottom: none;
 }

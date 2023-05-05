@@ -35,3 +35,13 @@
     font-size: 14px;
     color: $textColor;
 }
+
+@mixin fadeIn(){
+    animation-name: fadeIn;
+    animation-duration: 1s;
+
+    @keyframes fadeIn{
+        0% {opacity: 0%}
+        100% {opacity: 100%}
+    }
+}

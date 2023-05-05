@@ -5,32 +5,36 @@ const hamburgerBtn = document.getElementsByTagName('svg')[0];
 
 hamburgerBtn.addEventListener('click', openHamburgerMenu);
 
+const header = document.querySelector('header');
+const headerLeftContainer = document.querySelector('.left-container');
+const darkModeToggleContainer = document.querySelector('.toggle');
+
 const userInfo = document.getElementById('user-info');
 const darkModeSwitch = document.querySelector('.dark-mode-switch-container');
+
 const prependContainer = document.querySelector('#prepend-container');
-prependContainer.id = 'prepend-container';
 
 window.addEventListener('resize', () => {
     if (window.innerWidth <= 768) {
-        userInfo.style.display = 'none';
-        darkModeSwitch.style.display = 'none';
-        prependContainer.style.display = 'flex';
+        prependContainer.appendChild(userInfo);
+        prependContainer.appendChild(darkModeSwitch);
+        darkModeToggleContainer.style['flex-direction'] = 'row-reverse';
     } else {
-        userInfo.style.display = 'flex';
-        darkModeSwitch.style.display = 'flex';
-        prependContainer.style.display = 'none';
+        header.appendChild(userInfo);
+        headerLeftContainer.appendChild(darkModeSwitch);
+        darkModeToggleContainer.style['flex-direction'] = 'row';
     }
 });
 
 window.addEventListener('load', () => {
     if (window.innerWidth <= 768) {
-        userInfo.style.display = 'none';
-        darkModeSwitch.style.display = 'none';
-        prependContainer.style.display = 'flex';
+        prependContainer.appendChild(userInfo);
+        prependContainer.appendChild(darkModeSwitch);
+        darkModeToggleContainer.style['flex-direction'] = 'row-reverse';
     } else {
-        userInfo.style.display = 'flex';
-        darkModeSwitch.style.display = 'flex';
-        prependContainer.style.display = 'none';
+        header.appendChild(userInfo);
+        headerLeftContainer.appendChild(darkModeSwitch);
+        darkModeToggleContainer.style['flex-direction'] = 'row';
     }
 });
 
