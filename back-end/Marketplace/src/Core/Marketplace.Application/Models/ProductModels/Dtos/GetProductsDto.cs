@@ -9,6 +9,8 @@ public class GetProductsDto
     public int QuantityForSale { get; set; }
 
     public string CategoryName { get; set; }
+    
+    public string CategoryId { get; set; }
     public string img { get; set; }
 
     public string Name { get; set; }
