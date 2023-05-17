@@ -4,7 +4,7 @@ namespace Marketplace.Persistence.Migrations;
 
 [Migration(2023052504)]
 
-public class ImageTable :Migration
+public class _04_ImageTable :Migration
 {
     public override void Up()
     {

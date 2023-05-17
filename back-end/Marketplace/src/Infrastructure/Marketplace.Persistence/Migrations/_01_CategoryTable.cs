@@ -4,7 +4,7 @@ using Markerplace.Domain.Entities;
 namespace Marketplace.Persistence.Migrations;
 
 [Migration(2023052301)]
-public class CategoryTable :Migration
+public class _01_CategoryTable :Migration
 {
     public override void Up()
     {
