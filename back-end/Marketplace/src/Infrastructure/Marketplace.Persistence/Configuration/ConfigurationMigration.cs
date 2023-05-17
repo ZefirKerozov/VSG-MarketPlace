@@ -12,7 +12,7 @@ public static class ConfigurationMigration
         services.AddFluentMigratorCore()
             .ConfigureRunner(conf => conf.AddSqlServer()
                 .WithGlobalConnectionString("SqlConnection")
-                .ScanIn(typeof(CategoryTable).Assembly).For.Migrations());
+                .ScanIn(typeof(_01_CategoryTable).Assembly).For.Migrations());
 
         return services;
     }

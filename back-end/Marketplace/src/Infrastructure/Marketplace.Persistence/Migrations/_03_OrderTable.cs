@@ -4,7 +4,7 @@ namespace Marketplace.Persistence.Migrations;
 
 [Migration(2023052703)]
 
-public class OrderTable :Migration
+public class _03_OrderTable :Migration
 {
     public override void Up()
     {
