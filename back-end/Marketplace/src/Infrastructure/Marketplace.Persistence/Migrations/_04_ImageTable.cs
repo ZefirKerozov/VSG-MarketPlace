@@ -2,7 +2,7 @@
 
 namespace Marketplace.Persistence.Migrations;
 
-[Migration(20230525)]
+[Migration(2023052504)]
 
 public class ImageTable :Migration
 {

@@ -2,7 +2,7 @@
 
 namespace Marketplace.Persistence.Migrations;
 
-[Migration(20230527)]
+[Migration(2023052703)]
 
 public class OrderTable :Migration
 {

@@ -48,9 +48,10 @@ public class ProductService : IProductService
     }
 
 
-    public async Task<int> AddProduct(AddProductDto productDto)
+    public async Task<AddProductDto> AddProduct(AddProductDto productDto)
     {
-        return await _productRepository.Create(_mapper.Map<Product>(productDto));
+        await _productRepository.Create(_mapper.Map<Product>(productDto));
+        return productDto;
     }
 
     public async Task DeleteProduct(int id)

@@ -2,7 +2,7 @@
 
 namespace Marketplace.Persistence.Migrations;
 
-[Migration(20230528)]
+[Migration(2023052805)]
 
 public class LogTable :Migration
 {

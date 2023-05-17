@@ -54,7 +54,7 @@ public class ExceptionHandlingMIddleware
                 problems.Add(new ErrorDetails()
                 {
                     StatusCode = 500,
-                    Message = "Internal Server Error"
+                    Message = e.Message
                 });
                 _logger.LogError(e.Message);
             }

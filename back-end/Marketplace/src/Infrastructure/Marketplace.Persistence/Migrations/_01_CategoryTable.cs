@@ -3,7 +3,7 @@ using Markerplace.Domain.Entities;
 
 namespace Marketplace.Persistence.Migrations;
 
-[Migration(20230523)]
+[Migration(2023052301)]
 public class CategoryTable :Migration
 {
     public override void Up()

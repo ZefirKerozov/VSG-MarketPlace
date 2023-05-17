@@ -15,15 +15,23 @@
     <list default="true" id="9c0d6560-6cf2-4d11-9582-a67b8eb58620" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Marketplace/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Marketplace/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Test/OrderServiceTests/obj/Debug/net7.0/OrderServiceTests.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Test/OrderServiceTests/obj/Debug/net7.0/OrderServiceTests.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/Marketplace.Application/Models/ProductModels/Dtos/GetProductsDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Marketplace.Application/Models/ProductModels/Dtos/GetProductsDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/Repositories/ProductRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/Repositories/ProductRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/bin/Debug/net7.0/Marketplace.Persistence.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/bin/Debug/net7.0/Marketplace.Persistence.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/bin/Debug/net7.0/Marketplace.Persistence.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/bin/Debug/net7.0/Marketplace.Persistence.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/obj/Debug/net7.0/Marketplace.Persistence.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/obj/Debug/net7.0/Marketplace.Persistence.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/obj/Debug/net7.0/Marketplace.Persistence.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/obj/Debug/net7.0/Marketplace.Persistence.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/obj/Debug/net7.0/Marketplace.Persistence.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/obj/Debug/net7.0/Marketplace.Persistence.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Presentation/Marketplace.API/bin/Debug/net7.0/Marketplace.Persistence.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/Marketplace.API/bin/Debug/net7.0/Marketplace.Persistence.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Presentation/Marketplace.API/bin/Debug/net7.0/Marketplace.Persistence.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/Marketplace.API/bin/Debug/net7.0/Marketplace.Persistence.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Marketplace.Application/Helpers/Middlewares/ExceptionHandlingMIddleware.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Marketplace.Application/Helpers/Middlewares/ExceptionHandlingMIddleware.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Marketplace.Application/Models/ProductModels/Interface/IProductService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Marketplace.Application/Models/ProductModels/Interface/IProductService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Marketplace.Application/Services/ProductService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Marketplace.Application/Services/ProductService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Marketplace.Application/bin/Debug/net7.0/Marketplace.Application.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Marketplace.Application/bin/Debug/net7.0/Marketplace.Application.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Marketplace.Application/bin/Debug/net7.0/Marketplace.Application.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Marketplace.Application/bin/Debug/net7.0/Marketplace.Application.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Marketplace.Application/obj/Debug/net7.0/Marketplace.Application.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Marketplace.Application/obj/Debug/net7.0/Marketplace.Application.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Marketplace.Application/obj/Debug/net7.0/Marketplace.Application.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Marketplace.Application/obj/Debug/net7.0/Marketplace.Application.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/Migrations/CategoryTable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/Migrations/_01_CategoryTable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/Migrations/ImageTable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/Migrations/_04_ImageTable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/Migrations/LogTable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/Migrations/_05_LogTable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/Migrations/OrderTable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/Migrations/_03_OrderTable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/Migrations/ProductTable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/Migrations/_02_ProductTable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/bin/Debug/net7.0/Marketplace.Application.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/bin/Debug/net7.0/Marketplace.Application.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/bin/Debug/net7.0/Marketplace.Application.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/bin/Debug/net7.0/Marketplace.Application.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/obj/Debug/net7.0/Marketplace.Persistence.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/obj/Debug/net7.0/Marketplace.Persistence.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Presentation/Marketplace.API/bin/Debug/net7.0/Marketplace.Application.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/Marketplace.API/bin/Debug/net7.0/Marketplace.Application.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Presentation/Marketplace.API/bin/Debug/net7.0/Marketplace.Application.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/Marketplace.API/bin/Debug/net7.0/Marketplace.Application.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Presentation/Marketplace.API/obj/Debug/net7.0/Marketplace.API.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/Marketplace.API/obj/Debug/net7.0/Marketplace.API.csproj.AssemblyReference.cache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -285,7 +293,8 @@
       <workItem from="1682599594583" duration="1893000" />
       <workItem from="1682601674992" duration="4490000" />
       <workItem from="1683009653872" duration="9884000" />
-      <workItem from="1683715815652" duration="4313000" />
+      <workItem from="1683715815652" duration="4631000" />
+      <workItem from="1684133401144" duration="6032000" />
     </task>
     <servers />
   </component>
