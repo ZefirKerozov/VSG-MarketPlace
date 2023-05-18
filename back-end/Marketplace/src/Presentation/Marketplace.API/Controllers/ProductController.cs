@@ -41,7 +41,7 @@ public class ProductController : ControllerBase
 
    [HttpPost]
    [Route("Inventory/Add")]
-   public async Task<AddProductDto> AddProduct(AddProductDto productDto)
+   public async Task<int> AddProduct(AddProductDto productDto)
    {
       await  _productValidator.ValidateAndThrowAsync(productDto);
       return await _productService.AddProduct(productDto);

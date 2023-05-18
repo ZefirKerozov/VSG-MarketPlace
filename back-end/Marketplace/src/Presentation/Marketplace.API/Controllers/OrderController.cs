@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using System.Security.Claims;
+using FluentValidation;
 using Markerplace.Domain.Enums;
 using Marketplace.Application.Models.OrderModels.Dtos;
 using Marketplace.Application.Models.OrderModels.Interfaces;
@@ -42,7 +43,9 @@ public class OrderController :ControllerBase
     public async Task CreateOrder(CreateOrderDto dto)
     {
         await _createOrderValidator.ValidateAndThrowAsync(dto);
-      await  _orderService.CreateOrder(dto);
+      var userId =  int.Parse(this.User.Claims.First(i => i.Type == "UserId").Value);
+      string email = User.Claims.Single(x => x.Type == ClaimTypes.Email).Value;
+      await  _orderService.CreateOrder(dto, userId, email);
     }
 
     [HttpPut]
