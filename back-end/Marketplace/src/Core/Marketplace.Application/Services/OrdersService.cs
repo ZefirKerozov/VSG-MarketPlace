@@ -56,7 +56,7 @@ public class OrdersService : IOrderService
         await _ordersRepository.Update(order);
     }
 
-    public async Task CreateOrder(CreateOrderDto dto, int userId, string email)
+    public async Task CreateOrder(CreateOrderDto dto, string email)
     {
         await ExceptionService.ThrowExceptionWhenIdNotFound(dto.ProductId, _productRepository);
 
@@ -76,8 +76,6 @@ public class OrdersService : IOrderService
 
         order.Name = product.Name;
 
-        order.UserId = userId;
-        
         await _ordersRepository.Create(order);
     }
 

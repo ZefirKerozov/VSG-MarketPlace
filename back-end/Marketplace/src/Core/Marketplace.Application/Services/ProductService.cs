@@ -60,17 +60,7 @@ public class ProductService : IProductService
        return  productId;
     }
 
-    private async Task<ReturnProduct> ReturnProduct(int productId)
-    {
-        var product = await _productRepository.GetById(productId);
-        var image = await _imageRepository.GetImageByProductId(productId);
-        ReturnProduct returnDto = new ReturnProduct();
-
-        returnDto.Id = productId;
-        returnDto.ImageId = image.Id;
-        returnDto.URL = CreateURL(image.img);
-        return returnDto;
-    }
+   
 
     public async Task DeleteProduct(int id)
     {

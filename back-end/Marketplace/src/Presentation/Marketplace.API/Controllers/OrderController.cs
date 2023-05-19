@@ -42,10 +42,9 @@ public class OrderController :ControllerBase
     
     public async Task CreateOrder(CreateOrderDto dto)
     {
-        await _createOrderValidator.ValidateAndThrowAsync(dto);
-      var userId =  int.Parse(this.User.Claims.First(i => i.Type == "UserId").Value);
-      string email = User.Claims.Single(x => x.Type == ClaimTypes.Email).Value;
-      await  _orderService.CreateOrder(dto, userId, email);
+        await _createOrderValidator.ValidateAndThrowAsync(dto); 
+      string email =  this.User.Claims.First(claim => claim.Type == "preferred_username").Value;
+      await  _orderService.CreateOrder(dto, email);
     }
 
     [HttpPut]

@@ -9,7 +9,7 @@ public interface IOrderService
 
     Task ChangeStatus(int id);
 
-    Task CreateOrder(CreateOrderDto dto, int userId, string email);
+    Task CreateOrder(CreateOrderDto dto, string email);
     Task RejectOrder(int id);
 
     Task<string> GetStatusCodeByProductId(int productId);
