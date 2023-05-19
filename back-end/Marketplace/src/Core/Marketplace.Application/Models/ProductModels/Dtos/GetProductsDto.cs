@@ -10,7 +10,7 @@ public class GetProductsDto
 
     public string CategoryName { get; set; }
     
-    public string CategoryId { get; set; }
+    public int CategoryId { get; set; }
     public string img { get; set; }
 
     public string Name { get; set; }
