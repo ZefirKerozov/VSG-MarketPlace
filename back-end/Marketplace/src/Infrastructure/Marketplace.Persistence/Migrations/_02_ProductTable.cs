@@ -14,7 +14,7 @@ public class _02_ProductTable :Migration
             .WithColumn("Quantity").AsInt64().NotNullable()
             .WithColumn("Description").AsString().NotNullable()
             .WithColumn("QuantityForSale").AsInt64().NotNullable()
-            .WithColumn("CategoryId").AsInt64().NotNullable().ForeignKey("Category", "Id")
+            .WithColumn("CategoryId").AsInt64().Nullable()
             .WithColumn("Location").AsString().NotNullable()
             .WithColumn("Price").AsDecimal().NotNullable();
 

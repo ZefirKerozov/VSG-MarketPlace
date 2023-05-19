@@ -50,6 +50,7 @@ public class ProductService : IProductService
 
     public async Task<int> AddProduct(AddProductDto productDto)
     {
+        
        var productId = await _productRepository.Create(_mapper.Map<Product>(productDto));
         return productId;
     }
