@@ -1,6 +1,7 @@
 ﻿using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
 using Markerplace.Domain.Entities;
+using Marketplace.Application.Helpers.Constants;
 using Marketplace.Application.Models.ImageModels.Dtos;
 using Marketplace.Application.Models.ImageModels.Interface;
 using Marketplace.Application.Models.ProductModels.Interface;
@@ -42,7 +43,7 @@ public class ImageService : IImageService
         }
     }
 
-    public async Task UploadImage(int productId, AddImageDto image)
+    public async Task<ImageDto> UploadImage(int productId, AddImageDto image)
     {
         await  ExceptionService.ThrowExceptionWhenIdNotFound(productId,_productRepository );
 
@@ -73,6 +74,13 @@ public class ImageService : IImageService
         var uploadResult = _cloudinary.Upload(@uploadParams);
 
         await SaveImageInDatabase(productId, uploadResult.PublicId);
+        
+        var imageDto = new ImageDto()
+        {
+            URL = CreateURL(uploadResult.PublicId),
+        };
+        
+        return imageDto;
     }
 
     private async Task SaveImageInDatabase(int productId, string publicId)
@@ -86,9 +94,15 @@ public class ImageService : IImageService
         await _imageRepository.Create(newImage);
     }
 
-    public async Task EditImage(int productId, AddImageDto image)
+    public async Task<ImageDto> EditImage(int productId, AddImageDto image)
     {
         await DeleteImages(productId);
-        await UploadImage(productId, image);
+       return await UploadImage(productId, image);
+      
+    }
+    
+    private static string CreateURL(string url)
+    {
+        return  CloudinaryConstants.baseUrl + url;
     }
 }

@@ -53,11 +53,11 @@ public class ProductService : IProductService
     }
 
 
-    public async Task<ReturnProduct> AddProduct(AddProductDto productDto)
+    public async Task<int> AddProduct(AddProductDto productDto)
     {
         
        var productId = await _productRepository.Create(_mapper.Map<Product>(productDto));
-       return  await ReturnProduct(productId);
+       return  productId;
     }
 
     private async Task<ReturnProduct> ReturnProduct(int productId)
@@ -87,13 +87,12 @@ public class ProductService : IProductService
         await _productRepository.Delete(id);
     }
 
-    public async Task<ReturnProduct> EditProducts(int id, ProductEditDto product)
+    public async Task EditProducts(int id, ProductEditDto product)
     {
         await ExceptionService.ThrowExceptionWhenIdNotFound(id, _productRepository);
         var productForEdit = _mapper.Map<Product>(product);
         productForEdit.Id = id;
         await _productRepository.Update(productForEdit);
-        return  await ReturnProduct(id);
     }
     private static string CreateURL(string url)
     {
