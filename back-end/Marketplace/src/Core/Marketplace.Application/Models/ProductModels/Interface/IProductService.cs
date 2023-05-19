@@ -10,9 +10,9 @@ public interface IProductService
     Task<ProductDetailsDto> GetById(int productId);
 
 
-    public Task<int> AddProduct(AddProductDto productDto);
+    public Task<ReturnProduct> AddProduct(AddProductDto productDto);
 
     Task DeleteProduct(int id);
     
-    Task EditProducts(int id, ProductEditDto product);
+    Task<ReturnProduct> EditProducts(int id, ProductEditDto product);
 }

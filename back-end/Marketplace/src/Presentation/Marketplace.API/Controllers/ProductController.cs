@@ -41,7 +41,7 @@ public class ProductController : ControllerBase
 
    [HttpPost]
    [Route("Inventory/Add")]
-   public async Task<int> AddProduct(AddProductDto productDto)
+   public async Task<ReturnProduct> AddProduct(AddProductDto productDto)
    {
       await  _productValidator.ValidateAndThrowAsync(productDto);
       return await _productService.AddProduct(productDto);
@@ -51,10 +51,11 @@ public class ProductController : ControllerBase
    [HttpPut]
    [Route("Edit/{id}")]
 
-   public async Task EditProducts(int id, ProductEditDto product)
+   public async Task<ReturnProduct> EditProducts(int id, ProductEditDto product)
    {
       await _editValidator.ValidateAndThrowAsync(product);
-      await _productService.EditProducts(id, product);
+     return await _productService.EditProducts(id, product);
+      
    }
    
    [HttpDelete]

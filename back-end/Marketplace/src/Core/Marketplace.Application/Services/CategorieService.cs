@@ -29,6 +29,7 @@ public class CategorieService : ICategorieService
 
     public async Task<List<Category>> GetCategories()
     {
+        await db.KeyDeleteAsync(categoryKey);
         var value = await db.StringGetAsync(categoryKey);
         if (!String.IsNullOrEmpty(value))
         {
