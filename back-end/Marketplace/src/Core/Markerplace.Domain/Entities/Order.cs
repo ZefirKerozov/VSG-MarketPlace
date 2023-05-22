@@ -11,7 +11,7 @@ public class Order : BaseEntity
 
     public int ProductId { get; set; }
 
-    public int UserId { get; set; }
+    public string Email { get; set; }
 
     public decimal Price { get; set; }
 

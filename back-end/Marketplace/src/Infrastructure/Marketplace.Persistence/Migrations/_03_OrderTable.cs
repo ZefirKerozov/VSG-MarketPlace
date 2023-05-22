@@ -14,7 +14,7 @@ public class _03_OrderTable :Migration
             .WithColumn("Quantity").AsInt64().NotNullable()
             .WithColumn("OrderDate").AsDateTime().NotNullable()
             .WithColumn("ProductId").AsInt64().Nullable()
-            .WithColumn("UserId").AsInt64().NotNullable()
+            .WithColumn("Email").AsString(255).NotNullable()
             .WithColumn("Name").AsString(255).NotNullable()
             .WithColumn("Code").AsString(255).NotNullable()
             .WithColumn("Price").AsDecimal().NotNullable();

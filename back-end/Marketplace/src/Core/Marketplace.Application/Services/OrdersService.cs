@@ -34,9 +34,9 @@ public class OrdersService : IOrderService
         return result;
     }
 
-    public async Task<List<GetOrdersDto>> GetMyOrders(int userId)
+    public async Task<List<GetOrdersDto>> GetMyOrders(string email)
     {
-        var result = await _ordersRepository.GetMyOrders(userId);
+        var result = await _ordersRepository.GetMyOrders(email);
         foreach (var order in result)
         {
             order.Price *= order.Quantity;
@@ -76,6 +76,8 @@ public class OrdersService : IOrderService
 
         order.Name = product.Name;
 
+        order.Email = email;
+        
         await _ordersRepository.Create(order);
     }
 

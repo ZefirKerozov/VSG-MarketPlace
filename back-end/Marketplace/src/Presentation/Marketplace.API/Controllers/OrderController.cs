@@ -31,10 +31,12 @@ public class OrderController :ControllerBase
         return await _orderService.GetPendingsOrders();
     }
     [HttpGet]
-    [Route("MyOrders/{userId}")]
-    public async Task<List<GetOrdersDto>> GetMyOrders(int userId)
+    [Route("MyOrders")]
+    public async Task<List<GetOrdersDto>> GetMyOrders()
     {
-        return await _orderService.GetMyOrders(userId);
+        string email =  this.User.Claims.First(claim => claim.Type == "preferred_username").Value;
+
+        return await _orderService.GetMyOrders(email);
     }
 
     [HttpPost]

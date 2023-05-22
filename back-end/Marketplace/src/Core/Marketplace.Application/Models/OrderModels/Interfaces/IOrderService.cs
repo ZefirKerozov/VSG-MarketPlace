@@ -5,7 +5,7 @@ namespace Marketplace.Application.Models.OrderModels.Interfaces;
 public interface IOrderService
 {
    Task<List<GetOrdersDto>> GetPendingsOrders();
-   Task<List<GetOrdersDto>> GetMyOrders(int userId);
+   Task<List<GetOrdersDto>> GetMyOrders(string email);
 
     Task ChangeStatus(int id);
 

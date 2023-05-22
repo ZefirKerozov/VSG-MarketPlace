@@ -14,15 +14,32 @@
   <component name="ChangeListManager">
     <list default="true" id="9c0d6560-6cf2-4d11-9582-a67b8eb58620" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Marketplace/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Marketplace/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/Marketplace.Application/Models/ProductModels/Dtos/ReturnProduct.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/Marketplace.Application/Services/ProductService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Marketplace.Application/Services/ProductService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test/OrderServiceTests/UnitTest1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Test/OrderServiceTests/UnitTest1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test/OrderServiceTests/obj/Debug/net7.0/OrderServiceTests.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Test/OrderServiceTests/obj/Debug/net7.0/OrderServiceTests.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Markerplace.Domain/Entities/Order.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Markerplace.Domain/Entities/Order.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Markerplace.Domain/bin/Debug/net7.0/Markerplace.Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Markerplace.Domain/bin/Debug/net7.0/Markerplace.Domain.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Markerplace.Domain/bin/Debug/net7.0/Markerplace.Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Markerplace.Domain/bin/Debug/net7.0/Markerplace.Domain.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Markerplace.Domain/obj/Debug/net7.0/Markerplace.Domain.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Markerplace.Domain/obj/Debug/net7.0/Markerplace.Domain.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Markerplace.Domain/obj/Debug/net7.0/Markerplace.Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Markerplace.Domain/obj/Debug/net7.0/Markerplace.Domain.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Markerplace.Domain/obj/Debug/net7.0/Markerplace.Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Markerplace.Domain/obj/Debug/net7.0/Markerplace.Domain.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Markerplace.Domain/obj/Debug/net7.0/ref/Markerplace.Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Markerplace.Domain/obj/Debug/net7.0/ref/Markerplace.Domain.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Markerplace.Domain/obj/Debug/net7.0/refint/Markerplace.Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Markerplace.Domain/obj/Debug/net7.0/refint/Markerplace.Domain.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Marketplace.Application/Models/OrderModels/Interfaces/IOrderService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Marketplace.Application/Models/OrderModels/Interfaces/IOrderService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Marketplace.Application/Models/OrderModels/Interfaces/IOrdersRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Marketplace.Application/Models/OrderModels/Interfaces/IOrdersRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Marketplace.Application/Services/OrdersService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Marketplace.Application/Services/OrdersService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Marketplace.Application/bin/Debug/net7.0/Markerplace.Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Marketplace.Application/bin/Debug/net7.0/Markerplace.Domain.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Marketplace.Application/bin/Debug/net7.0/Markerplace.Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Marketplace.Application/bin/Debug/net7.0/Markerplace.Domain.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Core/Marketplace.Application/bin/Debug/net7.0/Marketplace.Application.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Marketplace.Application/bin/Debug/net7.0/Marketplace.Application.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Core/Marketplace.Application/bin/Debug/net7.0/Marketplace.Application.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Marketplace.Application/bin/Debug/net7.0/Marketplace.Application.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/Marketplace.Application/obj/Debug/net7.0/Marketplace.Application.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Marketplace.Application/obj/Debug/net7.0/Marketplace.Application.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Marketplace.Application/obj/Debug/net7.0/Marketplace.Application.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Marketplace.Application/obj/Debug/net7.0/Marketplace.Application.csproj.AssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Core/Marketplace.Application/obj/Debug/net7.0/Marketplace.Application.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Marketplace.Application/obj/Debug/net7.0/Marketplace.Application.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Core/Marketplace.Application/obj/Debug/net7.0/Marketplace.Application.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Marketplace.Application/obj/Debug/net7.0/Marketplace.Application.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Core/Marketplace.Application/obj/Debug/net7.0/ref/Marketplace.Application.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Marketplace.Application/obj/Debug/net7.0/ref/Marketplace.Application.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Core/Marketplace.Application/obj/Debug/net7.0/refint/Marketplace.Application.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Marketplace.Application/obj/Debug/net7.0/refint/Marketplace.Application.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/Migrations/_03_OrderTable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/Migrations/_03_OrderTable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/Repositories/OrdersRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/Repositories/OrdersRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/bin/Debug/net7.0/Markerplace.Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/bin/Debug/net7.0/Markerplace.Domain.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/bin/Debug/net7.0/Markerplace.Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/bin/Debug/net7.0/Markerplace.Domain.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/bin/Debug/net7.0/Marketplace.Application.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/bin/Debug/net7.0/Marketplace.Application.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/bin/Debug/net7.0/Marketplace.Application.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/bin/Debug/net7.0/Marketplace.Application.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/bin/Debug/net7.0/Marketplace.Persistence.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/bin/Debug/net7.0/Marketplace.Persistence.dll" afterDir="false" />
@@ -30,7 +47,11 @@
       <change beforePath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/obj/Debug/net7.0/Marketplace.Persistence.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/obj/Debug/net7.0/Marketplace.Persistence.csproj.AssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/obj/Debug/net7.0/Marketplace.Persistence.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/obj/Debug/net7.0/Marketplace.Persistence.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/obj/Debug/net7.0/Marketplace.Persistence.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/obj/Debug/net7.0/Marketplace.Persistence.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/obj/Debug/net7.0/ref/Marketplace.Persistence.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/obj/Debug/net7.0/ref/Marketplace.Persistence.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/obj/Debug/net7.0/refint/Marketplace.Persistence.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Marketplace.Persistence/obj/Debug/net7.0/refint/Marketplace.Persistence.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Presentation/Marketplace.API/Controllers/OrderController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/Marketplace.API/Controllers/OrderController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Presentation/Marketplace.API/bin/Debug/net7.0/Markerplace.Domain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/Marketplace.API/bin/Debug/net7.0/Markerplace.Domain.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Presentation/Marketplace.API/bin/Debug/net7.0/Markerplace.Domain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/Marketplace.API/bin/Debug/net7.0/Markerplace.Domain.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Presentation/Marketplace.API/bin/Debug/net7.0/Marketplace.API.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/Marketplace.API/bin/Debug/net7.0/Marketplace.API.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Presentation/Marketplace.API/bin/Debug/net7.0/Marketplace.API.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/Marketplace.API/bin/Debug/net7.0/Marketplace.API.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Presentation/Marketplace.API/bin/Debug/net7.0/Marketplace.Application.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/Marketplace.API/bin/Debug/net7.0/Marketplace.Application.dll" afterDir="false" />
@@ -40,6 +61,8 @@
       <change beforePath="$PROJECT_DIR$/src/Presentation/Marketplace.API/obj/Debug/net7.0/Marketplace.API.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/Marketplace.API/obj/Debug/net7.0/Marketplace.API.csproj.AssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Presentation/Marketplace.API/obj/Debug/net7.0/Marketplace.API.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/Marketplace.API/obj/Debug/net7.0/Marketplace.API.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Presentation/Marketplace.API/obj/Debug/net7.0/Marketplace.API.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/Marketplace.API/obj/Debug/net7.0/Marketplace.API.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Presentation/Marketplace.API/obj/Debug/net7.0/ref/Marketplace.API.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/Marketplace.API/obj/Debug/net7.0/ref/Marketplace.API.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Presentation/Marketplace.API/obj/Debug/net7.0/refint/Marketplace.API.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/Marketplace.API/obj/Debug/net7.0/refint/Marketplace.API.dll" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,6 +114,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/cb79b2da8c592b0168434637085d0d9f9456724dd9b2d59183ec4499e21/EndpointMiddleware.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/cf91eb35ab781c324ad4fa382dce85631ec37cf3813529f7c92208d866c851/TaskContinuation.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/cfbd35f99a5eb6bb8f21da64fd6e5ee6a8d8c11183483691b9381b5e6f16f8/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d3b35aba78af8938342254c9ab4da7b7362a691ccc71b3decaabd322fea44/Int32.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d820fe73cc86349dbf0fbc87c4210c37ab13ddb85e7b3a6dce6e56740acb9/HostApplicationBuilder.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d9d9faea5e6ed6438a777ef8c6eed41261f81d8e86488ed923ad92564f54e/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/dd7bbb1eb6cb4178a82cd5136b2606b812978/_c49ce/HttpContext.cs" root0="SKIP_HIGHLIGHTING" />
@@ -304,7 +328,8 @@
       <workItem from="1682601674992" duration="4490000" />
       <workItem from="1683009653872" duration="9884000" />
       <workItem from="1683715815652" duration="4631000" />
-      <workItem from="1684133401144" duration="21927000" />
+      <workItem from="1684133401144" duration="22195000" />
+      <workItem from="1684505037007" duration="1461000" />
     </task>
     <servers />
   </component>
@@ -355,32 +380,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="78" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/src/Core/Marketplace.Application/Services/OrdersService.cs</url>
-          <line>60</line>
-          <properties documentPath="C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Core\Marketplace.Application\Services\OrdersService.cs" initialLine="60" containingFunctionPresentation="method 'CreateOrder'">
-            <startOffsets>
-              <option value="2076" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2163" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="81" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/src/Presentation/Marketplace.API/Controllers/OrderController.cs</url>
-          <line>45</line>
-          <properties documentPath="C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\Controllers\OrderController.cs" initialLine="45" containingFunctionPresentation="method 'CreateOrder'">
-            <startOffsets>
-              <option value="1330" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1428" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="83" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

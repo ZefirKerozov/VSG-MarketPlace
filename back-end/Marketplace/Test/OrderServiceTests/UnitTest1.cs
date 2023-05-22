@@ -75,7 +75,7 @@ public class Tests
         _productRepository.Setup(x => x.Update(It.IsAny<Product>())).Returns(Task.CompletedTask);
 
         // Act
-        await _ordersService.CreateOrder(dto, 1, "wefw");
+        await _ordersService.CreateOrder(dto, "weg");
 
         // Assert
         _productRepository.Verify(x => x.Update(It.Is<Product>(p =>
@@ -96,6 +96,6 @@ public class Tests
         var dto = new CreateOrderDto { ProductId = 1, Quantity = 11 };
 
         // Act & Assert
-        Assert.ThrowsAsync<HttpException>(async () => await _ordersService.CreateOrder(dto, 1, "gwegv"));
+        Assert.ThrowsAsync<HttpException>(async () => await _ordersService.CreateOrder(dto, "reg"));
     }
 }
