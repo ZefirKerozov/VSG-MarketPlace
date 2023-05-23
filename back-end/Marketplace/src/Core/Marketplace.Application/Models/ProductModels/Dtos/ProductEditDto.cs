@@ -14,7 +14,7 @@ public class ProductEditDto
 
     public int CategoryId { get; set; }
     
-    public string Location { get; set; }
+    public int LocationId { get; set; }
 
     public decimal Price { get; set; }
 }

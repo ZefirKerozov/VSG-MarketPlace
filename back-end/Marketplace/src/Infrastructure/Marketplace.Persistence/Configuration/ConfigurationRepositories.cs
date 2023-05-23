@@ -2,8 +2,10 @@
 using Marketplace.Application.Models.CategorieModels.Interfaces;
 using Marketplace.Application.Models.GenericRepository;
 using Marketplace.Application.Models.ImageModels.Interface;
+using Marketplace.Application.Models.LocationModels.Interfaces;
 using Marketplace.Application.Models.OrderModels.Interfaces;
 using Marketplace.Application.Models.ProductModels.Interface;
+using Marketplace.Application.Services;
 using Marketplace.Persistence.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -19,6 +21,7 @@ public static class ConfigurationRepositories
         services.AddScoped<IOrdersRepository, OrdersRepository>();
         services.AddScoped<IImageRepository, ImageRepository>();
         services.AddScoped<ICategorieRepository, CategoryRepository>();
+        services.AddScoped<ILocationRepository, LocationRepository>();
 
         return services;
     }

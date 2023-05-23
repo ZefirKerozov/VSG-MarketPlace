@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "cmYJLvtUrygUv73Y9iODgG8lmqWkAhXG/qJvN5ko07GU6K1FrcZA8ZJqVfqBHM9ATSGeasbGRpGJ6C8+Bub+7A==",
+  "dgSpecHash": "szk0riMno7OwOOg5CNz2GFaPG8buhyg4NlAVwhjpIzkkPjTmBn96+UB8KJfGi63RKx0Gsout8X4U7uHtGHl7bw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ZKerozov\\Desktop\\VSG-marketplace\\back-end\\Marketplace\\src\\Infrastructure\\Marketplace.Persistence\\Marketplace.Persistence.csproj",
+  "projectFilePath": "C:\\Users\\ZKerozov\\Desktop\\VSG-marketplace - Copy\\back-end\\Marketplace\\src\\Infrastructure\\Marketplace.Persistence\\Marketplace.Persistence.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ZKerozov\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\ZKerozov\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

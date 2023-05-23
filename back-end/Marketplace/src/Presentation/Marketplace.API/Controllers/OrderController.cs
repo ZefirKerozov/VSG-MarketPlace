@@ -1,6 +1,7 @@
 ﻿using System.Security.Claims;
 using FluentValidation;
 using Markerplace.Domain.Enums;
+using Marketplace.API.Identity;
 using Marketplace.Application.Models.OrderModels.Dtos;
 using Marketplace.Application.Models.OrderModels.Interfaces;
 using Microsoft.AspNetCore.Authorization;
@@ -25,6 +26,7 @@ public class OrderController :ControllerBase
     }
 
     [HttpGet]
+    [Authorize(Policy = IdentityData.Admin)]
     [Route("Pending")]
     public async Task<List<GetOrdersDto>> GetPendingOrders()
     {
@@ -50,6 +52,7 @@ public class OrderController :ControllerBase
     }
 
     [HttpPut]
+    [Authorize(Policy = IdentityData.Admin)]
     [Route("Orders/Status/{id}")]
     public async Task ChangeStatus(int id)
     {

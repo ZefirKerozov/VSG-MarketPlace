@@ -20,4 +20,7 @@ public class GetProductsDto
     public string Code { get; set; }
 
     public int Quantity { get; set; }
+    
+    public int LocationId { get; set; }
+
 }

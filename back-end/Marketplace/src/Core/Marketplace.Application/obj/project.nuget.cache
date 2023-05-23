@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Ol+PgGuCu+itr84+QpNXK5GXUYUtIZfzLzJtBjdvBfhETixy6xvV9iFrEfGf4FemNvJc+06wE2GTksdCHcHFfw==",
+  "dgSpecHash": "3j0PGgOL3mPoaV/pzJoy4gUkd2BH64f/ka/pTMtV6kH4OM0yniSE9M94eCZjvsXU0GXsaCNpdU4PQTpFaV0VUg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ZKerozov\\Desktop\\VSG-marketplace\\back-end\\Marketplace\\src\\Core\\Marketplace.Application\\Marketplace.Application.csproj",
+  "projectFilePath": "C:\\Users\\ZKerozov\\Desktop\\VSG-marketplace - Copy\\back-end\\Marketplace\\src\\Core\\Marketplace.Application\\Marketplace.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ZKerozov\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\ZKerozov\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

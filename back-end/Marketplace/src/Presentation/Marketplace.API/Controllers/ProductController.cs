@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using Markerplace.Domain.Entities;
+using Marketplace.API.Identity;
 using Marketplace.Application.Helpers.Validators;
 using Marketplace.Application.Models.ProductModels.Dtos;
 using Marketplace.Application.Models.ProductModels.Interface;
@@ -40,6 +41,7 @@ public class ProductController : ControllerBase
 
 
    [HttpPost]
+   [Authorize(Policy = IdentityData.Admin)]
    [Route("Inventory/Add")]
    public async Task<int> AddProduct(AddProductDto productDto)
    {
@@ -49,6 +51,7 @@ public class ProductController : ControllerBase
 
 
    [HttpPut]
+   [Authorize(Policy = IdentityData.Admin)]
    [Route("Edit/{id}")]
 
    public async Task EditProducts(int id, ProductEditDto product)
@@ -59,6 +62,7 @@ public class ProductController : ControllerBase
    }
    
    [HttpDelete]
+   [Authorize(Policy = IdentityData.Admin)]
    [Route("Inventory/Delete/{id}")]
    public async Task DeleteProduct(int id)
    {

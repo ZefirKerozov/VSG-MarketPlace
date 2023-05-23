@@ -9,6 +9,7 @@ using Marketplace.Application.Helpers.Profiles;
 using Marketplace.Application.Helpers.Validators;
 using Marketplace.Application.Models.CategorieModels.Interfaces;
 using Marketplace.Application.Models.ImageModels.Interface;
+using Marketplace.Application.Models.LocationModels.Interfaces;
 using Marketplace.Application.Models.OrderModels.Dtos;
 using Marketplace.Application.Models.ProductModels.Dtos;
 
@@ -19,11 +20,14 @@ public static class ConfigurationApplicationLayer
     public static IServiceCollection AddConfigurationApplicationLayer(this IServiceCollection services)
     {
         services.AddAutoMapper(typeof(ProductProfile).Assembly);
+        services.AddAutoMapper(typeof(LocationModel).Assembly);
         services.AddAutoMapper(typeof(OrderProfile).Assembly);
         services.AddScoped<IProductService, ProductService>();
         services.AddScoped<IOrderService, OrdersService>();
         services.AddScoped<IImageService, ImageService>();
         services.AddScoped<ICategorieService, CategorieService>();
+        services.AddScoped<ILocationService, LocationService>();
+
         
         services.AddScoped<IValidator<CreateOrderDto>, CreateOrderValidator>();
         services.AddScoped<IValidator<AddProductDto>, CreateProductValidator>();

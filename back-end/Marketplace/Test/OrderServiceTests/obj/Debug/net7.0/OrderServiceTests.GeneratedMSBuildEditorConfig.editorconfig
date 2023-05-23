@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = OrderServiceTests
-build_property.ProjectDir = C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\Test\OrderServiceTests\
+build_property.ProjectDir = C:\Users\ZKerozov\Desktop\VSG-marketplace - Copy\back-end\Marketplace\Test\OrderServiceTests\

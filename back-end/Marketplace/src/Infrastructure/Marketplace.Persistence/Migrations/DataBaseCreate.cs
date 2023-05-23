@@ -8,7 +8,7 @@ namespace Marketplace.Persistence.Migrations;
     {
         public static void Create(IConfiguration configuration)
         {
-            var marketplaceConnectionString = new SqlConnectionStringBuilder(configuration.GetConnectionString("SqlConnection"));
+            var marketplaceConnectionString = new SqlConnectionStringBuilder(configuration.GetConnectionString("DefaultConnection"));
             string dbName = marketplaceConnectionString.InitialCatalog;
 
             var parameters = new DynamicParameters();

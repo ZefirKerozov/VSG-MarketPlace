@@ -1,4 +1,5 @@
 ﻿using Markerplace.Domain.Entities;
+using Marketplace.API.Identity;
 using Marketplace.Application.Models.CategorieModels.Dtos;
 using Marketplace.Application.Models.CategorieModels.Interfaces;
 using Microsoft.AspNetCore.Authorization;
@@ -24,6 +25,7 @@ public class CategoryController: ControllerBase
     }
 
     [HttpPost]
+    [Authorize(Policy = IdentityData.Admin)]
     [Route("Add/{name}")]
     public async Task AddCategorie(string name)
     {

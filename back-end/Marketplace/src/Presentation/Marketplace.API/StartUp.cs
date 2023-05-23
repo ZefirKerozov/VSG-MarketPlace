@@ -1,3 +1,4 @@
+using Marketplace.API.Identity;
 using Marketplace.API.Swagger;
 using Marketplace.Application.Helpers.Configurations;
 using Marketplace.Application.Helpers.Middlewares;
@@ -12,6 +13,8 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 
 var builder = WebApplication.CreateBuilder(args);
 
+IConfigurationRoot config = new ConfigurationBuilder()
+    .AddJsonFile(path: "appsettings.json").Build();
 
 builder.Services.AddAuthentication(x =>
 {
@@ -24,7 +27,12 @@ builder.Services.AddAuthentication(x =>
     x.Audience = builder.Configuration["Auth2:Audience"];
 });
 
-builder.Services.AddAuthorization();
+
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy(IdentityData.Admin, p=>p.RequireClaim(IdentityData.Admin,"f2123818-3d51-4fe4-990b-b072a80da143"));
+});
 // Add services to the container.
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -53,14 +61,12 @@ builder.Host.ConfigureLogging(logging => { logging.ClearProviders(); }).UseNLog(
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+
 
 DatabaseCreate.Create(app.Services.GetRequiredService<IConfiguration>());
 
+app.UseSwagger();
+app.UseSwaggerUI();
 app.MigrateUpDatabase();
 
 app.UseCors("CORSPolicy");

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kz0+bSyfQvpmBBCBo7avFT8akyXEx5eUJCsdfn8PvWLe39ow3ppsorMM4DU+VY9T7aIRPNRUDr3XjTgZ1OE0DQ==",
+  "dgSpecHash": "4Q8RRT2I3N0Xj3Y8pcWHM/aZTwExH/qxm+/d+pJvCQBoRUva7VbaW6zRFYTnti7YVXk6O86gPYa2Q6pxibMeiA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ZKerozov\\Desktop\\VSG-marketplace\\back-end\\Marketplace\\src\\Core\\Markerplace.Domain\\Markerplace.Domain.csproj",
+  "projectFilePath": "C:\\Users\\ZKerozov\\Desktop\\VSG-marketplace - Copy\\back-end\\Marketplace\\src\\Core\\Markerplace.Domain\\Markerplace.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ZKerozov\\.nuget\\packages\\cloudinarydotnet\\1.20.0\\cloudinarydotnet.1.20.0.nupkg.sha512",
     "C:\\Users\\ZKerozov\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",

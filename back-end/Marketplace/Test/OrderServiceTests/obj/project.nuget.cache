@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "As5jOL/9gVxfwoulMDS7yztNEMhXe6/z9QMIvgzQEQm8f0bpVmRDNWcldzlllqHUS+f4ymZCaCz8i4VjEjwpug==",
+  "dgSpecHash": "KkL8ujnHtGR5t2pMJzvar7YVRdEYBRouyMTwMqZT9XoSFBr9YCyxxAqqFtNS5aytJRklO8qv+gOVkwL0nm1lbA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ZKerozov\\Desktop\\VSG-marketplace\\back-end\\Marketplace\\Test\\OrderServiceTests\\OrderServiceTests.csproj",
+  "projectFilePath": "C:\\Users\\ZKerozov\\Desktop\\VSG-marketplace - Copy\\back-end\\Marketplace\\Test\\OrderServiceTests\\OrderServiceTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ZKerozov\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\ZKerozov\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

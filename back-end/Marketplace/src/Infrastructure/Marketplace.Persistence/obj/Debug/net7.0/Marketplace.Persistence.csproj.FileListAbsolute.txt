@@ -32,3 +32,20 @@ C:\Users\YKurtev\Desktop\VSG-marketplace\back-end\Marketplace\src\Infrastructure
 C:\Users\YKurtev\Desktop\VSG-marketplace\back-end\Marketplace\src\Infrastructure\Marketplace.Persistence\obj\Debug\net7.0\refint\Marketplace.Persistence.dll
 C:\Users\YKurtev\Desktop\VSG-marketplace\back-end\Marketplace\src\Infrastructure\Marketplace.Persistence\obj\Debug\net7.0\Marketplace.Persistence.pdb
 C:\Users\YKurtev\Desktop\VSG-marketplace\back-end\Marketplace\src\Infrastructure\Marketplace.Persistence\obj\Debug\net7.0\ref\Marketplace.Persistence.dll
+C:\Users\ZKerozov\Desktop\VSG-marketplace - Copy\back-end\Marketplace\src\Infrastructure\Marketplace.Persistence\bin\Debug\net7.0\Marketplace.Persistence.deps.json
+C:\Users\ZKerozov\Desktop\VSG-marketplace - Copy\back-end\Marketplace\src\Infrastructure\Marketplace.Persistence\bin\Debug\net7.0\Marketplace.Persistence.dll
+C:\Users\ZKerozov\Desktop\VSG-marketplace - Copy\back-end\Marketplace\src\Infrastructure\Marketplace.Persistence\bin\Debug\net7.0\Marketplace.Persistence.pdb
+C:\Users\ZKerozov\Desktop\VSG-marketplace - Copy\back-end\Marketplace\src\Infrastructure\Marketplace.Persistence\bin\Debug\net7.0\Markerplace.Domain.dll
+C:\Users\ZKerozov\Desktop\VSG-marketplace - Copy\back-end\Marketplace\src\Infrastructure\Marketplace.Persistence\bin\Debug\net7.0\Marketplace.Application.dll
+C:\Users\ZKerozov\Desktop\VSG-marketplace - Copy\back-end\Marketplace\src\Infrastructure\Marketplace.Persistence\bin\Debug\net7.0\Markerplace.Domain.pdb
+C:\Users\ZKerozov\Desktop\VSG-marketplace - Copy\back-end\Marketplace\src\Infrastructure\Marketplace.Persistence\bin\Debug\net7.0\Marketplace.Application.pdb
+C:\Users\ZKerozov\Desktop\VSG-marketplace - Copy\back-end\Marketplace\src\Infrastructure\Marketplace.Persistence\obj\Debug\net7.0\Marketplace.Persistence.csproj.AssemblyReference.cache
+C:\Users\ZKerozov\Desktop\VSG-marketplace - Copy\back-end\Marketplace\src\Infrastructure\Marketplace.Persistence\obj\Debug\net7.0\Marketplace.Persistence.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ZKerozov\Desktop\VSG-marketplace - Copy\back-end\Marketplace\src\Infrastructure\Marketplace.Persistence\obj\Debug\net7.0\Marketplace.Persistence.AssemblyInfoInputs.cache
+C:\Users\ZKerozov\Desktop\VSG-marketplace - Copy\back-end\Marketplace\src\Infrastructure\Marketplace.Persistence\obj\Debug\net7.0\Marketplace.Persistence.AssemblyInfo.cs
+C:\Users\ZKerozov\Desktop\VSG-marketplace - Copy\back-end\Marketplace\src\Infrastructure\Marketplace.Persistence\obj\Debug\net7.0\Marketplace.Persistence.csproj.CoreCompileInputs.cache
+C:\Users\ZKerozov\Desktop\VSG-marketplace - Copy\back-end\Marketplace\src\Infrastructure\Marketplace.Persistence\obj\Debug\net7.0\Marketplace.Persistence.csproj.CopyComplete
+C:\Users\ZKerozov\Desktop\VSG-marketplace - Copy\back-end\Marketplace\src\Infrastructure\Marketplace.Persistence\obj\Debug\net7.0\Marketplace.Persistence.dll
+C:\Users\ZKerozov\Desktop\VSG-marketplace - Copy\back-end\Marketplace\src\Infrastructure\Marketplace.Persistence\obj\Debug\net7.0\refint\Marketplace.Persistence.dll
+C:\Users\ZKerozov\Desktop\VSG-marketplace - Copy\back-end\Marketplace\src\Infrastructure\Marketplace.Persistence\obj\Debug\net7.0\Marketplace.Persistence.pdb
+C:\Users\ZKerozov\Desktop\VSG-marketplace - Copy\back-end\Marketplace\src\Infrastructure\Marketplace.Persistence\obj\Debug\net7.0\ref\Marketplace.Persistence.dll

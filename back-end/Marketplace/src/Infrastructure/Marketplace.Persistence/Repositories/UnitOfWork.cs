@@ -13,7 +13,7 @@ public class UnitOfWork : IUnitOfWork
 
     public UnitOfWork(IConfiguration config)
     {
-        _connection = new SqlConnection(config.GetConnectionString("SqlConnection"));
+        _connection = new SqlConnection(config.GetConnectionString("DefaultConnection"));
         _connection.Open();
         _transaction = _connection.BeginTransaction();
     }
