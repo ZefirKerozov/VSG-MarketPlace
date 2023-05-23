@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using AutoMapper;
 using Markerplace.Domain.Entities;
 using Marketplace.Application.Models.CategorieModels.Dtos;
 using Marketplace.Application.Models.CategorieModels.Interfaces;
@@ -13,31 +14,33 @@ public class CategorieService : ICategorieService
 {
     private readonly ICategorieRepository _categorieRepository;
     private  readonly IConfiguration _config;
+    private readonly IMapper _mapper;
     private readonly string categoryKey = "category";
 
     private static ConnectionMultiplexer redis;
 
     private readonly IDatabase db;
 
-    public CategorieService(ICategorieRepository categorieRepository, IConfiguration config)
+    public CategorieService(ICategorieRepository categorieRepository, IConfiguration config, IMapper mapper)
     {
         _categorieRepository = categorieRepository;
         _config = config;
+        _mapper = mapper;
         redis = ConnectionMultiplexer.Connect(_config.GetValue<string>("Redis:Connection"));
         db = redis.GetDatabase();
     }
 
-    public async Task<List<Category>> GetCategories()
+    public async Task<List<GetAllCategories>> GetCategories()
     {
         await db.KeyDeleteAsync(categoryKey);
         var value = await db.StringGetAsync(categoryKey);
         if (!String.IsNullOrEmpty(value))
         {
-            return JsonSerializer.Deserialize<List<Category>>(value);
+            return JsonSerializer.Deserialize<List<GetAllCategories>>(value);
         }
 
 
-        var newValue = await _categorieRepository.GetAll();
+        var newValue =_mapper.Map<List<GetAllCategories>>( await _categorieRepository.GetAll());
         await db.StringGetSetAsync(categoryKey, JsonSerializer.Serialize(newValue));
         return newValue;
     }

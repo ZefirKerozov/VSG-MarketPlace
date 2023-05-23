@@ -5,7 +5,7 @@ namespace Marketplace.Application.Models.CategorieModels.Interfaces;
 
 public interface ICategorieService
 {
-    Task<List<Category>> GetCategories();
+    Task<List<GetAllCategories>> GetCategories();
     
     Task AddCategorie(string name);
 

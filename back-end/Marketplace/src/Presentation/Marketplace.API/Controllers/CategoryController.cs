@@ -19,7 +19,7 @@ public class CategoryController: ControllerBase
     }
     [HttpGet]
     [Route("All")]
-    public async Task<List<Category>> GetAllCategories()
+    public async Task<List<GetAllCategories>> GetAllCategories()
     {
         return await _categorieService.GetCategories();
     }

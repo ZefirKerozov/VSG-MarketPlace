@@ -1,6 +1,6 @@
 ﻿namespace Marketplace.Application.Models.CategorieModels.Dtos;
 
-public class GatAllCategories
+public class GetAllCategories
 {
     public string Name { get; set; }
 } 
