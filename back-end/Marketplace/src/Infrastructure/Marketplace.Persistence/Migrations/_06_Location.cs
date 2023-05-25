@@ -13,6 +13,7 @@ public class _06_Location :Migration
         
         Insert.IntoTable("Location").Row(new { Name = "Plovdiv" });
         Insert.IntoTable("Location").Row(new { Name = "Veliko Tarnovo" });
+        Insert.IntoTable("Location").Row(new { Name = "Home" });
     }
 
     public override void Down()
