@@ -23,6 +23,6 @@ public class GetProductsDto
     
     public string LocationName { get; set; }
 
-    public string LocationId { get; set; }
+    public int LocationId { get; set; }
 
 }

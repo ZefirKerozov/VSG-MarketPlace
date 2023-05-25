@@ -33,7 +33,7 @@ public class OrderController :ControllerBase
         return await _orderService.GetPendingsOrders();
     }
     [HttpGet]
-    [Route("MyOrders")]
+    [Route("My-Orders")]
     public async Task<List<GetOrdersDto>> GetMyOrders()
     {
         string email =  this.User.Claims.First(claim => claim.Type == "preferred_username").Value;
