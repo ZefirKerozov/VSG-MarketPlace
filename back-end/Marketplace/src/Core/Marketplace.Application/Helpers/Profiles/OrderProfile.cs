@@ -9,6 +9,7 @@ public class OrderProfile :Profile
     public OrderProfile()
     {
     CreateMap<CreateOrderDto, Order>();
+    CreateMap<Order, GetOrdersDto>();
     }
 
 }

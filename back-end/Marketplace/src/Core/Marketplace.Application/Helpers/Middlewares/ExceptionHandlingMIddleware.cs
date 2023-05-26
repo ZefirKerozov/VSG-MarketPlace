@@ -44,7 +44,7 @@ public class ExceptionHandlingMIddleware
                 {
                     problems.Add(new ErrorDetails()
                     {
-                        StatusCode = 400,
+                        StatusCode = 422,
                         Message = error.ErrorMessage
                     });
                 }

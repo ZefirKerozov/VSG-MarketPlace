@@ -1,8 +1,10 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Net;
 using AutoMapper;
 using Markerplace.Domain.Entities;
 using Markerplace.Domain.Enums;
 using Marketplace.Application.Helpers.Constants;
+using Marketplace.Application.Models.ExceptionModel;
 using Marketplace.Application.Models.ImageModels.Interface;
 using Marketplace.Application.Models.OrderModels.Interfaces;
 using Marketplace.Application.Models.ProductModels.Dtos;
@@ -47,7 +49,12 @@ public class ProductService : IProductService
 
     public async Task<ProductDetailsDto> GetById(int productId)
     {
-        await ExceptionService.ThrowExceptionWhenIdNotFound(productId, _productRepository);
+        var entity = await _productRepository.GetById(productId);
+
+        if (entity == null)
+        {
+            throw new HttpException($"Product Id not found!", HttpStatusCode.NotFound);
+        }
         var result = _productRepository.GetProductById(productId);
         return await result;
     }
@@ -64,22 +71,32 @@ public class ProductService : IProductService
 
     public async Task DeleteProduct(int id)
     {
-        await ExceptionService.ThrowExceptionWhenIdNotFound(id, _productRepository);
+        var entity = await _productRepository.GetById(id);
 
-        var statusCode = await _orderService.GetStatusCodeByProductId(id);
-        if (statusCode != "Without product")
+        if (entity == null)
         {
-            ExceptionService.ThrowExceptionWhenOrderIsNotComplete(statusCode);
+            throw new HttpException($"Product Id not found!", HttpStatusCode.NotFound);
         }
-      
-         
+
+        var order = await _orderService.GetPendingOrderByProductId(id);
+        if (order != null)
+        {
+            throw new HttpException("Product can't be delete, because order is not complete!", HttpStatusCode.BadRequest);
+        }
+
+
         await _imageService.DeleteImages(id);
         await _productRepository.Delete(id);
     }
 
     public async Task EditProducts(int id, ProductEditDto product)
     {
-        await ExceptionService.ThrowExceptionWhenIdNotFound(id, _productRepository);
+        var entity = await _productRepository.GetById(id);
+
+        if (entity == null)
+        {
+            throw new HttpException($"Product Id not found!", HttpStatusCode.NotFound);
+        }
         var productForEdit = _mapper.Map<Product>(product);
         productForEdit.Id = id;
         await _productRepository.Update(productForEdit);

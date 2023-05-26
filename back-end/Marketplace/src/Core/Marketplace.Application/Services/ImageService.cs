@@ -1,7 +1,9 @@
-﻿using CloudinaryDotNet;
+﻿using System.Net;
+using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
 using Markerplace.Domain.Entities;
 using Marketplace.Application.Helpers.Constants;
+using Marketplace.Application.Models.ExceptionModel;
 using Marketplace.Application.Models.ImageModels.Dtos;
 using Marketplace.Application.Models.ImageModels.Interface;
 using Marketplace.Application.Models.ProductModels.Interface;
@@ -31,8 +33,12 @@ public class ImageService : IImageService
 
     public async Task DeleteImages(int productId)
     {
-        await ExceptionService.ThrowExceptionWhenIdNotFound(productId, _productRepository);
+        var entity = await _productRepository.GetById(productId);
 
+        if (entity == null)
+        {
+            throw new HttpException($"Product Id not found!", HttpStatusCode.NotFound);
+        }
         var image = await _imageRepository.GetImageByProductId(productId);
         
         
@@ -45,7 +51,12 @@ public class ImageService : IImageService
 
     public async Task<ImageDto> UploadImage(int productId, AddImageDto image)
     {
-        await  ExceptionService.ThrowExceptionWhenIdNotFound(productId,_productRepository );
+        var entity = await _productRepository.GetById(productId);
+
+        if (entity == null)
+        {
+            throw new HttpException($"Product Id not found!", HttpStatusCode.NotFound);
+        }
 
         _cloudinary.Api.Secure = true;
 

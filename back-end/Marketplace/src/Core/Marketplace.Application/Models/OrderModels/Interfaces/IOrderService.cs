@@ -12,5 +12,5 @@ public interface IOrderService
     Task CreateOrder(CreateOrderDto dto, string email);
     Task RejectOrder(int id);
 
-    Task<string> GetStatusCodeByProductId(int productId);
+    Task<GetOrderByProductIdDto> GetPendingOrderByProductId(int productId);
 }

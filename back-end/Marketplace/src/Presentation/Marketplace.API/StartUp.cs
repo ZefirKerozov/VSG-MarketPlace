@@ -31,7 +31,7 @@ builder.Services.AddAuthentication(x =>
 
 builder.Services.AddAuthorization(options =>
 {
-    options.AddPolicy(IdentityData.Admin, p=>p.RequireClaim(IdentityData.Admin,"f2123818-3d51-4fe4-990b-b072a80da143"));
+    options.AddPolicy(IdentityData.Admin, p=>p.RequireClaim(IdentityData.Admin,IdentityData.GroupAdminToken));
 });
 // Add services to the container.
 builder.Services.AddControllers();

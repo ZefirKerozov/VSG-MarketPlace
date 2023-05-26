@@ -32,9 +32,9 @@ public class OrdersRepository : GenericRepository<Order>, IOrdersRepository
         return  (List<GetOrdersDto>)result;
     }
 
-    public async Task<GetOrderByProductIdDto> GetOrderByProductId(int productId)
+    public async Task<GetOrderByProductIdDto> GetPendingOrderByProductId(int productId)
     {
-        var query = @"SELECT Id, Quantity, Status, OrderDate, ProductId, Email, Code, Price, Name FROM [Order] WHERE ProductId = @productId";
+        var query = @"SELECT Id, Quantity, Status, OrderDate, ProductId, Email, Code, Price, Name FROM [Order] WHERE ProductId = @productId AND Status = '0'";
 
         var result = await Connection.QueryFirstOrDefaultAsync<GetOrderByProductIdDto>(query,new{ productId},Transaction);
 

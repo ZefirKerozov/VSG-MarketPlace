@@ -1,8 +1,10 @@
 ﻿using System.Data;
+using System.Net;
 using AutoMapper;
 using Markerplace.Domain.Entities;
 using Marketplace.Application.Models.CategorieModels.Dtos;
 using Marketplace.Application.Models.CategorieModels.Interfaces;
+using Marketplace.Application.Models.ExceptionModel;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using StackExchange.Redis;
@@ -62,7 +64,12 @@ public class CategorieService : ICategorieService
 
     public async Task DeleteCategory(int categoryId)
     {
-       await  ExceptionService.ThrowExceptionWhenIdNotFound(categoryId ,_categorieRepository);
+       var entity = await _categorieRepository.GetById(categoryId);
+
+       if (entity == null)
+       {
+           throw new HttpException($"Category Id not found!", HttpStatusCode.NotFound);
+       }
         await _categorieRepository.Delete(categoryId);
     }
 }
