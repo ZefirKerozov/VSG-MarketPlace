@@ -14,5 +14,5 @@ public interface IProductService
 
     Task DeleteProduct(int id);
     
-    Task EditProducts(int id, ProductEditDto product);
+    Task<ProductEditDto> EditProducts(int id, ProductEditDto product);
 }

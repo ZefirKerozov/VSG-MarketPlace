@@ -32,5 +32,14 @@ public class ProductRepository : GenericRepository<Product>, IProductRepository
         return  (result);
     }
 
+    public async Task<Product> GetProductCode(string code)
+    {
+        string query = "SELECT * from Product WHERE Code = @code";
+
+        var result = await Connection.QueryFirstOrDefaultAsync<Product>(query, new{code}, Transaction);
+
+        return result;
+    }
+
   
 }

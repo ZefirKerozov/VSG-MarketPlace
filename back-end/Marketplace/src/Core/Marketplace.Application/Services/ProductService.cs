@@ -20,7 +20,8 @@ public class ProductService : IProductService
     private readonly IOrderService _orderService;
     private readonly IImageRepository _imageRepository;
 
-    public ProductService(IProductRepository productRepository, IMapper mapper, IImageService imageService, IOrderService orderService,IImageRepository imageRepository)
+    public ProductService(IProductRepository productRepository, IMapper mapper, IImageService imageService,
+        IOrderService orderService, IImageRepository imageRepository)
     {
         _productRepository = productRepository;
         _mapper = mapper;
@@ -45,7 +46,6 @@ public class ProductService : IProductService
         return result;
     }
 
-    
 
     public async Task<ProductDetailsDto> GetById(int productId)
     {
@@ -55,6 +55,7 @@ public class ProductService : IProductService
         {
             throw new HttpException($"Product Id not found!", HttpStatusCode.NotFound);
         }
+
         var result = _productRepository.GetProductById(productId);
         return await result;
     }
@@ -62,12 +63,16 @@ public class ProductService : IProductService
 
     public async Task<int> AddProduct(AddProductDto productDto)
     {
+        var product = await _productRepository.GetProductCode(productDto.Code);
+        if (product == null)
+        {
+            var productId = await _productRepository.Create(_mapper.Map<Product>(productDto));
+            return productId;
+        }
+            throw new HttpException("Code exist!", HttpStatusCode.BadRequest);
         
-       var productId = await _productRepository.Create(_mapper.Map<Product>(productDto));
-       return  productId;
     }
 
-   
 
     public async Task DeleteProduct(int id)
     {
@@ -81,7 +86,8 @@ public class ProductService : IProductService
         var order = await _orderService.GetPendingOrderByProductId(id);
         if (order != null)
         {
-            throw new HttpException("Product can't be delete, because order is not complete!", HttpStatusCode.BadRequest);
+            throw new HttpException("Product can't be delete, because order is not complete!",
+                HttpStatusCode.BadRequest);
         }
 
 
@@ -89,20 +95,28 @@ public class ProductService : IProductService
         await _productRepository.Delete(id);
     }
 
-    public async Task EditProducts(int id, ProductEditDto product)
+    public async Task<ProductEditDto> EditProducts(int id, ProductEditDto product)
     {
         var entity = await _productRepository.GetById(id);
-
         if (entity == null)
         {
             throw new HttpException($"Product Id not found!", HttpStatusCode.NotFound);
         }
+
+        var p = await _productRepository.GetProductCode(product.Code);
+        if (p != null && p.Id != id)
+        {
+            throw new HttpException("Code exist!", HttpStatusCode.BadRequest);
+        }
+
         var productForEdit = _mapper.Map<Product>(product);
         productForEdit.Id = id;
         await _productRepository.Update(productForEdit);
+        return product;
     }
+
     private static string CreateURL(string url)
     {
-      return  CloudinaryConstants.baseUrl + url;
+        return CloudinaryConstants.baseUrl + url;
     }
 }

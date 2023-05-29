@@ -161,6 +161,10 @@
               "target": "Package",
               "version": "[2.3.0, )"
             },
+            "EPPlus": {
+              "target": "Package",
+              "version": "[7.0.0-preview1, )"
+            },
             "FluentValidation": {
               "target": "Package",
               "version": "[11.5.2, )"

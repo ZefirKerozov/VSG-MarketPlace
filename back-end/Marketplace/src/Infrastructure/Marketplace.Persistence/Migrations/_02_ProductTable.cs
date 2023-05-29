@@ -10,7 +10,7 @@ public class _02_ProductTable :Migration
         Create.Table("Product")
             .WithColumn("Id").AsInt64().PrimaryKey().Identity().NotNullable()
             .WithColumn("Name").AsString(255).NotNullable()
-            .WithColumn("Code").AsString(255).NotNullable()
+            .WithColumn("Code").AsString(255).NotNullable().Unique()
             .WithColumn("Quantity").AsInt64().NotNullable()
             .WithColumn("Description").AsString().NotNullable()
             .WithColumn("QuantityForSale").AsInt64().NotNullable()
