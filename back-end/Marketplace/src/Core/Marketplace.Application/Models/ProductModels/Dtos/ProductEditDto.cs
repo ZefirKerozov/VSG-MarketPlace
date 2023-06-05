@@ -12,6 +12,8 @@ public class ProductEditDto
     
     public int QuantityForSale { get; set; }
 
+    public int QuantityForRent { get; set; }
+
     public int CategoryId { get; set; }
     
     public int LocationId { get; set; }

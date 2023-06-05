@@ -12,6 +12,7 @@ using Marketplace.Application.Models.ImageModels.Interface;
 using Marketplace.Application.Models.LocationModels.Interfaces;
 using Marketplace.Application.Models.OrderModels.Dtos;
 using Marketplace.Application.Models.ProductModels.Dtos;
+using Marketplace.Application.Models.RentItemsModels.Interfaces;
 
 namespace Marketplace.Application.Helpers.Configurations;
 using StackExchange.Redis;
@@ -20,6 +21,7 @@ public static class ConfigurationApplicationLayer
     public static IServiceCollection AddConfigurationApplicationLayer(this IServiceCollection services)
     {
         services.AddAutoMapper(typeof(ProductProfile).Assembly);
+        services.AddAutoMapper(typeof(RentItemModel).Assembly);
         services.AddAutoMapper(typeof(LocationModel).Assembly);
         services.AddAutoMapper(typeof(OrderProfile).Assembly);
         services.AddScoped<IProductService, ProductService>();
@@ -27,6 +29,8 @@ public static class ConfigurationApplicationLayer
         services.AddScoped<IImageService, ImageService>();
         services.AddScoped<ICategorieService, CategorieService>();
         services.AddScoped<ILocationService, LocationService>();
+        services.AddScoped<IRentItemsService, RentItemService>();
+
 
         
         services.AddScoped<IValidator<CreateOrderDto>, CreateOrderValidator>();

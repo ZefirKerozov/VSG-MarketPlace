@@ -32,11 +32,11 @@ public class ProductRepository : GenericRepository<Product>, IProductRepository
         return  (result);
     }
 
-    public async Task<Product> GetProductCode(string code)
+    public async Task<Product> GetProductCode(string code, int locationId)
     {
-        string query = "SELECT * from Product WHERE Code = @code";
+        string query = "SELECT * from Product WHERE Code = @code AND @locationId = LocationId";
 
-        var result = await Connection.QueryFirstOrDefaultAsync<Product>(query, new{code}, Transaction);
+        var result = await Connection.QueryFirstOrDefaultAsync<Product>(query, new{code, locationId}, Transaction);
 
         return result;
     }

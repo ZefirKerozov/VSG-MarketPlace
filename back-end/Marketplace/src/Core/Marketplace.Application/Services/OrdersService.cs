@@ -34,14 +34,7 @@ public class OrdersService : IOrderService
                 o.OrderDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm");
                 return o;
             }).ToList();
-        
-        // foreach (var o in orders)
-        // {
-        //     o.Price *= o.Quantity;
-        //     o.Status = ((OrderStatus)int.Parse(o.Status)).ToString();
-        //     o.OrderDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm");
-        // }
-        
+
         return orders;
     }
 

@@ -10,5 +10,5 @@ public interface IProductRepository :IGenericRepository<Product>
     Task<List<GetProductsDto>> GetAllProductForSale();
     Task<ProductDetailsDto> GetProductById(int productId);
 
-    public Task<Product> GetProductCode(string code);
+    public Task<Product> GetProductCode(string code, int locationId);
 }

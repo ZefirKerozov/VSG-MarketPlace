@@ -10,10 +10,11 @@ public class _02_ProductTable :Migration
         Create.Table("Product")
             .WithColumn("Id").AsInt64().PrimaryKey().Identity().NotNullable()
             .WithColumn("Name").AsString(255).NotNullable()
-            .WithColumn("Code").AsString(255).NotNullable().Unique()
+            .WithColumn("Code").AsString(255).NotNullable()
             .WithColumn("Quantity").AsInt64().NotNullable()
             .WithColumn("Description").AsString().NotNullable()
             .WithColumn("QuantityForSale").AsInt64().NotNullable()
+            .WithColumn("QuantityForRent").AsInt64().NotNullable()
             .WithColumn("CategoryId").AsInt64().Nullable()
             .WithColumn("LocationId").AsInt64().NotNullable()
             .WithColumn("Price").AsDecimal().NotNullable();

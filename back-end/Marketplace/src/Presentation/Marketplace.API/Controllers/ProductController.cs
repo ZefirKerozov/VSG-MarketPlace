@@ -54,10 +54,10 @@ public class ProductController : ControllerBase
    [Authorize(Policy = IdentityData.Admin)]
    [Route("Edit/{id}")]
 
-   public async Task EditProducts(int id, ProductEditDto product)
+   public async Task<ProductEditDto>  EditProducts(int id, ProductEditDto product)
    {
       await _editValidator.ValidateAndThrowAsync(product);
-      await _productService.EditProducts(id, product);
+    return  await _productService.EditProducts(id, product);
       
    }
    

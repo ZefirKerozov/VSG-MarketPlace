@@ -13,6 +13,9 @@ C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\
 C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Release\net7.0\publish\CloudinaryDotNet.dll
 C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Release\net7.0\publish\Dapper.dll
 C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Release\net7.0\publish\Dapper.SimpleCRUD.dll
+C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Release\net7.0\publish\EPPlus.dll
+C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Release\net7.0\publish\EPPlus.Interfaces.dll
+C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Release\net7.0\publish\EPPlus.System.Drawing.dll
 C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Release\net7.0\publish\FluentMigrator.dll
 C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Release\net7.0\publish\FluentMigrator.Abstractions.dll
 C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Release\net7.0\publish\FluentMigrator.Extensions.Oracle.dll
@@ -51,6 +54,7 @@ C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\
 C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Release\net7.0\publish\Microsoft.IdentityModel.Protocols.dll
 C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Release\net7.0\publish\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Release\net7.0\publish\Microsoft.IdentityModel.Tokens.dll
+C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Release\net7.0\publish\Microsoft.IO.RecyclableMemoryStream.dll
 C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Release\net7.0\publish\Microsoft.OpenApi.dll
 C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Release\net7.0\publish\Microsoft.SqlServer.Server.dll
 C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Release\net7.0\publish\Microsoft.Win32.SystemEvents.dll
@@ -82,14 +86,13 @@ C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\
 C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Release\net7.0\publish\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Release\net7.0\publish\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Release\net7.0\publish\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Release\net7.0\publish\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Release\net7.0\publish\runtimes\win\lib\net7.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Release\net7.0\publish\runtimes\win-arm64\native\sni.dll
 C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Release\net7.0\publish\runtimes\win-x64\native\sni.dll
 C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Release\net7.0\publish\runtimes\win-x86\native\sni.dll
 C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Release\net7.0\publish\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Release\net7.0\publish\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
-C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Release\net7.0\publish\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
-C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Release\net7.0\publish\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Release\net7.0\publish\runtimes\win\lib\net7.0\System.Drawing.Common.dll
 C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Release\net7.0\publish\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
 C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Release\net7.0\publish\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\ZKerozov\Desktop\VSG-marketplace\back-end\Marketplace\src\Presentation\Marketplace.API\bin\Release\net7.0\publish\runtimes\win\lib\net6.0\System.Windows.Extensions.dll

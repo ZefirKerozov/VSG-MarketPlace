@@ -63,9 +63,14 @@ public class ProductService : IProductService
 
     public async Task<int> AddProduct(AddProductDto productDto)
     {
-        var product = await _productRepository.GetProductCode(productDto.Code);
+        var product = await _productRepository.GetProductCode(productDto.Code, productDto.LocationId);
         if (product == null)
         {
+            var quantity = productDto.QuantityForRent + productDto.QuantityForSale;
+            if (quantity > productDto.Quantity)
+            {
+                throw new HttpException("Quantity for rent and quantity for sale is too big!", HttpStatusCode.BadRequest);
+            }
             var productId = await _productRepository.Create(_mapper.Map<Product>(productDto));
             return productId;
         }
@@ -103,12 +108,16 @@ public class ProductService : IProductService
             throw new HttpException($"Product Id not found!", HttpStatusCode.NotFound);
         }
 
-        var p = await _productRepository.GetProductCode(product.Code);
-        if (p != null && p.Id != id)
+        var p = await _productRepository.GetProductCode(product.Code, product.LocationId);
+        if ((p != null && p.Id != id))
         {
             throw new HttpException("Code exist!", HttpStatusCode.BadRequest);
         }
-
+        var quantity = product.QuantityForRent + product.QuantityForSale;
+        if (quantity  > product.Quantity)
+        {
+            throw new HttpException("Quantity for rent and quantity for sale is too big!", HttpStatusCode.BadRequest);
+        }
         var productForEdit = _mapper.Map<Product>(product);
         productForEdit.Id = id;
         await _productRepository.Update(productForEdit);

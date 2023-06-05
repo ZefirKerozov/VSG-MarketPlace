@@ -11,6 +11,8 @@ public class Product :BaseEntity
     public string Code { get; set; }
     
     public int QuantityForSale { get; set; }
+    
+    public int QuantityForRent { get; set; }
 
     public int CategoryId { get; set; }
     
