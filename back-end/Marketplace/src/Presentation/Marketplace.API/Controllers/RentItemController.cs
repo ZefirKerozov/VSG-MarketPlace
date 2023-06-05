@@ -1,4 +1,5 @@
-﻿using Marketplace.Application.Models.RentItemsModels.Dtos;
+﻿using Marketplace.API.Identity;
+using Marketplace.Application.Models.RentItemsModels.Dtos;
 using Marketplace.Application.Models.RentItemsModels.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -17,6 +18,7 @@ public class RentItemController: ControllerBase
         _rentItemsService = rentItemsService;
     }
     [HttpGet]
+    [Authorize(Policy = IdentityData.Admin)]
     [Route("AllItemForRent")]
 
     public async Task<List<GetAllItemsByEmailDto>> GetAllItems()
@@ -33,6 +35,7 @@ public class RentItemController: ControllerBase
     }
     
     [HttpPost]
+    [Authorize(Policy = IdentityData.Admin)]
     [Route("AddItem")]
     
     public async Task<int> CreateOrder(AddItemForRentDto dto)
@@ -41,6 +44,7 @@ public class RentItemController: ControllerBase
     }
     
     [HttpDelete]
+    [Authorize(Policy = IdentityData.Admin)]
     [Route("ReturnItem/{id}")]
     public async Task<int> ReturnItem(int id)
     {

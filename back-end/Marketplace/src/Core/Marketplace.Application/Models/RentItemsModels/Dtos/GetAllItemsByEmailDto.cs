@@ -1,4 +1,6 @@
-﻿namespace Marketplace.Application.Models.RentItemsModels.Dtos;
+﻿using Markerplace.Domain.Entities;
+
+namespace Marketplace.Application.Models.RentItemsModels.Dtos;
 
 public class GetAllItemsByEmailDto
 {

@@ -9,5 +9,6 @@ public class RentItemModel:Profile
     public RentItemModel()
     {
         CreateMap<AddItemForRentDto, RentItems>();
+        CreateMap<RentItems, RentItemsDto>();
     }   
 }

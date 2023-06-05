@@ -7,6 +7,8 @@ public class RentItemsDto
     public int Quantity { get; set; }
     
     public string OrderDate { get; set; }
+    
+    public string Email { get; set; }
 
     public string EndDate { get; set; }
     

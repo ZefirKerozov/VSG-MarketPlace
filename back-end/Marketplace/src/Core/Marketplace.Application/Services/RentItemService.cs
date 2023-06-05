@@ -62,7 +62,13 @@ public class RentItemService : IRentItemsService
     public async Task<List<GetAllItemsByEmailDto>> GetAllItemsForRent()
     {
         var result =  await _rentItemRepository.GetAllItemsForRentByEmail();
-        return result;
+        var itemgroup = _mapper.Map<List<RentItemsDto>>(result);
+        var items = itemgroup.GroupBy(i => i.Email).Select(group => new GetAllItemsByEmailDto
+        {
+            Email = group.Key,
+            Items = group.ToList()
+        }).ToList();;
+        return items;
     }
 
     public async Task<List<GetMyItems>> GetMyItems(string email)

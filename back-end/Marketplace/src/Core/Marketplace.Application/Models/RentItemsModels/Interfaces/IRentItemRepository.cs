@@ -6,7 +6,7 @@ namespace Marketplace.Application.Models.RentItemsModels.Interfaces;
 
 public interface IRentItemRepository :IGenericRepository<RentItems>
 {
-  public Task<List<GetAllItemsByEmailDto>> GetAllItemsForRentByEmail();
+  public Task<List<RentItems>> GetAllItemsForRentByEmail();
 
   public Task<List<GetMyItems>> GetMyItems(string email);
 }
