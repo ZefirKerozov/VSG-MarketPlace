@@ -27,4 +27,10 @@ public class RentItemRepository : GenericRepository<RentItems>, IRentItemReposit
         );
         return (List<GetAllItemsByEmailDto>)result;
     }
+
+    public async Task<List<GetMyItems>> GetMyItems(string email)
+    {
+        string query = "SELECT Quantity, FORMAT(OrderDate, 'yyyy-MM-dd HH:mm') AS OrderDate, FORMAT(EndDate, 'yyyy-MM-dd HH:mm') AS EndDate, Code, Name FROM RentItems WHERE Email = @email";
+        return (List<GetMyItems>)await Connection.QueryAsync<GetMyItems>(query,new {email },Transaction);
+    }
 }

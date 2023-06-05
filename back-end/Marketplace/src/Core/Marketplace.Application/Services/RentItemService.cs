@@ -64,4 +64,9 @@ public class RentItemService : IRentItemsService
         var result =  await _rentItemRepository.GetAllItemsForRentByEmail();
         return result;
     }
+
+    public async Task<List<GetMyItems>> GetMyItems(string email)
+    {
+     return await _rentItemRepository.GetMyItems(email);
+    }
 }

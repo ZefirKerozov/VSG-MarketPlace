@@ -9,4 +9,6 @@ public interface IRentItemsService
     public Task<int> ReturnItem(int id);
 
     public Task<List<GetAllItemsByEmailDto>> GetAllItemsForRent();
+
+    public Task<List<GetMyItems>> GetMyItems(string email);
 }

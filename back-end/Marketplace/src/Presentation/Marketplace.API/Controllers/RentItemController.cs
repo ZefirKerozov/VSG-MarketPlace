@@ -24,6 +24,14 @@ public class RentItemController: ControllerBase
         return await _rentItemsService.GetAllItemsForRent();
     }
     
+    [HttpGet]
+    [Route("MyItems/{email}")]
+
+    public async Task<List<GetMyItems>> GetMyItems(string email)
+    {
+        return await _rentItemsService.GetMyItems(email);
+    }
+    
     [HttpPost]
     [Route("AddItem")]
     
