@@ -31,7 +31,6 @@ public class OrdersService : IOrderService
             .Select(o =>
             {
                 o.Price *= o.Quantity;
-                o.OrderDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm");
                 return o;
             }).ToList();
 
@@ -45,7 +44,6 @@ public class OrdersService : IOrderService
         {
             order.Price *= order.Quantity;
             order.Status = ((OrderStatus)int.Parse(order.Status)).ToString();
-            order.OrderDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm");
         }
 
         return result;

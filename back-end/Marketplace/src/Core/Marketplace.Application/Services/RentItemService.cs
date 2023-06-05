@@ -34,6 +34,8 @@ public class RentItemService : IRentItemsService
             throw new HttpException($"Quantity for rent is more than product quantity!", HttpStatusCode.NotFound);
         }
 
+        product.QuantityForRent -= itemForRentDto.Quantity;
+        await _productRepository.Update(product);
         var item = _mapper.Map<RentItems>(itemForRentDto);
         item.Code = product.Code;
         item.Name = product.Name;
@@ -47,12 +49,19 @@ public class RentItemService : IRentItemsService
         {
             throw new HttpException($"Item id not found!", HttpStatusCode.NotFound);
         }
+
+        var rentItem = await _rentItemRepository.GetById(id);
+        var product = await _productRepository.GetById(rentItem.ProductId);
+        product.QuantityForRent += rentItem.Quantity;
         item.EndDate = DateTime.Now;
+        await _rentItemRepository.Update(item);
+        await _productRepository.Update(product);
         return id;
     }
 
     public async Task<List<GetAllItemsByEmailDto>> GetAllItemsForRent()
     {
-        return await _rentItemRepository.GetAllItemsForRentByEmail();
+        var result =  await _rentItemRepository.GetAllItemsForRentByEmail();
+        return result;
     }
 }

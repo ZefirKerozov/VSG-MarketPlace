@@ -15,7 +15,7 @@ public class RentItemRepository : GenericRepository<RentItems>, IRentItemReposit
 
     public async Task<List<GetAllItemsByEmailDto>> GetAllItemsForRentByEmail()
     {
-        var query = @"SELECT Email, Quantity, OrderDate,  EndDate, ProductId, Code, Name  FROM RentItems GROUP BY Email, Quantity, OrderDate, EndDate, ProductId, Code, Name ORDER BY Email; ";
+        var query = @"SELECT Email, Quantity, CONVERT(varchar(16), OrderDate, 120) AS OrderDate,  CONVERT(varchar(16), EndDate, 120) AS EndDate, ProductId, Code, Name, Id  FROM RentItems GROUP BY Email, Quantity, OrderDate, EndDate, ProductId, Code, Name, Id ORDER BY Email; ";
         var result = await Connection.QueryAsync<GetAllItemsByEmailDto, RentItemsDto, GetAllItemsByEmailDto>(query,
             (itemGroup, item) =>
             {

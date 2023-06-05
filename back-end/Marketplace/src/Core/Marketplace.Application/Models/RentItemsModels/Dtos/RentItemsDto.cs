@@ -2,11 +2,13 @@
 
 public class RentItemsDto
 {
+    public int Id { get; set; }
+
     public int Quantity { get; set; }
     
-    public DateTime OrderDate { get; set; } = DateTime.Now;
+    public string OrderDate { get; set; }
 
-    public DateTime EndDate { get; set; } = DateTime.Now;
+    public string EndDate { get; set; }
     
     public string Code { get; set; }
 

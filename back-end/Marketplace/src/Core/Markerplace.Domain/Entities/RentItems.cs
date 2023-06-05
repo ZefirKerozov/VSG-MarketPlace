@@ -1,12 +1,15 @@
-﻿namespace Markerplace.Domain.Entities;
+﻿using System.Runtime.InteropServices.JavaScript;
+
+namespace Markerplace.Domain.Entities;
 
 public class RentItems :BaseEntity
 {
     public int Quantity { get; set; }
-    
+
     public DateTime OrderDate { get; set; } = DateTime.Now;
 
-    public DateTime EndDate { get; set; } = DateTime.Now;
+    public DateTime? EndDate { get; set; } 
+    
 
     public int ProductId { get; set; }
 

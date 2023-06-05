@@ -7,6 +7,8 @@ public class GetProductsDto
     public decimal Price { get; set; }
     
     public int QuantityForSale { get; set; }
+    
+    public int QuantityForRent { get; set; }
 
     public string CategoryName { get; set; }
     
