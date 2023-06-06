@@ -42,7 +42,7 @@ public class RentItemService : IRentItemsService
         return await _rentItemRepository.Create(item);
     }
 
-    public async Task<int> ReturnItem(int id)
+    public async Task<ReturnItemDto> ReturnItem(int id)
     {
         var item = await _rentItemRepository.GetById(id);
         if (item == null)
@@ -57,10 +57,15 @@ public class RentItemService : IRentItemsService
             throw new HttpException($"Product id not found!", HttpStatusCode.NotFound);
         }
         product.QuantityForRent += item.Quantity;
-        item.EndDate = DateTime.Now;
+        var date = DateTime.Now.ToString("yyyy/dd/mm hh:mm");
+        item.EndDate = DateTime.Parse(date);
         await _rentItemRepository.Update(item);
         await _productRepository.Update(product);
-        return id;
+        return new ReturnItemDto()
+        {
+            Id = item.Id,
+            EndDate = date,
+        };
     }
 
     public async Task<List<GetAllItemsByEmailDto>> GetAllItemsForRent()

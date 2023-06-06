@@ -46,7 +46,7 @@ public class RentItemController: ControllerBase
     [HttpDelete]
     [Authorize(Policy = IdentityData.Admin)]
     [Route("ReturnItem/{id}")]
-    public async Task<int> ReturnItem(int id)
+    public async Task<ReturnItemDto> ReturnItem(int id)
     {
         return await _rentItemsService.ReturnItem(id);
     }

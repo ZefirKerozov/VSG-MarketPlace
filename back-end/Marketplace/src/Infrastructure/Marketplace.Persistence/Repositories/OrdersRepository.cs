@@ -18,7 +18,7 @@ public class OrdersRepository : GenericRepository<Order>, IOrdersRepository
     {
 
         var query =
-            "SELECT [Order].Code, [Order].Price, [Order].Quantity, CONVERT(varchar(16), OrderDate, 120) AS OrderDate, [Order].Status, [Order].Id, [Order].Email  FROM [Order]  Where [Order].Status = '0'";
+            "SELECT [Order].Code, [Order].Price, [Order].Quantity, OrderDate, [Order].Status, [Order].Id, [Order].Email  FROM [Order]  Where [Order].Status = '0'";
 
         var result = await Connection.QueryAsync<GetOrdersDto>(query,null,Transaction);
         return  (List<GetOrdersDto>)result;
@@ -26,7 +26,7 @@ public class OrdersRepository : GenericRepository<Order>, IOrdersRepository
 
     public async Task<List<GetOrdersDto>> GetMyOrders(string email)
     {
-        var query = @"SELECT *, CONVERT(varchar(16), OrderDate, 120) AS OrderDate FROM [Order]  Where Email= @email";
+        var query = @"SELECT * FROM [Order]  Where Email= @email";
 
         var result = await Connection.QueryAsync<GetOrdersDto>(query, new{email}, Transaction);
         return  (List<GetOrdersDto>)result;
