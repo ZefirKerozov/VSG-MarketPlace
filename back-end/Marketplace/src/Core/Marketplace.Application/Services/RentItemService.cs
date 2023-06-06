@@ -58,7 +58,7 @@ public class RentItemService : IRentItemsService
         }
         product.QuantityForRent += item.Quantity;
         var date = DateTime.Now.ToString("yyyy/dd/mm hh:mm");
-        item.EndDate = DateTime.Parse(date);
+        item.EndDate = date;
         await _rentItemRepository.Update(item);
         await _productRepository.Update(product);
         return new ReturnItemDto()

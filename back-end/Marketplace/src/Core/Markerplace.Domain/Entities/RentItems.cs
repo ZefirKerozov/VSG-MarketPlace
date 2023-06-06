@@ -6,9 +6,9 @@ public class RentItems :BaseEntity
 {
     public int Quantity { get; set; }
 
-    public DateTime OrderDate { get; set; } = DateTime.Parse(DateTime.Now.ToString("yyyy/dd/mm hh:mm"));
+    public string OrderDate { get; set; } = DateTime.Now.ToString("yyyy/dd/mm hh:mm");
 
-    public DateTime? EndDate { get; set; } 
+    public string? EndDate { get; set; } 
     
 
     public int ProductId { get; set; }

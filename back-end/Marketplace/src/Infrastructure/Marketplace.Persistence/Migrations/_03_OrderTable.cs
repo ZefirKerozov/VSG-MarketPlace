@@ -12,7 +12,7 @@ public class _03_OrderTable :Migration
             .WithColumn("Id").AsInt64().PrimaryKey().Identity().NotNullable()
             .WithColumn("Status").AsString(255).NotNullable()
             .WithColumn("Quantity").AsInt64().NotNullable()
-            .WithColumn("OrderDate").AsDateTime().NotNullable()
+            .WithColumn("OrderDate").AsString(255).NotNullable()
             .WithColumn("ProductId").AsInt64().Nullable()
             .WithColumn("Email").AsString(255).NotNullable()
             .WithColumn("Name").AsString(255).NotNullable()

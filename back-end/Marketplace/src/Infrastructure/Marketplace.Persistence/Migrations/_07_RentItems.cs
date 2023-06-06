@@ -9,10 +9,10 @@ public class _07_RentItems :Migration
     {
         Create.Table("RentItems")
             .WithColumn("Id").AsInt64().PrimaryKey().Identity().NotNullable()
-            .WithColumn("OrderDate").AsDateTime().NotNullable()
+            .WithColumn("OrderDate").AsString(255).NotNullable()
             .WithColumn("Name").AsString(255).NotNullable()
             .WithColumn("Code").AsString(255).NotNullable()
-            .WithColumn("EndDate").AsDateTime().Nullable()
+            .WithColumn("EndDate").AsString(255).Nullable()
             .WithColumn("Email").AsString(255).NotNullable()
             .WithColumn("Quantity").AsInt64().NotNullable()
             .WithColumn("ProductId").AsInt64().Nullable();

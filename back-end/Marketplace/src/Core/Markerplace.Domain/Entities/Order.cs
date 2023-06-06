@@ -7,7 +7,7 @@ public class Order : BaseEntity
     public int Quantity { get; set; }
     public OrderStatus Status { get; set; } = OrderStatus.Pending;
 
-    public DateTime OrderDate { get; set; }  = DateTime.Parse(DateTime.Now.ToString("yyyy/dd/mm hh:mm"));
+    public string OrderDate { get; set; }  = DateTime.Now.ToString("yyyy/dd/mm hh:mm");
 
     public int ProductId { get; set; }
 
