@@ -9,4 +9,6 @@ public interface IRentItemRepository :IGenericRepository<RentItems>
   public Task<List<RentItems>> GetAllItemsForRentByEmail();
 
   public Task<List<GetMyItems>> GetMyItems(string email);
+
+  public Task<RentItems> GetItemByProductId(int productId);
 }

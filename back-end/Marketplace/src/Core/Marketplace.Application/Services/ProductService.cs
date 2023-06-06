@@ -9,6 +9,7 @@ using Marketplace.Application.Models.ImageModels.Interface;
 using Marketplace.Application.Models.OrderModels.Interfaces;
 using Marketplace.Application.Models.ProductModels.Dtos;
 using Marketplace.Application.Models.ProductModels.Interface;
+using Marketplace.Application.Models.RentItemsModels.Interfaces;
 
 namespace Marketplace.Application.Services;
 
@@ -19,15 +20,17 @@ public class ProductService : IProductService
     private readonly IImageService _imageService;
     private readonly IOrderService _orderService;
     private readonly IImageRepository _imageRepository;
+    private readonly IRentItemsService _rentItemsService;
 
     public ProductService(IProductRepository productRepository, IMapper mapper, IImageService imageService,
-        IOrderService orderService, IImageRepository imageRepository)
+        IOrderService orderService, IImageRepository imageRepository, IRentItemsService rentItemsService)
     {
         _productRepository = productRepository;
         _mapper = mapper;
         _imageService = imageService;
         _orderService = orderService;
         _imageRepository = imageRepository;
+        _rentItemsService = rentItemsService;
         _imageService = imageService;
     }
 
@@ -95,7 +98,12 @@ public class ProductService : IProductService
                 HttpStatusCode.BadRequest);
         }
 
-
+        var rentItem = await _rentItemsService.GetItemByProductId(entity.Id);
+        if (rentItem != null)
+        {
+            throw new HttpException("Product can't be delete, because have rent item!",
+                HttpStatusCode.BadRequest);
+        }
         await _imageService.DeleteImages(id);
         await _productRepository.Delete(id);
     }

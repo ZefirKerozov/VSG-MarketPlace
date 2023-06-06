@@ -25,4 +25,10 @@ public class RentItemRepository : GenericRepository<RentItems>, IRentItemReposit
         string query = "SELECT Quantity, FORMAT(OrderDate, 'yyyy-MM-dd HH:mm') AS OrderDate, FORMAT(EndDate, 'yyyy-MM-dd HH:mm') AS EndDate, Code, Name FROM RentItems WHERE Email = @email";
         return (List<GetMyItems>)await Connection.QueryAsync<GetMyItems>(query,new {email },Transaction);
     }
+
+    public async Task<RentItems> GetItemByProductId(int productId)
+    {
+        string query = @"SELECT * FROM RentItems WHERE @productId = ProductId AND EndDate IS NULL";
+        return await Connection.QueryFirstOrDefaultAsync<RentItems>(query, new { productId }, Transaction);
+    }
 }
